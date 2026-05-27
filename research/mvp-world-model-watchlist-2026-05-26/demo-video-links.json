@@ -1,0 +1,235 @@
+{
+  "generated_at": "2026-05-26",
+  "usage_note": "Use direct MP4/WebM/GIF links for research prototypes. For production, verify hotlink policy, CORS, and CDN stability. YouTube URLs should be embedded as iframes.",
+  "projects": [
+    {
+      "slug": "world-labs-marble",
+      "name": "World Labs / Marble",
+      "source_pages": [
+        "https://www.worldlabs.ai/blog/marble-world-model",
+        "https://www.worldlabs.ai/blog/rtfm"
+      ],
+      "demo_pages": [
+        "https://marble.worldlabs.ai/",
+        "https://rtfm.worldlabs.ai/"
+      ],
+      "videos": [
+        {
+          "label": "Marble hero",
+          "url": "https://wlt-ai-cdn.art/videos/2025-11-12-clean-720p-24crf/hero.mp4",
+          "format": "mp4",
+          "embed_type": "video"
+        },
+        {
+          "label": "Text to world - hobbit kitchen",
+          "url": "https://wlt-ai-cdn.art/videos/2025-11-12-clean-720p-24crf/t2w-hobbit-kitchen.mp4",
+          "format": "mp4",
+          "embed_type": "video"
+        },
+        {
+          "label": "Image to world - living room",
+          "url": "https://wlt-ai-cdn.art/videos/2025-11-12-clean-720p-24crf/i2w-living-room.mp4",
+          "format": "mp4",
+          "embed_type": "video"
+        },
+        {
+          "label": "Multi-image to world - overgrown courtyard",
+          "url": "https://wlt-ai-cdn.art/videos/2025-11-12-clean-720p-24crf/mim2w-overgrown-courtyard.mp4",
+          "format": "mp4",
+          "embed_type": "video"
+        },
+        {
+          "label": "Video to world - ocean result",
+          "url": "https://wlt-ai-cdn.art/videos/2025-11-12-clean-720p-24crf/video-ocean-post.mp4",
+          "format": "mp4",
+          "embed_type": "video"
+        },
+        {
+          "label": "World editing - cozy tavern result",
+          "url": "https://wlt-ai-cdn.art/videos/2025-11-12-clean-720p-24crf/edit-cozy-tavern-post.mp4",
+          "format": "mp4",
+          "embed_type": "video"
+        },
+        {
+          "label": "Mesh/export example",
+          "url": "https://wlt-ai-cdn.art/videos/2025-11-12-clean-720p-24crf/mesh-v2-splats.mp4",
+          "format": "mp4",
+          "embed_type": "video"
+        },
+        {
+          "label": "Marble Labs highlight",
+          "url": "https://wlt-ai-cdn.art/videos/marble_labs/marble-highlight.mp4",
+          "format": "mp4",
+          "embed_type": "video"
+        },
+        {
+          "label": "RTFM hero",
+          "url": "https://wlt-ai-cdn.art/videos/2025-10-15/hero_video_1024x576.mp4",
+          "format": "mp4",
+          "embed_type": "video"
+        },
+        {
+          "label": "RTFM matchmove",
+          "url": "https://wlt-ai-cdn.art/videos/2025-10-15-v3/matchmove-icegleam.mp4",
+          "format": "mp4",
+          "embed_type": "video"
+        },
+        {
+          "label": "RTFM reconstruction",
+          "url": "https://wlt-ai-cdn.art/videos/2025-10-15-v3/recon-piano.mp4",
+          "format": "mp4",
+          "embed_type": "video"
+        }
+      ]
+    },
+    {
+      "slug": "oasis",
+      "name": "Oasis",
+      "source_pages": [
+        "https://oasis-model.github.io/"
+      ],
+      "demo_pages": [
+        "https://oasis.us.decart.ai/"
+      ],
+      "videos": [
+        {
+          "label": "Official project demo",
+          "url": "https://oasis-model.github.io/wide1.mp4",
+          "format": "mp4",
+          "embed_type": "video"
+        },
+        {
+          "label": "Open model sample 0",
+          "url": "https://raw.githubusercontent.com/etched-ai/open-oasis/master/media/sample_0.gif",
+          "format": "gif",
+          "embed_type": "image"
+        },
+        {
+          "label": "Open model sample 1",
+          "url": "https://raw.githubusercontent.com/etched-ai/open-oasis/master/media/sample_1.gif",
+          "format": "gif",
+          "embed_type": "image"
+        }
+      ]
+    },
+    {
+      "slug": "google-deepmind-genie",
+      "name": "Genie / Genie 3",
+      "source_pages": [
+        "https://deepmind.google/models/genie/",
+        "https://deepmind.google/blog/genie-3-a-new-frontier-for-world-models/"
+      ],
+      "demo_pages": [
+        "https://labs.google/projectgenie"
+      ],
+      "videos": [
+        {
+          "label": "Genie 3 cover",
+          "url": "https://storage.googleapis.com/gdm-deepmind-com-prod-public/media/media/genie-3__cover-1.webm",
+          "format": "webm",
+          "embed_type": "video"
+        },
+        {
+          "label": "Project Genie promo",
+          "url": "https://storage.googleapis.com/gdm-deepmind-com-prod-public/media/media/genie-3__project-genie__promo.webm",
+          "format": "webm",
+          "embed_type": "video"
+        },
+        {
+          "label": "Tide Rider",
+          "url": "https://storage.googleapis.com/gdm-deepmind-com-prod-public/media/media/genie-3__tide_rider.webm",
+          "format": "webm",
+          "embed_type": "video"
+        },
+        {
+          "label": "Summit Ascent",
+          "url": "https://storage.googleapis.com/gdm-deepmind-com-prod-public/media/media/genie-3__summit_ascent.webm",
+          "format": "webm",
+          "embed_type": "video"
+        },
+        {
+          "label": "Library Cat",
+          "url": "https://storage.googleapis.com/gdm-deepmind-com-prod-public/media/media/genie-3__library_cat.webm",
+          "format": "webm",
+          "embed_type": "video"
+        },
+        {
+          "label": "Backyard Racetrack",
+          "url": "https://storage.googleapis.com/gdm-deepmind-com-prod-public/media/media/genie-3__backyard_racetrack.webm",
+          "format": "webm",
+          "embed_type": "video"
+        },
+        {
+          "label": "Environmental consistency 1",
+          "url": "https://storage.googleapis.com/gdm-deepmind-com-prod-public/media/media/genie_environmental_consistency_1_iNVUBuv.webm",
+          "format": "webm",
+          "embed_type": "video"
+        },
+        {
+          "label": "Environmental consistency 2",
+          "url": "https://storage.googleapis.com/gdm-deepmind-com-prod-public/media/media/genie_environmental_consistency_2_zS0EAgg.webm",
+          "format": "webm",
+          "embed_type": "video"
+        }
+      ]
+    },
+    {
+      "slug": "happyoyster",
+      "name": "HappyOyster",
+      "source_pages": [
+        "https://www.alibabacloud.com/blog/alibaba-launches-happyoyster-a-world-model-product-for-real-time-immersive-creation-and-interaction_603048"
+      ],
+      "demo_pages": [
+        "https://www.happyoyster.cn/"
+      ],
+      "videos": [
+        {
+          "label": "Official HappyOyster YouTube demo",
+          "url": "https://www.youtube.com/watch?v=Ku3ikWrKxx4",
+          "embed_url": "https://www.youtube.com/embed/Ku3ikWrKxx4",
+          "format": "youtube",
+          "embed_type": "iframe"
+        }
+      ]
+    },
+    {
+      "slug": "skybox-ai",
+      "name": "Skybox AI",
+      "source_pages": [
+        "https://www.blockadelabs.com/",
+        "https://www.blockadelabs.com/post/developers-can-create-3d-environments-worlds-in-seconds-in-unity-through-blockade-labs"
+      ],
+      "demo_pages": [
+        "https://skybox.blockadelabs.com/"
+      ],
+      "videos": [
+        {
+          "label": "Official Skybox AI Unity integration YouTube demo",
+          "url": "https://www.youtube.com/watch?v=yvxTHbWk8sw",
+          "embed_url": "https://www.youtube.com/embed/yvxTHbWk8sw",
+          "format": "youtube",
+          "embed_type": "iframe"
+        }
+      ]
+    },
+    {
+      "slug": "project-sid",
+      "name": "Project Sid",
+      "source_pages": [
+        "https://github.com/altera-al/project-sid"
+      ],
+      "demo_pages": [
+        "https://github.com/altera-al/project-sid"
+      ],
+      "videos": [
+        {
+          "label": "GitHub-hosted Project Sid demo",
+          "url": "https://github.com/user-attachments/assets/a288265d-03ac-4d7d-b803-b74066267f26",
+          "format": "mp4_redirect",
+          "embed_type": "link",
+          "note": "Use as a research link first; GitHub asset redirects may be less stable for production video embedding."
+        }
+      ]
+    }
+  ]
+}

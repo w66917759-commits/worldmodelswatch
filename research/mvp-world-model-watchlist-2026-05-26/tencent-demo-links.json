@@ -1,0 +1,221 @@
+{
+  "generated_at": "2026-05-26",
+  "name": "Tencent Hunyuan world-model demos",
+  "usage_note": "Use raw GitHub MP4/GIF files for research prototypes. Treat GitHub user-attachments as research links before production embedding.",
+  "online_demos": [
+    {
+      "label": "Tencent Hunyuan 3D scene/world demo",
+      "url": "https://3d.hunyuan.tencent.com/sceneTo3D"
+    },
+    {
+      "label": "Tencent Hunyuan WorldPlay tab",
+      "url": "https://3d.hunyuan.tencent.com/sceneTo3D?tab=worldplay"
+    },
+    {
+      "label": "Official Hunyuan world project page",
+      "url": "https://3d-models.hunyuan.tencent.com/world/"
+    },
+    {
+      "label": "HunyuanWorld Mirror Hugging Face demo",
+      "url": "https://huggingface.co/spaces/tencent/HunyuanWorld-Mirror"
+    }
+  ],
+  "projects": [
+    {
+      "slug": "hy-world-2",
+      "name": "HY-World 2.0",
+      "repo": "https://github.com/Tencent-Hunyuan/HY-World-2.0",
+      "source_pages": [
+        "https://3d.hunyuan.tencent.com/sceneTo3D",
+        "https://3d-models.hunyuan.tencent.com/world/",
+        "https://arxiv.org/abs/2604.14268"
+      ],
+      "media": [
+        {
+          "label": "Main GitHub-hosted video",
+          "url": "https://github.com/user-attachments/assets/b56f4750-25c9-48fb-83ff-d58526711463",
+          "format": "mp4_redirect",
+          "embed_type": "link"
+        },
+        {
+          "label": "Interactive character exploration",
+          "url": "https://raw.githubusercontent.com/Tencent-Hunyuan/HY-World-2.0/main/assets/interactive.gif",
+          "format": "gif",
+          "embed_type": "image"
+        },
+        {
+          "label": "Mesh / 3D world asset",
+          "url": "https://raw.githubusercontent.com/Tencent-Hunyuan/HY-World-2.0/main/assets/mesh_en.gif",
+          "format": "gif",
+          "embed_type": "image"
+        },
+        {
+          "label": "Reconstruction",
+          "url": "https://raw.githubusercontent.com/Tencent-Hunyuan/HY-World-2.0/main/assets/recon_en.gif",
+          "format": "gif",
+          "embed_type": "image"
+        }
+      ]
+    },
+    {
+      "slug": "hy-worldplay",
+      "name": "HY-World 1.5 / WorldPlay",
+      "repo": "https://github.com/Tencent-Hunyuan/HY-WorldPlay",
+      "source_pages": [
+        "https://3d.hunyuan.tencent.com/sceneTo3D?tab=worldplay",
+        "https://3d-models.hunyuan.tencent.com/world/world1_5/HYWorld_1.5_Tech_Report.pdf",
+        "https://arxiv.org/abs/2512.14614"
+      ],
+      "media": [
+        {
+          "label": "Main GitHub-hosted video",
+          "url": "https://github.com/user-attachments/assets/9fd12b40-41ab-4201-8667-8b333db1123d",
+          "format": "mp4_redirect",
+          "embed_type": "link"
+        },
+        {
+          "label": "Quick-start GitHub-hosted video",
+          "url": "https://github.com/user-attachments/assets/643a33a4-b677-4eff-ad1d-32205c594274",
+          "format": "mp4_redirect",
+          "embed_type": "link"
+        },
+        {
+          "label": "Web demo MP4",
+          "url": "https://raw.githubusercontent.com/Tencent-Hunyuan/HY-WorldPlay/main/assets/web-demo.mp4",
+          "format": "mp4",
+          "embed_type": "video"
+        },
+        {
+          "label": "More example video 1",
+          "url": "https://github.com/user-attachments/assets/51fcb28c-bd6e-44e5-adac-e3c6660f24f7",
+          "format": "mp4_redirect",
+          "embed_type": "link"
+        },
+        {
+          "label": "More example video 2",
+          "url": "https://github.com/user-attachments/assets/b9060cd1-a442-4d67-9f16-daa7a2e6f2c8",
+          "format": "mp4_redirect",
+          "embed_type": "link"
+        },
+        {
+          "label": "More example video 3",
+          "url": "https://github.com/user-attachments/assets/b883a748-cc77-480f-b6a0-e94b6ce9efea",
+          "format": "mp4_redirect",
+          "embed_type": "link"
+        }
+      ]
+    },
+    {
+      "slug": "hunyuanworld-1",
+      "name": "HunyuanWorld 1.0",
+      "repo": "https://github.com/Tencent-Hunyuan/HunyuanWorld-1.0",
+      "source_pages": [
+        "https://3d.hunyuan.tencent.com/sceneTo3D",
+        "https://3d-models.hunyuan.tencent.com/world/",
+        "https://arxiv.org/abs/2507.21809"
+      ],
+      "media": [
+        {
+          "label": "Main GitHub-hosted video",
+          "url": "https://github.com/user-attachments/assets/747b3e41-df9c-4cd2-b1d1-c0dce63f63ef",
+          "format": "mp4_redirect",
+          "embed_type": "link"
+        },
+        {
+          "label": "Roaming world",
+          "url": "https://raw.githubusercontent.com/Tencent-Hunyuan/HunyuanWorld-1.0/main/assets/roaming_world.gif",
+          "format": "gif",
+          "embed_type": "image"
+        },
+        {
+          "label": "Quick look",
+          "url": "https://raw.githubusercontent.com/Tencent-Hunyuan/HunyuanWorld-1.0/main/assets/quick_look.gif",
+          "format": "gif",
+          "embed_type": "image"
+        },
+        {
+          "label": "Panorama example 1",
+          "url": "https://raw.githubusercontent.com/Tencent-Hunyuan/HunyuanWorld-1.0/main/assets/panorama1.gif",
+          "format": "gif",
+          "embed_type": "image"
+        },
+        {
+          "label": "Panorama example 2",
+          "url": "https://raw.githubusercontent.com/Tencent-Hunyuan/HunyuanWorld-1.0/main/assets/panorama2.gif",
+          "format": "gif",
+          "embed_type": "image"
+        }
+      ]
+    },
+    {
+      "slug": "hunyuanworld-voyager",
+      "name": "HunyuanWorld Voyager",
+      "repo": "https://github.com/Tencent-Hunyuan/HunyuanWorld-Voyager",
+      "source_pages": [
+        "https://3d-models.hunyuan.tencent.com/voyager/voyager_en/assets/HYWorld_Voyager.pdf",
+        "https://huggingface.co/tencent/HunyuanWorld-Voyager"
+      ],
+      "media": [
+        {
+          "label": "Main GitHub-hosted demo video",
+          "url": "https://github.com/user-attachments/assets/2eb844c9-30ba-4770-8066-189c123affee",
+          "format": "mp4_redirect",
+          "embed_type": "link"
+        },
+        {
+          "label": "Camera-controllable video demo 1",
+          "url": "https://github.com/user-attachments/assets/2b03ecd5-9a8f-455c-bf04-c668d3a61b04",
+          "format": "mp4_redirect",
+          "embed_type": "link"
+        },
+        {
+          "label": "Camera-controllable video demo 2",
+          "url": "https://github.com/user-attachments/assets/45844ac0-c65a-4e04-9f7d-4c72d47e0339",
+          "format": "mp4_redirect",
+          "embed_type": "link"
+        },
+        {
+          "label": "Camera-controllable video demo 3",
+          "url": "https://github.com/user-attachments/assets/f7f48473-3bb5-4a30-bd22-af3ca95ee8dc",
+          "format": "mp4_redirect",
+          "embed_type": "link"
+        },
+        {
+          "label": "Video reconstruction demo",
+          "url": "https://github.com/user-attachments/assets/72a41804-63fc-4596-963d-1497e68f7790",
+          "format": "mp4_redirect",
+          "embed_type": "link"
+        },
+        {
+          "label": "Reconstructed point-cloud demo",
+          "url": "https://github.com/user-attachments/assets/67574e9c-9e21-4ed6-9503-e65d187086a2",
+          "format": "mp4_redirect",
+          "embed_type": "link"
+        }
+      ]
+    },
+    {
+      "slug": "hunyuanworld-mirror",
+      "name": "HunyuanWorld Mirror",
+      "repo": "https://github.com/Tencent-Hunyuan/HunyuanWorld-Mirror",
+      "source_pages": [
+        "https://huggingface.co/spaces/tencent/HunyuanWorld-Mirror",
+        "https://3d-models.hunyuan.tencent.com/world/worldMirror1_0/HYWorld_Mirror_Tech_Report.pdf"
+      ],
+      "media": [
+        {
+          "label": "Main GitHub-hosted video",
+          "url": "https://github.com/user-attachments/assets/146a9a25-5eb7-4400-aa09-5b58e1d10a5e",
+          "format": "mp4_redirect",
+          "embed_type": "link"
+        },
+        {
+          "label": "Gradio demo",
+          "url": "https://raw.githubusercontent.com/Tencent-Hunyuan/HunyuanWorld-Mirror/main/assets/gradio_demo.gif",
+          "format": "gif",
+          "embed_type": "image"
+        }
+      ]
+    }
+  ]
+}

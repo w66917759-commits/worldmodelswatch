@@ -1,0 +1,375 @@
+{
+  "generated_at": "2026-05-26",
+  "scope": "Initial MVP watchlist for world models and adjacent interactive world systems.",
+  "notes": [
+    "Primary sources are preferred over secondary media.",
+    "No large binaries were downloaded.",
+    "Availability can change; re-check before publishing live access claims."
+  ],
+  "projects": [
+    {
+      "slug": "world-labs-marble",
+      "name": "World Labs / Marble",
+      "developer": "World Labs",
+      "category": "3D spatial world model",
+      "current_access": "Public web app, documentation, and public World API were found.",
+      "mvp_angle": "Use as the main example of persistent 3D worlds generated from text, images, video, panoramas, or coarse 3D layouts, with export to downstream spatial workflows.",
+      "caveats": [
+        "Marble creates persistent/exportable 3D worlds; RTFM is a separate World Labs real-time research preview.",
+        "No academic Marble paper was found in this pass; official technical blogs and docs are the primary sources."
+      ],
+      "resources": [
+        {
+          "title": "Marble app",
+          "url": "https://marble.worldlabs.ai/",
+          "type": "demo",
+          "publisher": "World Labs",
+          "date": null,
+          "confidence": "primary"
+        },
+        {
+          "title": "Welcome to Marble docs",
+          "url": "https://docs.worldlabs.ai/",
+          "type": "docs",
+          "publisher": "World Labs",
+          "date": null,
+          "confidence": "primary"
+        },
+        {
+          "title": "Marble: A Multimodal World Model",
+          "url": "https://www.worldlabs.ai/blog/marble-world-model",
+          "type": "official_blog",
+          "publisher": "World Labs",
+          "date": "2025-11-12",
+          "confidence": "primary"
+        },
+        {
+          "title": "Announcing the World API",
+          "url": "https://www.worldlabs.ai/blog/announcing-the-world-api",
+          "type": "api_announcement",
+          "publisher": "World Labs",
+          "date": "2026-01-21",
+          "confidence": "primary"
+        },
+        {
+          "title": "RTFM: A Real-Time Frame Model",
+          "url": "https://www.worldlabs.ai/blog/rtfm",
+          "type": "research_preview",
+          "publisher": "World Labs",
+          "date": "2025-10-16",
+          "confidence": "primary"
+        },
+        {
+          "title": "Marble hero demo video",
+          "url": "https://wlt-ai-cdn.art/videos/2025-11-12-clean-720p-24crf/hero.mp4",
+          "type": "video",
+          "publisher": "World Labs",
+          "date": "2025-11-12",
+          "confidence": "primary_cdn"
+        },
+        {
+          "title": "RTFM hero demo video",
+          "url": "https://wlt-ai-cdn.art/videos/2025-10-15/hero_video_1024x576.mp4",
+          "type": "video",
+          "publisher": "World Labs",
+          "date": "2025-10-16",
+          "confidence": "primary_cdn"
+        }
+      ]
+    },
+    {
+      "slug": "oasis",
+      "name": "Oasis",
+      "developer": "Decart AI + Etched",
+      "category": "Real-time interactive world model",
+      "current_access": "Public live demo URL, open inference repo, and gated Hugging Face model weights were found.",
+      "mvp_angle": "Use as the clearest open reference for action-conditioned, real-time, AI-generated Minecraft-like play.",
+      "caveats": [
+        "The open 500M model is a downscaled release; the live demo uses a larger checkpoint according to the model card/project page.",
+        "The public project is a technical demo, not a full game engine replacement."
+      ],
+      "resources": [
+        {
+          "title": "Oasis: A Universe in a Transformer",
+          "url": "https://oasis-model.github.io/",
+          "type": "project_page",
+          "publisher": "Decart AI + Etched",
+          "date": "2024-10-31",
+          "confidence": "primary"
+        },
+        {
+          "title": "Oasis live demo",
+          "url": "https://oasis.us.decart.ai/",
+          "type": "demo",
+          "publisher": "Decart AI",
+          "date": null,
+          "confidence": "primary"
+        },
+        {
+          "title": "Oasis demo MP4",
+          "url": "https://oasis-model.github.io/wide1.mp4",
+          "type": "video",
+          "publisher": "Decart AI + Etched",
+          "date": "2024-10-31",
+          "confidence": "primary_cdn"
+        },
+        {
+          "title": "open-oasis inference code",
+          "url": "https://github.com/etched-ai/open-oasis",
+          "type": "code",
+          "publisher": "Etched",
+          "date": null,
+          "confidence": "primary"
+        },
+        {
+          "title": "Etched/oasis-500m model card",
+          "url": "https://huggingface.co/Etched/oasis-500m",
+          "type": "model_weights",
+          "publisher": "Etched",
+          "date": null,
+          "confidence": "primary"
+        }
+      ]
+    },
+    {
+      "slug": "google-deepmind-genie",
+      "name": "Genie / Genie 3",
+      "developer": "Google DeepMind",
+      "category": "Interactive general-purpose world model",
+      "current_access": "Project Genie public page exists; access is limited to Google AI Ultra subscribers in the US according to Google sources.",
+      "mvp_angle": "Use as the major benchmark/reference point for general-purpose, real-time interactive world simulation and agent-training framing.",
+      "caveats": [
+        "Genie 3 is not open weights.",
+        "Google states current limitations including limited action space, multi-agent interaction limits, location accuracy limits, text rendering, and limited interaction duration."
+      ],
+      "resources": [
+        {
+          "title": "Genie 3 model page",
+          "url": "https://deepmind.google/models/genie/",
+          "type": "model_page",
+          "publisher": "Google DeepMind",
+          "date": null,
+          "confidence": "primary"
+        },
+        {
+          "title": "Genie 3: A new frontier for world models",
+          "url": "https://deepmind.google/blog/genie-3-a-new-frontier-for-world-models/",
+          "type": "official_blog",
+          "publisher": "Google DeepMind",
+          "date": "2025-08-05",
+          "confidence": "primary"
+        },
+        {
+          "title": "Project Genie launch/access post",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/project-genie/",
+          "type": "official_blog",
+          "publisher": "Google",
+          "date": "2026-01-29",
+          "confidence": "primary"
+        },
+        {
+          "title": "Project Genie web entry",
+          "url": "https://labs.google/projectgenie",
+          "type": "demo",
+          "publisher": "Google Labs",
+          "date": null,
+          "confidence": "primary"
+        },
+        {
+          "title": "Genie 2: A large-scale foundation world model",
+          "url": "https://deepmind.google/blog/genie-2-a-large-scale-foundation-world-model/",
+          "type": "research_blog",
+          "publisher": "Google DeepMind",
+          "date": "2024-12-04",
+          "confidence": "primary"
+        },
+        {
+          "title": "Genie: Generative Interactive Environments",
+          "url": "https://arxiv.org/abs/2402.15391",
+          "type": "paper",
+          "publisher": "arXiv / Google DeepMind",
+          "date": "2024-02-23",
+          "confidence": "primary"
+        },
+        {
+          "title": "Project Genie promo video",
+          "url": "https://storage.googleapis.com/gdm-deepmind-com-prod-public/media/media/genie-3__project-genie__promo.webm",
+          "type": "video",
+          "publisher": "Google DeepMind",
+          "date": "2026-01-29",
+          "confidence": "primary_cdn"
+        }
+      ]
+    },
+    {
+      "slug": "happyoyster",
+      "name": "HappyOyster",
+      "developer": "Alibaba Token Hub (ATH) according to Alibaba Cloud/Alizila source",
+      "category": "Open-ended real-time world model product",
+      "current_access": "Early Access site and docs were found; no public code/model weights/paper were found in this pass.",
+      "mvp_angle": "Use as Alibaba's product-level signal for real-time immersive world creation, exploration, and directing.",
+      "caveats": [
+        "The user-provided table says Alibaba DAMO, but the primary Alibaba Cloud article says Alibaba Token Hub (ATH).",
+        "Treat capabilities as product claims unless independently demonstrated through access or a technical report."
+      ],
+      "resources": [
+        {
+          "title": "Alibaba Launches HappyOyster",
+          "url": "https://www.alibabacloud.com/blog/alibaba-launches-happyoyster-a-world-model-product-for-real-time-immersive-creation-and-interaction_603048",
+          "type": "official_article",
+          "publisher": "Alibaba Cloud Community / Alizila",
+          "date": "2026-04-20",
+          "confidence": "primary"
+        },
+        {
+          "title": "HappyOyster website",
+          "url": "https://www.happyoyster.cn/",
+          "type": "demo_or_early_access",
+          "publisher": "HappyOyster / Alibaba",
+          "date": null,
+          "confidence": "primary"
+        },
+        {
+          "title": "HappyOyster docs",
+          "url": "https://www.happyoyster.cn/docs",
+          "type": "docs",
+          "publisher": "HappyOyster / Alibaba",
+          "date": null,
+          "confidence": "primary"
+        },
+        {
+          "title": "The world is your oyster. Now, open it.",
+          "url": "https://www.youtube.com/watch?v=Ku3ikWrKxx4",
+          "type": "video",
+          "publisher": "Alibaba / HappyOyster via YouTube",
+          "date": "2026-04",
+          "confidence": "primary_linked"
+        }
+      ]
+    },
+    {
+      "slug": "skybox-ai",
+      "name": "Skybox AI",
+      "developer": "Blockade Labs",
+      "category": "360-degree environment and skybox generator",
+      "current_access": "Public product app, API docs, support docs, and roadmap were found.",
+      "mvp_angle": "Use as the 360-degree environment generation lane, especially for VR, game backplates, HDRI, and GLB environment mesh workflows.",
+      "caveats": [
+        "Skybox AI is not a full real-time world simulator like Genie or Oasis; it is primarily a panoramic environment/skybox generator with export workflows.",
+        "Mesh export is described as experimental and not suitable for collision geometry in the support docs."
+      ],
+      "resources": [
+        {
+          "title": "Skybox AI product site",
+          "url": "https://www.blockadelabs.com/",
+          "type": "product_page",
+          "publisher": "Blockade Labs",
+          "date": null,
+          "confidence": "primary"
+        },
+        {
+          "title": "Skybox AI app",
+          "url": "https://skybox.blockadelabs.com/",
+          "type": "demo",
+          "publisher": "Blockade Labs",
+          "date": null,
+          "confidence": "primary"
+        },
+        {
+          "title": "Skyboxes API documentation",
+          "url": "https://api-documentation.blockadelabs.com/api/skybox.html",
+          "type": "api_docs",
+          "publisher": "Blockade Labs",
+          "date": null,
+          "confidence": "primary"
+        },
+        {
+          "title": "Export 3D Models from Skybox AI",
+          "url": "https://support.blockadelabs.com/hc/en-us/articles/31649281677074-Export-3D-Models-from-Skybox-AI",
+          "type": "docs",
+          "publisher": "Blockade Labs",
+          "date": null,
+          "confidence": "primary"
+        },
+        {
+          "title": "Skybox API changelog",
+          "url": "https://api-documentation.blockadelabs.com/api/changelog.html",
+          "type": "changelog",
+          "publisher": "Blockade Labs",
+          "date": "2026-05-21",
+          "confidence": "primary"
+        },
+        {
+          "title": "Skybox AI roadmap",
+          "url": "https://www.blockadelabs.com/roadmap",
+          "type": "roadmap",
+          "publisher": "Blockade Labs",
+          "date": null,
+          "confidence": "primary"
+        },
+        {
+          "title": "Skybox AI Unity integration demo",
+          "url": "https://www.youtube.com/watch?v=yvxTHbWk8sw",
+          "type": "video",
+          "publisher": "Blockade Labs",
+          "date": "2024-02-27",
+          "confidence": "primary_linked"
+        }
+      ]
+    },
+    {
+      "slug": "project-sid",
+      "name": "Project Sid",
+      "developer": "Altera",
+      "category": "Many-agent civilization and society simulation",
+      "current_access": "GitHub repo, arXiv paper, repo PDF, visual abstract, and GitHub-hosted project video were found.",
+      "mvp_angle": "Use as the social-simulation and AI civilization reference, distinct from visual/spatial world-generation systems.",
+      "caveats": [
+        "This is a many-agent Minecraft simulation project, not a generative visual world model.",
+        "The GitHub repo contains the report assets, not a full runnable simulator release."
+      ],
+      "resources": [
+        {
+          "title": "Project Sid GitHub repo",
+          "url": "https://github.com/altera-al/project-sid",
+          "type": "repository",
+          "publisher": "Altera",
+          "date": "2024-10-31",
+          "confidence": "primary"
+        },
+        {
+          "title": "Project Sid arXiv paper",
+          "url": "https://arxiv.org/abs/2411.00114",
+          "type": "paper",
+          "publisher": "arXiv / Altera",
+          "date": "2024-10-31",
+          "confidence": "primary"
+        },
+        {
+          "title": "Project Sid repo PDF",
+          "url": "https://raw.githubusercontent.com/altera-al/project-sid/main/2024-10-31.pdf",
+          "type": "paper_pdf",
+          "publisher": "Altera",
+          "date": "2024-10-31",
+          "confidence": "primary"
+        },
+        {
+          "title": "Project Sid GitHub-hosted video",
+          "url": "https://github.com/user-attachments/assets/a288265d-03ac-4d7d-b803-b74066267f26",
+          "type": "video",
+          "publisher": "Altera via GitHub",
+          "date": "2024-10-31",
+          "confidence": "primary"
+        },
+        {
+          "title": "Fundamental Research Labs Project Sid post",
+          "url": "https://fundamentalresearchlabs.com/blog/project-sid",
+          "type": "official_or_affiliated_blog",
+          "publisher": "Fundamental Research Labs",
+          "date": "2024-11-01",
+          "confidence": "primary_or_affiliated"
+        }
+      ]
+    }
+  ]
+}

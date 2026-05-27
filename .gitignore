@@ -1,0 +1,18 @@
+.next/
+node_modules/
+out/
+dist/
+.env*
+!.env.example
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.DS_Store
+tsconfig.tsbuildinfo
+
+# Downloaded research media archives are tracked through manifests, not git blobs.
+research/**/*.mp4
+research/**/*.webm
+research/**/*.mov
+research/**/*.mkv

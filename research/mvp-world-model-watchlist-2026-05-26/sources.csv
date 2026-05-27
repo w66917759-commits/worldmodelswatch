@@ -1,0 +1,36 @@
+project,resource_type,title,url,publisher,date,confidence,notes
+World Labs / Marble,demo,Marble app,https://marble.worldlabs.ai/,World Labs,,primary,Public web app entry
+World Labs / Marble,docs,Welcome to Marble docs,https://docs.worldlabs.ai/,World Labs,,primary,Docs describe inputs exports and generation times
+World Labs / Marble,official_blog,Marble: A Multimodal World Model,https://www.worldlabs.ai/blog/marble-world-model,World Labs,2025-11-12,primary,Main Marble source with embedded demos
+World Labs / Marble,api_announcement,Announcing the World API,https://www.worldlabs.ai/blog/announcing-the-world-api,World Labs,2026-01-21,primary,Public API for generating explorable worlds
+World Labs / Marble,research_preview,RTFM: A Real-Time Frame Model,https://www.worldlabs.ai/blog/rtfm,World Labs,2025-10-16,primary,Separate real-time research preview
+World Labs / Marble,video,Marble hero demo video,https://wlt-ai-cdn.art/videos/2025-11-12-clean-720p-24crf/hero.mp4,World Labs,2025-11-12,primary_cdn,Direct MP4 from official post
+World Labs / Marble,video,RTFM hero demo video,https://wlt-ai-cdn.art/videos/2025-10-15/hero_video_1024x576.mp4,World Labs,2025-10-16,primary_cdn,Direct MP4 from official post
+Oasis,project_page,Oasis: A Universe in a Transformer,https://oasis-model.github.io/,Decart AI + Etched,2024-10-31,primary,Project report page
+Oasis,demo,Oasis live demo,https://oasis.us.decart.ai/,Decart AI,,primary,Live demo entry
+Oasis,video,Oasis demo MP4,https://oasis-model.github.io/wide1.mp4,Decart AI + Etched,2024-10-31,primary_cdn,Direct MP4 from project page
+Oasis,code,open-oasis inference code,https://github.com/etched-ai/open-oasis,Etched,,primary,Inference repo for 500M model
+Oasis,model_weights,Etched/oasis-500m model card,https://huggingface.co/Etched/oasis-500m,Etched,,primary,Gated model weights and model card
+Genie / Genie 3,model_page,Genie 3 model page,https://deepmind.google/models/genie/,Google DeepMind,,primary,Model page and demo gallery
+Genie / Genie 3,official_blog,Genie 3: A new frontier for world models,https://deepmind.google/blog/genie-3-a-new-frontier-for-world-models/,Google DeepMind,2025-08-05,primary,Main Genie 3 research post
+Genie / Genie 3,official_blog,Project Genie launch/access post,https://blog.google/innovation-and-ai/models-and-research/google-deepmind/project-genie/,Google,2026-01-29,primary,Access and prototype details
+Genie / Genie 3,demo,Project Genie web entry,https://labs.google/projectgenie,Google Labs,,primary,Access-limited public entry
+Genie / Genie 3,research_blog,Genie 2 foundation world model,https://deepmind.google/blog/genie-2-a-large-scale-foundation-world-model/,Google DeepMind,2024-12-04,primary,Predecessor model context
+Genie / Genie 3,paper,Genie: Generative Interactive Environments,https://arxiv.org/abs/2402.15391,arXiv / Google DeepMind,2024-02-23,primary,Genie 1 paper
+Genie / Genie 3,video,Project Genie promo video,https://storage.googleapis.com/gdm-deepmind-com-prod-public/media/media/genie-3__project-genie__promo.webm,Google DeepMind,2026-01-29,primary_cdn,Direct WebM from official page
+HappyOyster,official_article,Alibaba Launches HappyOyster,https://www.alibabacloud.com/blog/alibaba-launches-happyoyster-a-world-model-product-for-real-time-immersive-creation-and-interaction_603048,Alibaba Cloud Community / Alizila,2026-04-20,primary,Official product source
+HappyOyster,demo_or_early_access,HappyOyster website,https://www.happyoyster.cn/,HappyOyster / Alibaba,,primary,Early Access entry
+HappyOyster,docs,HappyOyster docs,https://www.happyoyster.cn/docs,HappyOyster / Alibaba,,primary,Docs entry
+HappyOyster,video,The world is your oyster. Now open it.,https://www.youtube.com/watch?v=Ku3ikWrKxx4,Alibaba / HappyOyster via YouTube,2026-04,primary_linked,Linked from Alibaba Cloud article
+Skybox AI,product_page,Skybox AI product site,https://www.blockadelabs.com/,Blockade Labs,,primary,Product overview
+Skybox AI,demo,Skybox AI app,https://skybox.blockadelabs.com/,Blockade Labs,,primary,App entry
+Skybox AI,api_docs,Skyboxes API documentation,https://api-documentation.blockadelabs.com/api/skybox.html,Blockade Labs,,primary,API details and parameters
+Skybox AI,docs,Export 3D Models from Skybox AI,https://support.blockadelabs.com/hc/en-us/articles/31649281677074-Export-3D-Models-from-Skybox-AI,Blockade Labs,,primary,GLB mesh export docs and limitations
+Skybox AI,changelog,Skybox API changelog,https://api-documentation.blockadelabs.com/api/changelog.html,Blockade Labs,2026-05-21,primary,Latest docs update found
+Skybox AI,roadmap,Skybox AI roadmap,https://www.blockadelabs.com/roadmap,Blockade Labs,,primary,Upcoming feature signals
+Skybox AI,video,Skybox AI Unity integration demo,https://www.youtube.com/watch?v=yvxTHbWk8sw,Blockade Labs,2024-02-27,primary_linked,Video linked from official post
+Project Sid,repository,Project Sid GitHub repo,https://github.com/altera-al/project-sid,Altera,2024-10-31,primary,Repo includes paper links and media
+Project Sid,paper,Project Sid arXiv paper,https://arxiv.org/abs/2411.00114,arXiv / Altera,2024-10-31,primary,Technical report
+Project Sid,paper_pdf,Project Sid repo PDF,https://raw.githubusercontent.com/altera-al/project-sid/main/2024-10-31.pdf,Altera,2024-10-31,primary,Repo PDF download
+Project Sid,video,Project Sid GitHub-hosted video,https://github.com/user-attachments/assets/a288265d-03ac-4d7d-b803-b74066267f26,Altera via GitHub,2024-10-31,primary,Stable GitHub attachment URL
+Project Sid,official_or_affiliated_blog,Fundamental Research Labs Project Sid post,https://fundamentalresearchlabs.com/blog/project-sid,Fundamental Research Labs,2024-11-01,primary_or_affiliated,Readable summary of paper findings
