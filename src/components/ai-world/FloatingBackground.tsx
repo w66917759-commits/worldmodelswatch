@@ -44,11 +44,25 @@ export function FloatingBackground({
     "--active-accent": activeWorld.accent,
     "--active-secondary": activeWorld.secondaryAccent,
   } as CSSProperties;
+  const videoPlaneStyle = activeWorld.posterSrc
+    ? ({
+        backgroundImage: `url(${activeWorld.posterSrc})`,
+      } as CSSProperties)
+    : undefined;
 
   return (
     <div className="floating-background" style={style} aria-hidden="true">
       <motion.div
+        className="world-pointer-glow"
+        animate={{
+          left: `${(pointer.x + 1) * 50}%`,
+          top: `${(pointer.y + 1) * 50}%`,
+        }}
+        transition={{ type: "spring", stiffness: 54, damping: 24, mass: 1.2 }}
+      />
+      <motion.div
         className="world-video-plane"
+        style={videoPlaneStyle}
         animate={{
           x: pointer.x * -24,
           y: pointer.y * -18,
@@ -56,22 +70,27 @@ export function FloatingBackground({
         }}
         transition={{ type: "spring", stiffness: 36, damping: 20 }}
       >
-        <AnimatePresence mode="wait">
-          <motion.video
+        <AnimatePresence initial={false}>
+          <motion.div
             key={activeWorld.id}
-            className="world-bg-video"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.42 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="world-bg-video-layer"
+            initial={{ opacity: 0, scale: 1.035, filter: "blur(14px)" }}
+            animate={{ opacity: 0.9, scale: 1, filter: "blur(0px)" }}
+            exit={{ opacity: 0, scale: 1.045, filter: "blur(18px)" }}
+            transition={{ duration: 1.15, ease: [0.16, 1, 0.3, 1] }}
           >
-            <source src={activeWorld.videoSrc} type={activeWorld.videoType} />
-          </motion.video>
+            <video
+              className="world-bg-video"
+              autoPlay
+              muted
+              loop
+              playsInline
+              poster={activeWorld.posterSrc}
+              preload="metadata"
+            >
+              <source src={activeWorld.videoSrc} type={activeWorld.videoType} />
+            </video>
+          </motion.div>
         </AnimatePresence>
       </motion.div>
       <motion.div

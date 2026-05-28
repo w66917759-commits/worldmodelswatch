@@ -11,19 +11,19 @@ function pickPreview(prompt: string) {
   const normalized = prompt.toLowerCase();
 
   if (normalized.includes("civilization") || normalized.includes("agent")) {
-    return worldsData.find((world) => world.id === "project-sid") ?? worldsData[0];
+    return worldsData.find((world) => world.id === "hy") ?? worldsData[0];
   }
 
   if (normalized.includes("island") || normalized.includes("ocean")) {
-    return worldsData.find((world) => world.id === "skybox-ai") ?? worldsData[0];
+    return worldsData.find((world) => world.id === "skybox") ?? worldsData[0];
   }
 
   if (normalized.includes("tokyo") || normalized.includes("cyber")) {
-    return worldsData.find((world) => world.id === "world-labs-marble") ?? worldsData[0];
+    return worldsData.find((world) => world.id === "world-labs") ?? worldsData[0];
   }
 
   if (normalized.includes("desert") || normalized.includes("floating")) {
-    return worldsData.find((world) => world.id === "google-deepmind-genie") ?? worldsData[0];
+    return worldsData.find((world) => world.id === "genie") ?? worldsData[0];
   }
 
   return worldsData[1];

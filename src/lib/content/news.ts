@@ -140,11 +140,12 @@ export const newsItems: NewsItem[] = [
     slug: "ant-robbyant-lingbot-map",
     title: "Robbyant releases LingBot-Map for streaming 3D reconstruction",
     date: "2026-04-15",
+    updated: "2026-05-25",
     organization: "Ant Group / Robbyant",
     summary:
-      "Robbyant published LingBot-Map as a feed-forward 3D foundation model for reconstructing scenes from streaming visual data.",
+      "Robbyant followed the LingBot-Map release with public evaluation scripts for KITTI and Oxford Spires, strengthening the model's reproducibility story for streaming 3D reconstruction.",
     whyItMatters:
-      "This is a strong primary-source addition for the site's spatial-computing and generated-3D-world coverage. It expands Ant coverage beyond world simulation into 3D perception and mapping, while keeping a clear editorial boundary between reconstruction systems and generative world products.",
+      "This remains a strong primary-source Ant update, but the May 25 benchmark release adds a better reason to keep LingBot-Map visible: readers can now inspect a more concrete evaluation path instead of relying only on paper claims and teaser demos. It improves the site's spatial-computing and generated-3D-world coverage while keeping a clear editorial boundary between reconstruction systems and generative world products.",
     tags: ["3D reconstruction", "Spatial computing", "Ant Group", "Research"],
     sources: [
       {

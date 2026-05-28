@@ -4,6 +4,10 @@ World Models Watch is a structured intelligence site for world models, spatial i
 
 Core surfaces:
 
+- `spatial-intelligence`: narrative page for spatial intelligence and why world models matter
+- `from-video-to-worlds`: evolution page from AI video to interactive and persistent worlds
+- `world-model-labs`: dedicated demo-video gallery for world-model projects
+- `research-insights`: research hub for source-backed updates, timelines, comparisons, and dossiers
 - `what-is-world-model`: definition and education entry point
 - `news`: official updates and release notes
 - `models`: normalized model dossiers

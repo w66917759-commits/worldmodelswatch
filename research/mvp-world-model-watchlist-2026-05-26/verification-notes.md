@@ -59,3 +59,21 @@ Downloaded official videos for the original MVP watchlist into `downloads/origin
 - Project Sid: 1 MP4 file.
 
 Total: 147 video files, about 825M. GIF files were intentionally excluded. A file-type check found only MP4/ISO Media and WebM video files.
+
+Skybox AI quality follow-up on 2026-05-27: the official YouTube demo only exposed a downloadable `640x360` MP4 format from public unauthenticated access, and no separate direct HD MP4/WebM source was found on the official Blockade Labs article or homepage.
+
+## Genie + Worldlabs Merge
+
+Created `downloads/merged-videos/genie-worldlabs-alpha-merged.mp4` on 2026-05-27.
+
+- Source folders: `original-six-official-videos/genie/` and `original-six-official-videos/worldlabs/`.
+- Source files: 9.
+- Merge order: filename alphabetical order across both folders.
+- Output: MP4 / H.264 / 1280x720 / 30 fps / no audio.
+- Duration: 00:04:39.87.
+- Size: about 64M.
+
+Clarification follow-up: created separate merged videos for each folder.
+
+- `downloads/merged-videos/genie-alpha-merged.mp4`: 5 source files, alphabetical order, 1280x720, 30 fps, no audio, duration 00:03:34.87, about 44M.
+- `downloads/merged-videos/worldlabs-alpha-merged.mp4`: 4 source files, alphabetical order, 1280x720, 30 fps, no audio, duration 00:01:05.00, about 20M.

@@ -5,6 +5,10 @@ import { site } from "@/lib/site";
 
 const staticRoutes = [
   "/",
+  "/spatial-intelligence",
+  "/from-video-to-worlds",
+  "/world-model-labs",
+  "/research-insights",
   "/concept-map",
   "/what-is-world-model",
   "/news",

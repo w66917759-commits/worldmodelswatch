@@ -119,16 +119,18 @@ export const modelProfiles: ModelProfile[] = [
     organization: "Ant Group / Robbyant",
     category: "Streaming 3D foundation model",
     date: "2026-04-15",
-    status: "Open-source code, paper, and model releases",
+    updated: "2026-05-25",
+    status: "Open-source code, paper, model releases, and public evaluation scripts",
     summary:
-      "LingBot-Map is Robbyant's feed-forward 3D foundation model for streaming reconstruction from video sequences.",
+      "LingBot-Map is Robbyant's feed-forward 3D foundation model for streaming reconstruction from video sequences, now backed by a public benchmark pipeline for KITTI and Oxford Spires.",
     focus: "Streaming 3D reconstruction, long-horizon spatial memory, camera pose estimation, and browser-viewable scene understanding.",
     availability:
-      "GitHub repository, arXiv paper, and Hugging Face model card with downloadable checkpoints.",
+      "GitHub repository, arXiv paper, Hugging Face model card with downloadable checkpoints, and benchmark scripts released in the main repo.",
     strengths: [
       "Useful bridge between world models and spatial computing because it tracks geometry and scene consistency over long sequences.",
       "Grounds the site's generated-3D-world coverage with a primary-source reconstruction system instead of only product marketing pages.",
       "Strengthens Ant coverage beyond LingBot-World by showing the same ecosystem's spatial and embodied AI track.",
+      "The May 2026 benchmark release makes the project easier to audit because evaluation scripts and dataset preparation steps are now public.",
     ],
     limits: [
       "LingBot-Map is a reconstruction model, not a generative world-creation product like Marble or HappyOyster.",

@@ -1,0 +1,11 @@
+.DS_Store
+.next/
+node_modules/
+tsconfig.tsbuildinfo
+
+# Local research archives are documented by manifests and should not be uploaded
+# as deployment source. Public site media lives under public/.
+research/**/downloads/**/*.mp4
+research/**/downloads/**/*.webm
+research/**/downloads/**/*.mov
+research/**/downloads/**/*.mkv

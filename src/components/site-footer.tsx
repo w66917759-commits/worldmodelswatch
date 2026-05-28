@@ -20,12 +20,11 @@ export function SiteFooter() {
         </p>
       </div>
       <nav aria-label="Footer navigation">
-        <Link href="/what-is-world-model">Definition</Link>
-        <Link href="/news">News</Link>
-        <Link href="/compare">Compare</Link>
-        <Link href="/models">Models</Link>
-        <Link href="/privacy">Privacy</Link>
-        <Link href="/terms">Terms</Link>
+        {site.footerNav.map((item) => (
+          <Link href={item.href} key={item.href}>
+            {item.label}
+          </Link>
+        ))}
         <Link href="/login">Login</Link>
       </nav>
     </footer>

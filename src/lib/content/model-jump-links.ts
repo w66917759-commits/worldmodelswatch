@@ -34,7 +34,7 @@ export const modelJumpLinks: ModelJumpLink[] = [
     category: "Streaming 3D foundation model",
     url: "https://github.com/Robbyant/lingbot-map",
     relation:
-      "Spatial reconstruction track for long-horizon geometry, browser-viewable demos, and embodied AI mapping workflows.",
+      "Spatial reconstruction track for long-horizon geometry, browser-viewable demos, embodied AI mapping workflows, and the new public benchmark pipeline.",
     cta: "GitHub",
   },
   {

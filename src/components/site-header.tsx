@@ -50,7 +50,7 @@ export function SiteHeader() {
       <div className="nav-cluster">
         {/* Desktop nav */}
         <nav className="site-nav" aria-label="Main navigation">
-          {site.nav.map((item) => (
+          {site.primaryNav.map((item) => (
             <Link key={item.href} href={item.href}>
               {item.label}
             </Link>
@@ -80,7 +80,7 @@ export function SiteHeader() {
         className={`mobile-nav${mobileOpen ? " open" : ""}`}
         aria-label="Mobile navigation"
       >
-        {site.nav.map((item) => (
+        {site.primaryNav.map((item) => (
           <Link key={item.href} href={item.href} onClick={close}>
             {item.label}
           </Link>

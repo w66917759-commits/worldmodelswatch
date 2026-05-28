@@ -198,18 +198,19 @@ export const comparisons: Comparison[] = [
     title: "LingBot-Map vs Marble",
     summary:
       "A comparison of streaming 3D reconstruction and generated 3D world creation so readers do not collapse spatial capture into world generation.",
-    updated: "2026-04-30",
+    updated: "2026-05-25",
     columns: ["Dimension", "LingBot-Map", "Marble"],
     rows: [
       ["Organization", "Ant Group / Robbyant", "World Labs"],
       ["Primary framing", "Streaming 3D foundation model for reconstruction", "3D world model product for generated editable worlds"],
       ["Main input", "Video streams and image sequences", "Text, images, video, and spatial layouts"],
       ["Main output", "Recovered scene geometry, camera poses, and 3D structure", "Persistent explorable 3D worlds"],
+      ["Verification surface", "GitHub repo, paper, checkpoints, and May 2026 benchmark scripts", "Product post, public app surface, and World API docs"],
       ["Best reader question", "How does AI reconstruct a scene from streaming observations?", "How does AI create a new 3D world that can be explored and edited?"],
       ["Editorial role", "Spatial perception and mapping track", "Generated-3D-world product track"],
     ],
     takeaways: [
-      "LingBot-Map is important because it grounds the spatial stack in geometry and reconstruction rather than only generation demos.",
+      "LingBot-Map is important because it grounds the spatial stack in geometry and reconstruction rather than only generation demos, and its new benchmark scripts make that claim more auditable.",
       "Marble is the clearer product-facing example of AI-generated 3D worlds.",
       "Keeping both on the site helps readers separate captured space, reconstructed space, and generated space.",
     ],

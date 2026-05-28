@@ -5,46 +5,34 @@ import { motion } from "framer-motion";
 
 import type { WorldProject } from "./worldsData";
 
-type PointerPosition = {
-  x: number;
-  y: number;
-};
-
 type WorldNodeProps = {
   world: WorldProject;
   index: number;
   isActive: boolean;
+  isIncoming: boolean;
   isPreviewed: boolean;
-  pointer: PointerPosition;
   onPreview: (id: string) => void;
   onPreviewEnd: () => void;
   onSelect: (id: string) => void;
 };
 
-const depthStrength = {
-  near: 1.35,
-  mid: 0.86,
-  far: 0.48,
-} satisfies Record<WorldProject["depth"], number>;
-
 export function WorldNode({
   world,
   index,
   isActive,
+  isIncoming,
   isPreviewed,
-  pointer,
   onPreview,
   onPreviewEnd,
   onSelect,
 }: WorldNodeProps) {
-  const strength = depthStrength[world.depth];
-
   return (
     <motion.button
       className={[
         "world-node",
         `depth-${world.depth}`,
         isActive ? "is-active" : "",
+        isIncoming ? "is-incoming" : "",
         isPreviewed ? "is-previewed" : "",
       ]
         .filter(Boolean)
@@ -64,11 +52,11 @@ export function WorldNode({
       initial={{ opacity: 0, scale: 0.82 }}
       animate={{
         opacity: 1,
-        scale: isActive ? 1.08 : isPreviewed ? 1.045 : 1,
-        x: pointer.x * strength * 20,
-        y: pointer.y * strength * 20,
-        rotateX: pointer.y * -6,
-        rotateY: pointer.x * 6,
+        scale: isActive ? 1.08 : isIncoming ? 1.12 : isPreviewed ? 1.045 : 1,
+        x: 0,
+        y: 0,
+        rotateX: 0,
+        rotateY: 0,
       }}
       transition={{
         opacity: { duration: 0.5, delay: index * 0.12 },

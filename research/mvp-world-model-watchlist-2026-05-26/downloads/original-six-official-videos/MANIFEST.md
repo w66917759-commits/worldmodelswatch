@@ -43,6 +43,10 @@ Total: 147 video files, about 825M.
 - Skybox AI Unity video: https://www.youtube.com/watch?v=yvxTHbWk8sw
 - Project Sid: https://github.com/altera-al/project-sid
 
+## Skybox AI Quality Note
+
+The official Skybox AI YouTube demo `yvxTHbWk8sw` only exposed a downloadable `640x360` MP4 format during the 2026-05-27 check. The Blockade Labs official article and homepage did not expose a separate direct HD MP4/WebM source in page HTML. A true HD copy was not available from public unauthenticated official sources in this pass.
+
 ## Verification
 
 - Video count: 147.

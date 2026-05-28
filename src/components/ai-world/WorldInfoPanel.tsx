@@ -1,10 +1,11 @@
 "use client";
 
 import type { CSSProperties } from "react";
+import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import { ExternalLink, Search } from "lucide-react";
+import { BookOpen, ExternalLink } from "lucide-react";
 
-import { getWorldSearchUrl, type WorldProject } from "./worldsData";
+import type { WorldProject } from "./worldsData";
 
 type WorldInfoPanelProps = {
   world?: WorldProject;
@@ -32,25 +33,35 @@ export function WorldInfoPanel({ world }: WorldInfoPanelProps) {
             <div className="panel-heading">
               <span className="panel-pulse" aria-hidden="true" />
               <div>
-                <p>{world.developer}</p>
+                <p>Current world</p>
                 <h2>{world.name}</h2>
               </div>
             </div>
             <div className="panel-meta">
+              <span>{world.developer}</span>
               <span>{world.type}</span>
-              <span>{world.searchKeywords}</span>
             </div>
-            <p className="panel-summary">{world.summary}</p>
-            <a
-              className="panel-action"
-              href={getWorldSearchUrl(world)}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Search size={16} aria-hidden="true" />
-              View Demo / Search Materials
-              <ExternalLink size={15} aria-hidden="true" />
-            </a>
+            <div className="panel-capabilities" aria-label="World capabilities">
+              <span>Move through</span>
+              <span>Edit</span>
+              <span>Inhabit</span>
+            </div>
+            <p className="panel-summary">{world.feeling}</p>
+            <div className="panel-action-row">
+              <Link className="panel-action" href={world.detailHref}>
+                <BookOpen size={16} aria-hidden="true" />
+                Open site context
+              </Link>
+              <a
+                className="panel-action secondary"
+                href={world.sourceHref ?? world.demoUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Official demo
+                <ExternalLink size={15} aria-hidden="true" />
+              </a>
+            </div>
           </motion.aside>
         ) : null}
       </AnimatePresence>
