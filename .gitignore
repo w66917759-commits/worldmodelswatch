@@ -16,3 +16,4 @@ research/**/*.mp4
 research/**/*.webm
 research/**/*.mov
 research/**/*.mkv
+.vercel
