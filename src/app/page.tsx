@@ -2,15 +2,26 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Boxes, Compass, Microscope, Network } from "lucide-react";
 
-import { WorldExplorer } from "@/components/ai-world/WorldExplorer";
 import { WorldHero } from "@/components/ai-world/WorldHero";
+import { FaqSummary } from "@/components/faq-summary";
 import { JsonLd } from "@/components/json-ld";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Generated Worlds | AI World Interface",
+  title: "AI Generated Worlds | World Models Watch",
   description:
-    "An immersive video gallery for HappyOyster, Genie, Oasis, Skybox AI, World Labs, HY-World 2.0, and Project Sid, with deeper narrative routes for world-model research.",
+    "An immersive guide to HappyOyster, Genie 3, Oasis, Skybox AI, World Labs Marble, HY-World 2.0, and Project Sid, with crawlable world-model research routes.",
+  keywords: [
+    "AI generated worlds",
+    "world models",
+    "HappyOyster",
+    "Genie 3",
+    "Oasis world model",
+    "Skybox AI",
+    "Marble World Labs",
+    "HY-World 2.0",
+    "Project Sid",
+  ],
 };
 
 const homeRouteCards = [
@@ -77,15 +88,19 @@ export default function Home() {
         data={{
           "@context": "https://schema.org",
           "@type": "WebSite",
-          name: "Generated Worlds",
+          name: "World Models Watch",
           url: site.url,
           description:
-            "A spatial interface for exploring emerging AI-generated world systems.",
+            "A spatial interface for exploring emerging AI-generated world systems and source-backed world-model comparisons.",
         }}
       />
       <WorldHero />
-      <WorldExplorer />
       <HomeRouteRail />
+      <FaqSummary
+        className="faq-summary-dark"
+        description="A quick orientation for source confidence, model boundaries, comments, and reader participation."
+        title="Questions before the deeper dive"
+      />
     </main>
   );
 }

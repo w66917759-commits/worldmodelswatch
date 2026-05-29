@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Physical AI world model</title>
+  <desc id="desc">A robot training scene connected to synthetic environments and simulation screens.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#071014"/><stop offset="1" stop-color="#18221c"/></linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <g transform="translate(240 150)" fill="#0f1c22" stroke="#8affd2" stroke-width="5">
+    <rect x="0" y="0" width="1120" height="620" rx="38"/>
+    <rect x="80" y="88" width="330" height="210" rx="22"/>
+    <rect x="710" y="88" width="330" height="210" rx="22"/>
+    <rect x="450" y="350" width="220" height="150" rx="26"/>
+    <circle cx="560" cy="425" r="52" fill="#172c34"/>
+  </g>
+  <g stroke="#ffd66f" stroke-width="16" stroke-linecap="round" fill="none">
+    <path d="M800 500 L900 420 L1060 420"/>
+    <path d="M800 500 L700 420 L540 420"/>
+    <path d="M800 500 L800 620"/>
+  </g>
+  <g fill="#8affd2">
+    <circle cx="540" cy="420" r="18"/><circle cx="1060" cy="420" r="18"/><circle cx="800" cy="620" r="18"/>
+  </g>
+  <g opacity="0.58" stroke="#e9fff8">
+    <path d="M350 812 H1250 M430 742 H1170 M514 674 H1086"/>
+    <path d="M540 850 L760 508 M1060 850 L840 508"/>
+  </g>
+  <path d="M346 262 C420 214 512 252 590 205" stroke="#ff7fa6" stroke-width="9" fill="none"/>
+  <path d="M956 262 C1034 206 1120 250 1210 190" stroke="#8affd2" stroke-width="9" fill="none"/>
+</svg>

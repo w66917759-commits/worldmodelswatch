@@ -2,10 +2,10 @@ export const site = {
   name: "World Models Watch",
   domain: "worldmodelswatch.com",
   url: "https://worldmodelswatch.com",
-  title: "World Models Watch | Video World Models, EMO Demo, and AI World Timelines",
+  title: "World Models Watch | AI Generated Worlds and World Model Comparisons",
   description:
-    "A structured intelligence site tracking video world models, Alibaba EMO, interactive AI worlds, spatial intelligence, and world foundation model releases.",
-  tagline: "Video world model signals, comparisons, and timelines",
+    "A structured intelligence site tracking world models, AI generated worlds, interactive environments, persistent 3D worlds, spatial intelligence, and world foundation model releases.",
+  tagline: "AI generated world signals, comparisons, and timelines",
   homeNav: [
     { href: "/", label: "Gallery" },
     { href: "/spatial-intelligence", label: "Spatial Intelligence" },
@@ -22,6 +22,7 @@ export const site = {
     { href: "/models", label: "Models" },
     { href: "/compare", label: "Compare" },
     { href: "/news", label: "News" },
+    { href: "/faq", label: "FAQ" },
   ],
   footerNav: [
     { href: "/what-is-world-model", label: "Definition" },
@@ -32,6 +33,7 @@ export const site = {
     { href: "/news", label: "News" },
     { href: "/models", label: "Models" },
     { href: "/compare", label: "Compare" },
+    { href: "/faq", label: "FAQ" },
     { href: "/timeline", label: "Timeline" },
     { href: "/concepts", label: "Concepts" },
     { href: "/privacy", label: "Privacy" },

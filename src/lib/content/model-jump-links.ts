@@ -101,6 +101,15 @@ export const modelJumpLinks: ModelJumpLink[] = [
     cta: "Research post",
   },
   {
+    name: "Oasis",
+    maker: "Decart AI + Etched",
+    category: "Realtime open-world AI model",
+    url: "https://oasis-model.github.io/",
+    relation:
+      "Action-conditioned realtime demo where keyboard input shapes an AI-generated open-world video experience.",
+    cta: "Project page",
+  },
+  {
     name: "Marble",
     maker: "World Labs",
     category: "3D world model",
@@ -108,6 +117,15 @@ export const modelJumpLinks: ModelJumpLink[] = [
     relation:
       "A product-facing signal for editable, persistent 3D spaces generated from visual and textual inputs.",
     cta: "Product post",
+  },
+  {
+    name: "Project Sid",
+    maker: "Altera / Fundamental Research Labs",
+    category: "Many-agent civilization simulation",
+    url: "https://fundamentalresearchlabs.com/blog/project-sid",
+    relation:
+      "Agent-society layer for studying specialization, law, culture, and religion inside persistent game-world simulations.",
+    cta: "Research post",
   },
   {
     name: "World API",

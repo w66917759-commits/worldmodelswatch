@@ -11,6 +11,14 @@ export const newsItems: NewsItem[] = [
     whyItMatters:
       "This is a concrete, primary-source product signal for interactive world models rather than another abstract demo reel. It also sharpens an important editorial boundary for the site: Genie remains an experimental prototype, but it now connects promptable worlds to real-place imagery in a way that is relevant for simulation, robotics, and spatial-computing readers.",
     tags: ["Interactive worlds", "Spatial computing", "DeepMind", "Product"],
+    whatChanged: [
+      "Google connected Project Genie to Street View-grounded scenes and tied the rollout to eligible Google AI Ultra subscribers instead of positioning it as a broad public API launch.",
+    ],
+    sourceConfidence: "Official product update",
+    availabilityNote:
+      "Treat this as an experimental prototype rollout tied to Google's own subscription surface, not as a generally available world-model platform.",
+    overclaimWarning:
+      "Do not flatten Project Genie into a widely available developer API or a fully open-ended consumer world-building product.",
     sources: [
       {
         label: "Google DeepMind: Simulate real-world places with Project Genie and Street View",
@@ -36,6 +44,14 @@ export const newsItems: NewsItem[] = [
     whyItMatters:
       "This is a source-backed product signal for the avatar branch of world models, not just another video-model demo. It gives GWM-1 a clearer deployed surface while preserving an important editorial boundary: Characters shows low-latency conversational agents and identity persistence, but it is not the same thing as an open-ended explorable world platform.",
     tags: ["Runway", "GWM-1", "Avatars", "Product"],
+    whatChanged: [
+      "Runway moved GWM-1 from a research framing into a concrete product surface through Characters, with rollout language tied to the Runway API plus web and mobile apps.",
+    ],
+    sourceConfidence: "Official product update",
+    availabilityNote:
+      "The clearest public deployment signal is the character-agent surface, not a general-purpose explorable world tool.",
+    overclaimWarning:
+      "Do not treat Runway Characters as proof that GWM-1 is broadly available as an open world-simulation platform.",
     sources: [
       {
         label: "Runway News: Building Runway Characters",
@@ -55,13 +71,21 @@ export const newsItems: NewsItem[] = [
     slug: "nvidia-cosmos-3-physical-ai-stack",
     title: "NVIDIA previews Cosmos 3 as a unifying physical-AI world model",
     date: "2026-03-16",
-    updated: "2026-05-23",
+    updated: "2026-05-27",
     organization: "NVIDIA",
     summary:
-      "At GTC 2026, NVIDIA said Cosmos 3 would unify synthetic world generation, physical-AI reasoning, and action simulation, then kept widening the public Cosmos surface with a data-factory blueprint and active GitHub repos for curation, evaluation, and post-training workflows.",
+      "At GTC 2026, NVIDIA said Cosmos 3 would unify synthetic world generation, physical-AI reasoning, and action simulation, then kept widening the public Cosmos surface through an open data-factory blueprint and GitHub repos that were still active in late May.",
     whyItMatters:
-      "This remains a meaningful primary-source product update rather than a vague platform claim. The March 16, 2026 press materials established Cosmos 3 and the physical-AI data-factory blueprint together, and NVIDIA's public GitHub surface now makes the stack easier to verify as an ecosystem of world generation, curation, evaluation, and robot-training tools rather than a single demo video.",
+      "This remains a meaningful primary-source product update rather than a vague platform claim. The March 16, 2026 press materials established Cosmos 3 and the physical-AI data-factory blueprint together, and NVIDIA's still-active public GitHub surface makes the stack easier to verify as an ecosystem of world generation, curation, evaluation, and robot-training tools rather than a single demo video.",
     tags: ["Physical AI", "Robotics", "NVIDIA", "Product"],
+    whatChanged: [
+      "NVIDIA's March 16, 2026 GTC materials linked Cosmos 3 to a broader physical-AI data-factory blueprint, and the public Cosmos GitHub organization remained active through May 27, 2026.",
+    ],
+    sourceConfidence: "Official platform update",
+    availabilityNote:
+      "Some Cosmos components are public on GitHub today, but Cosmos 3 itself is still described in preview-style language and should not be treated as a fully shipped standalone product.",
+    overclaimWarning:
+      "Do not convert active repositories and blueprint materials into a claim that all Cosmos 3 capabilities are generally available now.",
     sources: [
       {
         label: "NVIDIA Newsroom: NVIDIA and global robotics leaders take physical AI to the real world",
@@ -172,6 +196,14 @@ export const newsItems: NewsItem[] = [
     whyItMatters:
       "This is the consumer-interface signal we should not miss: world models are no longer only papers, demos, or developer repos. The primary model sources confirm LingBot-World and LingBot-World-Fast; the Lingguang mobile feature should be cited as a reported product integration until an official Ant product note is available.",
     tags: ["Mobile", "Lingguang", "Open source", "Interactive worlds"],
+    whatChanged: [
+      "Media reports said Ant's Lingguang app added an 'Experience World Model' feature backed by LingBot-World-Fast, but the integration claim still lacks a matching primary Ant product note.",
+    ],
+    sourceConfidence: "Reported product signal",
+    availabilityNote:
+      "The model family is source-backed through GitHub, arXiv, and Hugging Face, while the Lingguang mobile integration should remain labeled as reported.",
+    overclaimWarning:
+      "Do not represent the Lingguang feature as a primary-source-confirmed general release until Ant publishes an official product note.",
     sources: [
       {
         label: "IT Home report: Lingguang mobile world model",
@@ -226,6 +258,14 @@ export const newsItems: NewsItem[] = [
     whyItMatters:
       "HappyOyster gives the site an Alibaba product-track anchor beside Ant's open-source LingBot route. It also clarifies a key editorial distinction: some world models are open simulators for developers, while others are productized creative interfaces for exploration and directing.",
     tags: ["Alibaba", "HappyOyster", "Early Access", "Interactive worlds"],
+    whatChanged: [
+      "Alibaba positioned HappyOyster as an early-access world-model product for exploration and directing rather than as an open-source model release.",
+    ],
+    sourceConfidence: "Official product launch",
+    availabilityNote:
+      "Access is still framed as early access, so product availability and usage terms should be kept more conservative than a broad public-launch claim.",
+    overclaimWarning:
+      "Do not present HappyOyster as a generally available API or as a validated robotics simulator.",
     sources: [
       {
         label: "Alibaba Cloud Community: HappyOyster launch",

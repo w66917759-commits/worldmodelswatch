@@ -49,7 +49,7 @@ export function WorldNode({
           "--node-delay": `${index * 120}ms`,
         } as CSSProperties
       }
-      initial={{ opacity: 0, scale: 0.82 }}
+      initial={false}
       animate={{
         opacity: 1,
         scale: isActive ? 1.08 : isIncoming ? 1.12 : isPreviewed ? 1.045 : 1,
@@ -69,7 +69,7 @@ export function WorldNode({
       whileHover={{ scale: isActive ? 1.13 : 1.08 }}
       onMouseEnter={() => onPreview(world.id)}
       onMouseLeave={onPreviewEnd}
-      onFocus={() => onPreview(world.id)}
+      onFocus={() => onSelect(world.id)}
       onBlur={onPreviewEnd}
       onClick={() => onSelect(world.id)}
     >

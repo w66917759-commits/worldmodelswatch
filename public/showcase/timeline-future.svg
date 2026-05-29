@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Future timeline of world models</title>
+  <desc id="desc">A cinematic timeline path moving from video to interactive worlds and persistent AI reality.</desc>
+  <defs>
+    <linearGradient id="line" x1="0" x2="1"><stop offset="0" stop-color="#82eaff"/><stop offset="0.5" stop-color="#f6d26e"/><stop offset="1" stop-color="#ff7fa6"/></linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="#080c14"/>
+  <path d="M170 650 C360 470 520 700 720 500 C910 310 1060 548 1410 260" fill="none" stroke="url(#line)" stroke-width="28" stroke-linecap="round"/>
+  <g fill="#101926" stroke="#dffcff" stroke-width="4">
+    <rect x="120" y="560" width="230" height="150" rx="26"/>
+    <rect x="505" y="590" width="230" height="150" rx="26"/>
+    <rect x="850" y="380" width="230" height="150" rx="26"/>
+    <rect x="1220" y="190" width="230" height="150" rx="26"/>
+  </g>
+  <g fill="#eaffff" font-family="Arial, sans-serif" font-weight="700">
+    <text x="170" y="640" font-size="44">Video</text>
+    <text x="548" y="670" font-size="44">Control</text>
+    <text x="885" y="460" font-size="44">Worlds</text>
+    <text x="1260" y="270" font-size="44">Return</text>
+  </g>
+  <g opacity="0.5" stroke="#dffcff">
+    <path d="M190 835 H1410 M280 780 H1320 M380 725 H1220"/>
+    <path d="M350 860 L690 410 M780 860 L820 360 M1250 860 L980 350"/>
+  </g>
+</svg>

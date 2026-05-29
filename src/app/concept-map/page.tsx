@@ -11,7 +11,9 @@ import {
 } from "lucide-react";
 
 import { JsonLd } from "@/components/json-ld";
+import { SceneExplainer, ShowcaseHero } from "@/components/showcase";
 import { conceptBridges, conceptMapClusters } from "@/lib/content";
+import { pageVisuals, showcaseImages } from "@/lib/showcase";
 import { absoluteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -27,7 +29,7 @@ const mapIcons = [Boxes, Clapperboard, Glasses, Building2, BrainCircuit];
 
 export default function ConceptMapPage() {
   return (
-    <main className="page-shell concept-map-page">
+    <main className="page-shell showcase-page concept-map-page">
       <JsonLd
         data={{
           "@context": "https://schema.org",
@@ -40,16 +42,15 @@ export default function ConceptMapPage() {
         }}
       />
 
-      <section className="page-hero map-hero">
-        <p className="eyebrow">Structured map</p>
-        <h1>From virtual worlds to world models.</h1>
-        <p>
-          The site should not treat World Model, metaverse, Vision Pro, blocky
-          avatars, AI video, and digital twins as separate buzzwords. They are
-          stages in one shift: AI is moving from generating content to generating
-          worlds that can be entered, edited, controlled, and simulated.
-        </p>
-      </section>
+      <ShowcaseHero
+        description="Minecraft, AI video, spatial computing, digital twins, physical AI, and world models are easier to understand as one visual chain."
+        eyebrow="Concept map"
+        meta={["Virtual worlds", "AI video", "Spatial computing", "Physical AI"]}
+        primaryCta={{ href: "/what-is-world-model", label: "Start definition" }}
+        secondaryCta={{ href: "/models", label: "See models" }}
+        title="From familiar worlds to AI-generated worlds."
+        visual={pageVisuals["concept-map"]}
+      />
 
       <section className="map-thesis">
         <div>
@@ -64,6 +65,34 @@ export default function ConceptMapPage() {
           simulation. World models connect all of it into one technical future.
         </p>
       </section>
+
+      <SceneExplainer
+        description="The map works best as a consumer story: start from what people already know, then reveal the new layer."
+        steps={[
+          {
+            eyebrow: "Known worlds",
+            title: "Games and metaverse taught the interface.",
+            body: "People already understand avatars, spaces, inventories, maps, and shared places.",
+            image: showcaseImages.civilization,
+            accentColor: "#f6d26e",
+          },
+          {
+            eyebrow: "Generated media",
+            title: "AI video made the world visible.",
+            body: "Synthetic scenes became easy to watch, remix, and share, but still behaved like clips.",
+            image: showcaseImages.videoToWorlds,
+            accentColor: "#ff7fa6",
+          },
+          {
+            eyebrow: "World models",
+            title: "The next layer is enterable and controllable.",
+            body: "The scene starts to remember space, respond to action, and support agents or physical simulation.",
+            image: showcaseImages.spatial3d,
+            accentColor: "#76ffe5",
+          },
+        ]}
+        title="A three-step visual map."
+      />
 
       <section className="map-flow" aria-labelledby="map-flow-title">
         <div className="section-heading horizontal">

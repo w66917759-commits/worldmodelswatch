@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 
+import { MilestoneRail, ShowcaseHero } from "@/components/showcase";
 import { timeline } from "@/lib/content";
+import { pageVisuals } from "@/lib/showcase";
 
 export const metadata: Metadata = {
   title: "World Model Timeline",
@@ -14,31 +15,18 @@ export const metadata: Metadata = {
 
 export default function TimelinePage() {
   return (
-    <main className="page-shell">
-      <section className="page-hero">
-        <p className="eyebrow">Timeline</p>
-        <h1>World model timeline</h1>
-        <p>
-          The timeline tracks the category by official release dates, keeping
-          product launches, API signals, and research announcements in one place.
-        </p>
-      </section>
+    <main className="page-shell showcase-page">
+      <ShowcaseHero
+        description="A cinematic release rail for the moments that move world models closer to ordinary users: product launches, open demos, model drops, and physical-AI platforms."
+        eyebrow="Milestone reel"
+        meta={["Launches", "Open source", "Consumer signals", "Physical AI"]}
+        primaryCta={{ href: "/news", label: "Read updates" }}
+        secondaryCta={{ href: "/models", label: "Model wall" }}
+        title="A timeline for when worlds became visible."
+        visual={pageVisuals.timeline}
+      />
 
-      <section className="dated-timeline">
-        {timeline.map((item) => (
-          <article className="dated-item" key={item.slug}>
-            <time dateTime={item.date}>{item.date}</time>
-            <div>
-              <p className="eyebrow">{item.organization}</p>
-              <h2>{item.title}</h2>
-              <p>{item.summary}</p>
-              <Link className="text-link" href={`/news/${item.slug}`}>
-                Read update
-              </Link>
-            </div>
-          </article>
-        ))}
-      </section>
+      <MilestoneRail items={timeline} />
     </main>
   );
 }

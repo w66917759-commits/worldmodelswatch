@@ -46,6 +46,29 @@ export const modelProfiles: ModelProfile[] = [
     status: "Early Access program",
     summary:
       "HappyOyster is Alibaba's open-ended world model product for real-time immersive world creation, exploration, and directing.",
+    primaryKeyword: "HappyOyster real-time world model",
+    secondaryKeywords: [
+      "HappyOyster interactive creation",
+      "Alibaba open-ended world model",
+      "HappyOyster Wandering mode",
+      "HappyOyster Directing mode",
+    ],
+    officialKeywords: [
+      "HappyOyster",
+      "real-time world model",
+      "interactive creation",
+      "open-ended world model",
+      "Wandering mode",
+      "Directing mode",
+      "text voice image control",
+    ],
+    sourceUrls: [
+      "https://www.alibabacloud.com/blog/alibaba-launches-happyoyster-a-world-model-product-for-real-time-immersive-creation-and-interaction_603048",
+      "https://www.happyoyster.cn/",
+      "https://www.happyoyster.cn/docs",
+    ],
+    categoryBoundary:
+      "HappyOyster should be framed as an early-access interactive creation product, not as an open-source model release or a validated robotics simulator.",
     focus: "Multimodal prompts, real-time scene navigation, first-person and third-person exploration, and continuous directing of long 720p scenes.",
     availability:
       "Early Access through HappyOyster, with Alibaba Cloud Community and Alizila coverage describing the product direction.",
@@ -236,6 +259,28 @@ export const modelProfiles: ModelProfile[] = [
     status: "Research preview with Project Genie prototype rollout",
     summary:
       "Genie 3 is positioned as a frontier world model for generating and navigating interactive environments from prompts.",
+    primaryKeyword: "Genie 3 interactive world model",
+    secondaryKeywords: [
+      "Google DeepMind Genie 3",
+      "Project Genie world model",
+      "promptable world events",
+      "Street View grounded worlds",
+    ],
+    officialKeywords: [
+      "Genie 3",
+      "Project Genie",
+      "real-time interactive world model",
+      "photorealistic worlds",
+      "promptable world events",
+      "Street View grounded worlds",
+    ],
+    sourceUrls: [
+      "https://deepmind.google/models/genie/",
+      "https://deepmind.google/blog/genie-3-a-new-frontier-for-world-models/",
+      "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/project-genie-expands/",
+    ],
+    categoryBoundary:
+      "Genie 3 is an experimental interactive world-model preview, not a generally available developer API or productized 3D asset tool.",
     focus:
       "Real-time playable worlds, promptable environments, Street View-grounded scenes, and agent evaluation.",
     availability:
@@ -266,6 +311,53 @@ export const modelProfiles: ModelProfile[] = [
     ],
   },
   {
+    slug: "oasis",
+    name: "Oasis",
+    organization: "Decart AI + Etched",
+    category: "Realtime open-world AI model",
+    date: "2024-10-31",
+    status: "Public demo with open code and model-weight links",
+    summary:
+      "Oasis is an experiential realtime open-world AI model that generates an interactive video world from keyboard input frame by frame.",
+    primaryKeyword: "Oasis interactive world model",
+    secondaryKeywords: [
+      "Oasis Universe in a Transformer",
+      "Decart Etched realtime world model",
+      "keyboard input world model",
+      "interactive video experience",
+    ],
+    officialKeywords: [
+      "Oasis",
+      "Universe in a Transformer",
+      "experiential realtime open-world AI model",
+      "keyboard input world model",
+      "foundation model",
+      "interactive video experience",
+    ],
+    sourceUrls: ["https://oasis-model.github.io/"],
+    categoryBoundary:
+      "Oasis should be framed as a realtime action-conditioned research demo, not as a production 3D asset workflow or general-purpose world platform.",
+    focus:
+      "Realtime keyboard-conditioned generation, Minecraft-like interaction, AI-generated physics and rules, and low-latency transformer inference.",
+    availability:
+      "Official Oasis project page with a public demo entry, code link, model-weight link, and Decart and Etched source context.",
+    strengths: [
+      "Gives the site a clear example of action-conditioned worlds where player input changes the generated next frame.",
+      "Explains the bridge from video generation to interactive environments better than fixed cinematic demos.",
+      "Open project materials make the demo easier to classify and compare than closed product previews.",
+    ],
+    limits: [
+      "Oasis is an early realtime demo and should not be represented as a polished game engine, creator product, or persistent 3D world exporter.",
+      "Its Minecraft-like interaction is useful for category explanation, but it does not prove broad real-world simulation capability.",
+    ],
+    sources: [
+      {
+        label: "Oasis official project page",
+        url: "https://oasis-model.github.io/",
+      },
+    ],
+  },
+  {
     slug: "marble",
     name: "Marble",
     organization: "World Labs",
@@ -274,6 +366,29 @@ export const modelProfiles: ModelProfile[] = [
     status: "Product launch",
     summary:
       "Marble turns images, text, video, or spatial layouts into persistent 3D worlds that can be edited and explored.",
+    primaryKeyword: "Marble persistent 3D worlds",
+    secondaryKeywords: [
+      "World Labs Marble",
+      "multimodal world models",
+      "text image video to 3D world",
+      "Gaussian splat export",
+      "mesh export",
+    ],
+    officialKeywords: [
+      "Marble",
+      "persistent 3D worlds",
+      "multimodal world models",
+      "text image video to 3D world",
+      "Gaussian splat export",
+      "mesh export",
+      "world creation workflow",
+    ],
+    sourceUrls: [
+      "https://www.worldlabs.ai/blog/marble-world-model",
+      "https://docs.worldlabs.ai/",
+    ],
+    categoryBoundary:
+      "Marble is a generated 3D-world creation product, not a robotics simulator or a many-agent civilization environment.",
     focus: "Spatially consistent 3D worlds for creative and design workflows.",
     availability: "Public product surface with World Labs account access.",
     strengths: [
@@ -290,6 +405,85 @@ export const modelProfiles: ModelProfile[] = [
         label: "World Labs: Introducing Marble, our first world model",
         url: "https://www.worldlabs.ai/blog/marble-world-model",
       },
+      {
+        label: "World Labs Marble documentation",
+        url: "https://docs.worldlabs.ai/",
+      },
+    ],
+  },
+  {
+    slug: "skybox-ai",
+    name: "Skybox AI",
+    organization: "Blockade Labs",
+    category: "360-degree environment generator",
+    date: "2024-02-27",
+    updated: "2026-05-28",
+    status: "Public app, API documentation, and export workflow",
+    summary:
+      "Skybox AI generates panoramic 360-degree environments for skyboxes, HDRI lighting, VR scenes, and game-engine backplates.",
+    primaryKeyword: "Skybox AI 360 environments",
+    secondaryKeywords: [
+      "AI 360 skyboxes",
+      "equirectangular panorama AI image generator",
+      "Skybox AI HDRI exports",
+      "VR AR environments",
+      "Skybox AI Unity Godot Blender Unreal",
+    ],
+    officialKeywords: [
+      "Skybox AI",
+      "360 environments",
+      "360 skyboxes",
+      "equirectangular panorama AI image generator",
+      "HDRI exports",
+      "Unity Godot Blender Unreal",
+      "VR AR environments",
+    ],
+    sourceUrls: [
+      "https://www.blockadelabs.com/",
+      "https://skybox.blockadelabs.com/",
+      "https://api-documentation.blockadelabs.com/api/skybox-exports.html",
+    ],
+    categoryBoundary:
+      "Skybox AI is an environment and skybox generator, not a full realtime interactive world model.",
+    focus:
+      "Text-to-skybox generation, 360-degree panoramas, HDRI and image exports, experimental GLB environment meshes, and engine-oriented environment workflows.",
+    availability:
+      "Public Skybox AI app, Blockade Labs product surface, API documentation, and Unity integration materials.",
+    strengths: [
+      "Gives the site a clear 360-environment lane alongside interactive world simulators and persistent 3D-world generators.",
+      "The landing-page MP4 provides a cleaner 1080p visual source than the older public YouTube Unity demo.",
+      "Export documentation makes the workflow concrete for game engines, 3D software, web-based 3D, and AR/VR applications.",
+    ],
+    limits: [
+      "Skybox AI should not be framed as a full real-time world simulator like Genie, Oasis, HappyOyster, or Marble.",
+      "GLB export is an experimental environment-mesh workflow; Blockade Labs documents limitations around depth accuracy, geometry artifacts, scale consistency, and collision use.",
+      "The older official Unity YouTube demo remains useful as source context, but public unauthenticated checks only exposed a 640x360 downloadable format.",
+    ],
+    sources: [
+      {
+        label: "Blockade Labs Skybox AI product page",
+        url: "https://www.blockadelabs.com/",
+      },
+      {
+        label: "Blockade Labs landing page with Skybox AI video",
+        url: "https://landing-dev.blockadelabs.com/",
+      },
+      {
+        label: "Skybox AI app",
+        url: "https://skybox.blockadelabs.com/",
+      },
+      {
+        label: "Blockade Labs: Skybox AI Unity integration",
+        url: "https://www.blockadelabs.com/post/developers-can-create-3d-environments-worlds-in-seconds-in-unity-through-blockade-labs",
+      },
+      {
+        label: "Skybox exports API documentation",
+        url: "https://api-documentation.blockadelabs.com/api/skybox-exports.html",
+      },
+      {
+        label: "Blockade Labs: Export 3D Models from Skybox AI",
+        url: "https://support.blockadelabs.com/hc/en-us/articles/31649281677074-Export-3D-Models-from-Skybox-AI",
+      },
     ],
   },
   {
@@ -302,6 +496,32 @@ export const modelProfiles: ModelProfile[] = [
     status: "Open-source technical report, partial code, and model weights",
     summary:
       "HY-World 2.0 is Tencent Hunyuan's multimodal 3D world model for reconstructing, generating, and simulating persistent worlds from text, images, multi-view inputs, and video.",
+    primaryKeyword: "HY-World 2.0 multi-modal world model",
+    secondaryKeywords: [
+      "Tencent Hunyuan HY-World 2.0",
+      "3D world generation",
+      "world reconstruction model",
+      "WorldMirror HY-Pano",
+      "Gaussian splats meshes",
+    ],
+    officialKeywords: [
+      "HY-World 2.0",
+      "multi-modal world model",
+      "3D world generation",
+      "world reconstruction",
+      "meshes",
+      "Gaussian splats",
+      "WorldMirror",
+      "HY-Pano",
+      "Unity Unreal Isaac",
+    ],
+    sourceUrls: [
+      "https://github.com/Tencent-Hunyuan/HY-World-2.0",
+      "https://huggingface.co/tencent/HY-World-2.0",
+      "https://arxiv.org/abs/2604.14268",
+    ],
+    categoryBoundary:
+      "HY-World 2.0 belongs in generated and reconstructed 3D worlds; it should not be flattened into generic AI video or a fully open consumer world simulator.",
     focus:
       "Generated 3D worlds, video-to-3D reconstruction, editable meshes and Gaussian splats, and interactive exploration with persistent assets.",
     availability:
@@ -327,6 +547,61 @@ export const modelProfiles: ModelProfile[] = [
       {
         label: "arXiv: HY-World 2.0",
         url: "https://arxiv.org/abs/2604.14268",
+      },
+    ],
+  },
+  {
+    slug: "project-sid",
+    name: "Project Sid",
+    organization: "Altera / Fundamental Research Labs",
+    category: "Many-agent civilization simulation",
+    date: "2024-11-01",
+    status: "Public research report and GitHub project",
+    summary:
+      "Project Sid is a Minecraft-based many-agent simulation studying specialization, law, culture, religion, and social organization in AI civilizations.",
+    primaryKeyword: "Project Sid many-agent simulation",
+    secondaryKeywords: [
+      "Project Sid AI civilization",
+      "PIANO architecture",
+      "agent societies Minecraft simulation",
+      "specialization law culture religion AI agents",
+    ],
+    officialKeywords: [
+      "Project Sid",
+      "many-agent simulations",
+      "AI civilization",
+      "PIANO architecture",
+      "agent societies",
+      "Minecraft simulation",
+      "specialization law culture religion",
+    ],
+    sourceUrls: [
+      "https://fundamentalresearchlabs.com/blog/project-sid",
+      "https://github.com/altera-al/project-sid",
+    ],
+    categoryBoundary:
+      "Project Sid is an agent-society and civilization simulation inside a game world, not a generative visual world model like Genie, Oasis, Marble, or HY-World 2.0.",
+    focus:
+      "Large-scale autonomous agents, social specialization, laws, cultural transmission, religion, and persistent behavior inside Minecraft-like environments.",
+    availability:
+      "Public Fundamental Research Labs article and GitHub repository with the Project Sid technical report path.",
+    strengths: [
+      "Adds the society layer that many world-model demos do not cover: agents can form roles, rules, culture, and long-running social patterns.",
+      "Useful for explaining why persistent worlds eventually need inhabitants, memory, and institutions rather than only prettier generated space.",
+      "Its Minecraft setting makes the simulation legible to readers who understand game worlds but are new to AI civilization research.",
+    ],
+    limits: [
+      "Project Sid should not be described as a generative visual world model or an environment-generation product.",
+      "The important signal is many-agent social behavior, not graphical world generation, 3D reconstruction, or engine-ready asset export.",
+    ],
+    sources: [
+      {
+        label: "Fundamental Research Labs: Project Sid",
+        url: "https://fundamentalresearchlabs.com/blog/project-sid",
+      },
+      {
+        label: "Project Sid GitHub repository",
+        url: "https://github.com/altera-al/project-sid",
       },
     ],
   },
@@ -440,15 +715,15 @@ export const modelProfiles: ModelProfile[] = [
     organization: "NVIDIA",
     category: "World foundation model platform",
     date: "2025-01-06",
-    updated: "2026-05-23",
+    updated: "2026-05-27",
     status:
-      "Platform launch with Cosmos 3 preview, physical-AI data-factory blueprint, and active public GitHub stack",
+      "Platform launch with Cosmos 3 preview, physical-AI data-factory blueprint, and a late-May-active public GitHub stack",
     summary:
-      "NVIDIA Cosmos is a world foundation model platform for physical AI, with the March 2026 GTC update adding Cosmos 3 as a unifying layer for synthetic world generation, reasoning, and action simulation and the public repo surface expanding through May 2026.",
+      "NVIDIA Cosmos is a world foundation model platform for physical AI, with the March 2026 GTC update adding Cosmos 3 as a unifying layer for synthetic world generation, reasoning, and action simulation and the public repo surface staying active through late May 2026.",
     focus:
       "Synthetic data, physical AI simulation, robotics, autonomous vehicle workflows, and world-model-assisted reasoning for embodied systems.",
     availability:
-      "NVIDIA platform and developer ecosystem with public GitHub repos for Predict, Transfer, Reason, Curate, Evaluator, RL, and Cookbook workflows; Cosmos 3 was announced as coming soon, while availability still varies by component.",
+      "NVIDIA platform and developer ecosystem with public GitHub repos for Predict, Transfer, Reason, Curate, Evaluator, RL, and Cookbook workflows; the repo organization remained active on May 27, 2026, while Cosmos 3 itself was still described in preview-style language and availability varies by component.",
     strengths: [
       "Strong anchor for the physical AI and robotics side of world models.",
       "Useful for separating interactive creative worlds from simulation infrastructure.",

@@ -32,7 +32,7 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
   const authConfig = getAuthConfig();
 
   return (
-    <main className="page-shell compact-page auth-page">
+    <main className="page-shell compact-page auth-page showcase-page utility-page">
       <section className="page-hero">
         <p className="eyebrow">Admin access</p>
         <h1>Login</h1>

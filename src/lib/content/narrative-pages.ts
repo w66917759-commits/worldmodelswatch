@@ -26,9 +26,9 @@ export const narrativePages: NarrativePage[] = [
   {
     slug: "spatial-intelligence",
     eyebrow: "Spatial intelligence",
-    title: "World models are the move from media generation to spatial reasoning.",
+    title: "AI media is turning into space you can move through.",
     description:
-      "This page explains why generated worlds matter beyond beautiful clips: they turn vision, geometry, action, memory, and simulation into one product category.",
+      "A quick visual route from beautiful generated clips to places with camera motion, memory, interaction, and physical logic.",
     primaryCta: {
       href: "/what-is-world-model",
       label: "Read the definition",
@@ -40,10 +40,10 @@ export const narrativePages: NarrativePage[] = [
     sections: [
       {
         eyebrow: "Category shift",
-        title: "The important change is not higher-resolution video. It is a model that understands place.",
+        title: "The leap is not sharper video. It is a scene that remembers where things are.",
         body: [
-          "A video model can render a scene. A world model has to preserve where things are, how a camera moves, what actions change, and what can be revisited later.",
-          "That makes spatial intelligence a deeper layer than media generation. It is the ability to connect perception, imagination, motion, and consequence inside a coherent environment.",
+          "A clip can look amazing and still be over when the camera stops. A world model has to keep the place coherent when the viewer moves, acts, or returns.",
+          "Spatial intelligence is the layer that connects perception, imagination, motion, and consequence inside one environment.",
         ],
         links: [
           {
@@ -55,10 +55,10 @@ export const narrativePages: NarrativePage[] = [
       },
       {
         eyebrow: "Why now",
-        title: "The market is no longer just publishing demos. It is exposing interfaces.",
+        title: "The demos are becoming interfaces.",
         body: [
-          "Marble makes generated 3D spaces feel like a product surface. Genie and Oasis push toward interactive worlds. HY-World 2.0 and LingBot-Map show reconstruction and persistent assets. Project Sid shows why agents and society matter once worlds persist.",
-          "World Models Watch should therefore behave like a layered reference site: an immersive front door, then separate pages for definitions, labs, research, comparisons, and model dossiers.",
+          "Marble makes generated 3D spaces feel like a product surface. Genie and Oasis push toward interactive worlds. HY-World 2.0 and LingBot-Map show reconstruction and persistent assets.",
+          "Project Sid adds another layer: once a world persists, agents can live inside it, organize it, and make the scene feel social.",
         ],
         links: [
           {
@@ -70,9 +70,9 @@ export const narrativePages: NarrativePage[] = [
       },
       {
         eyebrow: "Reader path",
-        title: "The homepage should invite exploration, not carry the entire argument.",
+        title: "Start with the feeling, then open the evidence.",
         body: [
-          "The video gallery gives visitors the feeling of entering generated worlds. This page carries the thesis. The definition, concept map, timeline, and labs pages then let readers go deeper without making the first screen feel crowded.",
+          "The fastest way in is visual: watch a generated place, understand what changed, then choose whether to open models, comparisons, or the timeline.",
         ],
       },
     ],
@@ -147,9 +147,9 @@ export const narrativePages: NarrativePage[] = [
   {
     slug: "world-model-labs",
     eyebrow: "Video labs",
-    title: "A gallery of world-model demos, grouped as labs instead of homepage clutter.",
+    title: "A cinematic video hall for seven world-model demos.",
     description:
-      "The local demo-video archive becomes a dedicated page for scanning the major world-model experiences without forcing every clip onto the homepage narrative.",
+      "Watch the category through local demo footage: open worlds, playable scenes, 360 environments, generated 3D spaces, and agent societies.",
     primaryCta: {
       href: "/models",
       label: "Open model dossiers",
@@ -170,27 +170,27 @@ export const narrativePages: NarrativePage[] = [
     sections: [
       {
         eyebrow: "Gallery role",
-        title: "The homepage shows the portal. This page holds the full demo set.",
+        title: "Each clip is a different doorway into generated worlds.",
         body: [
-          "The seven local demo videos give the site a strong visual surface: HappyOyster, Genie, Oasis, Skybox AI, World Labs Marble, HY-World 2.0, and Project Sid.",
-          "Keeping them here creates a deeper site hierarchy. Visitors can enter from the homepage, then spend time comparing demos without pushing all explanation into the first page.",
+          "HappyOyster, Genie, Oasis, Skybox AI, World Labs Marble, HY-World 2.0, and Project Sid show different versions of the same shift: AI output becoming a place.",
+          "The page is built for scanning first. Watch the motion, feel the lane, then jump into the model page or the official demo.",
         ],
       },
       {
         eyebrow: "Editorial boundary",
-        title: "Each lab card keeps the distinction between internal context and official demo sources.",
+        title: "Every lab keeps two exits: context here, official source there.",
         body: [
-          "The primary action stays inside World Models Watch so readers can understand the category. The official demo link remains available as a secondary action for source checking and hands-on exploration.",
+          "The model entrance explains why the demo matters. The official entrance keeps the original source one click away.",
         ],
       },
     ],
   },
   {
     slug: "research-insights",
-    eyebrow: "Research and insights",
-    title: "The evidence layer for world models, spatial AI, and physical AI.",
+    eyebrow: "Signal room",
+    title: "A lighter control room for the strongest world-model signals.",
     description:
-      "A research hub that connects source-backed news, model dossiers, comparison tables, future directions, and dated timelines.",
+      "A visual hub that turns source-backed releases into quick cards, clear paths, and practical next clicks.",
     primaryCta: {
       href: "/news",
       label: "Read official updates",
@@ -201,11 +201,11 @@ export const narrativePages: NarrativePage[] = [
     },
     sections: [
       {
-        eyebrow: "Source-backed updates",
-        title: "News belongs in a dedicated research route, not buried under the video gallery.",
+        eyebrow: "Release radar",
+        title: "Follow the launches without reading like a paper tracker.",
         body: [
-          "World Models Watch should separate visual discovery from evidence collection. The homepage can feel cinematic while research pages stay structured, citeable, and useful for repeat readers.",
-          "The news index remains the place for official announcements, research posts, API launches, and platform updates.",
+          "The news index turns announcements, API surfaces, product previews, and reported consumer signals into quick visual update cards.",
+          "The source links remain available, but the first impression is the product motion: what became visible, usable, open, or closer to ordinary users.",
         ],
         links: [
           {
@@ -221,11 +221,11 @@ export const narrativePages: NarrativePage[] = [
         ],
       },
       {
-        eyebrow: "Comparison layer",
-        title: "Comparison pages make the site citeable.",
+        eyebrow: "Matchup layer",
+        title: "Comparisons work better as visual choices before detailed tables.",
         body: [
-          "The category is broad enough that readers need tables, not just prose. Marble, Genie, GWM-1, Cosmos, LingBot, and HY-World belong in different lanes even when they share the world-model label.",
-          "Keeping comparison pages as first-class routes also gives search engines and backlink targets a clearer structure.",
+          "Marble, Genie, GWM-1, Cosmos, LingBot, and HY-World belong in different lanes even when they share the world-model label.",
+          "The comparison pages now start with the reader decision and keep tables below for source-backed details.",
         ],
         links: [
           {
@@ -241,10 +241,10 @@ export const narrativePages: NarrativePage[] = [
         ],
       },
       {
-        eyebrow: "Model layer",
-        title: "Dossiers are the normalized record.",
+        eyebrow: "Model wall",
+        title: "Dossiers become showcase pages with sources at the bottom.",
         body: [
-          "Each model page keeps organization, status, availability, strengths, limits, and official sources in the same shape. That makes the site feel more like an intelligence product than a blog stream.",
+          "Each model page opens with a visual anchor, then keeps organization, status, availability, strengths, limits, and official sources in a consistent shape.",
         ],
         links: [
           {

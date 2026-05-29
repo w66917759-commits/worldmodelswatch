@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { JsonLd } from "@/components/json-ld";
+import { SceneExplainer, ShowcaseHero } from "@/components/showcase";
 import { SourceList } from "@/components/source-list";
 import { comparisons, modelProfiles } from "@/lib/content";
+import { pageVisuals, showcaseImages } from "@/lib/showcase";
 import { absoluteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -36,7 +38,7 @@ export default function WhatIsWorldModelPage() {
   );
 
   return (
-    <main className="page-shell">
+    <main className="page-shell showcase-page">
       <JsonLd
         data={{
           "@context": "https://schema.org",
@@ -49,16 +51,43 @@ export default function WhatIsWorldModelPage() {
         }}
       />
 
-      <section className="page-hero">
-        <p className="eyebrow">Definition guide</p>
-        <h1>What is a world model?</h1>
-        <p>
-          A world model is an AI system that learns how an environment changes
-          over time and in response to actions. Instead of only producing static
-          media, it tries to represent space, objects, motion, causality, and
-          interaction.
-        </p>
-      </section>
+      <ShowcaseHero
+        description="A world model is the shift from making a clip to imagining a place that can keep changing when someone moves, acts, or returns."
+        eyebrow="Visual definition"
+        meta={["Space", "Motion", "Actions", "Memory"]}
+        primaryCta={{ href: "/concept-map", label: "Open map" }}
+        secondaryCta={{ href: "/models", label: "See examples" }}
+        title="From a video you watch to a world you can enter."
+        visual={pageVisuals.definition}
+      />
+
+      <SceneExplainer
+        description="Use this as the visitor-friendly mental model before the detailed comparison table."
+        steps={[
+          {
+            eyebrow: "Watch",
+            title: "A video model makes a scene move.",
+            body: "The output can look cinematic, but the viewer usually stays outside the frame.",
+            image: showcaseImages.videoToWorlds,
+            accentColor: "#f8d66d",
+          },
+          {
+            eyebrow: "Enter",
+            title: "A world model keeps track of a place.",
+            body: "The camera can move, objects can persist, and the scene should still make sense.",
+            image: showcaseImages.spatial3d,
+            accentColor: "#76ffe5",
+          },
+          {
+            eyebrow: "Act",
+            title: "Interaction turns the place into a system.",
+            body: "Movement, prompts, agents, and physical constraints become part of the generated future.",
+            image: showcaseImages.civilization,
+            accentColor: "#ff7fa6",
+          },
+        ]}
+        title="The simplest path: watch, enter, act."
+      />
 
       <section className="article-grid">
         <article className="article-body">

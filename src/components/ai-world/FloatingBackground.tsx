@@ -74,10 +74,10 @@ export function FloatingBackground({
           <motion.div
             key={activeWorld.id}
             className="world-bg-video-layer"
-            initial={{ opacity: 0, scale: 1.035, filter: "blur(14px)" }}
+            initial={{ opacity: 0.72, scale: 1.012, filter: "blur(2px)" }}
             animate={{ opacity: 0.9, scale: 1, filter: "blur(0px)" }}
             exit={{ opacity: 0, scale: 1.045, filter: "blur(18px)" }}
-            transition={{ duration: 1.15, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.42, ease: [0.16, 1, 0.3, 1] }}
           >
             <video
               className="world-bg-video"

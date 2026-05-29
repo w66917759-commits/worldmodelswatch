@@ -1,8 +1,11 @@
 export type {
   Source,
+  ShowcaseVisual,
+  SeoFields,
   ModelProfile,
   NewsItem,
   Comparison,
+  ComparisonFaq,
   Concept,
   ModelJumpLink,
   ConceptMapNode,
@@ -25,3 +28,4 @@ export { conceptMapClusters, conceptBridges } from "./concept-map";
 export { modelJumpLinks } from "./model-jump-links";
 export { futureDirections } from "./future-directions";
 export { narrativePages, getNarrativePage } from "./narrative-pages";
+export { faqItems, featuredFaqItems, type FaqItem } from "./faq";

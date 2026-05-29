@@ -19,7 +19,7 @@ export function WorldInfoPanel({ world }: WorldInfoPanelProps) {
           <motion.aside
             className="world-info-panel"
             key={world.id}
-            initial={{ opacity: 0, y: 24, scale: 0.98 }}
+            initial={false}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 18, scale: 0.98 }}
             transition={{ duration: 0.28, ease: [0.22, 0.61, 0.36, 1] }}
@@ -46,7 +46,6 @@ export function WorldInfoPanel({ world }: WorldInfoPanelProps) {
               <span>Edit</span>
               <span>Inhabit</span>
             </div>
-            <p className="panel-summary">{world.feeling}</p>
             <div className="panel-action-row">
               <Link className="panel-action" href={world.detailHref}>
                 <BookOpen size={16} aria-hidden="true" />

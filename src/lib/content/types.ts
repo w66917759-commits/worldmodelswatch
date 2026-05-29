@@ -3,6 +3,26 @@ export type Source = {
   url: string;
 };
 
+export type ShowcaseVisual = {
+  visualTitle?: string;
+  visualSubtitle?: string;
+  heroImage?: string;
+  heroVideo?: string;
+  posterImage?: string;
+  accentColor?: string;
+  secondaryAccentColor?: string;
+  consumerHook?: string;
+  primarySceneLabel?: string;
+};
+
+export type SeoFields = {
+  primaryKeyword?: string;
+  secondaryKeywords?: string[];
+  officialKeywords?: string[];
+  sourceUrls?: string[];
+  categoryBoundary?: string;
+};
+
 export type ModelProfile = {
   slug: string;
   name: string;
@@ -17,7 +37,12 @@ export type ModelProfile = {
   strengths: string[];
   limits: string[];
   sources: Source[];
-};
+  bestFor?: string[];
+  notFor?: string[];
+  evidenceLevel?: string;
+  relatedNewsSlugs?: string[];
+} & SeoFields &
+  ShowcaseVisual;
 
 export type NewsItem = {
   slug: string;
@@ -29,6 +54,16 @@ export type NewsItem = {
   whyItMatters: string;
   tags: string[];
   sources: Source[];
+  whatChanged?: string[];
+  sourceConfidence?: string;
+  availabilityNote?: string;
+  overclaimWarning?: string;
+  relatedModelSlugs?: string[];
+} & ShowcaseVisual;
+
+export type ComparisonFaq = {
+  question: string;
+  answer: string;
 };
 
 export type Comparison = {
@@ -40,7 +75,11 @@ export type Comparison = {
   rows: string[][];
   takeaways: string[];
   sources: Source[];
-};
+  faq?: ComparisonFaq[];
+  relatedModelSlugs?: string[];
+  decisionGuide?: string[];
+} & SeoFields &
+  ShowcaseVisual;
 
 export type Concept = {
   slug: string;
@@ -48,7 +87,7 @@ export type Concept = {
   summary: string;
   plainEnglish: string;
   related: string[];
-};
+} & ShowcaseVisual;
 
 export type ModelJumpLink = {
   name: string;

@@ -23,7 +23,7 @@ export default async function AccountPage() {
   }
 
   return (
-    <main className="page-shell compact-page">
+    <main className="page-shell compact-page showcase-page utility-page">
       <section className="page-hero">
         <p className="eyebrow">Protected area</p>
         <h1>Account</h1>

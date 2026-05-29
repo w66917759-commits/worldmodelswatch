@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">World model comparison arena</title>
+  <desc id="desc">Two cinematic model systems compared in a luminous arena.</desc>
+  <rect width="1600" height="1000" fill="#080b13"/>
+  <g opacity="0.62" stroke="#dffcff">
+    <path d="M160 810 H1440 M260 720 H1340 M380 630 H1220 M500 540 H1100"/>
+    <path d="M250 860 L710 360 M1350 860 L890 360"/>
+  </g>
+  <g transform="translate(180 180)">
+    <rect width="500" height="470" rx="34" fill="#101d29" stroke="#74f4ff" stroke-width="5"/>
+    <path d="M70 360 C170 250 265 310 370 150" fill="none" stroke="#74f4ff" stroke-width="18" stroke-linecap="round"/>
+    <circle cx="170" cy="250" r="32" fill="#74f4ff"/>
+    <rect x="70" y="72" width="210" height="18" rx="9" fill="#e8ffff"/>
+    <rect x="70" y="112" width="150" height="12" rx="6" fill="#e8ffff" opacity="0.5"/>
+  </g>
+  <g transform="translate(920 180)">
+    <rect width="500" height="470" rx="34" fill="#241423" stroke="#ff82b1" stroke-width="5"/>
+    <path d="M70 330 C160 180 280 235 420 120" fill="none" stroke="#ff82b1" stroke-width="18" stroke-linecap="round"/>
+    <circle cx="280" cy="235" r="32" fill="#ff82b1"/>
+    <rect x="70" y="72" width="210" height="18" rx="9" fill="#ffeaf2"/>
+    <rect x="70" y="112" width="150" height="12" rx="6" fill="#ffeaf2" opacity="0.5"/>
+  </g>
+  <g fill="#ffd66f">
+    <path d="M735 392 H865 V428 H735 Z"/>
+    <path d="M824 350 L900 410 L824 470 Z"/>
+    <path d="M776 350 L700 410 L776 470 Z"/>
+  </g>
+</svg>

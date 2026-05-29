@@ -1,25 +1,29 @@
 import Link from "next/link";
-import type { CSSProperties } from "react";
-import { ArrowRight, ExternalLink, Play } from "lucide-react";
+import type { ReactNode } from "react";
+import { ArrowRight } from "lucide-react";
 
 import { JsonLd } from "@/components/json-ld";
+import { SceneExplainer, ShowcaseHero, VideoReel } from "@/components/showcase";
 import type { NarrativePage } from "@/lib/content";
+import { pageVisuals } from "@/lib/showcase";
 import { absoluteUrl } from "@/lib/site";
 import { worldsData } from "@/components/ai-world/worldsData";
 
 type NarrativePageViewProps = {
+  children?: ReactNode;
   page: NarrativePage;
 };
 
-export function NarrativePageView({ page }: NarrativePageViewProps) {
+export function NarrativePageView({ children, page }: NarrativePageViewProps) {
   const mediaWorlds =
     page.mediaWorldIds
       ?.map((id) => worldsData.find((world) => world.id === id))
       .filter((world): world is (typeof worldsData)[number] => Boolean(world)) ??
     [];
+  const visual = pageVisuals[page.slug as keyof typeof pageVisuals] ?? pageVisuals.definition;
 
   return (
-    <main className="page-shell narrative-page">
+    <main className="page-shell showcase-page narrative-page">
       <JsonLd
         data={{
           "@context": "https://schema.org",
@@ -34,22 +38,30 @@ export function NarrativePageView({ page }: NarrativePageViewProps) {
         }}
       />
 
-      <section className="page-hero narrative-hero">
-        <p className="eyebrow">{page.eyebrow}</p>
-        <h1>{page.title}</h1>
-        <p>{page.description}</p>
-        <div className="narrative-cta-row">
-          <Link className="button primary" href={page.primaryCta.href}>
-            {page.primaryCta.label}
-            <ArrowRight size={16} aria-hidden="true" />
-          </Link>
-          <Link className="button secondary" href={page.secondaryCta.href}>
-            {page.secondaryCta.label}
-          </Link>
-        </div>
-      </section>
+      <ShowcaseHero
+        description={page.description}
+        eyebrow={page.eyebrow}
+        meta={[visual.primarySceneLabel ?? "Showcase", "Short explanation", "Next step"]}
+        primaryCta={page.primaryCta}
+        secondaryCta={page.secondaryCta}
+        title={page.title}
+        visual={visual}
+      />
 
-      <section className="narrative-section-stack">
+      <SceneExplainer
+        description="Each page reads as a visual path first, then keeps the source-backed links nearby."
+        steps={page.sections.map((section, index) => ({
+          accentColor: index % 2 === 0 ? visual.accentColor : visual.secondaryAccentColor,
+          body: section.body[0],
+          cta: section.links?.[0]?.label,
+          eyebrow: section.eyebrow,
+          href: section.links?.[0]?.href,
+          title: section.title,
+        }))}
+        title="Read the page as scenes."
+      />
+
+      <section className="narrative-section-stack source-backed-section">
         {page.sections.map((section) => (
           <article className="narrative-section" key={section.title}>
             <div>
@@ -77,60 +89,14 @@ export function NarrativePageView({ page }: NarrativePageViewProps) {
       </section>
 
       {mediaWorlds.length > 0 ? (
-        <section className="narrative-media-section" aria-labelledby="labs-gallery-title">
-          <div className="section-heading horizontal">
-            <div>
-              <p className="eyebrow">Demo gallery</p>
-              <h2 id="labs-gallery-title">Seven local world-model video demos.</h2>
-            </div>
-            <Link className="text-link" href="/models">
-              Model dossiers
-            </Link>
-          </div>
-
-          <div className="narrative-media-grid">
-            {mediaWorlds.map((world) => (
-              <article
-                className="narrative-media-card"
-                id={world.id}
-                key={world.id}
-                style={
-                  {
-                    "--media-accent": world.accent,
-                    "--media-secondary": world.secondaryAccent,
-                  } as CSSProperties
-                }
-              >
-                <video autoPlay muted loop playsInline preload="metadata">
-                  <source src={world.videoSrc} type={world.videoType} />
-                </video>
-                <div>
-                  <span>
-                    <Play size={13} aria-hidden="true" />
-                    {world.developer}
-                  </span>
-                  <h3>{world.name}</h3>
-                  <p>{world.summary}</p>
-                  <div className="narrative-media-actions">
-                    <Link href={world.detailHref}>
-                      Site context
-                      <ArrowRight size={14} aria-hidden="true" />
-                    </Link>
-                    <a
-                      href={world.sourceHref ?? world.demoUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      Official demo
-                      <ExternalLink size={13} aria-hidden="true" />
-                    </a>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
+        <VideoReel
+          description="Seven local MP4 demos become the main attraction here, with a model entrance and an official entrance on every card."
+          title="A video hall for world-model demos."
+          worlds={mediaWorlds}
+        />
       ) : null}
+
+      {children}
     </main>
   );
 }
