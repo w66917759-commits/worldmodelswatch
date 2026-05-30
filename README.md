@@ -1,5 +1,9 @@
 # World Models Watch
 
+[![Website](https://img.shields.io/badge/website-worldmodelswatch.com-0f766e)](https://worldmodelswatch.com/)
+[![Sitemap](https://img.shields.io/badge/sitemap-71%20public%20URLs-2563eb)](https://worldmodelswatch.com/sitemap.xml)
+[![Robots](https://img.shields.io/badge/robots-public%20crawl%20allowed-4b5563)](https://worldmodelswatch.com/robots.txt)
+
 World Models Watch is a source-backed public guide to AI world models,
 interactive generated worlds, spatial AI, physical AI, and model release
 signals.
@@ -12,10 +16,32 @@ researchers to inspect:
 - Robots policy: https://worldmodelswatch.com/robots.txt
 - GitHub: https://github.com/w66917759-commits/worldmodelswatch
 - Primary domain: `worldmodelswatch.com`
+- Recommended GitHub description: `Source-backed guide to AI world models, generated worlds, spatial AI, and model release signals`
+- Recommended GitHub topics: `world-models`, `ai-world-models`, `spatial-ai`, `generated-worlds`, `physical-ai`, `ai-research`, `nextjs`
 
 Every indexable public page should have one clear search intent, one canonical
 URL, source-backed claims, and a sitemap entry. The protected editor and API
 surfaces are intentionally not content surfaces.
+
+## Repository Search Index
+
+These Markdown index pages are written for GitHub readers, Google, and
+downstream researchers. They use stable public URLs and descriptive anchor text
+instead of only relative source paths.
+
+| Repository page | Best search intent | Public site target |
+| --- | --- | --- |
+| [World model source ledger](docs/world-model-sources.md) | Official sources for AI world models, generated worlds, spatial AI, and physical AI | https://worldmodelswatch.com/research-insights |
+| [AI world model dossiers](docs/model-dossiers.md) | Company and model profiles for world model tools, demos, open-source stacks, and research previews | https://worldmodelswatch.com/models |
+| [World model release signals](docs/release-signals.md) | Dated AI world model news, release signals, source confidence, and availability notes | https://worldmodelswatch.com/news |
+| [World model comparison guides](docs/comparison-guides.md) | Decision guides comparing world model products, research systems, APIs, and concept boundaries | https://worldmodelswatch.com/compare |
+| [AI world model search landing pages](docs/search-landing-pages.md) | Long-tail search pages for AI skyboxes, text-to-3D worlds, game assets, and environment creator workflows | https://worldmodelswatch.com/ai-360-skybox-generator |
+| [Repository visibility checklist](docs/repository-visibility.md) | GitHub About, topics, social preview, releases, and search visibility setup | https://worldmodelswatch.com/ |
+| [Public release notes](docs/release-notes.md) | Public repository milestones for citation and crawling | https://worldmodelswatch.com/updates |
+
+Canonical website pages remain the primary citation targets. The repository
+index pages are companion entry points that make the public data easier to
+discover from GitHub search and Google results.
 
 ## Fast Content Access
 
@@ -26,25 +52,25 @@ Start here if you are crawling, citing, or reusing the public content.
 | Homepage | `https://worldmodelswatch.com/` | Visual front door for AI world models and generated-world demos |
 | Sitemap | `https://worldmodelswatch.com/sitemap.xml` | Full indexable URL inventory generated from static routes, model pages, news pages, and comparison pages |
 | Robots | `https://worldmodelswatch.com/robots.txt` | Crawl policy; public pages are allowed, `/account` and `/api/` are disallowed |
-| Company map | `/models` | Company-first map of usable tools, demos, research previews, and open stacks |
-| Model dossiers | `/models/[slug]` | Source-backed model profiles with availability, strengths, limits, and citations |
-| Decision guides | `/compare` and `/compare/[slug]` | Comparison tables for creator, developer, research, robotics, and beginner decisions |
-| Release signals | `/news` and `/news/[slug]` | Dated source-backed updates with source confidence, availability notes, and overclaim warnings |
-| Current progress | `/progress` | Current AI world model progress across products, demos, open stacks, and physical AI |
-| Selected updates | `/updates` | Short list of release signals that change the category map |
-| Events | `/events` | Dated evidence rail for launches, releases, open-source drops, and milestones |
-| Timeline | `/timeline` | Chronological view of world model milestones |
-| Definition | `/what-is-world-model` | Beginner-friendly definition and boundary with video models |
-| Concepts | `/concepts` and `/concept-map` | Glossary and concept map for spatial intelligence, generated worlds, physical AI, and adjacent terms |
-| FAQ | `/faq` | Site policy, source policy, comments, likes, and category questions |
+| Company map | `https://worldmodelswatch.com/models` | Company-first map of usable tools, demos, research previews, and open stacks |
+| Model dossiers | `https://worldmodelswatch.com/models/[slug]` | Source-backed model profiles with availability, strengths, limits, and citations |
+| Decision guides | `https://worldmodelswatch.com/compare` and `https://worldmodelswatch.com/compare/[slug]` | Comparison tables for creator, developer, research, robotics, and beginner decisions |
+| Release signals | `https://worldmodelswatch.com/news` and `https://worldmodelswatch.com/news/[slug]` | Dated source-backed updates with source confidence, availability notes, and overclaim warnings |
+| Current progress | `https://worldmodelswatch.com/progress` | Current AI world model progress across products, demos, open stacks, and physical AI |
+| Selected updates | `https://worldmodelswatch.com/updates` | Short list of release signals that change the category map |
+| Events | `https://worldmodelswatch.com/events` | Dated evidence rail for launches, releases, open-source drops, and milestones |
+| Timeline | `https://worldmodelswatch.com/timeline` | Chronological view of world model milestones |
+| Definition | `https://worldmodelswatch.com/what-is-world-model` | Beginner-friendly definition and boundary with video models |
+| Concepts | `https://worldmodelswatch.com/concepts` and `https://worldmodelswatch.com/concept-map` | Glossary and concept map for spatial intelligence, generated worlds, physical AI, and adjacent terms |
+| FAQ | `https://worldmodelswatch.com/faq` | Site policy, source policy, comments, likes, and category questions |
 
 Current public inventory:
 
-- 20 indexable static routes from `src/lib/seo/page-targets.ts`
+- 24 indexable static routes from `src/lib/seo/page-targets.ts`
 - 16 model dossier routes from `src/lib/content/models.ts`
 - 18 news and release-signal routes from `src/lib/content/news.ts`
 - 13 comparison guide routes from `src/lib/content/comparisons.ts`
-- 67 indexable public routes in the sitemap, plus 3 noindex/private route
+- 71 indexable public routes in the sitemap, plus 3 noindex/private route
   entries checked by `npm run seo:keywords`
 
 ## How To Crawl This Site
@@ -352,5 +378,5 @@ supabase/migrations/     Database schema migrations for comments and likes
 - Preserve official source links when reusing facts from model, news, or
   comparison pages.
 - Do not remove availability notes or overclaim warnings from copied summaries.
-- This repository does not currently include a separate license file, so check
-  permissions before republishing large portions of site copy or bundled media.
+- Read [NOTICE.md](NOTICE.md) before reusing code, text, generated images,
+  bundled videos, research notes, or third-party source excerpts.
