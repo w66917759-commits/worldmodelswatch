@@ -4,6 +4,7 @@ import type { CSSProperties } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowUpRight, ExternalLink } from "lucide-react";
 
+import { WorldMedia } from "@/components/world-media";
 import { getWorldPrimaryAction, worldsData } from "./worldsData";
 
 export function WorldExplorer() {
@@ -38,9 +39,7 @@ export function WorldExplorer() {
             viewport={{ once: true, amount: 0.25 }}
             transition={{ delay: index * 0.06, duration: 0.45 }}
           >
-            <video autoPlay muted loop playsInline preload="metadata">
-              <source src={world.videoSrc} type={world.videoType} />
-            </video>
+            <WorldMedia posterSrc={world.posterSrc} videoSrc={world.videoSrc} videoType={world.videoType} />
             <span className="explorer-depth">{world.depth}</span>
             <div className="explorer-card-copy">
               <p>{world.type}</p>

@@ -98,36 +98,62 @@ export function HeroWordSquares() {
       <div className="hero-squares-visual">
         <div className="hero-carousel-stage" aria-hidden="true">
           <AnimatePresence mode="wait">
-            <motion.video
-              className="hero-carousel-video"
-              key={`${activeWorld.id}-${activeVideoSrc}`}
-              autoPlay
-              muted
-              loop
-              playsInline
-              poster={activePosterSrc}
-              preload="auto"
-              initial={
-                reduceMotion
-                  ? { opacity: 1 }
-                  : { opacity: 0, scale: 1.018 }
-              }
-              animate={
-                reduceMotion
-                  ? { opacity: 1 }
-                  : { opacity: 1, scale: 1 }
-              }
-              exit={
-                reduceMotion
-                  ? { opacity: 0 }
-                  : { opacity: 0, scale: 1.012 }
-              }
-              transition={{ duration: reduceMotion ? 0 : 0.7, ease: [0.2, 0.75, 0.2, 1] }}
-            >
-              {activeVideoSrc && activeVideoType ? (
+            {activeVideoSrc && activeVideoType ? (
+              <motion.video
+                aria-hidden="true"
+                autoPlay
+                className="hero-carousel-video"
+                key={`${activeWorld.id}-${activeVideoSrc}`}
+                loop
+                muted
+                playsInline
+                poster={activePosterSrc}
+                preload="metadata"
+                initial={
+                  reduceMotion
+                    ? { opacity: 1 }
+                    : { opacity: 0, scale: 1.018 }
+                }
+                animate={
+                  reduceMotion
+                    ? { opacity: 1 }
+                    : { opacity: 1, scale: 1 }
+                }
+                exit={
+                  reduceMotion
+                    ? { opacity: 0 }
+                    : { opacity: 0, scale: 1.012 }
+                }
+                transition={{ duration: reduceMotion ? 0 : 0.7, ease: [0.2, 0.75, 0.2, 1] }}
+              >
                 <source src={activeVideoSrc} type={activeVideoType} />
-              ) : null}
-            </motion.video>
+              </motion.video>
+            ) : activePosterSrc ? (
+              <motion.img
+                alt=""
+                aria-hidden="true"
+                className="hero-carousel-video"
+                decoding="async"
+                key={`${activeWorld.id}-${activePosterSrc}`}
+                src={activePosterSrc}
+                initial={
+                  reduceMotion
+                    ? { opacity: 1 }
+                    : { opacity: 0, scale: 1.018 }
+                }
+                animate={
+                  reduceMotion
+                    ? { opacity: 1 }
+                    : { opacity: 1, scale: 1 }
+                }
+                exit={
+                  reduceMotion
+                    ? { opacity: 0 }
+                    : { opacity: 0, scale: 1.012 }
+                }
+                transition={{ duration: reduceMotion ? 0 : 0.7, ease: [0.2, 0.75, 0.2, 1] }}
+              />
+            ) : null}
           </AnimatePresence>
         </div>
         <div className="hero-carousel-vignette" aria-hidden="true" />

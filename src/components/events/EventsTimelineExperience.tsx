@@ -6,6 +6,7 @@ import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, BookOpen, Layers3 } from "lucide-react";
 
+import { WorldMedia } from "@/components/world-media";
 import { getWorldById, type WorldProject } from "@/data/worldsData";
 import {
   getResolvedWorldEvolutionStages,
@@ -118,20 +119,19 @@ export function EventsTimelineExperience() {
         <aside className="events-timeline-focus" aria-live="polite">
           <div className="events-video-frame">
             {activeStage.world ? (
-              <motion.video
+              <motion.div
+                className="events-video-media-layer"
                 key={activeStage.id}
-                autoPlay
-                loop
-                muted
-                playsInline
-                poster={activeStage.world.posterSrc}
-                preload="metadata"
                 initial={reduceMotion ? { opacity: 1 } : { opacity: 0, scale: 1.025 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: reduceMotion ? 0 : 0.42, ease: [0.2, 0.75, 0.2, 1] }}
               >
-                <source src={activeStage.world.videoSrc} type={activeStage.world.videoType} />
-              </motion.video>
+                <WorldMedia
+                  posterSrc={activeStage.world.posterSrc}
+                  videoSrc={activeStage.world.videoSrc}
+                  videoType={activeStage.world.videoType}
+                />
+              </motion.div>
             ) : null}
             <div className="events-video-caption">
               <span>{activeStage.number}</span>

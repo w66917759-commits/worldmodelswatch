@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { CSSProperties } from "react";
 import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 
+import { WorldMedia } from "@/components/world-media";
 import { getWorldById, getWorldPrimaryAction } from "@/data/worldsData";
 import { textureImages } from "@/lib/showcase";
 
@@ -63,9 +64,7 @@ export function CreateWorlds() {
                 } as CSSProperties
               }
             >
-              <video autoPlay muted loop playsInline poster={world.posterSrc} preload="metadata">
-                <source src={world.videoSrc} type={world.videoType} />
-              </video>
+              <WorldMedia posterSrc={world.posterSrc} videoSrc={world.videoSrc} videoType={world.videoType} />
               <div className="creation-gate-copy">
                 <span>{world.accessType} / {world.outputType}</span>
                 <h3>{copy.title}</h3>

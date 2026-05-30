@@ -28,8 +28,8 @@ export type WorldProject = {
   createHref?: string;
   detailHref: string;
   sourceHref?: string;
-  videoSrc: string;
-  videoType: string;
+  videoSrc?: string;
+  videoType?: string;
   posterSrc?: string;
   heroVideoSrc?: string;
   heroVideoType?: string;
@@ -68,10 +68,10 @@ export const worldsData: WorldProject[] = [
     createHref: "https://marble.worldlabs.ai/",
     detailHref: "/models/marble",
     sourceHref: "https://marble.worldlabs.ai/",
-    videoSrc: "/world-videos/world-labs/marble-hero.mp4",
+    videoSrc: "https://wlt-ai-cdn.art/videos/2025-11-12-clean-720p-24crf/hero.mp4",
     videoType: "video/mp4",
-    posterSrc: "/world-videos/world-labs/marble-hero-poster.png",
-    heroVideoSrc: "/world-videos/world-labs/marble-hero-homepage-hd.mp4",
+    posterSrc: "/world-videos/world-labs/marble-hero-homepage-poster.jpg",
+    heroVideoSrc: "https://wlt-ai-cdn.art/videos/2025-11-12-clean-720p-24crf/hero.mp4",
     heroVideoType: "video/mp4",
     heroPosterSrc: "/world-videos/world-labs/marble-hero-homepage-poster.jpg",
     feeling:
@@ -106,7 +106,7 @@ export const worldsData: WorldProject[] = [
     demoUrl: "https://oasis-model.github.io/",
     detailHref: "/models/oasis",
     sourceHref: "https://oasis-model.github.io/",
-    videoSrc: "/world-videos/oasis/oasis-wide1.mp4",
+    videoSrc: "https://oasis-model.github.io/wide1.mp4",
     videoType: "video/mp4",
     feeling:
       "A player moves through a world that is generated live, where keyboard actions keep shaping the next frame.",
@@ -139,10 +139,10 @@ export const worldsData: WorldProject[] = [
     demoUrl: "https://labs.google/projectgenie",
     detailHref: "/models/genie-3",
     sourceHref: "https://labs.google/projectgenie",
-    videoSrc: "/world-videos/genie/genie-simulating-natural-world.mp4",
-    videoType: "video/mp4",
-    heroVideoSrc: "/world-videos/genie/genie-cover-homepage-hd.mp4",
-    heroVideoType: "video/mp4",
+    videoSrc: "https://storage.googleapis.com/gdm-deepmind-com-prod-public/media/media/genie-3__cover-1.webm",
+    videoType: "video/webm",
+    heroVideoSrc: "https://storage.googleapis.com/gdm-deepmind-com-prod-public/media/media/genie-3__cover-1.webm",
+    heroVideoType: "video/webm",
     heroPosterSrc: "/world-videos/genie/genie-cover-homepage-poster.jpg",
     feeling:
       "A playable environment emerges from learned rules, not a hand-authored game level.",
@@ -175,10 +175,7 @@ export const worldsData: WorldProject[] = [
     demoUrl: "https://www.happyoyster.cn/",
     detailHref: "/models/happyoyster",
     sourceHref: "https://www.happyoyster.cn/",
-    videoSrc: "/world-videos/happyoyster/happyoyster-official-demo.mp4",
-    videoType: "video/mp4",
-    heroVideoSrc: "/world-videos/happyoyster/happyoyster-homepage-hd.mp4",
-    heroVideoType: "video/mp4",
+    posterSrc: "/world-videos/happyoyster/happyoyster-homepage-poster.jpg",
     heroPosterSrc: "/world-videos/happyoyster/happyoyster-homepage-poster.jpg",
     feeling:
       "A directed open world with the atmosphere of a place that can be wandered through and revised.",
@@ -212,8 +209,7 @@ export const worldsData: WorldProject[] = [
     createHref: "https://skybox.blockadelabs.com/",
     detailHref: "/models/skybox-ai",
     sourceHref: "https://landing-dev.blockadelabs.com/",
-    videoSrc: "/world-videos/skybox-ai/skybox-ai-landscape-revised.mp4",
-    videoType: "video/mp4",
+    posterSrc: "/world-videos/skybox-ai/skybox-ai-homepage-poster.jpg",
     heroPosterSrc: "/world-videos/skybox-ai/skybox-ai-homepage-poster.jpg",
     feeling:
       "A panoramic environment opens like a destination: sky, horizon, light, and mood generated as one world surface.",
@@ -247,9 +243,9 @@ export const worldsData: WorldProject[] = [
     demoUrl: "https://3d.hunyuan.tencent.com/sceneTo3D",
     detailHref: "/models/hy-world-2-0",
     sourceHref: "https://3d.hunyuan.tencent.com/sceneTo3D",
-    videoSrc: "/world-videos/hy-world/hy-world-2-main-demo.mp4",
+    videoSrc: "https://github.com/user-attachments/assets/b56f4750-25c9-48fb-83ff-d58526711463",
     videoType: "video/mp4",
-    heroVideoSrc: "/world-videos/hy-world/hy-world-2-homepage-hd.mp4",
+    heroVideoSrc: "https://github.com/user-attachments/assets/b56f4750-25c9-48fb-83ff-d58526711463",
     heroVideoType: "video/mp4",
     heroPosterSrc: "/world-videos/hy-world/hy-world-2-homepage-poster.jpg",
     feeling:
@@ -284,7 +280,7 @@ export const worldsData: WorldProject[] = [
     demoUrl: "https://github.com/altera-al/project-sid",
     detailHref: "/models/project-sid",
     sourceHref: "https://github.com/altera-al/project-sid",
-    videoSrc: "/world-videos/project-sid/project-sid-main-demo.mp4",
+    videoSrc: "https://github.com/user-attachments/assets/a288265d-03ac-4d7d-b803-b74066267f26",
     videoType: "video/mp4",
     feeling:
       "A world becomes interesting because many agents live inside it, organize it, and push culture across time.",

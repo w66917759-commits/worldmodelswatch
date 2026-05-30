@@ -13,6 +13,7 @@ import {
 import type { NewsItem, ShowcaseVisual } from "@/lib/content";
 import type { WorldProject } from "@/components/ai-world/worldsData";
 import { getWorldPrimaryAction } from "@/components/ai-world/worldsData";
+import { WorldMedia } from "@/components/world-media";
 import { getEvolutionStageById } from "@/lib/content";
 import { newsVisual } from "@/lib/showcase";
 
@@ -116,7 +117,7 @@ function renderVisualMedia(visual?: ShowcaseVisual, className = "showcase-media-
         poster={visual.posterImage}
         preload="metadata"
       >
-        <source src={visual.heroVideo} type="video/mp4" />
+        <source src={visual.heroVideo} type={visual.heroVideoType ?? "video/mp4"} />
       </video>
     );
   }
@@ -270,9 +271,7 @@ export function VideoReel({ eyebrow = "Demo reel", title, description, worlds }:
               secondaryAccentColor: world.secondaryAccent,
             })}
           >
-            <video autoPlay loop muted playsInline poster={world.posterSrc} preload="metadata">
-              <source src={world.videoSrc} type={world.videoType} />
-            </video>
+            <WorldMedia posterSrc={world.posterSrc} videoSrc={world.videoSrc} videoType={world.videoType} />
             <div className="video-reel-overlay">
               <span>
                 <Play size={13} aria-hidden="true" />

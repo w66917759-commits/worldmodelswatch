@@ -3,6 +3,7 @@
 import type { CSSProperties } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
+import { WorldMedia } from "@/components/world-media";
 import type { WorldProject } from "./worldsData";
 
 type PointerPosition = {
@@ -50,17 +51,12 @@ export function FloatingBackground({
             exit={{ opacity: 0, scale: 1.045, filter: "blur(18px)" }}
             transition={{ duration: 0.42, ease: [0.16, 1, 0.3, 1] }}
           >
-            <video
+            <WorldMedia
               className="world-bg-video"
-              autoPlay
-              muted
-              loop
-              playsInline
-              poster={activeWorld.posterSrc}
-              preload="metadata"
-            >
-              <source src={activeWorld.videoSrc} type={activeWorld.videoType} />
-            </video>
+              posterSrc={activeWorld.posterSrc}
+              videoSrc={activeWorld.videoSrc}
+              videoType={activeWorld.videoType}
+            />
           </motion.div>
         </AnimatePresence>
       </motion.div>

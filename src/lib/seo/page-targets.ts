@@ -306,6 +306,19 @@ export const staticSeoTargets = [
       "Read the world models FAQ for source confidence, category boundaries, comments, likes, and reader participation.",
   },
   {
+    route: "/sitemap",
+    primaryKeyword: "World Models Watch sitemap",
+    longTailKeywords: [
+      "World Models Watch sitemap",
+      "world model pages index",
+      "AI world model site map",
+    ],
+    intent: "Expose a crawlable HTML index of public World Models Watch pages.",
+    indexable: true,
+    description:
+      "Browse the public World Models Watch sitemap for model dossiers, release signals, decision guides, and topic pages.",
+  },
+  {
     route: "/privacy",
     primaryKeyword: "World Models Watch privacy policy",
     longTailKeywords: [

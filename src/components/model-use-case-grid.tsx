@@ -3,6 +3,7 @@ import type { CSSProperties } from "react";
 import { ArrowRight, ExternalLink, Layers3, Play } from "lucide-react";
 
 import { getWorldPrimaryAction, type WorldProject } from "@/data/worldsData";
+import { WorldMedia } from "@/components/world-media";
 
 type ModelUseCaseGridProps = {
   worlds: WorldProject[];
@@ -48,9 +49,7 @@ export function ModelUseCaseGrid({
           return (
             <article className="model-usecase-card" key={world.id} style={worldStyle(world)}>
               <div className="model-usecase-media">
-                <video autoPlay loop muted playsInline poster={world.posterSrc} preload="metadata">
-                  <source src={world.videoSrc} type={world.videoType} />
-                </video>
+                <WorldMedia posterSrc={world.posterSrc} videoSrc={world.videoSrc} videoType={world.videoType} />
                 <span>
                   <Play size={13} aria-hidden="true" />
                   {world.outputType}

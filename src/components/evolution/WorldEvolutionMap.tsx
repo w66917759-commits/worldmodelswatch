@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { CSSProperties } from "react";
 import { ArrowRight, BookOpen, ExternalLink, Layers3 } from "lucide-react";
 
+import { WorldMedia } from "@/components/world-media";
 import { getWorldPrimaryAction } from "@/data/worldsData";
 import { getResolvedWorldEvolutionStages } from "@/lib/content";
 import { progressVisual } from "@/lib/showcase";
@@ -80,9 +81,7 @@ export function WorldEvolutionMap() {
 
                 return (
                   <figure className="evolution-model-tile" key={world.id}>
-                    <video autoPlay loop muted playsInline poster={world.posterSrc} preload="metadata">
-                      <source src={world.videoSrc} type={world.videoType} />
-                    </video>
+                    <WorldMedia posterSrc={world.posterSrc} videoSrc={world.videoSrc} videoType={world.videoType} />
                     <figcaption>
                       <span>{world.type}</span>
                       <strong>{world.shortName}</strong>

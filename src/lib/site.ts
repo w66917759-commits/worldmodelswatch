@@ -62,7 +62,8 @@ export const site = {
         { href: "/privacy", label: "Privacy Policy" },
         { href: "/terms", label: "Terms of Use" },
         { href: "/privacy#cookies", label: "Cookie Notice" },
-        { href: "/sitemap.xml", label: "Sitemap" },
+        { href: "/sitemap", label: "Sitemap" },
+        { href: "/sitemap.xml", label: "XML Sitemap" },
       ],
     },
     {

@@ -8,6 +8,7 @@ export type ShowcaseVisual = {
   visualSubtitle?: string;
   heroImage?: string;
   heroVideo?: string;
+  heroVideoType?: string;
   posterImage?: string;
   backgroundImage?: string;
   cardImage?: string;

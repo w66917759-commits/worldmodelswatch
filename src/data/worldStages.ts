@@ -6,8 +6,8 @@ export type WorldFragment = {
   title: string;
   description: string;
   projectId: string;
-  mediaSrc: string;
-  mediaType: string;
+  mediaSrc?: string;
+  mediaType?: string;
   posterSrc?: string;
 };
 

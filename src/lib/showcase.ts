@@ -85,8 +85,9 @@ export const pageVisuals: Record<string, ShowcaseVisual> = {
   "world-model-labs": {
     backgroundImage: textureImages.spatialLab,
     cardImage: textureImages.spatialLab,
-    heroVideo: "/world-videos/world-labs/marble-hero.mp4",
-    posterImage: "/world-videos/world-labs/marble-hero-poster.png",
+    heroVideo: "https://wlt-ai-cdn.art/videos/2025-11-12-clean-720p-24crf/hero.mp4",
+    heroVideoType: "video/mp4",
+    posterImage: "/world-videos/world-labs/marble-hero-homepage-poster.jpg",
     stickerImages: [textureImages.spatialLab, textureImages.openHarbor, textureImages.skyboxObservatory],
     accentColor: "#9ad7ff",
     secondaryAccentColor: "#f4cf7a",
@@ -183,6 +184,7 @@ export function modelVisual(model: ModelProfile): ShowcaseVisual {
       visualTitle: model.visualTitle ?? world.name,
       visualSubtitle: model.visualSubtitle ?? world.feeling,
       heroVideo: model.heroVideo ?? world.videoSrc,
+      heroVideoType: model.heroVideoType ?? world.videoType,
       posterImage: model.posterImage ?? world.posterSrc,
       accentColor: model.accentColor ?? world.accent,
       secondaryAccentColor: model.secondaryAccentColor ?? world.secondaryAccent,
@@ -259,6 +261,7 @@ export function newsVisual(item: NewsItem): ShowcaseVisual & { signalType: strin
     return visualWithTextures({
       signalType,
       heroVideo: matchedModel.videoSrc,
+      heroVideoType: matchedModel.videoType,
       posterImage: matchedModel.posterSrc,
       accentColor: matchedModel.accent,
       secondaryAccentColor: matchedModel.secondaryAccent,
@@ -301,6 +304,7 @@ export function comparisonVisual(comparison: Comparison): ShowcaseVisual {
 
   return visualWithTextures({
     heroVideo: comparison.heroVideo ?? relatedWorld?.videoSrc,
+    heroVideoType: comparison.heroVideoType ?? relatedWorld?.videoType,
     posterImage: comparison.posterImage ?? relatedWorld?.posterSrc,
     heroImage: comparison.heroImage,
     accentColor: comparison.accentColor ?? relatedWorld?.accent ?? "#74f4ff",
