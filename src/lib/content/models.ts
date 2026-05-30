@@ -70,6 +70,44 @@ export const modelProfiles: ModelProfile[] = [
     ],
     categoryBoundary:
       "HappyOyster should be framed as an early-access interactive creation product, not as an open-source model release or a validated robotics simulator.",
+    pricing: {
+      label: "Early-access product surface",
+      note: "HappyOyster is public as an early-access product and documentation surface; current quotas, pricing, and eligibility should be checked in the HappyOyster account flow or docs before making production claims.",
+      sourceLabel: "HappyOyster docs",
+      sourceUrl: "https://www.happyoyster.cn/docs",
+    },
+    platforms: ["Web product surface", "HappyOyster docs", "Alibaba Cloud launch coverage"],
+    compatibility: [
+      "Text prompts",
+      "Voice control",
+      "Image control",
+      "First-person and third-person exploration",
+    ],
+    outputFormats: [
+      "Realtime explorable worlds",
+      "Directed open-world scenes",
+      "720p product-demo scenes",
+    ],
+    alternatives: [
+      {
+        label: "Genie 3",
+        href: "/compare/happyoyster-vs-genie-3",
+        description:
+          "Use Genie 3 as the research-preview alternative when the question is promptable interactive worlds rather than product access.",
+      },
+      {
+        label: "Marble",
+        href: "/models/marble",
+        description:
+          "Use Marble when the job is persistent 3D world creation, editing, and export instead of open-ended directing.",
+      },
+    ],
+    workflowSteps: [
+      "Start from the official HappyOyster product surface or documentation.",
+      "Choose whether the task is Wandering, Directing, or multimodal scene control.",
+      "Keep access and pricing language tied to the current early-access docs.",
+    ],
+    schemaType: "SoftwareApplication",
     focus: "Multimodal prompts, real-time scene navigation, first-person and third-person exploration, and continuous directing of long 720p scenes.",
     availability:
       "Early Access through HappyOyster, with Alibaba Cloud Community and Alizila coverage describing the product direction.",
@@ -398,6 +436,46 @@ export const modelProfiles: ModelProfile[] = [
     ],
     categoryBoundary:
       "Marble is a generated 3D-world creation product, not a robotics simulator or a many-agent civilization environment.",
+    pricing: {
+      label: "Public product with account access",
+      note: "Marble has a public product surface and documentation; current quotas, billing, and API limits should be verified in World Labs' account and docs before quoting exact pricing.",
+      sourceLabel: "World Labs Marble documentation",
+      sourceUrl: "https://docs.worldlabs.ai/",
+    },
+    platforms: ["Web app", "World Labs account", "World Labs documentation", "World API direction"],
+    compatibility: [
+      "Text prompts",
+      "Images",
+      "Video",
+      "Spatial layouts",
+      "3D review and export workflows",
+    ],
+    outputFormats: [
+      "Persistent explorable 3D worlds",
+      "Gaussian splats",
+      "Meshes",
+      "Video exports",
+    ],
+    alternatives: [
+      {
+        label: "HY-World 2.0",
+        href: "/compare/hy-world-2-0-vs-marble",
+        description:
+          "Use HY-World 2.0 as the open technical alternative when source code, weights, and reconstruction workflow matter more than a polished product UI.",
+      },
+      {
+        label: "Skybox AI",
+        href: "/compare/skybox-ai-vs-marble",
+        description:
+          "Use Skybox AI when the job is a 360 environment or skybox shell rather than a persistent 3D world.",
+      },
+    ],
+    workflowSteps: [
+      "Choose the input type: text, image, video, or spatial layout.",
+      "Generate a persistent 3D world and inspect whether it supports the intended camera path or scene concept.",
+      "Use export-oriented docs when the downstream workflow needs splats, meshes, or reusable 3D assets.",
+    ],
+    schemaType: "SoftwareApplication",
     focus: "Spatially consistent 3D worlds for creative and design workflows.",
     availability: "Public product surface with World Labs account access.",
     strengths: [
@@ -459,6 +537,47 @@ export const modelProfiles: ModelProfile[] = [
     ],
     categoryBoundary:
       "Skybox AI is an environment and skybox generator, not a full realtime interactive world model.",
+    pricing: {
+      label: "Public app and API credit workflow",
+      note: "Blockade Labs documents Skybox AI app access and API/export workflows; exact credit costs and plan details should be checked against the current API docs or account surface.",
+      sourceLabel: "Skybox exports API documentation",
+      sourceUrl: "https://api-documentation.blockadelabs.com/api/skybox-exports.html",
+    },
+    platforms: ["Web app", "API", "Unity integration materials", "Blockade Labs support docs"],
+    compatibility: [
+      "Unity",
+      "Unreal Engine",
+      "Blender",
+      "Godot",
+      "Web 3D",
+      "VR and AR scenes",
+    ],
+    outputFormats: [
+      "360-degree equirectangular panoramas",
+      "Skyboxes",
+      "HDRI-style environment exports",
+      "Experimental GLB environment meshes",
+    ],
+    alternatives: [
+      {
+        label: "Marble",
+        href: "/compare/skybox-ai-vs-marble",
+        description:
+          "Use Marble when a 360 shell is not enough and the workflow needs a persistent 3D world that can be explored or exported.",
+      },
+      {
+        label: "HY-World 2.0",
+        href: "/models/hy-world-2-0",
+        description:
+          "Use HY-World 2.0 when the question is open 3D world generation and reconstruction rather than fast panoramic environment creation.",
+      },
+    ],
+    workflowSteps: [
+      "Generate a 360 environment from a text prompt in Skybox AI.",
+      "Export the panorama or environment mesh format that fits the target scene.",
+      "Check engine-specific needs such as lighting, backplates, scale, and collision before treating the output as production geometry.",
+    ],
+    schemaType: "SoftwareApplication",
     focus:
       "Text-to-skybox generation, 360-degree panoramas, HDRI and image exports, experimental GLB environment meshes, and engine-oriented environment workflows.",
     availability:
@@ -538,6 +657,45 @@ export const modelProfiles: ModelProfile[] = [
     ],
     categoryBoundary:
       "HY-World 2.0 belongs in generated and reconstructed 3D worlds; it should not be flattened into generic AI video or a fully open consumer world simulator.",
+    pricing: {
+      label: "Open-source research workflow",
+      note: "Tencent exposes code, model cards, and weights through public research surfaces; hosted compute costs, deployment costs, and downstream usage constraints depend on the reader's own environment and the current repository/model licenses.",
+      sourceLabel: "Tencent-Hunyuan/HY-World-2.0 GitHub repository",
+      sourceUrl: "https://github.com/Tencent-Hunyuan/HY-World-2.0",
+    },
+    platforms: ["GitHub", "Hugging Face", "arXiv", "Tencent Hunyuan 3D surface"],
+    compatibility: [
+      "Unity",
+      "Unreal Engine",
+      "NVIDIA Isaac-style simulation workflows",
+      "Developer-run 3D reconstruction pipelines",
+    ],
+    outputFormats: [
+      "Generated 3D worlds",
+      "Reconstructed 3D worlds",
+      "Meshes",
+      "Gaussian splats",
+      "Point clouds",
+    ],
+    alternatives: [
+      {
+        label: "Marble",
+        href: "/compare/hy-world-2-0-vs-marble",
+        description:
+          "Use Marble when the reader wants a polished creator product instead of an open research and reconstruction stack.",
+      },
+      {
+        label: "LingBot-Map",
+        href: "/compare/lingbot-map-vs-marble",
+        description:
+          "Use LingBot-Map when the task is streaming 3D reconstruction and spatial memory rather than generated-world creation.",
+      },
+    ],
+    workflowSteps: [
+      "Open the GitHub repository and model card before assuming any hosted product behavior.",
+      "Choose whether the task is reconstruction, generation, or simulation support.",
+      "Validate output quality in the intended 3D or simulation pipeline before calling it engine-ready.",
+    ],
     focus:
       "Generated 3D worlds, video-to-3D reconstruction, editable meshes and Gaussian splats, and interactive exploration with persistent assets.",
     availability:

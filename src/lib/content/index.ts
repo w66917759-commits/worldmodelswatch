@@ -2,6 +2,8 @@ export type {
   Source,
   ShowcaseVisual,
   SeoFields,
+  ModelPricing,
+  ModelAlternative,
   ModelProfile,
   NewsItem,
   Comparison,

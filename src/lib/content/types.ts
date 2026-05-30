@@ -27,6 +27,19 @@ export type SeoFields = {
   categoryBoundary?: string;
 };
 
+export type ModelPricing = {
+  label: string;
+  note: string;
+  sourceLabel?: string;
+  sourceUrl?: string;
+};
+
+export type ModelAlternative = {
+  label: string;
+  href: string;
+  description: string;
+};
+
 export type ModelProfile = {
   slug: string;
   name: string;
@@ -45,6 +58,13 @@ export type ModelProfile = {
   notFor?: string[];
   evidenceLevel?: string;
   relatedNewsSlugs?: string[];
+  pricing?: ModelPricing;
+  platforms?: string[];
+  compatibility?: string[];
+  outputFormats?: string[];
+  alternatives?: ModelAlternative[];
+  workflowSteps?: string[];
+  schemaType?: "SoftwareApplication" | "TechArticle";
 } & SeoFields &
   ShowcaseVisual;
 
