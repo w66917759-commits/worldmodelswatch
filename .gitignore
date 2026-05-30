@@ -16,4 +16,7 @@ research/**/*.mp4
 research/**/*.webm
 research/**/*.mov
 research/**/*.mkv
+
+# Local raw video exports are too large/noisy for git history.
+public/world-videos/**/*月*.mp4
 .vercel

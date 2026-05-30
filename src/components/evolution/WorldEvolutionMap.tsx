@@ -4,11 +4,19 @@ import { ArrowRight, BookOpen, ExternalLink, Layers3 } from "lucide-react";
 
 import { getWorldPrimaryAction } from "@/data/worldsData";
 import { getResolvedWorldEvolutionStages } from "@/lib/content";
+import { progressVisual } from "@/lib/showcase";
 
-function stageStyle(accent: string, secondaryAccent: string): CSSProperties {
+function imageValue(src?: string) {
+  return src ? `url("${src}")` : undefined;
+}
+
+function stageStyle(accent: string, secondaryAccent: string, key: string): CSSProperties {
+  const visual = progressVisual(key);
+
   return {
     "--evolution-accent": accent,
     "--evolution-secondary": secondaryAccent,
+    "--evolution-bg-image": imageValue(visual.cardImage ?? visual.backgroundImage ?? visual.heroImage),
   } as CSSProperties;
 }
 
@@ -33,7 +41,7 @@ export function WorldEvolutionMap() {
             className="world-evolution-stage"
             id={stage.id}
             key={stage.id}
-            style={stageStyle(stage.accent, stage.secondaryAccent)}
+            style={stageStyle(stage.accent, stage.secondaryAccent, `${stage.id} ${stage.title}`)}
           >
             <div className="evolution-stage-copy">
               <p>{stage.number} / {stage.shortTitle}</p>
@@ -121,7 +129,7 @@ export function WorldEvolutionLens() {
             className="timeline-evolution-stage"
             href={`/world-stream#${stage.id}`}
             key={stage.id}
-            style={stageStyle(stage.accent, stage.secondaryAccent)}
+            style={stageStyle(stage.accent, stage.secondaryAccent, `${stage.id} ${stage.title}`)}
           >
             <span>
               <Layers3 size={15} aria-hidden="true" />

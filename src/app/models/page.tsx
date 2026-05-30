@@ -3,12 +3,10 @@ import Link from "next/link";
 import { ArrowRight, ExternalLink, Layers3 } from "lucide-react";
 
 import { JsonLd } from "@/components/json-ld";
-import { ModelUseCaseGrid } from "@/components/model-use-case-grid";
-import { ShowcaseHero } from "@/components/showcase";
-import { worldsData } from "@/data/worldsData";
+import { ShowcaseHero, visualStyle } from "@/components/showcase";
 import { getCompanyModelGroups } from "@/lib/content";
 import { getStaticSeoTarget, metadataForRoute } from "@/lib/seo/page-targets";
-import { pageVisuals } from "@/lib/showcase";
+import { companyVisual, pageVisuals } from "@/lib/showcase";
 import { absoluteUrl } from "@/lib/site";
 
 const seoTarget = getStaticSeoTarget("/models");
@@ -42,32 +40,25 @@ export default function ModelsPage() {
       />
       <ShowcaseHero
         description={seoTarget.description}
-        eyebrow="AI world model companies"
-        meta={["Output", "Use case", "Access", "Action"]}
+        eyebrow="Company map"
+        meta={["Try now", "Create", "See result", "Reality check"]}
         primaryCta={{ href: "/create-word", label: "Create AI worlds" }}
-        secondaryCta={{ href: "/progress", label: "Current progress" }}
-        title="AI world models organized by what people can do with them."
+        secondaryCta={{ href: "/progress", label: "See progress" }}
+        title="Find AI world tools you can actually try."
         visual={{
           ...pageVisuals.definition,
           visualSubtitle:
-            "Start with the model's output and use case, then open the company profile and source-backed boundaries.",
+            "Start with tools you can open now. Use the rest of the map to see what is coming next and what is still only a demo or research signal.",
         }}
-      />
-
-      <ModelUseCaseGrid
-        worlds={worldsData}
-        eyebrow="Multi-model showcase"
-        title="One wall for outputs, use cases, access, and next actions."
-        description="This is the non-academic entry point: whether a visitor wants to create a 3D world, explore a playable scene, inspect an open stack, or understand agent societies."
       />
 
       <section className="model-showcase-section" aria-labelledby="usable-company-models">
         <div className="showcase-section-heading">
           <p className="showcase-kicker">Usable now</p>
-          <h2 id="usable-company-models">AI world model companies with product surfaces people can open.</h2>
+          <h2 id="usable-company-models">AI world tools you can open now.</h2>
           <p>
-            These two lanes are not treated as research examples. They are practical
-            surfaces that make the category easier for normal visitors to understand.
+            Start here if you want to create a 3D world, generate a 360 scene,
+            or find the fastest product link.
           </p>
         </div>
 
@@ -81,10 +72,10 @@ export default function ModelsPage() {
       <section className="source-backed-section" aria-labelledby="company-map">
         <div className="showcase-section-heading">
           <p className="showcase-kicker">Company map</p>
-          <h2 id="company-map">AI world model companies split by products, previews, open stacks, and adjacent progress.</h2>
+          <h2 id="company-map">More companies building AI worlds, from demos to open stacks.</h2>
           <p>
-            This is the main replacement for the old research-heavy model wall.
-            The card format keeps the reader on the same three questions.
+            Use this section to see what is worth watching, what you can see today,
+            and what is not ready for everyday creators yet.
           </p>
         </div>
 
@@ -104,21 +95,21 @@ type CompanyCardProps = {
 
 function CompanyCard({ group }: CompanyCardProps) {
   return (
-    <article className="company-card">
+    <article className="company-card" style={visualStyle(companyVisual(group.company))}>
       <span className="signal-pill">{group.signalType}</span>
       <h2>{group.company}</h2>
       <p>{group.headline}</p>
       <div className="company-facts">
         <div>
-          <span>推出了什么</span>
+          <span>What it is</span>
           <strong>{group.launched}</strong>
         </div>
         <div>
-          <span>用户能看到什么</span>
+          <span>What you can do</span>
           <strong>{group.visitorCanSee}</strong>
         </div>
         <div>
-          <span>边界</span>
+          <span>Reality check</span>
           <strong>{group.boundary}</strong>
         </div>
       </div>
@@ -140,13 +131,13 @@ function CompanyCard({ group }: CompanyCardProps) {
         {group.officialHref && !group.createHref ? (
           <a href={group.officialHref} rel="noreferrer" target="_blank">
             <ExternalLink size={15} aria-hidden="true" />
-            Official
+            Official site
           </a>
         ) : null}
         {group.models[0] ? (
           <Link href={`/models/${group.models[0].slug}`}>
             <ArrowRight size={15} aria-hidden="true" />
-            Open profile
+            Details
           </Link>
         ) : null}
       </div>

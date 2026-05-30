@@ -12,6 +12,7 @@ import {
   type ResolvedWorldEvolutionStage,
   type WorldEvolutionStageId,
 } from "@/lib/content";
+import { progressVisual } from "@/lib/showcase";
 
 const stageWorldIds: Record<WorldEvolutionStageId, string> = {
   "understand-predict": "genie",
@@ -36,6 +37,10 @@ function getWheelStages(): WheelStage[] {
   }));
 }
 
+function imageValue(src?: string) {
+  return src ? `url("${src}")` : undefined;
+}
+
 export function EventsTimelineExperience() {
   const reduceMotion = useReducedMotion();
   const stages = useMemo(() => getWheelStages(), []);
@@ -43,6 +48,9 @@ export function EventsTimelineExperience() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const frameRef = useRef<number | null>(null);
   const activeStage = stages[activeIndex] ?? stages[0];
+  const activeVisual = activeStage
+    ? progressVisual(`${activeStage.id} ${activeStage.title}`)
+    : undefined;
 
   useEffect(() => {
     const updateActiveStage = () => {
@@ -90,6 +98,9 @@ export function EventsTimelineExperience() {
         {
           "--events-accent": activeStage.accent,
           "--events-secondary": activeStage.secondaryAccent,
+          "--events-bg-image": imageValue(
+            activeVisual?.backgroundImage ?? activeVisual?.cardImage ?? activeVisual?.heroImage,
+          ),
         } as CSSProperties
       }
     >

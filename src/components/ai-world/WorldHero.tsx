@@ -10,7 +10,6 @@ import {
 } from "framer-motion";
 import { ChevronDown, ChevronUp, Volume2, VolumeX } from "lucide-react";
 
-import { AuthStatusLink } from "@/components/auth-status-link";
 import { FloatingBackground } from "./FloatingBackground";
 import { WorldNode } from "./WorldNode";
 import { type WorldProject, worldsData } from "./worldsData";
@@ -338,7 +337,6 @@ export function WorldHero() {
             )}
             <span>Atmosphere</span>
           </button>
-          <AuthStatusLink className="ai-world-auth" variant="light" />
         </nav>
       </header>
 

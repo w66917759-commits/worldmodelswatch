@@ -21,6 +21,7 @@ export function NarrativePageView({ children, page }: NarrativePageViewProps) {
       .filter((world): world is (typeof worldsData)[number] => Boolean(world)) ??
     [];
   const visual = pageVisuals[page.slug as keyof typeof pageVisuals] ?? pageVisuals.definition;
+  const sceneImages = visual.stickerImages ?? [visual.cardImage ?? visual.backgroundImage ?? visual.heroImage].filter(Boolean);
 
   return (
     <main className="page-shell showcase-page narrative-page">
@@ -56,6 +57,7 @@ export function NarrativePageView({ children, page }: NarrativePageViewProps) {
           cta: section.links?.[0]?.label,
           eyebrow: section.eyebrow,
           href: section.links?.[0]?.href,
+          image: sceneImages[index % sceneImages.length],
           title: section.title,
         }))}
         title="Read the page as scenes."

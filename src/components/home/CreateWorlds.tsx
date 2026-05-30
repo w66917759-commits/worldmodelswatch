@@ -3,6 +3,7 @@ import type { CSSProperties } from "react";
 import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 
 import { getWorldById, getWorldPrimaryAction } from "@/data/worldsData";
+import { textureImages } from "@/lib/showcase";
 
 const creationGateIds = ["skybox", "world-labs"] as const;
 
@@ -16,6 +17,15 @@ const copyById = {
     description: "Use World Labs Marble as an AI world generator for explorable 3D spaces.",
   },
 } as const;
+
+const textureById = {
+  skybox: textureImages.skyboxObservatory,
+  "world-labs": textureImages.spatialLab,
+} as const;
+
+function imageValue(src?: string) {
+  return src ? `url("${src}")` : undefined;
+}
 
 export function CreateWorlds() {
   const gates = creationGateIds
@@ -49,6 +59,7 @@ export function CreateWorlds() {
                 {
                   "--gate-accent": world.accent,
                   "--gate-secondary": world.secondaryAccent,
+                  "--gate-bg-image": imageValue(textureById[world.id as keyof typeof textureById]),
                 } as CSSProperties
               }
             >

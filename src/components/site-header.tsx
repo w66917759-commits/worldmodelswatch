@@ -5,13 +5,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, Radar, X } from "lucide-react";
 
-import { AuthStatusLink } from "@/components/auth-status-link";
 import { site } from "@/lib/site";
 
 export function SiteHeader() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const darkHeader =
+    pathname === "/" ||
     pathname === "/events" ||
     pathname === "/world-stream" ||
     pathname === "/create-word";
@@ -40,8 +40,6 @@ export function SiteHeader() {
     };
   }, [mobileOpen]);
 
-  if (pathname === "/") return null;
-
   return (
     <header className={`site-header${darkHeader ? " site-header-dark" : ""}`}>
       <Link className="brand" href="/" aria-label="World Models Watch home">
@@ -60,7 +58,6 @@ export function SiteHeader() {
             </Link>
           ))}
         </nav>
-        <AuthStatusLink />
       </div>
 
       {/* Hamburger toggle — visible only on mobile */}
@@ -89,7 +86,6 @@ export function SiteHeader() {
             {item.label}
           </Link>
         ))}
-        <AuthStatusLink className="mobile-auth-link" onClick={close} />
       </nav>
     </header>
   );

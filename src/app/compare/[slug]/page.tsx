@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { CommentThread } from "@/components/comments/comment-thread";
 import { FaqSummary } from "@/components/faq-summary";
 import { JsonLd } from "@/components/json-ld";
-import { ShowcaseHero, VisualComparisonPanel } from "@/components/showcase";
+import { ShowcaseHero, VisualComparisonPanel, visualStyle } from "@/components/showcase";
 import { SourceList } from "@/components/source-list";
 import { comparisons, getComparison, getModel, type ModelProfile } from "@/lib/content";
 import { comparisonPrimaryKeyword, uniqueKeywords } from "@/lib/seo/page-targets";
@@ -14,6 +15,10 @@ import { absoluteUrl, site } from "@/lib/site";
 type ComparisonPageProps = {
   params: Promise<{ slug: string }>;
 };
+
+function findRowValue(rows: string[][], label: string, columnIndex: number) {
+  return rows.find((row) => row[0].toLowerCase().includes(label))?.[columnIndex];
+}
 
 export const dynamic = "force-dynamic";
 
@@ -91,9 +96,29 @@ export default async function ComparisonDetailPage({ params }: ComparisonPagePro
     },
   ];
   const visual = comparisonVisual(comparison);
-  const titleSides = splitComparisonTitle(comparison.title);
+  const fallbackTitleSides = splitComparisonTitle(comparison.title);
+  const titleSides = {
+    left: comparison.columns[1] ?? fallbackTitleSides.left,
+    right: comparison.columns[2] ?? fallbackTitleSides.right,
+  };
   const leftPoints = comparison.rows.slice(0, 4).map((row) => `${row[0]}: ${row[1]}`);
   const rightPoints = comparison.rows.slice(0, 4).map((row) => `${row[0]}: ${row[2] ?? row[1]}`);
+  const leftDecision =
+    comparison.decisionGuide?.[0] ??
+    findRowValue(comparison.rows, "best reader question", 1) ??
+    findRowValue(comparison.rows, "primary framing", 1) ??
+    comparison.takeaways[0];
+  const rightDecision =
+    comparison.decisionGuide?.[1] ??
+    findRowValue(comparison.rows, "best reader question", 2) ??
+    findRowValue(comparison.rows, "primary framing", 2) ??
+    comparison.takeaways[1] ??
+    comparison.summary;
+  const boundaryDecision =
+    comparison.decisionGuide?.[2] ??
+    comparison.categoryBoundary ??
+    comparison.takeaways[2] ??
+    "Use the source-backed table before turning either side into a broad product or availability claim.";
 
   return (
     <main className="page-shell showcase-page">
@@ -124,7 +149,7 @@ export default async function ComparisonDetailPage({ params }: ComparisonPagePro
             {
               "@type": "ListItem",
               position: 2,
-              name: "Comparisons",
+              name: "Decision Guides",
               item: absoluteUrl("/compare"),
             },
             {
@@ -167,20 +192,20 @@ export default async function ComparisonDetailPage({ params }: ComparisonPagePro
       />
 
       <ShowcaseHero
-        description={comparison.summary}
-        eyebrow={`Comparison · Updated ${comparison.updated}`}
+        description={comparison.decisionQuestion}
+        eyebrow={`Decision guide · Updated ${comparison.updated}`}
         meta={[
+          comparison.guideType.replace("-", " "),
           titleSides.left,
           titleSides.right,
-          `${comparison.rows.length} key differences`,
         ]}
         primaryCta={
           relatedModels[0]
             ? { href: `/models/${relatedModels[0].slug}`, label: relatedModels[0].name }
-            : { href: "/models", label: "Model wall" }
+            : { href: "/models", label: "Company map" }
         }
-        secondaryCta={{ href: "/compare", label: "All matchups" }}
-        title={primaryKeyword}
+        secondaryCta={{ href: "/compare", label: "All guides" }}
+        title={`Decision guide: ${primaryKeyword}`}
         visual={visual}
       />
 
@@ -195,14 +220,42 @@ export default async function ComparisonDetailPage({ params }: ComparisonPagePro
           points: rightPoints,
           title: titleSides.right,
         }}
-        summary={visual.consumerHook ?? comparison.summary}
-        title="Which side matches what the visitor wants to see?"
+        summary={comparison.decisionQuestion}
+        title="Choose by the job, then check the sources."
         visual={visual}
       />
 
-      <section className="model-detail-layout">
+      <section className="model-detail-layout" style={visualStyle(visual)}>
         <article className="showcase-panel">
-          <h2>Quick takeaways</h2>
+          <h2>Choose {titleSides.left} if</h2>
+          <p>{leftDecision}</p>
+
+          <h2>Choose {titleSides.right} if</h2>
+          <p>{rightDecision}</p>
+        </article>
+
+        <article className="showcase-panel">
+          <h2>Check the boundary</h2>
+          <p>{boundaryDecision}</p>
+
+          {relatedModels.length > 0 ? (
+            <>
+              <h2>Stable profiles</h2>
+              <div className="tag-row standalone">
+                {relatedModels.slice(0, 4).map((model) => (
+                  <Link href={`/models/${model.slug}`} key={model.slug}>
+                    {model.name}
+                  </Link>
+                ))}
+              </div>
+            </>
+          ) : null}
+        </article>
+      </section>
+
+      <section className="model-detail-layout" style={visualStyle(visual)}>
+        <article className="showcase-panel">
+          <h2>What this guide decides</h2>
           <ul>
             {comparison.takeaways.map((takeaway) => (
               <li key={takeaway}>{takeaway}</li>
@@ -211,7 +264,7 @@ export default async function ComparisonDetailPage({ params }: ComparisonPagePro
         </article>
 
         <article className="showcase-panel">
-          <h2>Best use cases</h2>
+          <h2>Use cases</h2>
           <ul>
             {(comparison.decisionGuide ?? [
               `Open ${titleSides.left} when that side better matches the visual outcome you want.`,
@@ -225,7 +278,7 @@ export default async function ComparisonDetailPage({ params }: ComparisonPagePro
         </article>
       </section>
 
-      <section className="source-backed-section">
+      <section className="source-backed-section" style={visualStyle(visual)}>
         <div className="showcase-section-heading">
           <p className="showcase-kicker">Detailed table</p>
           <h2>The citeable differences stay here.</h2>

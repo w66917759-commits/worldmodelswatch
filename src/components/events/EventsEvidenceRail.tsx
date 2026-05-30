@@ -3,10 +3,15 @@ import Link from "next/link";
 import { ArrowRight, CalendarDays, ShieldCheck } from "lucide-react";
 
 import { getEvolutionStageById, type NewsItem } from "@/lib/content";
+import { newsVisual } from "@/lib/showcase";
 
 type EventsEvidenceRailProps = {
   items: NewsItem[];
 };
+
+function imageValue(src?: string) {
+  return src ? `url("${src}")` : undefined;
+}
 
 export function EventsEvidenceRail({ items }: EventsEvidenceRailProps) {
   return (
@@ -23,6 +28,7 @@ export function EventsEvidenceRail({ items }: EventsEvidenceRailProps) {
       <div className="events-evidence-rail">
         {items.map((item) => {
           const stage = getEvolutionStageById(item.evolutionStageId);
+          const visual = newsVisual(item);
 
           return (
             <article
@@ -32,6 +38,9 @@ export function EventsEvidenceRail({ items }: EventsEvidenceRailProps) {
                 {
                   "--event-accent": stage?.accent ?? "#74f4ff",
                   "--event-secondary": stage?.secondaryAccent ?? "#f6d26e",
+                  "--event-bg-image": imageValue(
+                    visual.cardImage ?? visual.backgroundImage ?? visual.heroImage,
+                  ),
                 } as CSSProperties
               }
             >
@@ -50,13 +59,13 @@ export function EventsEvidenceRail({ items }: EventsEvidenceRailProps) {
                   <span>{item.organization}</span>
                   <span>
                     <ShieldCheck size={14} aria-hidden="true" />
-                    {item.sourceConfidence ?? "Source-backed update"}
+                    {item.sourceConfidence}
                   </span>
                 </div>
               </div>
 
               <Link className="events-evidence-link" href={`/news/${item.slug}`}>
-                Read update
+                Open signal
                 <ArrowRight size={14} aria-hidden="true" />
               </Link>
             </article>

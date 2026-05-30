@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import type { CSSProperties } from "react";
 import { ArrowRight, CalendarDays, ExternalLink, Tag } from "lucide-react";
 
-import { ShowcaseHero } from "@/components/showcase";
+import { ShowcaseHero, visualStyle } from "@/components/showcase";
 import { getSelectedUpdates } from "@/lib/content";
 import { getStaticSeoTarget, metadataForRoute } from "@/lib/seo/page-targets";
 import { newsVisual, pageVisuals } from "@/lib/showcase";
@@ -21,21 +20,20 @@ export default function UpdatesPage() {
     <main className="page-shell showcase-page">
       <ShowcaseHero
         description={seoTarget.description}
-        eyebrow="AI world model updates"
-        meta={["Product signals", "Open stacks", "Physical AI", "Selected updates"]}
+        eyebrow="Selected release signals"
+        meta={["Auxiliary feed", "Product", "Open stacks", "Physical AI"]}
         primaryCta={{ href: "/progress", label: "Current progress" }}
-        secondaryCta={{ href: "/models", label: "Companies & models" }}
-        title="AI world model updates that change the map."
+        secondaryCta={{ href: "/models", label: "Company map" }}
+        title="Selected signals that support the main Release Signals feed."
         visual={pageVisuals.news}
       />
 
       <section className="update-showcase-section" aria-labelledby="selected-updates">
         <div className="showcase-section-heading">
           <p className="showcase-kicker">Selected signals</p>
-          <h2 id="selected-updates">Only AI world model updates that change the map stay here.</h2>
+          <h2 id="selected-updates">A short auxiliary list, not a second News section.</h2>
           <p>
-            Each item is short on purpose: what moved, which company moved it, and where
-            the official source or supporting note lives.
+            Each item points back to the canonical release-signal note, then to the official source.
           </p>
         </div>
 
@@ -48,16 +46,11 @@ export default function UpdatesPage() {
               <article
                 className="update-card industry-card"
                 key={item.slug}
-                style={
-                  {
-                    "--showcase-accent": visual.accentColor,
-                    "--showcase-secondary": visual.secondaryAccentColor,
-                  } as CSSProperties
-                }
+                style={visualStyle(visual)}
               >
                 <span className="signal-pill">{visual.signalType}</span>
                 <h2>{item.title}</h2>
-                <p>{item.summary}</p>
+                <p>{item.whatChanged?.[0] ?? item.summary}</p>
                 <div className="tag-row">
                   {item.tags.slice(0, 3).map((tag) => (
                     <span key={tag}>
@@ -71,7 +64,7 @@ export default function UpdatesPage() {
                     <CalendarDays size={16} aria-hidden="true" />
                     {item.date}
                   </span>
-                  <span>{item.organization}</span>
+                  <span>{item.sourceConfidence}</span>
                 </div>
                 <div className="company-actions">
                   <Link href={`/news/${item.slug}`}>

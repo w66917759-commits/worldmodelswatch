@@ -2,14 +2,11 @@
 
 import type { CSSProperties, MouseEvent } from "react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { ChevronLeft, ChevronRight, Radar } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
-import { AuthStatusLink } from "@/components/auth-status-link";
 import { getWorldById, type WorldProject } from "@/data/worldsData";
 import { getStaticSeoTarget } from "@/lib/seo/page-targets";
-import { site } from "@/lib/site";
 
 const heroSquareIds = ["world-labs", "hy", "happyoyster", "skybox", "genie"] as const;
 const seoTarget = getStaticSeoTarget("/");
@@ -33,6 +30,9 @@ export function HeroWordSquares() {
   const frameRef = useRef<number | null>(null);
   const nextPointerRef = useRef<PointerPosition>({ x: 0, y: 0 });
   const activeWorld = worlds[activeIndex] ?? worlds[0];
+  const activeVideoSrc = activeWorld?.heroVideoSrc ?? activeWorld?.videoSrc;
+  const activeVideoType = activeWorld?.heroVideoType ?? activeWorld?.videoType;
+  const activePosterSrc = activeWorld?.heroPosterSrc ?? activeWorld?.posterSrc;
 
   useEffect(() => {
     return () => {
@@ -95,64 +95,48 @@ export function HeroWordSquares() {
         } as CSSProperties
       }
     >
-      <div className="hero-carousel-stage" aria-hidden="true">
-        <AnimatePresence mode="wait">
-          <motion.video
-            className="hero-carousel-video"
-            key={activeWorld.id}
-            autoPlay
-            muted
-            loop
-            playsInline
-            poster={activeWorld.posterSrc}
-            preload="auto"
-            initial={
-              reduceMotion
-                ? { opacity: 1 }
-                : { opacity: 0, filter: "blur(22px)", scale: 1.045 }
-            }
-            animate={
-              reduceMotion
-                ? { opacity: 1 }
-                : { opacity: 1, filter: "blur(0px)", scale: 1 }
-            }
-            exit={
-              reduceMotion
-                ? { opacity: 0 }
-                : { opacity: 0, filter: "blur(18px)", scale: 1.025 }
-            }
-            transition={{ duration: reduceMotion ? 0 : 1.05, ease: [0.2, 0.75, 0.2, 1] }}
-          >
-            <source src={activeWorld.videoSrc} type={activeWorld.videoType} />
-          </motion.video>
-        </AnimatePresence>
-      </div>
-      <div className="hero-carousel-vignette" aria-hidden="true" />
-
-      <div className="hero-squares-seo-copy">
-        <p>{site.name}</p>
-        <h1>{seoTarget.primaryKeyword}</h1>
-        <span>{seoTarget.description}</span>
-      </div>
-
-      <header className="hero-squares-topbar">
-        <Link className="hero-squares-brand" href="/" aria-label={`${site.name} home`}>
-          <span aria-hidden="true">
-            <Radar size={17} />
-          </span>
-          {site.name}
-        </Link>
-        <div className="hero-squares-actions">
-          <nav className="hero-squares-nav" aria-label="World Models Watch home navigation">
-            {site.homeNav.map((item) => (
-              <Link href={item.href} key={item.href}>
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-          <AuthStatusLink variant="light" />
+      <div className="hero-squares-visual">
+        <div className="hero-carousel-stage" aria-hidden="true">
+          <AnimatePresence mode="wait">
+            <motion.video
+              className="hero-carousel-video"
+              key={`${activeWorld.id}-${activeVideoSrc}`}
+              autoPlay
+              muted
+              loop
+              playsInline
+              poster={activePosterSrc}
+              preload="auto"
+              initial={
+                reduceMotion
+                  ? { opacity: 1 }
+                  : { opacity: 0, scale: 1.018 }
+              }
+              animate={
+                reduceMotion
+                  ? { opacity: 1 }
+                  : { opacity: 1, scale: 1 }
+              }
+              exit={
+                reduceMotion
+                  ? { opacity: 0 }
+                  : { opacity: 0, scale: 1.012 }
+              }
+              transition={{ duration: reduceMotion ? 0 : 0.7, ease: [0.2, 0.75, 0.2, 1] }}
+            >
+              {activeVideoSrc && activeVideoType ? (
+                <source src={activeVideoSrc} type={activeVideoType} />
+              ) : null}
+            </motion.video>
+          </AnimatePresence>
         </div>
-      </header>
+        <div className="hero-carousel-vignette" aria-hidden="true" />
+      </div>
+
+      <div className="sr-only">
+        <h1>{seoTarget.primaryKeyword}</h1>
+        <p>{seoTarget.description}</p>
+      </div>
 
       <div className="hero-carousel-bottombar" aria-label="Featured world model carousel">
         <div className="hero-carousel-models">

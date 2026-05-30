@@ -3,11 +3,11 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2, ExternalLink, Layers3 } from "lucide-react";
 
 import { ModelUseCaseGrid } from "@/components/model-use-case-grid";
-import { ShowcaseHero } from "@/components/showcase";
+import { ShowcaseHero, visualStyle } from "@/components/showcase";
 import { worldsData } from "@/data/worldsData";
 import { getCompanyModelGroups, progressStages } from "@/lib/content";
 import { getStaticSeoTarget, metadataForRoute } from "@/lib/seo/page-targets";
-import { pageVisuals } from "@/lib/showcase";
+import { companyVisual, pageVisuals, progressVisual } from "@/lib/showcase";
 
 const seoTarget = getStaticSeoTarget("/progress");
 
@@ -24,7 +24,7 @@ export default function ProgressPage() {
         description={seoTarget.description}
         eyebrow="AI world model progress"
         meta={["Create", "Explore", "Control", "Simulate", "Build"]}
-        primaryCta={{ href: "/models", label: "Companies & models" }}
+        primaryCta={{ href: "/models", label: "Company map" }}
         secondaryCta={{ href: "/create-word", label: "Create AI worlds" }}
         title="AI world model progress in plain user actions."
         visual={{
@@ -46,7 +46,12 @@ export default function ProgressPage() {
 
         <div className="update-grid">
           {progressStages.map((stage) => (
-            <Link className="update-card industry-card" href={stage.href} key={stage.eyebrow}>
+            <Link
+              className="update-card industry-card"
+              href={stage.href}
+              key={stage.eyebrow}
+              style={visualStyle(progressVisual(`${stage.href} ${stage.eyebrow} ${stage.title}`))}
+            >
               <span className="signal-pill">{stage.eyebrow}</span>
               <h2>{stage.title}</h2>
               <p>{stage.summary}</p>
@@ -88,21 +93,25 @@ export default function ProgressPage() {
 
         <div className="company-card-grid">
           {productGroups.map((group) => (
-            <article className="company-card" key={group.company}>
+            <article
+              className="company-card"
+              key={group.company}
+              style={visualStyle(companyVisual(group.company))}
+            >
               <span className="signal-pill">{group.signalType}</span>
               <h2>{group.company}</h2>
               <p>{group.headline}</p>
               <div className="company-facts">
                 <div>
-                  <span>推出了什么</span>
+                <span>Launched</span>
                   <strong>{group.launched}</strong>
                 </div>
                 <div>
-                  <span>用户能看到什么</span>
+                <span>Visitor can see</span>
                   <strong>{group.visitorCanSee}</strong>
                 </div>
                 <div>
-                  <span>边界</span>
+                <span>Boundary</span>
                   <strong>{group.boundary}</strong>
                 </div>
               </div>

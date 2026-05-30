@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 
 import { site } from "@/lib/site";
 
@@ -30,10 +29,6 @@ function FooterAnchor({ link }: { link: FooterLink }) {
 }
 
 export function SiteFooter() {
-  const pathname = usePathname();
-
-  if (pathname === "/") return null;
-
   return (
     <footer className="site-footer">
       <div className="site-footer-brand">

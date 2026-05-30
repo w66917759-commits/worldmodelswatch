@@ -14,6 +14,7 @@ import type { NewsItem, ShowcaseVisual } from "@/lib/content";
 import type { WorldProject } from "@/components/ai-world/worldsData";
 import { getWorldPrimaryAction } from "@/components/ai-world/worldsData";
 import { getEvolutionStageById } from "@/lib/content";
+import { newsVisual } from "@/lib/showcase";
 
 type ShowcaseCta = {
   href: string;
@@ -86,10 +87,20 @@ type MilestoneRailProps = {
   items: NewsItem[];
 };
 
-function visualStyle(visual?: ShowcaseVisual): CSSProperties {
+function imageValue(src?: string) {
+  return src ? `url("${src}")` : undefined;
+}
+
+export function visualStyle(visual?: ShowcaseVisual): CSSProperties {
+  const backgroundImage = visual?.backgroundImage ?? visual?.heroImage ?? visual?.posterImage;
+  const cardImage = visual?.cardImage ?? backgroundImage;
+
   return {
     "--showcase-accent": visual?.accentColor ?? "#74f4ff",
     "--showcase-secondary": visual?.secondaryAccentColor ?? "#f6d26e",
+    "--showcase-bg-image": imageValue(backgroundImage),
+    "--showcase-card-image": imageValue(cardImage),
+    "--showcase-image-position": visual?.imagePosition ?? "center",
   } as CSSProperties;
 }
 
@@ -146,6 +157,22 @@ function CtaLink({ cta, variant }: { cta: ShowcaseCta; variant: "primary" | "sec
   );
 }
 
+function StickerField({ visual }: { visual?: ShowcaseVisual }) {
+  if (!visual?.stickerImages?.length) return null;
+
+  return (
+    <div className="showcase-sticker-field" aria-hidden="true">
+      {visual.stickerImages.slice(0, 3).map((image, index) => (
+        <span
+          className={`showcase-sticker sticker-${index + 1}`}
+          key={`${image}-${index}`}
+          style={{ backgroundImage: imageValue(image) }}
+        />
+      ))}
+    </div>
+  );
+}
+
 export function ShowcaseHero({
   eyebrow,
   title,
@@ -157,6 +184,7 @@ export function ShowcaseHero({
 }: ShowcaseHeroProps) {
   return (
     <section className="showcase-hero" style={visualStyle(visual)}>
+      <StickerField visual={visual} />
       <div className="showcase-hero-copy">
         <p className="showcase-kicker">{eyebrow}</p>
         <h1>{visual?.visualTitle ?? title}</h1>
@@ -284,7 +312,11 @@ export function SceneExplainer({ title, eyebrow = "Scene explainer", description
           <article
             className="scene-step"
             key={step.title}
-            style={visualStyle({ accentColor: step.accentColor })}
+            style={visualStyle({
+              accentColor: step.accentColor,
+              backgroundImage: step.image,
+              cardImage: step.image,
+            })}
           >
             {step.image ? <img alt="" loading="lazy" src={step.image} /> : <Layers3 aria-hidden="true" size={34} />}
             <span>{String(index + 1).padStart(2, "0")}</span>
@@ -351,12 +383,14 @@ export function MilestoneRail({ items }: MilestoneRailProps) {
     <section className="milestone-rail" aria-label="World model milestone timeline">
       {items.map((item, index) => {
         const stage = getEvolutionStageById(item.evolutionStageId);
+        const visual = newsVisual(item);
 
         return (
           <article
             className="milestone-card"
             key={item.slug}
             style={visualStyle({
+              ...visual,
               accentColor: stage?.accent ?? (index % 2 === 0 ? "#f6d26e" : "#74f4ff"),
               secondaryAccentColor:
                 stage?.secondaryAccent ?? (index % 2 === 0 ? "#ff7fa6" : "#8df6dd"),
@@ -374,7 +408,7 @@ export function MilestoneRail({ items }: MilestoneRailProps) {
               <p>{item.summary}</p>
             </div>
             <Link className="showcase-inline-link" href={`/news/${item.slug}`}>
-              Read update
+              Open signal
               <ArrowRight size={14} aria-hidden="true" />
             </Link>
           </article>

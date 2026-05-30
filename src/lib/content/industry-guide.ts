@@ -61,131 +61,131 @@ export const progressStages: ProgressStage[] = [
       "Agent-society work shows why persistent worlds eventually need inhabitants and memory.",
     ],
     href: "/updates",
-    cta: "Scan updates",
+    cta: "Scan selected signals",
   },
 ];
 
 export const companyModelGroups: CompanyModelGroup[] = [
   {
     company: "World Labs",
-    headline: "Marble turns world models into a visible 3D creation product.",
+    headline: "Create editable 3D worlds in Marble.",
     modelSlugs: ["marble", "world-api"],
     signalType: "Usable product",
-    launched: "Marble and the later World API direction",
+    launched: "Marble world creator and World API direction",
     visitorCanSee:
-      "A web product for creating, editing, exploring, sharing, and exporting persistent 3D worlds.",
+      "Create, edit, explore, share, and export a persistent 3D world from a web product.",
     boundary:
-      "Treat Marble as the product-led 3D world lane, not as a robotics simulator or many-agent world.",
+      "Best for 3D world creation; not a robot simulator or many-agent game world.",
     officialHref: "https://marble.worldlabs.ai/",
     createHref: "https://marble.worldlabs.ai/",
   },
   {
     company: "Blockade Labs",
-    headline: "Skybox AI is the clearest 360 environment lane.",
+    headline: "Generate 360 environments with Skybox AI.",
     modelSlugs: ["skybox-ai"],
     signalType: "Usable product",
     launched: "Skybox AI app, API, and export workflow",
     visitorCanSee:
-      "360 skyboxes, HDRI-style environment images, GLB environment exports, and engine-oriented use cases.",
+      "Create skyboxes, HDRI-style environments, GLB exports, and scene backdrops.",
     boundary:
-      "Frame Skybox AI as environment generation and export tooling, not as a full realtime simulator.",
+      "Best for environment shells and 360 scenes; not a full realtime world simulator.",
     officialHref: "https://skybox.blockadelabs.com/",
     createHref: "https://skybox.blockadelabs.com/",
   },
   {
     company: "Alibaba",
-    headline: "HappyOyster shows the product-facing interactive world path.",
+    headline: "HappyOyster is an early look at interactive AI worlds.",
     modelSlugs: ["happyoyster"],
     signalType: "Product signal",
-    launched: "HappyOyster early-access world creation product",
+    launched: "HappyOyster early-access world creator",
     visitorCanSee:
-      "An Alibaba-side interface for real-time world exploration and directing, with access still framed conservatively.",
+      "A consumer-style interface for directing and exploring AI worlds, with limited access.",
     boundary:
-      "Keep early-access availability separate from broad public-product claims.",
+      "Treat it as promising early access, not as a fully open public tool.",
     officialHref: "https://www.happyoyster.cn/",
   },
   {
     company: "Google DeepMind",
-    headline: "Genie anchors the promptable interactive world research path.",
+    headline: "Genie shows where prompt-based playable worlds are heading.",
     modelSlugs: ["genie-3"],
     signalType: "Experimental preview",
     launched: "Genie 3 and Project Genie updates",
     visitorCanSee:
-      "Interactive world demos and a gated Project Genie prototype path, including Street View-grounded scenes.",
+      "Interactive demos and a gated prototype path, including Street View-grounded scenes.",
     boundary:
-      "Do not present Genie as a generally available world-building platform or open developer API.",
+      "Good for understanding the future; not a tool most users can open today.",
     officialHref: "https://labs.google/projectgenie",
   },
   {
     company: "Tencent Hunyuan",
-    headline: "Tencent pushes open 3D world generation and embodied progress.",
+    headline: "Tencent makes the open 3D asset track easier to follow.",
     modelSlugs: ["hy-world-2-0", "hy-embodied-0-5"],
     signalType: "Open stack",
     launched: "HY-World 2.0 and HY-Embodied-0.5",
     visitorCanSee:
-      "Public repos, model cards, technical reports, and a clearer split between 3D world assets and embodied-AI systems.",
+      "Public repos, model cards, and technical reports for generated 3D worlds and embodied AI.",
     boundary:
-      "HY-World belongs in generated and reconstructed 3D worlds; HY-Embodied belongs in robot-facing progress.",
+      "Useful for developers and technical readers, not a simple creator app.",
     officialHref: "https://github.com/Tencent-Hunyuan/HY-World-2.0",
   },
   {
     company: "Ant Group / Robbyant",
-    headline: "Robbyant expands the open-source world and embodied-AI track.",
+    headline: "Robbyant connects world models with maps and robot control.",
     modelSlugs: ["lingbot-world", "lingbot-map", "lingbot-va", "lingbot-vla"],
     signalType: "Open stack",
     launched: "LingBot-World, LingBot-Map, LingBot-VA, and LingBot-VLA",
     visitorCanSee:
-      "Open repositories, papers, model releases, and a path from interactive worlds into mapping and robot control.",
+      "Open repositories, papers, model releases, and the path from worlds into mapping and robot control.",
     boundary:
-      "Separate consumer-facing world creation from embodied models and reconstruction systems.",
+      "Good category background; not a consumer world creator.",
     officialHref: "https://github.com/Robbyant",
   },
   {
     company: "NVIDIA",
-    headline: "Cosmos keeps the physical-AI infrastructure lane visible.",
+    headline: "Cosmos explains the physical-AI infrastructure lane.",
     modelSlugs: ["cosmos"],
     signalType: "Adjacent progress",
     launched: "Cosmos platform and Cosmos 3 preview direction",
     visitorCanSee:
       "A platform story around synthetic data, world foundation models, evaluation, and robot-training workflows.",
     boundary:
-      "This is infrastructure for physical AI, not a consumer 3D world creator like Marble or Skybox.",
+      "Built for robotics and physical-AI workflows, not a consumer 3D creator.",
     officialHref: "https://github.com/nvidia-cosmos",
   },
   {
     company: "Runway",
-    headline: "GWM-1 shows how video companies are moving toward world models.",
+    headline: "Runway shows how video tools are moving toward characters and worlds.",
     modelSlugs: ["gwm-1"],
     signalType: "Product signal",
     launched: "GWM-1 and Runway Characters",
     visitorCanSee:
       "A general world-model research direction plus a deployed character-agent surface through Runway products.",
     boundary:
-      "Characters is an avatar/product signal, not proof of a general explorable-world platform.",
+      "Useful for avatars and video products; not a general explorable-world tool.",
     officialHref: "https://runwayml.com/news/building-runway-characters",
   },
   {
     company: "Decart AI + Etched",
-    headline: "Oasis shows the realtime action-conditioned demo path.",
+    headline: "Oasis is a playable realtime AI-world demo.",
     modelSlugs: ["oasis"],
     signalType: "Experimental preview",
     launched: "Oasis realtime open-world demo",
     visitorCanSee:
-      "A playable, keyboard-conditioned video world that explains interaction better than a fixed clip.",
+      "A keyboard-controlled demo world that shows interaction better than a fixed clip.",
     boundary:
-      "Oasis is not a polished world editor or reusable 3D asset export product.",
+      "Interesting demo, not a polished creator product or export workflow.",
     officialHref: "https://oasis-model.github.io/",
   },
   {
     company: "Altera / Fundamental Research Labs",
-    headline: "Project Sid adds the agent-society layer.",
+    headline: "Project Sid shows how AI inhabitants behave inside a world.",
     modelSlugs: ["project-sid"],
     signalType: "Adjacent progress",
     launched: "Project Sid many-agent civilization simulation",
     visitorCanSee:
       "A Minecraft-based simulation where agents specialize, organize, and form social patterns.",
     boundary:
-      "This is about inhabitants and social behavior, not visual world generation.",
+      "About agents and society, not visual world generation.",
     officialHref: "https://fundamentalresearchlabs.com/blog/project-sid",
   },
 ];

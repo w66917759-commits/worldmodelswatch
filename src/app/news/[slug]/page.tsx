@@ -5,9 +5,16 @@ import { notFound } from "next/navigation";
 import { CommentThread } from "@/components/comments/comment-thread";
 import { FaqSummary } from "@/components/faq-summary";
 import { JsonLd } from "@/components/json-ld";
-import { SceneExplainer, ShowcaseHero } from "@/components/showcase";
+import { SceneExplainer, ShowcaseHero, visualStyle } from "@/components/showcase";
 import { SourceList } from "@/components/source-list";
-import { comparisons, getNewsItem, modelProfiles, newsItems } from "@/lib/content";
+import {
+  getComparison,
+  getModel,
+  getNewsItem,
+  newsItems,
+  type Comparison,
+  type ModelProfile,
+} from "@/lib/content";
 import { newsPrimaryKeyword, uniqueKeywords } from "@/lib/seo/page-targets";
 import { newsVisual } from "@/lib/showcase";
 import { absoluteUrl, site } from "@/lib/site";
@@ -22,24 +29,6 @@ export function generateStaticParams() {
   return newsItems.map((item) => ({
     slug: item.slug,
   }));
-}
-
-function textMatchesKeyword(text: string, keyword: string) {
-  return text.toLowerCase().includes(keyword.toLowerCase());
-}
-
-function detectMentionedModels(text: string) {
-  return modelProfiles.filter((model) => {
-    const keywords = [
-      model.name,
-      model.organization,
-      model.primaryKeyword,
-      ...(model.secondaryKeywords ?? []),
-      ...(model.officialKeywords ?? []),
-    ].filter(Boolean) as string[];
-
-    return keywords.some((keyword) => textMatchesKeyword(text, keyword));
-  });
 }
 
 export async function generateMetadata({ params }: NewsPageProps): Promise<Metadata> {
@@ -90,15 +79,14 @@ export default async function NewsDetailPage({ params }: NewsPageProps) {
     item.tags,
     item.organization,
   );
-  const articleText = `${item.title} ${item.organization} ${item.summary} ${item.whyItMatters} ${item.tags.join(" ")}`;
-  const mentionedModels = detectMentionedModels(articleText);
-  const mentionedModelSlugs = new Set(mentionedModels.map((model) => model.slug));
-  const relatedComparisons = comparisons
-    .filter((comparison) =>
-      comparison.relatedModelSlugs?.some((modelSlug) => mentionedModelSlugs.has(modelSlug)),
-    )
-    .slice(0, 4);
+  const relatedModels = item.relatedModelSlugs
+    .map((modelSlug) => getModel(modelSlug))
+    .filter((model): model is ModelProfile => Boolean(model));
+  const relatedComparisons = item.relatedComparisonSlugs
+    .map((comparisonSlug) => getComparison(comparisonSlug))
+    .filter((comparison): comparison is Comparison => Boolean(comparison));
   const visual = newsVisual(item);
+  const sceneImages = visual.stickerImages ?? [visual.cardImage ?? visual.backgroundImage ?? visual.heroImage].filter(Boolean);
   const leadSource = item.sources[0];
 
   return (
@@ -121,16 +109,16 @@ export default async function NewsDetailPage({ params }: NewsPageProps) {
       />
 
       <ShowcaseHero
-        description={item.summary}
-        eyebrow={`${visual.signalType} · ${item.organization}`}
-        meta={[item.date, item.organization, ...item.tags.slice(0, 2)]}
+        description={item.whatChanged?.[0] ?? item.summary}
+        eyebrow={`${item.signalType} · ${item.sourceConfidence}`}
+        meta={[item.date, item.organization, item.impactLevel]}
         primaryCta={leadSource ? { href: leadSource.url, label: "Open source", external: true } : undefined}
-        secondaryCta={{ href: "/news", label: "All updates" }}
+        secondaryCta={{ href: "/news", label: "All signals" }}
         title={primaryKeyword}
         visual={visual}
       />
 
-      <section className="news-detail-layout">
+      <section className="news-detail-layout" style={visualStyle(visual)}>
         <article className="showcase-panel">
           <h2>What changed</h2>
           <p>{item.whatChanged?.[0] ?? item.summary}</p>
@@ -146,7 +134,11 @@ export default async function NewsDetailPage({ params }: NewsPageProps) {
         <aside className="fact-strip" aria-label="Update facts">
           <div>
             <span>Signal</span>
-            <strong>{visual.signalType}</strong>
+            <strong>{item.signalType}</strong>
+          </div>
+          <div>
+            <span>Impact</span>
+            <strong>{item.impactLevel}</strong>
           </div>
           <div>
             <span>Organization</span>
@@ -158,53 +150,56 @@ export default async function NewsDetailPage({ params }: NewsPageProps) {
           </div>
           <div>
             <span>Source confidence</span>
-            <strong>{item.sourceConfidence ?? "Source-backed update"}</strong>
+            <strong>{item.sourceConfidence}</strong>
           </div>
         </aside>
       </section>
 
       <SceneExplainer
-        description="The update page stays short up top, then sends readers into models, comparisons, or official sources."
+        description="The release signal stays short, then sends readers into stable context or official sources."
         steps={[
           {
             eyebrow: "Signal",
-            title: visual.signalType,
-            body: item.summary,
+            title: item.signalType,
+            body: item.whatChanged?.[0] ?? item.summary,
+            image: sceneImages[0],
             accentColor: visual.accentColor,
           },
           {
-            eyebrow: "Context",
-            title: "Where it fits",
-            body:
-              item.availabilityNote ??
-              "It changes how the category is explained, built, accessed, or compared.",
+            eyebrow: "Confidence",
+            title: item.sourceConfidence,
+            body: item.availabilityNote ?? "This signal is tied to the cited source and should not be stretched beyond it.",
+            image: sceneImages[1] ?? sceneImages[0],
             accentColor: visual.secondaryAccentColor,
           },
           {
             eyebrow: "Next click",
-            title: "Open the adjacent page",
+            title: "Open stable context",
             body:
-              mentionedModels[0]?.summary ??
-              relatedComparisons[0]?.summary ??
-              "Use the sources below to keep the update grounded.",
+              relatedModels[0]
+                ? `Open the ${relatedModels[0].name} profile for stable status, availability, and source boundaries.`
+                : relatedComparisons[0]
+                  ? `Open ${relatedComparisons[0].title} for the decision guide this signal affects.`
+                  : "Use the official sources below to keep the update grounded.",
+            image: sceneImages[2] ?? sceneImages[0],
             href:
-              mentionedModels[0] ? `/models/${mentionedModels[0].slug}` : relatedComparisons[0] ? `/compare/${relatedComparisons[0].slug}` : undefined,
-            cta: mentionedModels[0] ? mentionedModels[0].name : relatedComparisons[0]?.title,
+              relatedModels[0] ? `/models/${relatedModels[0].slug}` : relatedComparisons[0] ? `/compare/${relatedComparisons[0].slug}` : undefined,
+            cta: relatedModels[0] ? relatedModels[0].name : relatedComparisons[0]?.title,
             accentColor: "#ff7fa6",
           },
         ]}
         title="Three beats, then the receipts."
       />
 
-      {mentionedModels.length > 0 || relatedComparisons.length > 0 ? (
-        <section className="source-backed-section">
+      {relatedModels.length > 0 || relatedComparisons.length > 0 ? (
+        <section className="source-backed-section" style={visualStyle(visual)}>
           <div className="showcase-section-heading">
             <p className="showcase-kicker">Related context</p>
-            <h2>Follow the update into the model wall.</h2>
+            <h2>Follow this signal into stable pages.</h2>
           </div>
-          {mentionedModels.length > 0 ? (
+          {relatedModels.length > 0 ? (
             <div className="tag-row standalone">
-              {mentionedModels.slice(0, 6).map((model) => (
+              {relatedModels.slice(0, 6).map((model) => (
                 <Link href={`/models/${model.slug}`} key={model.slug}>
                   {model.name}
                 </Link>

@@ -16,8 +16,8 @@ export default function TimelinePage() {
         description={seoTarget.description}
         eyebrow="World model timeline"
         meta={["Launches", "Open source", "Consumer signals", "Physical AI"]}
-        primaryCta={{ href: "/news", label: "Read updates" }}
-        secondaryCta={{ href: "/models", label: "Model wall" }}
+        primaryCta={{ href: "/news", label: "Release signals" }}
+        secondaryCta={{ href: "/models", label: "Company map" }}
         title="World model timeline for launches and milestones."
         visual={pageVisuals.timeline}
       />

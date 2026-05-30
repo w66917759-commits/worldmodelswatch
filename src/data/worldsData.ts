@@ -31,6 +31,9 @@ export type WorldProject = {
   videoSrc: string;
   videoType: string;
   posterSrc?: string;
+  heroVideoSrc?: string;
+  heroVideoType?: string;
+  heroPosterSrc?: string;
   feeling: string;
   forgePrompt: string;
   civilizationSignal: string;
@@ -68,6 +71,9 @@ export const worldsData: WorldProject[] = [
     videoSrc: "/world-videos/world-labs/marble-hero.mp4",
     videoType: "video/mp4",
     posterSrc: "/world-videos/world-labs/marble-hero-poster.png",
+    heroVideoSrc: "/world-videos/world-labs/marble-hero-homepage-hd.mp4",
+    heroVideoType: "video/mp4",
+    heroPosterSrc: "/world-videos/world-labs/marble-hero-homepage-poster.jpg",
     feeling:
       "A spatial camera drifts through a generated room that feels editable, explorable, and physically present.",
     forgePrompt:
@@ -135,6 +141,9 @@ export const worldsData: WorldProject[] = [
     sourceHref: "https://labs.google/projectgenie",
     videoSrc: "/world-videos/genie/genie-simulating-natural-world.mp4",
     videoType: "video/mp4",
+    heroVideoSrc: "/world-videos/genie/genie-cover-homepage-hd.mp4",
+    heroVideoType: "video/mp4",
+    heroPosterSrc: "/world-videos/genie/genie-cover-homepage-poster.jpg",
     feeling:
       "A playable environment emerges from learned rules, not a hand-authored game level.",
     forgePrompt:
@@ -168,6 +177,9 @@ export const worldsData: WorldProject[] = [
     sourceHref: "https://www.happyoyster.cn/",
     videoSrc: "/world-videos/happyoyster/happyoyster-official-demo.mp4",
     videoType: "video/mp4",
+    heroVideoSrc: "/world-videos/happyoyster/happyoyster-homepage-hd.mp4",
+    heroVideoType: "video/mp4",
+    heroPosterSrc: "/world-videos/happyoyster/happyoyster-homepage-poster.jpg",
     feeling:
       "A directed open world with the atmosphere of a place that can be wandered through and revised.",
     forgePrompt:
@@ -202,6 +214,7 @@ export const worldsData: WorldProject[] = [
     sourceHref: "https://landing-dev.blockadelabs.com/",
     videoSrc: "/world-videos/skybox-ai/skybox-ai-landscape-revised.mp4",
     videoType: "video/mp4",
+    heroPosterSrc: "/world-videos/skybox-ai/skybox-ai-homepage-poster.jpg",
     feeling:
       "A panoramic environment opens like a destination: sky, horizon, light, and mood generated as one world surface.",
     forgePrompt:
@@ -236,6 +249,9 @@ export const worldsData: WorldProject[] = [
     sourceHref: "https://3d.hunyuan.tencent.com/sceneTo3D",
     videoSrc: "/world-videos/hy-world/hy-world-2-main-demo.mp4",
     videoType: "video/mp4",
+    heroVideoSrc: "/world-videos/hy-world/hy-world-2-homepage-hd.mp4",
+    heroVideoType: "video/mp4",
+    heroPosterSrc: "/world-videos/hy-world/hy-world-2-homepage-poster.jpg",
     feeling:
       "A generated 3D world turns into an editable environment with geometry, motion, and explorable space.",
     forgePrompt:

@@ -44,6 +44,7 @@ export const modelProfiles: ModelProfile[] = [
     category: "Real-time interactive world model product",
     date: "2026-04-20",
     status: "Early Access program",
+    relatedNewsSlugs: ["alibaba-happyoyster-world-model"],
     summary:
       "HappyOyster is Alibaba's open-ended world model product for real-time immersive world creation, exploration, and directing.",
     primaryKeyword: "HappyOyster real-time world model",
@@ -103,6 +104,7 @@ export const modelProfiles: ModelProfile[] = [
     category: "Open-source interactive world simulator",
     date: "2026-01-29",
     status: "Open-source code, paper, and model releases",
+    relatedNewsSlugs: ["ant-lingguang-mobile-world-model"],
     summary:
       "LingBot-World is Robbyant's open-source world simulator for high-fidelity, long-horizon, real-time interactive environments.",
     focus: "Image-conditioned world generation, long-term consistency, camera/action control, fast inference, and embodied AI training environments.",
@@ -144,6 +146,7 @@ export const modelProfiles: ModelProfile[] = [
     date: "2026-04-15",
     updated: "2026-05-25",
     status: "Open-source code, paper, model releases, and public evaluation scripts",
+    relatedNewsSlugs: ["ant-robbyant-lingbot-map"],
     summary:
       "LingBot-Map is Robbyant's feed-forward 3D foundation model for streaming reconstruction from video sequences, now backed by a public benchmark pipeline for KITTI and Oxford Spires.",
     focus: "Streaming 3D reconstruction, long-horizon spatial memory, camera pose estimation, and browser-viewable scene understanding.",
@@ -181,6 +184,7 @@ export const modelProfiles: ModelProfile[] = [
     category: "Robot-control world model",
     date: "2026-01-29",
     status: "Open-source code, paper, and model releases",
+    relatedNewsSlugs: ["ant-robbyant-lingbot-va"],
     summary:
       "LingBot-VA is Robbyant's causal video-action world model for generalist robot control.",
     focus:
@@ -219,6 +223,7 @@ export const modelProfiles: ModelProfile[] = [
     date: "2026-01-27",
     updated: "2026-05-05",
     status: "Open-source code, paper, and model releases",
+    relatedNewsSlugs: ["ant-robbyant-lingbot-vla"],
     summary:
       "LingBot-VLA is Robbyant's pragmatic vision-language-action foundation model for generalist robotic manipulation across platforms.",
     focus:
@@ -257,6 +262,7 @@ export const modelProfiles: ModelProfile[] = [
     date: "2025-08-05",
     updated: "2026-05-19",
     status: "Research preview with Project Genie prototype rollout",
+    relatedNewsSlugs: ["google-project-genie-street-view", "deepmind-announces-genie-3"],
     summary:
       "Genie 3 is positioned as a frontier world model for generating and navigating interactive environments from prompts.",
     primaryKeyword: "Genie 3 interactive world model",
@@ -317,6 +323,7 @@ export const modelProfiles: ModelProfile[] = [
     category: "Realtime open-world AI model",
     date: "2024-10-31",
     status: "Public demo with open code and model-weight links",
+    relatedNewsSlugs: ["oasis-realtime-world"],
     summary:
       "Oasis is an experiential realtime open-world AI model that generates an interactive video world from keyboard input frame by frame.",
     primaryKeyword: "Oasis interactive world model",
@@ -364,6 +371,7 @@ export const modelProfiles: ModelProfile[] = [
     category: "3D world model",
     date: "2025-11-12",
     status: "Product launch",
+    relatedNewsSlugs: ["world-labs-launches-marble", "world-labs-world-api-announced"],
     summary:
       "Marble turns images, text, video, or spatial layouts into persistent 3D worlds that can be edited and explored.",
     primaryKeyword: "Marble persistent 3D worlds",
@@ -424,6 +432,7 @@ export const modelProfiles: ModelProfile[] = [
     date: "2024-02-27",
     updated: "2026-05-28",
     status: "Public app, API documentation, and export workflow",
+    relatedNewsSlugs: ["skybox-immersive-worlds"],
     summary:
       "Skybox AI generates panoramic 360-degree environments for skyboxes, HDRI lighting, VR scenes, and game-engine backplates.",
     primaryKeyword: "Skybox AI 360 environments",
@@ -500,6 +509,7 @@ export const modelProfiles: ModelProfile[] = [
     updated: "2026-05-18",
     status:
       "Open-source technical report, model weights, and May 2026 world-generation code expansion",
+    relatedNewsSlugs: ["tencent-hunyuan-hy-world-2-0"],
     summary:
       "HY-World 2.0 is Tencent Hunyuan's multimodal 3D world model for reconstructing, generating, and simulating persistent worlds from text, images, multi-view inputs, and video.",
     primaryKeyword: "HY-World 2.0 multi-modal world model",
@@ -563,6 +573,7 @@ export const modelProfiles: ModelProfile[] = [
     category: "Many-agent civilization simulation",
     date: "2024-11-01",
     status: "Public research report and GitHub project",
+    relatedNewsSlugs: ["project-sid-civilization"],
     summary:
       "Project Sid is a Minecraft-based many-agent simulation studying specialization, law, culture, religion, and social organization in AI civilizations.",
     primaryKeyword: "Project Sid many-agent simulation",
@@ -619,6 +630,7 @@ export const modelProfiles: ModelProfile[] = [
     date: "2026-04-09",
     updated: "2026-04-24",
     status: "Open-source model family with enhanced 0.5-X release",
+    relatedNewsSlugs: ["tencent-hy-embodied-0-5-x"],
     summary:
       "HY-Embodied-0.5 is Tencent's embodied foundation-model family for spatial reasoning, embodied planning, and robot-facing perception, later extended with the HY-Embodied-0.5-X enhancement.",
     focus:
@@ -656,6 +668,7 @@ export const modelProfiles: ModelProfile[] = [
     category: "World model platform",
     date: "2026-01-21",
     status: "API announcement",
+    relatedNewsSlugs: ["world-labs-world-api-announced"],
     summary:
       "World API moves World Labs' world model work toward a developer platform for generating and manipulating 3D worlds.",
     focus: "Developer access, workflows, and programmable 3D world generation.",
@@ -684,6 +697,7 @@ export const modelProfiles: ModelProfile[] = [
     date: "2025-12-11",
     updated: "2026-05-04",
     status: "Research announcement with deployed character-agent surface",
+    relatedNewsSlugs: ["runway-characters-gwm-1", "runway-introduces-gwm-1"],
     summary:
       "Runway describes GWM-1 as a general world model effort spanning generated worlds, avatars, and robotics-oriented directions.",
     focus:
@@ -724,6 +738,7 @@ export const modelProfiles: ModelProfile[] = [
     updated: "2026-05-27",
     status:
       "Platform launch with Cosmos 3 preview, physical-AI data-factory blueprint, and a late-May-active public GitHub stack",
+    relatedNewsSlugs: ["nvidia-cosmos-3-physical-ai-stack", "nvidia-launches-cosmos"],
     summary:
       "NVIDIA Cosmos is a world foundation model platform for physical AI, with the March 2026 GTC update adding Cosmos 3 as a unifying layer for synthetic world generation, reasoning, and action simulation and the public repo surface staying active through late May 2026.",
     focus:

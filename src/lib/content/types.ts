@@ -9,6 +9,10 @@ export type ShowcaseVisual = {
   heroImage?: string;
   heroVideo?: string;
   posterImage?: string;
+  backgroundImage?: string;
+  cardImage?: string;
+  stickerImages?: string[];
+  imagePosition?: string;
   accentColor?: string;
   secondaryAccentColor?: string;
   consumerHook?: string;
@@ -55,11 +59,14 @@ export type NewsItem = {
   whyItMatters: string;
   tags: string[];
   sources: Source[];
+  signalType: "Product" | "Open source" | "Reported" | "Physical AI" | "Research" | "Platform";
+  impactLevel: "High" | "Medium" | "Low";
   whatChanged?: string[];
-  sourceConfidence?: string;
+  sourceConfidence: string;
   availabilityNote?: string;
   overclaimWarning?: string;
-  relatedModelSlugs?: string[];
+  relatedModelSlugs: string[];
+  relatedComparisonSlugs: string[];
 } & SeoFields &
   ShowcaseVisual;
 
@@ -73,12 +80,14 @@ export type Comparison = {
   title: string;
   summary: string;
   updated: string;
+  guideType: "creator" | "developer" | "research" | "robotics" | "beginner" | "concept-boundary";
+  decisionQuestion: string;
   columns: string[];
   rows: string[][];
   takeaways: string[];
   sources: Source[];
   faq?: ComparisonFaq[];
-  relatedModelSlugs?: string[];
+  relatedModelSlugs: string[];
   decisionGuide?: string[];
 } & SeoFields &
   ShowcaseVisual;

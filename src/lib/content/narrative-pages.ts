@@ -193,7 +193,7 @@ export const narrativePages: NarrativePage[] = [
       "World model research signals are organized into source-backed releases, clear comparison paths, and practical next clicks.",
     primaryCta: {
       href: "/news",
-      label: "Read official updates",
+      label: "Release Signals",
     },
     secondaryCta: {
       href: "/events",
@@ -204,14 +204,14 @@ export const narrativePages: NarrativePage[] = [
         eyebrow: "Release radar",
         title: "Follow the launches without reading like a paper tracker.",
         body: [
-          "The news index turns announcements, API surfaces, product previews, and reported consumer signals into quick visual update cards.",
-          "The source links remain available, but the first impression is the product motion: what became visible, usable, open, or closer to ordinary users.",
+          "Release Signals turns announcements, API surfaces, product previews, and reported consumer signals into short source-confidence cards.",
+          "The first impression is what changed and where to go next; stable model context stays in the Company Map.",
         ],
         links: [
           {
             href: "/news",
-            label: "News index",
-            description: "Primary-source updates and official release signals.",
+            label: "Release Signals",
+            description: "Primary-source release signals with affected models and next pages.",
           },
           {
             href: "/events",
@@ -221,17 +221,17 @@ export const narrativePages: NarrativePage[] = [
         ],
       },
       {
-        eyebrow: "Matchup layer",
-        title: "Comparisons work better as visual choices before detailed tables.",
+        eyebrow: "Decision layer",
+        title: "Decision Guides work better as choices before detailed tables.",
         body: [
           "Marble, Genie, GWM-1, Cosmos, LingBot, and HY-World belong in different lanes even when they share the world-model label.",
-          "The comparison pages now start with the reader decision and keep tables below for source-backed details.",
+          "Decision Guide pages start with the reader choice and keep tables below for source-backed details.",
         ],
         links: [
           {
             href: "/compare",
-            label: "Comparison hub",
-            description: "Tables that distinguish product surfaces, research tracks, and physical-AI stacks.",
+            label: "Decision Guides",
+            description: "Choose-between pages for product surfaces, research tracks, and physical-AI stacks.",
           },
           {
             href: "/concepts",
@@ -241,16 +241,16 @@ export const narrativePages: NarrativePage[] = [
         ],
       },
       {
-        eyebrow: "Model wall",
-        title: "Dossiers become showcase pages with sources at the bottom.",
+        eyebrow: "Company map",
+        title: "Stable profiles keep company facts separate from release signals.",
         body: [
           "Each model page opens with a visual anchor, then keeps organization, status, availability, strengths, limits, and official sources in a consistent shape.",
         ],
         links: [
           {
             href: "/models",
-            label: "Model dossiers",
-            description: "Normalized reference pages for systems to watch.",
+            label: "Company Map",
+            description: "Normalized company and model profiles for systems to watch.",
           },
         ],
       },

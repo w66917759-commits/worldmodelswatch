@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import type { CSSProperties } from "react";
 
-import { ShowcaseHero } from "@/components/showcase";
+import { ShowcaseHero, visualStyle } from "@/components/showcase";
 import { concepts } from "@/lib/content";
 import { getStaticSeoTarget, metadataForRoute } from "@/lib/seo/page-targets";
 import { conceptVisual, pageVisuals } from "@/lib/showcase";
@@ -34,19 +33,17 @@ export default function ConceptsPage() {
         </div>
 
         <div className="concept-tile-grid">
-        {concepts.map((concept) => (
+        {concepts.map((concept) => {
+          const visual = conceptVisual(concept.slug);
+
+          return (
           <article
             className="concept-tile"
             id={concept.slug}
             key={concept.slug}
-            style={
-              {
-                "--showcase-accent": conceptVisual(concept.slug).accentColor,
-                "--showcase-secondary": conceptVisual(concept.slug).secondaryAccentColor,
-              } as CSSProperties
-            }
+            style={visualStyle(visual)}
           >
-            <span className="signal-pill">{conceptVisual(concept.slug).primarySceneLabel}</span>
+            <span className="signal-pill">{visual.primarySceneLabel}</span>
             <h2>{concept.term}</h2>
             <p>{concept.summary}</p>
             <strong>{concept.plainEnglish}</strong>
@@ -56,7 +53,8 @@ export default function ConceptsPage() {
               ))}
             </div>
           </article>
-        ))}
+          );
+        })}
         </div>
         <Link className="showcase-inline-link" href="/concept-map">
           See how the concepts connect

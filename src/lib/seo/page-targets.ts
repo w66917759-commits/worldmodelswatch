@@ -79,16 +79,16 @@ export const staticSeoTargets = [
   },
   {
     route: "/updates",
-    primaryKeyword: "AI world model updates",
+    primaryKeyword: "selected AI world model release signals",
     longTailKeywords: [
       "world model product updates",
       "world model research updates",
-      "selected AI world updates",
+      "selected AI world release signals",
     ],
-    intent: "Collect selected updates that materially change the category map.",
+    intent: "Collect a short auxiliary set of release signals that materially change the category map.",
     indexable: true,
     description:
-      "Scan AI world model updates that matter for product signals, open stacks, physical AI, and selected research progress.",
+      "Scan selected AI world model release signals that point back to stable company profiles and decision guides.",
   },
   {
     route: "/timeline",
@@ -105,16 +105,17 @@ export const staticSeoTargets = [
   },
   {
     route: "/models",
-    primaryKeyword: "AI world model companies",
+    primaryKeyword: "AI world model company map",
     longTailKeywords: [
       "world model companies",
       "AI world model startups",
       "companies building world models",
+      "AI world model product map",
     ],
-    intent: "Map companies and model lanes without taking over model-detail keywords.",
+    intent: "Help consumer readers find usable AI world tools while keeping demos and research signals clearly labeled.",
     indexable: true,
     description:
-      "Compare AI world model companies by what they launched, what visitors can see, and what each company should not overclaim.",
+      "Find AI world tools you can try, see what each company lets you create, and know which projects are still demos or research.",
   },
   {
     route: "/world-model-labs",
@@ -131,29 +132,31 @@ export const staticSeoTargets = [
   },
   {
     route: "/news",
-    primaryKeyword: "world model news",
+    primaryKeyword: "world model release signals",
     longTailKeywords: [
       "AI world model news",
       "world model release news",
-      "world model product news",
+      "world model product signals",
+      "world model source confidence",
     ],
-    intent: "Index source-backed news without competing with individual news pages.",
+    intent: "Index short source-backed release signals without competing with stable model or guide pages.",
     indexable: true,
     description:
-      "Read world model news organized by product, research, open-source, physical-AI, and reported release signals.",
+      "Read short world model release signals organized by what changed, source confidence, affected models, and next pages to open.",
   },
   {
     route: "/compare",
-    primaryKeyword: "world model comparisons",
+    primaryKeyword: "world model decision guides",
     longTailKeywords: [
       "AI world model comparison",
       "compare world models",
-      "world model matchup pages",
+      "world model decision guide",
+      "which world model to choose",
     ],
-    intent: "Offer a hub for comparison pages without competing with specific matchups.",
+    intent: "Offer decision guides that help readers choose between model lanes without repeating model dossiers.",
     indexable: true,
     description:
-      "Open focused world model comparisons that separate products, previews, open stacks, and physical-AI platforms.",
+      "Open world model decision guides that separate creator tools, developer stacks, research previews, robotics platforms, and beginner boundaries.",
   },
   {
     route: "/what-is-world-model",

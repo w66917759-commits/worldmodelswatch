@@ -7,6 +7,9 @@ export const comparisons: Comparison[] = [
     summary:
       "A comparison of Tencent Hunyuan's multimodal 3D world-model stack and World Labs' product-led persistent 3D world workflow.",
     updated: "2026-05-29",
+    guideType: "developer",
+    decisionQuestion:
+      "Do you need an open 3D world stack to inspect, or a polished product workflow for creating persistent worlds?",
     primaryKeyword: "HY-World 2.0 vs Marble",
     secondaryKeywords: [
       "open 3D world model vs persistent 3D worlds",
@@ -86,6 +89,9 @@ export const comparisons: Comparison[] = [
     summary:
       "A comparison of Alibaba's real-time world creation product and Google DeepMind's experimental Project Genie world-model preview.",
     updated: "2026-05-29",
+    guideType: "creator",
+    decisionQuestion:
+      "Are you trying to understand a product-facing real-time creation surface or a research preview for promptable worlds?",
     primaryKeyword: "HappyOyster vs Genie 3",
     secondaryKeywords: [
       "HappyOyster real-time world model",
@@ -160,6 +166,9 @@ export const comparisons: Comparison[] = [
     summary:
       "A comparison of DeepMind's promptable interactive world-model preview and Oasis's realtime action-conditioned open-world AI demo.",
     updated: "2026-05-29",
+    guideType: "research",
+    decisionQuestion:
+      "Do you want a frontier promptable-world reference or a keyboard-conditioned realtime interaction demo?",
     primaryKeyword: "Genie 3 vs Oasis",
     secondaryKeywords: [
       "Genie 3 interactive world model",
@@ -231,6 +240,9 @@ export const comparisons: Comparison[] = [
     summary:
       "A comparison of Blockade Labs' 360-degree environment generation workflow and World Labs' persistent 3D world creation product.",
     updated: "2026-05-29",
+    guideType: "creator",
+    decisionQuestion:
+      "Do you need a 360 environment quickly, or a persistent 3D world that can be explored and edited?",
     primaryKeyword: "Skybox AI vs Marble",
     secondaryKeywords: [
       "Skybox AI 360 environments",
@@ -308,6 +320,9 @@ export const comparisons: Comparison[] = [
     summary:
       "A comparison of Project Sid's many-agent AI civilization simulation with generative world models such as Genie, Oasis, Marble, and HY-World 2.0.",
     updated: "2026-05-29",
+    guideType: "concept-boundary",
+    decisionQuestion:
+      "Are you comparing generated environments, or the agent society that can live inside an environment?",
     primaryKeyword: "Project Sid vs world models",
     secondaryKeywords: [
       "Project Sid many-agent simulation",
@@ -389,6 +404,10 @@ export const comparisons: Comparison[] = [
     summary:
       "A comparison of Ant/Robbyant's VLA policy-model track and its causal video-action world-model track for robot control.",
     updated: "2026-05-05",
+    guideType: "robotics",
+    decisionQuestion:
+      "Are you checking a generalist robot policy model or a world model that predicts visual dynamics and actions together?",
+    relatedModelSlugs: ["lingbot-vla", "lingbot-va"],
     columns: ["Dimension", "LingBot-VLA", "LingBot-VA"],
     rows: [
       ["Primary framing", "Vision-language-action foundation model", "Causal video-action world model for robot control"],
@@ -427,6 +446,10 @@ export const comparisons: Comparison[] = [
     summary:
       "A comparison of Ant/Robbyant's robot-control world modeling track and its explorable world simulator track.",
     updated: "2026-05-01",
+    guideType: "robotics",
+    decisionQuestion:
+      "Are you following robot-control world modeling or an open simulator for explorable generated worlds?",
+    relatedModelSlugs: ["lingbot-va", "lingbot-world"],
     columns: ["Dimension", "LingBot-VA", "LingBot-World / Fast"],
     rows: [
       ["Primary framing", "Causal video-action world model for robot control", "Open-source interactive world simulator"],
@@ -465,6 +488,10 @@ export const comparisons: Comparison[] = [
     summary:
       "A comparison of Alibaba's productized real-time world creation surface and Ant/Robbyant's open-source world simulator route.",
     updated: "2026-04-30",
+    guideType: "developer",
+    decisionQuestion:
+      "Do you want an early-access creation product or an open-source simulator stack to inspect and build around?",
+    relatedModelSlugs: ["happyoyster", "lingbot-world"],
     columns: ["Dimension", "HappyOyster", "LingBot-World / Fast"],
     rows: [
       ["Organization", "Alibaba Token Hub", "Ant Group / Robbyant"],
@@ -503,6 +530,10 @@ export const comparisons: Comparison[] = [
     summary:
       "A practical comparison for readers who wonder whether world models are just another name for video generation.",
     updated: "2026-05-27",
+    guideType: "concept-boundary",
+    decisionQuestion:
+      "Are you looking at a fixed media generator, or a stateful environment that can respond to action?",
+    relatedModelSlugs: ["genie-3", "oasis", "marble", "gwm-1"],
     columns: ["Dimension", "Video model", "World model"],
     rows: [
       ["Primary output", "A fixed video sequence", "A stateful environment that can change with actions"],
@@ -542,6 +573,10 @@ export const comparisons: Comparison[] = [
     summary:
       "A comparison of streaming 3D reconstruction and generated 3D world creation so readers do not collapse spatial capture into world generation.",
     updated: "2026-05-25",
+    guideType: "developer",
+    decisionQuestion:
+      "Are you reconstructing spatial geometry from observations, or generating a new editable 3D world?",
+    relatedModelSlugs: ["lingbot-map", "marble"],
     columns: ["Dimension", "LingBot-Map", "Marble"],
     rows: [
       ["Organization", "Ant Group / Robbyant", "World Labs"],
@@ -578,6 +613,10 @@ export const comparisons: Comparison[] = [
     summary:
       "A comparison of DeepMind's interactive research direction and World Labs' 3D world creation product surface.",
     updated: "2026-04-28",
+    guideType: "creator",
+    decisionQuestion:
+      "Do you need a research reference for interactive worlds or a product surface for editable 3D world creation?",
+    relatedModelSlugs: ["genie-3", "marble"],
     columns: ["Dimension", "Genie 3", "Marble"],
     rows: [
       ["Organization", "Google DeepMind", "World Labs"],
@@ -608,6 +647,10 @@ export const comparisons: Comparison[] = [
     summary:
       "A comparison of World Labs' product-led spatial world approach and Runway's general world model research framing.",
     updated: "2026-05-25",
+    guideType: "research",
+    decisionQuestion:
+      "Are you comparing a current spatial creation product or a media-company research direction toward general world models?",
+    relatedModelSlugs: ["marble", "gwm-1"],
     columns: ["Dimension", "Marble", "GWM-1"],
     rows: [
       ["Organization", "World Labs", "Runway"],
@@ -642,6 +685,10 @@ export const comparisons: Comparison[] = [
     summary:
       "A comparison of NVIDIA's physical AI platform framing and the broader creative or interactive world model category.",
     updated: "2026-05-24",
+    guideType: "robotics",
+    decisionQuestion:
+      "Are you evaluating physical-AI infrastructure or the broader creator and interactive-world category?",
+    relatedModelSlugs: ["cosmos", "marble", "genie-3"],
     columns: ["Dimension", "NVIDIA Cosmos", "General world models"],
     rows: [
       ["Primary domain", "Physical AI, robotics, autonomous vehicles", "Interactive worlds, 3D spaces, simulation, media"],

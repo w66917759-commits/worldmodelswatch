@@ -12,6 +12,8 @@ export const newsItems: NewsItem[] = [
     whyItMatters:
       "This is a concrete, primary-source product signal for interactive world models rather than another abstract demo reel. It also sharpens an important editorial boundary for the site: Genie remains an experimental prototype, but it now connects promptable worlds to real-place imagery in a way that is relevant for simulation, robotics, and spatial-computing readers.",
     tags: ["Interactive worlds", "Spatial computing", "DeepMind", "Product"],
+    signalType: "Product",
+    impactLevel: "High",
     whatChanged: [
       "Google connected Project Genie to Street View-grounded scenes and tied the rollout to eligible Google AI Ultra subscribers instead of positioning it as a broad public API launch.",
     ],
@@ -20,6 +22,12 @@ export const newsItems: NewsItem[] = [
       "Treat this as an experimental prototype rollout tied to Google's own subscription surface, not as a generally available world-model platform.",
     overclaimWarning:
       "Do not flatten Project Genie into a widely available developer API or a fully open-ended consumer world-building product.",
+    relatedModelSlugs: ["genie-3"],
+    relatedComparisonSlugs: [
+      "happyoyster-vs-genie-3",
+      "genie-3-vs-oasis",
+      "genie-3-vs-marble",
+    ],
     sources: [
       {
         label: "Google DeepMind: Simulate real-world places with Project Genie and Street View",
@@ -46,6 +54,8 @@ export const newsItems: NewsItem[] = [
     whyItMatters:
       "This is a source-backed product signal for the avatar branch of world models, not just another video-model demo. It gives GWM-1 a clearer deployed surface while preserving an important editorial boundary: Characters shows low-latency conversational agents and identity persistence, but it is not the same thing as an open-ended explorable world platform.",
     tags: ["Runway", "GWM-1", "Avatars", "Product"],
+    signalType: "Product",
+    impactLevel: "Medium",
     whatChanged: [
       "Runway moved GWM-1 from a research framing into a concrete product surface through Characters, with rollout language tied to the Runway API plus web and mobile apps.",
     ],
@@ -54,6 +64,8 @@ export const newsItems: NewsItem[] = [
       "The clearest public deployment signal is the character-agent surface, not a general-purpose explorable world tool.",
     overclaimWarning:
       "Do not treat Runway Characters as proof that GWM-1 is broadly available as an open world-simulation platform.",
+    relatedModelSlugs: ["gwm-1"],
+    relatedComparisonSlugs: ["marble-vs-gwm-1"],
     sources: [
       {
         label: "Runway News: Building Runway Characters",
@@ -81,6 +93,8 @@ export const newsItems: NewsItem[] = [
     whyItMatters:
       "This remains a meaningful primary-source product update rather than a vague platform claim. The March 16, 2026 press materials established Cosmos 3 and the physical-AI data-factory blueprint together, and NVIDIA's still-active public GitHub surface makes the stack easier to verify as an ecosystem of world generation, curation, evaluation, and robot-training tools rather than a single demo video.",
     tags: ["Physical AI", "Robotics", "NVIDIA", "Product"],
+    signalType: "Physical AI",
+    impactLevel: "High",
     whatChanged: [
       "NVIDIA's March 16, 2026 GTC materials linked Cosmos 3 to a broader physical-AI data-factory blueprint, and the public Cosmos GitHub organization remained active through May 27, 2026.",
     ],
@@ -89,6 +103,8 @@ export const newsItems: NewsItem[] = [
       "Some Cosmos components are public on GitHub today, but Cosmos 3 itself is still described in preview-style language and should not be treated as a fully shipped standalone product.",
     overclaimWarning:
       "Do not convert active repositories and blueprint materials into a claim that all Cosmos 3 capabilities are generally available now.",
+    relatedModelSlugs: ["cosmos"],
+    relatedComparisonSlugs: ["cosmos-vs-general-world-models"],
     sources: [
       {
         label: "NVIDIA Newsroom: NVIDIA and global robotics leaders take physical AI to the real world",
@@ -124,6 +140,18 @@ export const newsItems: NewsItem[] = [
     whyItMatters:
       "This fills an important gap in the site's Ant coverage: not every embodied-AI system in the stack is best described as a world simulator. LingBot-VLA gives the site a clean primary-source anchor for policy and action models that sit next to LingBot-VA and LingBot-World without collapsing them into the same product class.",
     tags: ["Physical AI", "Robotics", "Ant Group", "Research"],
+    signalType: "Physical AI",
+    impactLevel: "Medium",
+    whatChanged: [
+      "Robbyant published LingBot-VLA as an open vision-language-action release, giving the site a robot-policy signal separate from explorable world simulators.",
+    ],
+    sourceConfidence: "Official open-source release",
+    availabilityNote:
+      "Treat this as an embodied-AI control release with public code and model materials, not as a consumer world-building product.",
+    overclaimWarning:
+      "Do not collapse LingBot-VLA into the same product class as HappyOyster, Marble, or Genie.",
+    relatedModelSlugs: ["lingbot-vla"],
+    relatedComparisonSlugs: ["lingbot-vla-vs-lingbot-va"],
     sources: [
       {
         label: "LingBot-VLA GitHub repository",
@@ -150,6 +178,18 @@ export const newsItems: NewsItem[] = [
     whyItMatters:
       "This is a clean primary-source addition for the site's physical-AI and embodied-AI track. It helps readers distinguish robot-control world modeling from explorable world products while keeping Ant coverage anchored in public code, paper, and model releases rather than reported product claims.",
     tags: ["Physical AI", "Robotics", "Ant Group", "Research"],
+    signalType: "Physical AI",
+    impactLevel: "Medium",
+    whatChanged: [
+      "Robbyant published LingBot-VA as a causal video-action world model, creating a clearer robot-control branch next to LingBot-World.",
+    ],
+    sourceConfidence: "Official open-source release",
+    availabilityNote:
+      "Treat this as a robot-control world-model release, not as a public creator or explorable-world product.",
+    overclaimWarning:
+      "Do not imply LingBot-VA is a general consumer world simulator.",
+    relatedModelSlugs: ["lingbot-va"],
+    relatedComparisonSlugs: ["lingbot-vla-vs-lingbot-va", "lingbot-va-vs-lingbot-world"],
     sources: [
       {
         label: "LingBot-VA GitHub repository",
@@ -177,6 +217,18 @@ export const newsItems: NewsItem[] = [
     whyItMatters:
       "This remains a strong primary-source Ant update, but the May 25 benchmark release adds a better reason to keep LingBot-Map visible: readers can now inspect a more concrete evaluation path instead of relying only on paper claims and teaser demos. It improves the site's spatial-computing and generated-3D-world coverage while keeping a clear editorial boundary between reconstruction systems and generative world products.",
     tags: ["3D reconstruction", "Spatial computing", "Ant Group", "Research"],
+    signalType: "Open source",
+    impactLevel: "Medium",
+    whatChanged: [
+      "Robbyant added public benchmark and evaluation materials around LingBot-Map, making its streaming 3D reconstruction claims easier to inspect.",
+    ],
+    sourceConfidence: "Official repository update",
+    availabilityNote:
+      "Treat LingBot-Map as a spatial reconstruction release, not as a generated-world product.",
+    overclaimWarning:
+      "Do not describe reconstruction benchmarks as proof of a general interactive world creator.",
+    relatedModelSlugs: ["lingbot-map"],
+    relatedComparisonSlugs: ["lingbot-map-vs-marble"],
     sources: [
       {
         label: "LingBot-Map GitHub repository",
@@ -203,6 +255,8 @@ export const newsItems: NewsItem[] = [
     whyItMatters:
       "This is the consumer-interface signal we should not miss: world models are no longer only papers, demos, or developer repos. The primary model sources confirm LingBot-World and LingBot-World-Fast; the Lingguang mobile feature should be cited as a reported product integration until an official Ant product note is available.",
     tags: ["Mobile", "Lingguang", "Open source", "Interactive worlds"],
+    signalType: "Reported",
+    impactLevel: "Medium",
     whatChanged: [
       "Media reports said Ant's Lingguang app added an 'Experience World Model' feature backed by LingBot-World-Fast, but the integration claim still lacks a matching primary Ant product note.",
     ],
@@ -211,6 +265,8 @@ export const newsItems: NewsItem[] = [
       "The model family is source-backed through GitHub, arXiv, and Hugging Face, while the Lingguang mobile integration should remain labeled as reported.",
     overclaimWarning:
       "Do not represent the Lingguang feature as a primary-source-confirmed general release until Ant publishes an official product note.",
+    relatedModelSlugs: ["lingbot-world"],
+    relatedComparisonSlugs: ["happyoyster-vs-lingbot-world", "lingbot-va-vs-lingbot-world"],
     sources: [
       {
         label: "IT Home report: Lingguang mobile world model",
@@ -241,6 +297,18 @@ export const newsItems: NewsItem[] = [
     whyItMatters:
       "This is a clean, source-backed Tencent addition for the site's physical-AI coverage. It expands the editorial frame beyond 3D world generation into embodied reasoning and planning, while keeping a strict distinction between robot-facing foundation models and explorable world products.",
     tags: ["Physical AI", "Robotics", "Tencent", "Research"],
+    signalType: "Physical AI",
+    impactLevel: "Medium",
+    whatChanged: [
+      "Tencent added the HY-Embodied-0.5-X release path on top of HY-Embodied-0.5, widening the robot-facing model surface.",
+    ],
+    sourceConfidence: "Official open-source release",
+    availabilityNote:
+      "Treat HY-Embodied as an embodied foundation-model lane, not as a consumer world creator.",
+    overclaimWarning:
+      "Do not turn robot-facing reasoning models into a claim about broadly available explorable worlds.",
+    relatedModelSlugs: ["hy-embodied-0-5"],
+    relatedComparisonSlugs: ["cosmos-vs-general-world-models"],
     sources: [
       {
         label: "Tencent-Hunyuan/HY-Embodied GitHub repository",
@@ -267,6 +335,8 @@ export const newsItems: NewsItem[] = [
     whyItMatters:
       "HappyOyster gives the site an Alibaba product-track anchor beside Ant's open-source LingBot route. It also clarifies a key editorial distinction: some world models are open simulators for developers, while others are productized creative interfaces for exploration and directing.",
     tags: ["Alibaba", "HappyOyster", "Early Access", "Interactive worlds"],
+    signalType: "Product",
+    impactLevel: "High",
     whatChanged: [
       "Alibaba positioned HappyOyster as an early-access world-model product for exploration and directing rather than as an open-source model release.",
     ],
@@ -275,6 +345,8 @@ export const newsItems: NewsItem[] = [
       "Access is still framed as early access, so product availability and usage terms should be kept more conservative than a broad public-launch claim.",
     overclaimWarning:
       "Do not present HappyOyster as a generally available API or as a validated robotics simulator.",
+    relatedModelSlugs: ["happyoyster"],
+    relatedComparisonSlugs: ["happyoyster-vs-genie-3", "happyoyster-vs-lingbot-world"],
     sources: [
       {
         label: "Alibaba Cloud Community: HappyOyster launch",
@@ -302,6 +374,8 @@ export const newsItems: NewsItem[] = [
     whyItMatters:
       "This keeps HY-World 2.0 current as a source-backed Tencent reference for generated 3D worlds. The May 2026 repo updates materially improve reproducibility and make the open technical surface stronger without turning HY-World 2.0 into a polished public creator product.",
     tags: ["Tencent", "3D worlds", "Open source", "Research"],
+    signalType: "Open source",
+    impactLevel: "High",
     whatChanged: [
       "Tencent's official HY-World 2.0 repository added HY-Pano 2.0 inference code and weights on May 11, 2026, then added world-generation inference code and WorldStereo 2.0 weights on May 18, 2026.",
     ],
@@ -310,6 +384,8 @@ export const newsItems: NewsItem[] = [
       "Treat this as an expanded open research stack, not as a generally available consumer world-building product.",
     overclaimWarning:
       "Do not imply that HY-World 2.0 is now a turnkey public product simply because more repo components and weights are available.",
+    relatedModelSlugs: ["hy-world-2-0"],
+    relatedComparisonSlugs: ["hy-world-2-0-vs-marble", "project-sid-vs-world-models"],
     sources: [
       {
         label: "Tencent-Hunyuan/HY-World-2.0 GitHub repository",
@@ -336,6 +412,18 @@ export const newsItems: NewsItem[] = [
     whyItMatters:
       "This is a platform signal. For this site, it separates world model coverage from demo watching and creates a developer-facing news track.",
     tags: ["API", "3D worlds", "World Labs"],
+    signalType: "Platform",
+    impactLevel: "Medium",
+    whatChanged: [
+      "World Labs described a programmable World API direction, shifting part of the Marble story from product demo toward developer platform.",
+    ],
+    sourceConfidence: "Official platform announcement",
+    availabilityNote:
+      "Treat this as a developer-surface signal whose practical access still depends on current World Labs documentation.",
+    overclaimWarning:
+      "Do not imply every Marble capability is already exposed as a stable general API.",
+    relatedModelSlugs: ["world-api", "marble"],
+    relatedComparisonSlugs: ["hy-world-2-0-vs-marble", "genie-3-vs-marble"],
     sources: [
       {
         label: "World Labs: Announcing the World API",
@@ -354,6 +442,8 @@ export const newsItems: NewsItem[] = [
     whyItMatters:
       "The event matters because it keeps world model coverage from stopping at scenery, video, or camera control. Persistent worlds become more consequential when many agents can form routines, rules, and culture inside them.",
     tags: ["AI civilization", "Agents", "Simulation", "Project Sid"],
+    signalType: "Research",
+    impactLevel: "Medium",
     whatChanged: [
       "The world-model story expands from generated environments into many-agent behavior, where the world acts as a substrate for social simulation.",
     ],
@@ -362,6 +452,8 @@ export const newsItems: NewsItem[] = [
       "Treat Project Sid as a many-agent simulation lane, not as a generative visual world product like Marble or Genie.",
     overclaimWarning:
       "Do not present Project Sid as proof that all world models now contain persistent autonomous societies.",
+    relatedModelSlugs: ["project-sid"],
+    relatedComparisonSlugs: ["project-sid-vs-world-models"],
     sources: [
       {
         label: "Altera Project Sid GitHub repository",
@@ -380,6 +472,18 @@ export const newsItems: NewsItem[] = [
     whyItMatters:
       "It shows how video-native companies are repositioning toward world modeling rather than staying in fixed media generation.",
     tags: ["General world model", "Runway", "Research"],
+    signalType: "Research",
+    impactLevel: "Medium",
+    whatChanged: [
+      "Runway introduced GWM-1 as a general world-model direction that reframes its video heritage around worlds, avatars, and robotics-adjacent work.",
+    ],
+    sourceConfidence: "Official research announcement",
+    availabilityNote:
+      "Treat this as a research and strategy signal, with Characters as the clearer later product surface.",
+    overclaimWarning:
+      "Do not present the original GWM-1 announcement as a complete public explorable-world platform.",
+    relatedModelSlugs: ["gwm-1"],
+    relatedComparisonSlugs: ["marble-vs-gwm-1"],
     sources: [
       {
         label: "Runway Research: Introducing Runway GWM-1",
@@ -398,6 +502,22 @@ export const newsItems: NewsItem[] = [
     whyItMatters:
       "It helps non-research users understand world models through spatial creation instead of abstract model capability claims.",
     tags: ["3D worlds", "Spatial intelligence", "Product"],
+    signalType: "Product",
+    impactLevel: "High",
+    whatChanged: [
+      "World Labs launched Marble as a visible product surface for creating, editing, and exploring generated 3D worlds.",
+    ],
+    sourceConfidence: "Official product launch",
+    availabilityNote:
+      "Treat Marble as a product-facing 3D world workflow, not as a robotics simulator or many-agent platform.",
+    overclaimWarning:
+      "Do not use Marble's creator surface as evidence that all world models are already broadly programmable or physically validated.",
+    relatedModelSlugs: ["marble"],
+    relatedComparisonSlugs: [
+      "hy-world-2-0-vs-marble",
+      "skybox-ai-vs-marble",
+      "genie-3-vs-marble",
+    ],
     sources: [
       {
         label: "World Labs: Introducing Marble, our first world model",
@@ -416,6 +536,18 @@ export const newsItems: NewsItem[] = [
     whyItMatters:
       "For readers, Genie 3 is one of the cleanest examples of how a world model differs from a normal image or video generator.",
     tags: ["Interactive worlds", "Research", "DeepMind"],
+    signalType: "Research",
+    impactLevel: "High",
+    whatChanged: [
+      "Google DeepMind presented Genie 3 as an interactive world-model frontier rather than a fixed clip-generation model.",
+    ],
+    sourceConfidence: "Official research announcement",
+    availabilityNote:
+      "Treat Genie 3 as a research preview and Project Genie path, not as a broad public developer API.",
+    overclaimWarning:
+      "Do not flatten Genie 3 into a generally available product surface.",
+    relatedModelSlugs: ["genie-3"],
+    relatedComparisonSlugs: ["genie-3-vs-oasis", "genie-3-vs-marble", "world-model-vs-video-model"],
     sources: [
       {
         label: "Google DeepMind: Genie 3, a new frontier for world models",
@@ -434,6 +566,18 @@ export const newsItems: NewsItem[] = [
     whyItMatters:
       "It anchors the robotics, autonomous driving, and simulation side of the world model category.",
     tags: ["Physical AI", "Robotics", "Autonomous driving"],
+    signalType: "Physical AI",
+    impactLevel: "High",
+    whatChanged: [
+      "NVIDIA introduced Cosmos as a world foundation model platform for physical AI development.",
+    ],
+    sourceConfidence: "Official platform launch",
+    availabilityNote:
+      "Treat Cosmos as a physical-AI platform family, not as a consumer world creator.",
+    overclaimWarning:
+      "Do not compare Cosmos as if it were the same product class as Marble, Skybox AI, or HappyOyster.",
+    relatedModelSlugs: ["cosmos"],
+    relatedComparisonSlugs: ["cosmos-vs-general-world-models"],
     sources: [
       {
         label: "NVIDIA Newsroom: NVIDIA launches Cosmos world foundation model platform",
@@ -452,6 +596,8 @@ export const newsItems: NewsItem[] = [
     whyItMatters:
       "Oasis is one of the clearest public examples of the jump from watching generated media to steering a generated world. It makes control visible to ordinary users because input changes the next moment rather than only prompting a finished clip.",
     tags: ["Playable worlds", "Realtime", "Demo", "Oasis"],
+    signalType: "Research",
+    impactLevel: "Medium",
     whatChanged: [
       "Action conditioning became visible in a playable world demo, making the screen feel closer to an interactive environment than a rendered video.",
     ],
@@ -460,6 +606,8 @@ export const newsItems: NewsItem[] = [
       "The public signal is an official realtime world-model demo, not a broad production game engine replacement.",
     overclaimWarning:
       "Do not treat Oasis as evidence that generated worlds are already stable, persistent, or fully open-ended platforms.",
+    relatedModelSlugs: ["oasis"],
+    relatedComparisonSlugs: ["genie-3-vs-oasis", "world-model-vs-video-model"],
     sources: [
       {
         label: "Oasis project page",
@@ -478,6 +626,8 @@ export const newsItems: NewsItem[] = [
     whyItMatters:
       "This is a useful baseline for the generated-space stage. Before full 3D worlds and realtime control, users could already understand the category through an immersive place that surrounds the camera.",
     tags: ["360 worlds", "Spatial worlds", "Consumer tool", "Skybox AI"],
+    signalType: "Product",
+    impactLevel: "Medium",
     whatChanged: [
       "Text-to-world creation became understandable as a 360-degree environment surface rather than only as a flat image or video output.",
     ],
@@ -486,6 +636,8 @@ export const newsItems: NewsItem[] = [
       "Skybox is best framed as an immersive environment and panorama lane, not as a full physics-grounded world simulator.",
     overclaimWarning:
       "Do not collapse generated 360-degree environments into the same category as persistent 3D world models.",
+    relatedModelSlugs: ["skybox-ai"],
+    relatedComparisonSlugs: ["skybox-ai-vs-marble"],
     sources: [
       {
         label: "Skybox AI product page",

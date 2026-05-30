@@ -14,7 +14,7 @@ export default function NotFound() {
           AI Progress
         </Link>
         <Link className="button secondary" href="/models">
-          Companies & Models
+          Company Map
         </Link>
       </div>
     </main>

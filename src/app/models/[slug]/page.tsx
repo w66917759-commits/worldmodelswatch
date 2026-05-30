@@ -6,10 +6,10 @@ import { CommentThread } from "@/components/comments/comment-thread";
 import { FaqSummary } from "@/components/faq-summary";
 import { JsonLd } from "@/components/json-ld";
 import { ModelUseCaseGrid } from "@/components/model-use-case-grid";
-import { SceneExplainer, ShowcaseHero } from "@/components/showcase";
+import { SceneExplainer, ShowcaseHero, visualStyle } from "@/components/showcase";
 import { SourceList } from "@/components/source-list";
 import { getWorldByModelSlug, getWorldPrimaryAction } from "@/data/worldsData";
-import { comparisons, getModel, modelProfiles } from "@/lib/content";
+import { comparisons, getModel, getNewsItem, modelProfiles, type NewsItem } from "@/lib/content";
 import { modelPrimaryKeyword, uniqueKeywords } from "@/lib/seo/page-targets";
 import { modelVisual } from "@/lib/showcase";
 import { absoluteUrl, site } from "@/lib/site";
@@ -76,8 +76,14 @@ export default async function ModelDetailPage({ params }: ModelPageProps) {
   );
   const relatedComparisons = comparisons.filter((comparison) =>
     comparison.relatedModelSlugs?.includes(model.slug),
-  );
+  ).slice(0, 3);
+  const relatedSignals =
+    model.relatedNewsSlugs
+      ?.map((newsSlug) => getNewsItem(newsSlug))
+      .filter((item): item is NewsItem => Boolean(item))
+      .slice(0, 3) ?? [];
   const visual = { ...modelVisual(model), visualTitle: primaryKeyword };
+  const sceneImages = visual.stickerImages ?? [visual.cardImage ?? visual.backgroundImage ?? visual.heroImage].filter(Boolean);
   const officialSource = model.sources[0];
   const world = getWorldByModelSlug(model.slug);
   const primaryAction = world ? getWorldPrimaryAction(world) : undefined;
@@ -123,7 +129,7 @@ export default async function ModelDetailPage({ params }: ModelPageProps) {
             ? { href: officialSource.url, label: "Official demo", external: true }
             : undefined
         }
-        secondaryCta={{ href: "/models", label: "Back to wall" }}
+        secondaryCta={{ href: "/models", label: "Company map" }}
         title={primaryKeyword}
         visual={visual}
       />
@@ -138,7 +144,11 @@ export default async function ModelDetailPage({ params }: ModelPageProps) {
         />
       ) : null}
 
-      <section className="model-detail-layout" aria-label={`${model.name} showcase`}>
+      <section
+        className="model-detail-layout"
+        aria-label={`${model.name} showcase`}
+        style={visualStyle(visual)}
+      >
         <article className="showcase-panel">
           <h2>What this lets people do</h2>
           <p>{visual.consumerHook ?? model.summary}</p>
@@ -176,25 +186,28 @@ export default async function ModelDetailPage({ params }: ModelPageProps) {
             eyebrow: "First impression",
             title: "A visible world",
             body: model.summary,
+            image: sceneImages[0],
             accentColor: visual.accentColor,
           },
           {
             eyebrow: "Capability",
             title: "Why it stands out",
             body: model.strengths[0] ?? model.focus,
+            image: sceneImages[1] ?? sceneImages[0],
             accentColor: visual.secondaryAccentColor,
           },
           {
             eyebrow: "Boundary",
             title: "What not to overclaim",
             body: model.limits[0] ?? model.categoryBoundary ?? model.availability,
+            image: sceneImages[2] ?? sceneImages[0],
             accentColor: "#ff7fa6",
           },
         ]}
         title="Three frames before the source list."
       />
 
-      <section className="model-detail-layout source-backed-section">
+      <section className="model-detail-layout source-backed-section" style={visualStyle(visual)}>
         <article className="showcase-panel">
           <h2>Good reasons to open this page</h2>
           <ul>
@@ -223,7 +236,7 @@ export default async function ModelDetailPage({ params }: ModelPageProps) {
 
           {relatedComparisons.length > 0 ? (
             <>
-              <h2>Related comparisons</h2>
+              <h2>Decision guides</h2>
               <ul>
                 {relatedComparisons.map((comparison) => (
                   <li key={comparison.slug}>
@@ -243,6 +256,35 @@ export default async function ModelDetailPage({ params }: ModelPageProps) {
           ) : null}
         </article>
       </section>
+
+      {relatedSignals.length > 0 ? (
+        <section className="source-backed-section" style={visualStyle(visual)}>
+          <div className="showcase-section-heading">
+            <p className="showcase-kicker">Release signals</p>
+            <h2>Only the selected updates that affect this profile.</h2>
+            <p>
+              The company profile stays stable. These short signals explain what changed and point back to sources.
+            </p>
+          </div>
+          <div className="update-grid">
+            {relatedSignals.map((item) => (
+              <Link
+                className="update-card"
+                href={`/news/${item.slug}`}
+                key={item.slug}
+              >
+                <span className="signal-pill">{item.signalType}</span>
+                <h2>{item.title}</h2>
+                <p>{item.whatChanged?.[0] ?? item.summary}</p>
+                <div className="update-card-footer">
+                  <span>{item.date}</span>
+                  <span>{item.sourceConfidence}</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       <SourceList sources={model.sources} />
 
