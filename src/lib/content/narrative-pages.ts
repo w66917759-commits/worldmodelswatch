@@ -26,9 +26,9 @@ export const narrativePages: NarrativePage[] = [
   {
     slug: "spatial-intelligence",
     eyebrow: "Spatial intelligence",
-    title: "AI media is turning into space you can move through.",
+    title: "Spatial intelligence AI turns generated scenes into places.",
     description:
-      "A quick visual route from beautiful generated clips to places with camera motion, memory, interaction, and physical logic.",
+      "Spatial intelligence AI connects generated scenes, camera motion, memory, interaction, and physical logic around one focused concept.",
     primaryCta: {
       href: "/what-is-world-model",
       label: "Read the definition",
@@ -80,12 +80,12 @@ export const narrativePages: NarrativePage[] = [
   {
     slug: "from-video-to-worlds",
     eyebrow: "Evolution path",
-    title: "From generated clips to interactive, persistent worlds.",
+    title: "AI video to world models is the shift from clips to state.",
     description:
-      "A narrative route for readers who understand AI video but need the next step: action-conditioned worlds, 3D spaces, and agent societies.",
+      "AI video to world models explains how generated clips become action-conditioned worlds, persistent 3D spaces, and agent societies.",
     primaryCta: {
-      href: "/timeline",
-      label: "View dated timeline",
+      href: "/events",
+      label: "View events timeline",
     },
     secondaryCta: {
       href: "/compare",
@@ -147,9 +147,9 @@ export const narrativePages: NarrativePage[] = [
   {
     slug: "world-model-labs",
     eyebrow: "Video labs",
-    title: "A cinematic video hall for seven world-model demos.",
+    title: "World model demos for the current AI world category.",
     description:
-      "Watch the category through local demo footage: open worlds, playable scenes, 360 environments, generated 3D spaces, and agent societies.",
+      "World model demos show open worlds, playable scenes, 360 environments, generated 3D spaces, and agent societies through focused video examples.",
     primaryCta: {
       href: "/models",
       label: "Open model dossiers",
@@ -188,16 +188,16 @@ export const narrativePages: NarrativePage[] = [
   {
     slug: "research-insights",
     eyebrow: "Signal room",
-    title: "A lighter control room for the strongest world-model signals.",
+    title: "World model research signals in one source-backed room.",
     description:
-      "A visual hub that turns source-backed releases into quick cards, clear paths, and practical next clicks.",
+      "World model research signals are organized into source-backed releases, clear comparison paths, and practical next clicks.",
     primaryCta: {
       href: "/news",
       label: "Read official updates",
     },
     secondaryCta: {
-      href: "/timeline",
-      label: "View timeline",
+      href: "/events",
+      label: "View events timeline",
     },
     sections: [
       {
@@ -214,8 +214,8 @@ export const narrativePages: NarrativePage[] = [
             description: "Primary-source updates and official release signals.",
           },
           {
-            href: "/timeline",
-            label: "Timeline",
+            href: "/events",
+            label: "Events timeline",
             description: "Dated category milestones and launch chronology.",
           },
         ],

@@ -13,17 +13,13 @@ import {
 import { JsonLd } from "@/components/json-ld";
 import { SceneExplainer, ShowcaseHero } from "@/components/showcase";
 import { conceptBridges, conceptMapClusters } from "@/lib/content";
+import { getStaticSeoTarget, metadataForRoute } from "@/lib/seo/page-targets";
 import { pageVisuals, showcaseImages } from "@/lib/showcase";
 import { absoluteUrl } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Concept Map: From Metaverse and AI Video to World Models",
-  description:
-    "A structured map connecting Minecraft-style worlds, metaverse, Vision Pro, AI video, digital twins, physical AI, and world models.",
-  alternates: {
-    canonical: "/concept-map",
-  },
-};
+const seoTarget = getStaticSeoTarget("/concept-map");
+
+export const metadata: Metadata = metadataForRoute("/concept-map");
 
 const mapIcons = [Boxes, Clapperboard, Glasses, Building2, BrainCircuit];
 
@@ -34,8 +30,8 @@ export default function ConceptMapPage() {
         data={{
           "@context": "https://schema.org",
           "@type": "Article",
-          headline: "Concept Map: From Metaverse and AI Video to World Models",
-          description: metadata.description,
+          headline: seoTarget.primaryKeyword,
+          description: seoTarget.description,
           datePublished: "2026-04-28",
           dateModified: "2026-05-27",
           mainEntityOfPage: absoluteUrl("/concept-map"),
@@ -43,12 +39,12 @@ export default function ConceptMapPage() {
       />
 
       <ShowcaseHero
-        description="Minecraft, AI video, spatial computing, digital twins, physical AI, and world models are easier to understand as one visual chain."
-        eyebrow="Concept map"
+        description={seoTarget.description}
+        eyebrow="World model concept map"
         meta={["Virtual worlds", "AI video", "Spatial computing", "Physical AI"]}
         primaryCta={{ href: "/what-is-world-model", label: "Start definition" }}
         secondaryCta={{ href: "/models", label: "See models" }}
-        title="From familiar worlds to AI-generated worlds."
+        title="World model concept map from AI video to spatial worlds."
         visual={pageVisuals["concept-map"]}
       />
 
@@ -98,7 +94,7 @@ export default function ConceptMapPage() {
         <div className="section-heading horizontal">
           <div>
             <p className="eyebrow">Concept flow</p>
-            <h2 id="map-flow-title">How familiar ideas lead to world models.</h2>
+            <h2 id="map-flow-title">How the world model concept map connects familiar ideas.</h2>
           </div>
           <Link className="text-link" href="/what-is-world-model">
             Definition page

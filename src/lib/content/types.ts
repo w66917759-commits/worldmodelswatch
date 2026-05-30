@@ -49,6 +49,7 @@ export type NewsItem = {
   title: string;
   date: string;
   updated?: string;
+  evolutionStageId?: string;
   organization: string;
   summary: string;
   whyItMatters: string;
@@ -59,7 +60,8 @@ export type NewsItem = {
   availabilityNote?: string;
   overclaimWarning?: string;
   relatedModelSlugs?: string[];
-} & ShowcaseVisual;
+} & SeoFields &
+  ShowcaseVisual;
 
 export type ComparisonFaq = {
   question: string;

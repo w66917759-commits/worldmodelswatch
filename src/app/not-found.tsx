@@ -7,14 +7,14 @@ export default function NotFound() {
       <h1>Page not found</h1>
       <p>
         This page is not in the current World Models Watch index. Start from the
-        definition page or the latest official updates.
+        progress overview or the company model map.
       </p>
       <div className="button-row">
-        <Link className="button primary" href="/what-is-world-model">
-          Read the definition
+        <Link className="button primary" href="/progress">
+          AI Progress
         </Link>
-        <Link className="button secondary" href="/news">
-          Latest news
+        <Link className="button secondary" href="/models">
+          Companies & Models
         </Link>
       </div>
     </main>

@@ -8,8 +8,9 @@ import { JsonLd } from "@/components/json-ld";
 import { SceneExplainer, ShowcaseHero } from "@/components/showcase";
 import { SourceList } from "@/components/source-list";
 import { comparisons, getNewsItem, modelProfiles, newsItems } from "@/lib/content";
+import { newsPrimaryKeyword, uniqueKeywords } from "@/lib/seo/page-targets";
 import { newsVisual } from "@/lib/showcase";
-import { absoluteUrl } from "@/lib/site";
+import { absoluteUrl, site } from "@/lib/site";
 
 type NewsPageProps = {
   params: Promise<{ slug: string }>;
@@ -49,17 +50,27 @@ export async function generateMetadata({ params }: NewsPageProps): Promise<Metad
     return {};
   }
 
+  const primaryKeyword = newsPrimaryKeyword(item);
+  const url = absoluteUrl(`/news/${item.slug}`);
+
   return {
-    title: item.title,
+    title: primaryKeyword,
     description: item.summary,
-    keywords: [
-      "world model news",
-      "AI generated worlds",
-      item.organization,
-      ...item.tags,
-    ],
+    keywords: uniqueKeywords(primaryKeyword, item.secondaryKeywords, item.tags, item.organization),
     alternates: {
       canonical: `/news/${item.slug}`,
+    },
+    openGraph: {
+      type: "article",
+      url,
+      siteName: site.name,
+      title: `${primaryKeyword} | ${site.name}`,
+      description: item.summary,
+    },
+    twitter: {
+      card: "summary",
+      title: `${primaryKeyword} | ${site.name}`,
+      description: item.summary,
     },
   };
 }
@@ -72,6 +83,13 @@ export default async function NewsDetailPage({ params }: NewsPageProps) {
     notFound();
   }
 
+  const primaryKeyword = newsPrimaryKeyword(item);
+  const keywords = uniqueKeywords(
+    primaryKeyword,
+    item.secondaryKeywords,
+    item.tags,
+    item.organization,
+  );
   const articleText = `${item.title} ${item.organization} ${item.summary} ${item.whyItMatters} ${item.tags.join(" ")}`;
   const mentionedModels = detectMentionedModels(articleText);
   const mentionedModelSlugs = new Set(mentionedModels.map((model) => model.slug));
@@ -89,17 +107,12 @@ export default async function NewsDetailPage({ params }: NewsPageProps) {
         data={{
           "@context": "https://schema.org",
           "@type": "NewsArticle",
-          headline: item.title,
+          headline: primaryKeyword,
           description: item.summary,
           datePublished: item.date,
           dateModified: item.updated ?? item.date,
           mainEntityOfPage: absoluteUrl(`/news/${item.slug}`),
-          keywords: [
-            "world model news",
-            "AI generated worlds",
-            item.organization,
-            ...item.tags,
-          ].join(", "),
+          keywords: keywords.join(", "),
           publisher: {
             "@type": "Organization",
             name: "World Models Watch",
@@ -113,7 +126,7 @@ export default async function NewsDetailPage({ params }: NewsPageProps) {
         meta={[item.date, item.organization, ...item.tags.slice(0, 2)]}
         primaryCta={leadSource ? { href: leadSource.url, label: "Open source", external: true } : undefined}
         secondaryCta={{ href: "/news", label: "All updates" }}
-        title={item.title}
+        title={primaryKeyword}
         visual={visual}
       />
 

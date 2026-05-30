@@ -1,24 +1,28 @@
 import type { Comparison, ModelProfile, NewsItem } from "@/lib/content";
 
-const SITE_STRUCTURE_ISO = "2026-05-29";
-const CONTENT_BASE_ISO = "2026-05-26";
+const SITE_STRUCTURE_ISO = "2026-05-30";
 
 const STATIC_ROUTE_LASTMOD: Record<string, string> = {
-  "/": "2026-05-29",
-  "/spatial-intelligence": CONTENT_BASE_ISO,
-  "/from-video-to-worlds": CONTENT_BASE_ISO,
-  "/world-model-labs": "2026-05-29",
-  "/research-insights": CONTENT_BASE_ISO,
-  "/concept-map": CONTENT_BASE_ISO,
-  "/what-is-world-model": CONTENT_BASE_ISO,
-  "/news": "2026-05-29",
-  "/models": "2026-05-29",
-  "/compare": "2026-05-29",
-  "/timeline": CONTENT_BASE_ISO,
-  "/concepts": CONTENT_BASE_ISO,
-  "/faq": "2026-05-28",
-  "/privacy": CONTENT_BASE_ISO,
-  "/terms": CONTENT_BASE_ISO,
+  "/": SITE_STRUCTURE_ISO,
+  "/world-stream": SITE_STRUCTURE_ISO,
+  "/create-word": SITE_STRUCTURE_ISO,
+  "/events": SITE_STRUCTURE_ISO,
+  "/progress": SITE_STRUCTURE_ISO,
+  "/updates": SITE_STRUCTURE_ISO,
+  "/timeline": SITE_STRUCTURE_ISO,
+  "/spatial-intelligence": SITE_STRUCTURE_ISO,
+  "/from-video-to-worlds": SITE_STRUCTURE_ISO,
+  "/world-model-labs": SITE_STRUCTURE_ISO,
+  "/research-insights": SITE_STRUCTURE_ISO,
+  "/concept-map": SITE_STRUCTURE_ISO,
+  "/what-is-world-model": SITE_STRUCTURE_ISO,
+  "/news": SITE_STRUCTURE_ISO,
+  "/models": SITE_STRUCTURE_ISO,
+  "/compare": SITE_STRUCTURE_ISO,
+  "/concepts": SITE_STRUCTURE_ISO,
+  "/faq": SITE_STRUCTURE_ISO,
+  "/privacy": SITE_STRUCTURE_ISO,
+  "/terms": SITE_STRUCTURE_ISO,
 };
 
 export function dateFromIso(iso: string): Date {

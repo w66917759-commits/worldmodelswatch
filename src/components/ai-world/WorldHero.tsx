@@ -1,6 +1,6 @@
 "use client";
 
-import type { CSSProperties, MouseEvent } from "react";
+import type { CSSProperties, MouseEvent, WheelEvent } from "react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import {
@@ -8,7 +8,7 @@ import {
   motion,
   useReducedMotion,
 } from "framer-motion";
-import { Volume2, VolumeX } from "lucide-react";
+import { ChevronDown, ChevronUp, Volume2, VolumeX } from "lucide-react";
 
 import { AuthStatusLink } from "@/components/auth-status-link";
 import { FloatingBackground } from "./FloatingBackground";
@@ -173,6 +173,8 @@ export function WorldHero() {
   const frameRef = useRef<number | null>(null);
   const nextPointerRef = useRef<PointerPosition>({ x: 0, y: 0 });
   const flyTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const wheelTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const wheelLockedRef = useRef(false);
 
   const selectorWorlds = useMemo(
     () =>
@@ -230,6 +232,47 @@ export function WorldHero() {
     [activeId],
   );
 
+  const cycleWorld = useCallback(
+    (direction: -1 | 1) => {
+      if (!selectorWorlds.length) return;
+
+      const currentIndex = Math.max(
+        0,
+        selectorWorlds.findIndex((world) => world.id === activeId),
+      );
+      const nextIndex =
+        (currentIndex + direction + selectorWorlds.length) %
+        selectorWorlds.length;
+
+      handleSelect(selectorWorlds[nextIndex].id);
+    },
+    [activeId, handleSelect, selectorWorlds],
+  );
+
+  const handleSelectorWheel = useCallback(
+    (event: WheelEvent<HTMLDivElement>) => {
+      const dominantDelta =
+        Math.abs(event.deltaY) >= Math.abs(event.deltaX)
+          ? event.deltaY
+          : event.deltaX;
+
+      if (Math.abs(dominantDelta) < 16 || wheelLockedRef.current) return;
+
+      event.preventDefault();
+      wheelLockedRef.current = true;
+      cycleWorld(dominantDelta > 0 ? 1 : -1);
+
+      if (wheelTimeoutRef.current) {
+        clearTimeout(wheelTimeoutRef.current);
+      }
+
+      wheelTimeoutRef.current = setTimeout(() => {
+        wheelLockedRef.current = false;
+      }, 320);
+    },
+    [cycleWorld],
+  );
+
   useEffect(() => {
     const query = window.matchMedia("(pointer: fine)");
     const update = () => setHasFinePointer(query.matches);
@@ -249,6 +292,9 @@ export function WorldHero() {
       }
       if (flyTimeoutRef.current) {
         clearTimeout(flyTimeoutRef.current);
+      }
+      if (wheelTimeoutRef.current) {
+        clearTimeout(wheelTimeoutRef.current);
       }
     };
   }, []);
@@ -297,7 +343,24 @@ export function WorldHero() {
       </header>
 
       <div className="spatial-hero-content">
-        <div className="world-stage" id="worlds">
+        <div
+          className="world-stage"
+          id="worlds"
+          aria-label="Featured world model selector"
+          onWheel={handleSelectorWheel}
+        >
+          <div className="world-stage-header">
+            <span>Models</span>
+            <strong>{visualWorld.name}</strong>
+          </div>
+          <button
+            className="world-stage-control"
+            type="button"
+            aria-label="Previous model"
+            onClick={() => cycleWorld(-1)}
+          >
+            <ChevronUp size={20} aria-hidden="true" />
+          </button>
           <motion.div className="world-map-drift">
             {selectorWorlds.map((world, index) => (
               <WorldNode
@@ -313,6 +376,14 @@ export function WorldHero() {
               />
             ))}
           </motion.div>
+          <button
+            className="world-stage-control"
+            type="button"
+            aria-label="Next model"
+            onClick={() => cycleWorld(1)}
+          >
+            <ChevronDown size={20} aria-hidden="true" />
+          </button>
         </div>
       </div>
 

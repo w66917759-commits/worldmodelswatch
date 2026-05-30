@@ -29,14 +29,14 @@ export const comparisons: Comparison[] = [
       "https://docs.worldlabs.ai/",
     ],
     categoryBoundary:
-      "Both belong in generated 3D-world coverage, but HY-World 2.0 is a research and partial open stack while Marble is a product workflow.",
+      "Both belong in generated 3D-world coverage, but HY-World 2.0 is a research-first open stack while Marble is a product workflow.",
     relatedModelSlugs: ["hy-world-2-0", "marble"],
     columns: ["Dimension", "HY-World 2.0", "Marble"],
     rows: [
       ["Organization", "Tencent Hunyuan", "World Labs"],
       ["Primary framing", "Multimodal 3D world model for reconstruction, generation, and simulation", "Product workflow for high-fidelity persistent 3D worlds"],
       ["Main output", "Meshes, Gaussian splats, point clouds, and reconstructed or generated 3D worlds", "Persistent explorable 3D worlds with editing and export workflows"],
-      ["Access signal", "GitHub repo, Hugging Face model card, arXiv paper, and partial open-source release", "Public product surface, World Labs account access, and Marble documentation"],
+      ["Access signal", "GitHub repo, Hugging Face model card, arXiv paper, and May 2026 expansion of generation code and weights", "Public product surface, World Labs account access, and Marble documentation"],
       ["Best reader question", "How close is open-source world generation to engine-ready 3D assets?", "How does a polished product surface package world modeling for creators and developers?"],
       ["Editorial role", "Open reproducibility track for generated-3D worlds", "Product and platform track for generated-3D worlds"],
     ],
@@ -71,7 +71,7 @@ export const comparisons: Comparison[] = [
       {
         question: "Is HY-World 2.0 the open-source version of Marble?",
         answer:
-          "No. HY-World 2.0 and Marble both sit in generated 3D-world coverage, but they come from different organizations and expose different surfaces: Tencent's research and partial open stack versus World Labs' product workflow.",
+          "No. HY-World 2.0 and Marble both sit in generated 3D-world coverage, but they come from different organizations and expose different surfaces: Tencent's research-first open stack versus World Labs' product workflow.",
       },
       {
         question: "Which one is better for engine-ready 3D assets?",

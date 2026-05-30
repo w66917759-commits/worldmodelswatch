@@ -6,12 +6,15 @@ import { AnimatePresence, motion } from "framer-motion";
 import { BookOpen, ExternalLink } from "lucide-react";
 
 import type { WorldProject } from "./worldsData";
+import { getWorldPrimaryAction } from "./worldsData";
 
 type WorldInfoPanelProps = {
   world?: WorldProject;
 };
 
 export function WorldInfoPanel({ world }: WorldInfoPanelProps) {
+  const primaryAction = world ? getWorldPrimaryAction(world) : null;
+
   return (
     <div className="world-info-panel-anchor" id="demos">
       <AnimatePresence mode="wait">
@@ -53,11 +56,11 @@ export function WorldInfoPanel({ world }: WorldInfoPanelProps) {
               </Link>
               <a
                 className="panel-action secondary"
-                href={world.sourceHref ?? world.demoUrl}
+                href={primaryAction?.href ?? world.demoUrl}
                 target="_blank"
                 rel="noreferrer"
               >
-                Official demo
+                {primaryAction?.label ?? "Official demo"}
                 <ExternalLink size={15} aria-hidden="true" />
               </a>
             </div>

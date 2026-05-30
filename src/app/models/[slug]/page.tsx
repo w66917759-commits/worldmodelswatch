@@ -5,11 +5,14 @@ import { notFound } from "next/navigation";
 import { CommentThread } from "@/components/comments/comment-thread";
 import { FaqSummary } from "@/components/faq-summary";
 import { JsonLd } from "@/components/json-ld";
+import { ModelUseCaseGrid } from "@/components/model-use-case-grid";
 import { SceneExplainer, ShowcaseHero } from "@/components/showcase";
 import { SourceList } from "@/components/source-list";
+import { getWorldByModelSlug, getWorldPrimaryAction } from "@/data/worldsData";
 import { comparisons, getModel, modelProfiles } from "@/lib/content";
+import { modelPrimaryKeyword, uniqueKeywords } from "@/lib/seo/page-targets";
 import { modelVisual } from "@/lib/showcase";
-import { absoluteUrl } from "@/lib/site";
+import { absoluteUrl, site } from "@/lib/site";
 
 type ModelPageProps = {
   params: Promise<{ slug: string }>;
@@ -31,16 +34,28 @@ export async function generateMetadata({ params }: ModelPageProps): Promise<Meta
     return {};
   }
 
+  const primaryKeyword = modelPrimaryKeyword(model);
+  const description = model.summary;
+  const url = absoluteUrl(`/models/${model.slug}`);
+
   return {
-    title: `${model.name} Dossier`,
+    title: primaryKeyword,
     description: model.summary,
-    keywords: [
-      model.primaryKeyword,
-      ...(model.secondaryKeywords ?? []),
-      ...(model.officialKeywords ?? []),
-    ].filter(Boolean) as string[],
+    keywords: uniqueKeywords(primaryKeyword, model.secondaryKeywords, model.officialKeywords),
     alternates: {
       canonical: `/models/${model.slug}`,
+    },
+    openGraph: {
+      type: "article",
+      url,
+      siteName: site.name,
+      title: `${primaryKeyword} | ${site.name}`,
+      description,
+    },
+    twitter: {
+      card: "summary",
+      title: `${primaryKeyword} | ${site.name}`,
+      description,
     },
   };
 }
@@ -53,16 +68,19 @@ export default async function ModelDetailPage({ params }: ModelPageProps) {
     notFound();
   }
 
-  const keywords = [
-    model.primaryKeyword,
-    ...(model.secondaryKeywords ?? []),
-    ...(model.officialKeywords ?? []),
-  ].filter(Boolean);
+  const primaryKeyword = modelPrimaryKeyword(model);
+  const keywords = uniqueKeywords(
+    primaryKeyword,
+    model.secondaryKeywords,
+    model.officialKeywords,
+  );
   const relatedComparisons = comparisons.filter((comparison) =>
     comparison.relatedModelSlugs?.includes(model.slug),
   );
-  const visual = modelVisual(model);
+  const visual = { ...modelVisual(model), visualTitle: primaryKeyword };
   const officialSource = model.sources[0];
+  const world = getWorldByModelSlug(model.slug);
+  const primaryAction = world ? getWorldPrimaryAction(world) : undefined;
   const bestFor = model.bestFor ?? [
     "Visitors who want the fastest visual handle on this model lane.",
     "Creators comparing whether the output feels like a clip, a place, or a controllable world.",
@@ -75,7 +93,7 @@ export default async function ModelDetailPage({ params }: ModelPageProps) {
         data={{
           "@context": "https://schema.org",
           "@type": "TechArticle",
-          headline: `${model.name} Dossier`,
+          headline: primaryKeyword,
           description: model.summary,
           datePublished: model.date,
           dateModified: model.updated ?? model.date,
@@ -99,18 +117,30 @@ export default async function ModelDetailPage({ params }: ModelPageProps) {
         eyebrow={model.category}
         meta={[model.organization, model.status, model.availability]}
         primaryCta={
-          officialSource
+          primaryAction
+            ? { href: primaryAction.href, label: primaryAction.label, external: true }
+            : officialSource
             ? { href: officialSource.url, label: "Official demo", external: true }
             : undefined
         }
         secondaryCta={{ href: "/models", label: "Back to wall" }}
-        title={model.name}
+        title={primaryKeyword}
         visual={visual}
       />
 
+      {world ? (
+        <ModelUseCaseGrid
+          worlds={[world]}
+          compact
+          eyebrow="What people can do"
+          title={`${world.shortName} in output, use case, access, and action.`}
+          description="Start from the practical surface before reading sources and boundaries."
+        />
+      ) : null}
+
       <section className="model-detail-layout" aria-label={`${model.name} showcase`}>
         <article className="showcase-panel">
-          <h2>What this lets people see</h2>
+          <h2>What this lets people do</h2>
           <p>{visual.consumerHook ?? model.summary}</p>
           <p>{model.focus}</p>
         </article>

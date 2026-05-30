@@ -1,24 +1,20 @@
 import type { Metadata } from "next";
 
 import { PageShell } from "@/components/page-shell";
+import { getStaticSeoTarget, metadataForRoute } from "@/lib/seo/page-targets";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Terms of Use",
-  description:
-    "Terms of use for World Models Watch, including editorial scope, source confidence, and acceptable use.",
-  alternates: {
-    canonical: "/terms",
-  },
-};
+const seoTarget = getStaticSeoTarget("/terms");
+
+export const metadata: Metadata = metadataForRoute("/terms");
 
 export default function TermsPage() {
   return (
     <PageShell
       className="showcase-page utility-page"
       eyebrow="Legal"
-      title="Terms of Use"
-      description="The operating terms for this public research and comparison site."
+      title="World Models Watch terms of use"
+      description={seoTarget.description}
     >
       <article className="article-body single-column legal-copy">
         <p className="legal-summary">
@@ -80,7 +76,7 @@ export default function TermsPage() {
         <h2>Contact</h2>
         <p>
           Questions about these terms can be sent to{" "}
-          <a href={`mailto:privacy@${site.domain}`}>privacy@{site.domain}</a>.
+          <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>.
         </p>
       </article>
     </PageShell>

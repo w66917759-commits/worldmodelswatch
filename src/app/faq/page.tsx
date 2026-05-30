@@ -4,26 +4,22 @@ import { CommentThread } from "@/components/comments/comment-thread";
 import { JsonLd } from "@/components/json-ld";
 import { PageShell } from "@/components/page-shell";
 import { faqItems } from "@/lib/content";
+import { getStaticSeoTarget, metadataForRoute } from "@/lib/seo/page-targets";
 import { absoluteUrl } from "@/lib/site";
 
 export const dynamic = "force-dynamic";
 
-export const metadata: Metadata = {
-  title: "FAQ",
-  description:
-    "Frequently asked questions about World Models Watch, world-model category boundaries, source confidence, comments, and likes.",
-  alternates: {
-    canonical: "/faq",
-  },
-};
+const seoTarget = getStaticSeoTarget("/faq");
+
+export const metadata: Metadata = metadataForRoute("/faq");
 
 export default function FaqPage() {
   return (
     <PageShell
       className="showcase-page utility-page"
-      eyebrow="FAQ"
-      title="Frequently asked questions"
-      description="Clear answers for how World Models Watch classifies sources, handles reader comments, and separates world models from adjacent AI systems."
+      eyebrow="World models FAQ"
+      title="World models FAQ"
+      description={seoTarget.description}
     >
       <JsonLd
         data={{

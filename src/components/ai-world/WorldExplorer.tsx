@@ -4,7 +4,7 @@ import type { CSSProperties } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowUpRight, ExternalLink } from "lucide-react";
 
-import { worldsData } from "./worldsData";
+import { getWorldPrimaryAction, worldsData } from "./worldsData";
 
 export function WorldExplorer() {
   return (
@@ -19,7 +19,10 @@ export function WorldExplorer() {
       </div>
 
       <div className="world-explorer-rail" aria-label="Generated world gallery">
-        {worldsData.map((world, index) => (
+        {worldsData.map((world, index) => {
+          const primaryAction = getWorldPrimaryAction(world);
+
+          return (
           <motion.article
             className="explorer-card"
             id={world.id}
@@ -50,18 +53,19 @@ export function WorldExplorer() {
                 </a>
                 <a
                   className="explorer-source-link"
-                  href={world.sourceHref ?? world.demoUrl}
+                  href={primaryAction.href}
                   target="_blank"
                   rel="noreferrer"
                 >
-                  Official demo
+                  {primaryAction.label}
                   <ExternalLink size={14} aria-hidden="true" />
                 </a>
               </div>
             </div>
             <ArrowUpRight size={18} aria-hidden="true" />
           </motion.article>
-        ))}
+          );
+        })}
       </div>
     </section>
   );

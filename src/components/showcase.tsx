@@ -12,6 +12,8 @@ import {
 
 import type { NewsItem, ShowcaseVisual } from "@/lib/content";
 import type { WorldProject } from "@/components/ai-world/worldsData";
+import { getWorldPrimaryAction } from "@/components/ai-world/worldsData";
+import { getEvolutionStageById } from "@/lib/content";
 
 type ShowcaseCta = {
   href: string;
@@ -228,7 +230,10 @@ export function VideoReel({ eyebrow = "Demo reel", title, description, worlds }:
       </div>
 
       <div className="video-reel" aria-label="Local demo videos">
-        {worlds.map((world) => (
+        {worlds.map((world) => {
+          const primaryAction = getWorldPrimaryAction(world);
+
+          return (
           <article
             className="video-reel-card"
             key={world.id}
@@ -252,14 +257,15 @@ export function VideoReel({ eyebrow = "Demo reel", title, description, worlds }:
                   Model
                   <ArrowRight size={13} aria-hidden="true" />
                 </Link>
-                <a href={world.sourceHref ?? world.demoUrl} rel="noreferrer" target="_blank">
-                  Official
+                <a href={primaryAction.href} rel="noreferrer" target="_blank">
+                  {primaryAction.label}
                   <ExternalLink size={13} aria-hidden="true" />
                 </a>
               </div>
             </div>
           </article>
-        ))}
+          );
+        })}
       </div>
     </section>
   );
@@ -343,29 +349,37 @@ export function VisualComparisonPanel({
 export function MilestoneRail({ items }: MilestoneRailProps) {
   return (
     <section className="milestone-rail" aria-label="World model milestone timeline">
-      {items.map((item, index) => (
-        <article
-          className="milestone-card"
-          key={item.slug}
-          style={visualStyle({
-            accentColor: index % 2 === 0 ? "#f6d26e" : "#74f4ff",
-            secondaryAccentColor: index % 2 === 0 ? "#ff7fa6" : "#8df6dd",
-          })}
-        >
-          <div>
-            <span>
-              <CalendarDays size={14} aria-hidden="true" />
-              <time dateTime={item.date}>{item.date}</time>
-            </span>
-            <h2>{item.title}</h2>
-            <p>{item.summary}</p>
-          </div>
-          <Link className="showcase-inline-link" href={`/news/${item.slug}`}>
-            Read update
-            <ArrowRight size={14} aria-hidden="true" />
-          </Link>
-        </article>
-      ))}
+      {items.map((item, index) => {
+        const stage = getEvolutionStageById(item.evolutionStageId);
+
+        return (
+          <article
+            className="milestone-card"
+            key={item.slug}
+            style={visualStyle({
+              accentColor: stage?.accent ?? (index % 2 === 0 ? "#f6d26e" : "#74f4ff"),
+              secondaryAccentColor:
+                stage?.secondaryAccent ?? (index % 2 === 0 ? "#ff7fa6" : "#8df6dd"),
+            })}
+          >
+            <div>
+              <div className="milestone-card-meta">
+                <span>
+                  <CalendarDays size={14} aria-hidden="true" />
+                  <time dateTime={item.date}>{item.date}</time>
+                </span>
+                {stage ? <span>{stage.shortTitle}</span> : null}
+              </div>
+              <h2>{item.title}</h2>
+              <p>{item.summary}</p>
+            </div>
+            <Link className="showcase-inline-link" href={`/news/${item.slug}`}>
+              Read update
+              <ArrowRight size={14} aria-hidden="true" />
+            </Link>
+          </article>
+        );
+      })}
     </section>
   );
 }

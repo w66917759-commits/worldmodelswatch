@@ -7,33 +7,16 @@ import {
   getNewsLastModified,
   getStaticRouteLastModified,
 } from "@/lib/seo/last-modified";
+import { indexableStaticSeoTargets } from "@/lib/seo/page-targets";
 import { site } from "@/lib/site";
-
-const staticRoutes = [
-  "/",
-  "/spatial-intelligence",
-  "/from-video-to-worlds",
-  "/world-model-labs",
-  "/research-insights",
-  "/concept-map",
-  "/what-is-world-model",
-  "/news",
-  "/models",
-  "/compare",
-  "/timeline",
-  "/concepts",
-  "/faq",
-  "/privacy",
-  "/terms",
-];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
-    ...staticRoutes.map((route) => ({
-      url: `${site.url}${route}`,
-      lastModified: getStaticRouteLastModified(route),
+    ...indexableStaticSeoTargets.map((target) => ({
+      url: `${site.url}${target.route}`,
+      lastModified: getStaticRouteLastModified(target.route),
       changeFrequency: "weekly" as const,
-      priority: route === "/" ? 1 : 0.8,
+      priority: target.route === "/" ? 1 : 0.8,
     })),
     ...newsItems.map((item) => ({
       url: `${site.url}/news/${item.slug}`,

@@ -5,6 +5,7 @@ export const newsItems: NewsItem[] = [
     slug: "google-project-genie-street-view",
     title: "Google expands Project Genie with Street View-grounded worlds",
     date: "2026-05-19",
+    evolutionStageId: "controllable-worlds",
     organization: "Google DeepMind",
     summary:
       "Google added Street View grounding to Project Genie and began rolling the experimental prototype out to eligible Google AI Ultra subscribers globally.",
@@ -38,6 +39,7 @@ export const newsItems: NewsItem[] = [
     slug: "runway-characters-gwm-1",
     title: "Runway turns GWM-1 into a real-time character product surface",
     date: "2026-05-04",
+    evolutionStageId: "understand-predict",
     organization: "Runway",
     summary:
       "Runway said its new Characters system is built on GWM-1 and made the real-time conversational video agent available through the Runway API plus web and mobile apps.",
@@ -72,6 +74,7 @@ export const newsItems: NewsItem[] = [
     title: "NVIDIA previews Cosmos 3 as a unifying physical-AI world model",
     date: "2026-03-16",
     updated: "2026-05-27",
+    evolutionStageId: "physical-action",
     organization: "NVIDIA",
     summary:
       "At GTC 2026, NVIDIA said Cosmos 3 would unify synthetic world generation, physical-AI reasoning, and action simulation, then kept widening the public Cosmos surface through an open data-factory blueprint and GitHub repos that were still active in late May.",
@@ -114,6 +117,7 @@ export const newsItems: NewsItem[] = [
     title: "Robbyant releases LingBot-VLA for embodied-AI control",
     date: "2026-01-27",
     updated: "2026-05-05",
+    evolutionStageId: "physical-action",
     organization: "Ant Group / Robbyant",
     summary:
       "Robbyant released LingBot-VLA as a vision-language-action foundation model for generalist robot manipulation, with public code, paper, and model checkpoints.",
@@ -139,6 +143,7 @@ export const newsItems: NewsItem[] = [
     slug: "ant-robbyant-lingbot-va",
     title: "Robbyant publishes LingBot-VA for robot-control world modeling",
     date: "2026-01-29",
+    evolutionStageId: "physical-action",
     organization: "Ant Group / Robbyant",
     summary:
       "Robbyant released LingBot-VA as a causal video-action world model that predicts visual dynamics and robot actions together.",
@@ -165,6 +170,7 @@ export const newsItems: NewsItem[] = [
     title: "Robbyant releases LingBot-Map for streaming 3D reconstruction",
     date: "2026-04-15",
     updated: "2026-05-25",
+    evolutionStageId: "generated-space",
     organization: "Ant Group / Robbyant",
     summary:
       "Robbyant followed the LingBot-Map release with public evaluation scripts for KITTI and Oxford Spires, strengthening the model's reproducibility story for streaming 3D reconstruction.",
@@ -190,6 +196,7 @@ export const newsItems: NewsItem[] = [
     slug: "ant-lingguang-mobile-world-model",
     title: "Ant Lingguang brings a world-model experience to mobile",
     date: "2026-04-27",
+    evolutionStageId: "controllable-worlds",
     organization: "Ant Group / Robbyant",
     summary:
       "Ant's Lingguang App was reported to add an 'Experience World Model' feature backed by LingBot-World-Fast, turning one image into a short explorable 3D scene on mobile.",
@@ -227,6 +234,7 @@ export const newsItems: NewsItem[] = [
     slug: "tencent-hy-embodied-0-5-x",
     title: "Tencent open-sources HY-Embodied-0.5 and extends it with 0.5-X",
     date: "2026-04-24",
+    evolutionStageId: "physical-action",
     organization: "Tencent Robotics X / HY Vision Team",
     summary:
       "Tencent open-sourced HY-Embodied-0.5 for real-world embodied agents and then released the HY-Embodied-0.5-X enhancement with inference and training code.",
@@ -252,6 +260,7 @@ export const newsItems: NewsItem[] = [
     slug: "alibaba-happyoyster-world-model",
     title: "Alibaba launches HappyOyster for real-time world creation",
     date: "2026-04-20",
+    evolutionStageId: "controllable-worlds",
     organization: "Alibaba Token Hub",
     summary:
       "Alibaba introduced HappyOyster as an open-ended world model product for creating, exploring, and directing immersive environments in real time.",
@@ -285,13 +294,22 @@ export const newsItems: NewsItem[] = [
     slug: "tencent-hunyuan-hy-world-2-0",
     title: "Tencent Hunyuan opens HY-World 2.0 for persistent 3D worlds",
     date: "2026-04-16",
-    updated: "2026-05-06",
+    updated: "2026-05-18",
+    evolutionStageId: "generated-space",
     organization: "Tencent Hunyuan",
     summary:
-      "Tencent Hunyuan published HY-World 2.0 as a multimodal framework for generating and reconstructing editable 3D worlds, with a public repo, model card, and technical report.",
+      "Tencent Hunyuan expanded HY-World 2.0 beyond its April release by publishing HY-Pano 2.0 inference code and weights on May 11, then world-generation inference code plus WorldStereo 2.0 weights on May 18.",
     whyItMatters:
-      "This is a strong primary-source addition for the site's Tencent coverage and a useful editorial boundary marker: HY-World 2.0 is not just another video model. Its public materials emphasize persistent 3D assets, reconstruction, and engine-ready worlds, which makes it a good comparison target for Marble and a clean counterpoint to clip-oriented world-model claims.",
+      "This keeps HY-World 2.0 current as a source-backed Tencent reference for generated 3D worlds. The May 2026 repo updates materially improve reproducibility and make the open technical surface stronger without turning HY-World 2.0 into a polished public creator product.",
     tags: ["Tencent", "3D worlds", "Open source", "Research"],
+    whatChanged: [
+      "Tencent's official HY-World 2.0 repository added HY-Pano 2.0 inference code and weights on May 11, 2026, then added world-generation inference code and WorldStereo 2.0 weights on May 18, 2026.",
+    ],
+    sourceConfidence: "Official repository update",
+    availabilityNote:
+      "Treat this as an expanded open research stack, not as a generally available consumer world-building product.",
+    overclaimWarning:
+      "Do not imply that HY-World 2.0 is now a turnkey public product simply because more repo components and weights are available.",
     sources: [
       {
         label: "Tencent-Hunyuan/HY-World-2.0 GitHub repository",
@@ -311,6 +329,7 @@ export const newsItems: NewsItem[] = [
     slug: "world-labs-world-api-announced",
     title: "World Labs announces the World API",
     date: "2026-01-21",
+    evolutionStageId: "generated-space",
     organization: "World Labs",
     summary:
       "World Labs moved its world model work toward a programmable developer surface with the World API.",
@@ -325,9 +344,36 @@ export const newsItems: NewsItem[] = [
     ],
   },
   {
+    slug: "project-sid-civilization",
+    title: "Project Sid frames many-agent simulation as an AI civilization experiment",
+    date: "2025-12-18",
+    evolutionStageId: "agent-societies",
+    organization: "Altera",
+    summary:
+      "Project Sid gives the timeline a society-layer signal: agents specialize, coordinate, trade, and transmit behavior inside a persistent Minecraft-based world.",
+    whyItMatters:
+      "The event matters because it keeps world model coverage from stopping at scenery, video, or camera control. Persistent worlds become more consequential when many agents can form routines, rules, and culture inside them.",
+    tags: ["AI civilization", "Agents", "Simulation", "Project Sid"],
+    whatChanged: [
+      "The world-model story expands from generated environments into many-agent behavior, where the world acts as a substrate for social simulation.",
+    ],
+    sourceConfidence: "Official project repository",
+    availabilityNote:
+      "Treat Project Sid as a many-agent simulation lane, not as a generative visual world product like Marble or Genie.",
+    overclaimWarning:
+      "Do not present Project Sid as proof that all world models now contain persistent autonomous societies.",
+    sources: [
+      {
+        label: "Altera Project Sid GitHub repository",
+        url: "https://github.com/altera-al/project-sid",
+      },
+    ],
+  },
+  {
     slug: "runway-introduces-gwm-1",
     title: "Runway introduces GWM-1",
     date: "2025-12-11",
+    evolutionStageId: "understand-predict",
     organization: "Runway",
     summary:
       "Runway framed GWM-1 as a general world model direction that reaches beyond video into worlds, avatars, and robotics.",
@@ -345,6 +391,7 @@ export const newsItems: NewsItem[] = [
     slug: "world-labs-launches-marble",
     title: "World Labs launches Marble",
     date: "2025-11-12",
+    evolutionStageId: "generated-space",
     organization: "World Labs",
     summary:
       "Marble gave the world model category a concrete product surface: generated 3D worlds that can be explored and edited.",
@@ -362,6 +409,7 @@ export const newsItems: NewsItem[] = [
     slug: "deepmind-announces-genie-3",
     title: "Google DeepMind announces Genie 3",
     date: "2025-08-05",
+    evolutionStageId: "controllable-worlds",
     organization: "Google DeepMind",
     summary:
       "Genie 3 placed interactive, navigable world generation near the center of the world model conversation.",
@@ -379,6 +427,7 @@ export const newsItems: NewsItem[] = [
     slug: "nvidia-launches-cosmos",
     title: "NVIDIA launches Cosmos",
     date: "2025-01-06",
+    evolutionStageId: "physical-action",
     organization: "NVIDIA",
     summary:
       "NVIDIA introduced Cosmos as a world foundation model platform for physical AI development.",
@@ -389,6 +438,62 @@ export const newsItems: NewsItem[] = [
       {
         label: "NVIDIA Newsroom: NVIDIA launches Cosmos world foundation model platform",
         url: "https://nvidianews.nvidia.com/news/nvidia-launches-cosmos-world-foundation-model-platform-to-accelerate-physical-ai-development",
+      },
+    ],
+  },
+  {
+    slug: "oasis-realtime-world",
+    title: "Oasis demonstrates a realtime playable AI world",
+    date: "2024-10-31",
+    evolutionStageId: "controllable-worlds",
+    organization: "Decart AI + Etched",
+    summary:
+      "Oasis demonstrated an action-conditioned Minecraft-like world that can be generated frame by frame while the player moves.",
+    whyItMatters:
+      "Oasis is one of the clearest public examples of the jump from watching generated media to steering a generated world. It makes control visible to ordinary users because input changes the next moment rather than only prompting a finished clip.",
+    tags: ["Playable worlds", "Realtime", "Demo", "Oasis"],
+    whatChanged: [
+      "Action conditioning became visible in a playable world demo, making the screen feel closer to an interactive environment than a rendered video.",
+    ],
+    sourceConfidence: "Official project page",
+    availabilityNote:
+      "The public signal is an official realtime world-model demo, not a broad production game engine replacement.",
+    overclaimWarning:
+      "Do not treat Oasis as evidence that generated worlds are already stable, persistent, or fully open-ended platforms.",
+    sources: [
+      {
+        label: "Oasis project page",
+        url: "https://oasis-model.github.io/",
+      },
+    ],
+  },
+  {
+    slug: "skybox-immersive-worlds",
+    title: "Skybox AI keeps the entry point simple: type a place, open a world",
+    date: "2024-07-18",
+    evolutionStageId: "generated-space",
+    organization: "Blockade Labs",
+    summary:
+      "Skybox AI gives the timeline an early consumer-facing spatial signal: a generated world can start as a 360-degree horizon, mood, and environment shell.",
+    whyItMatters:
+      "This is a useful baseline for the generated-space stage. Before full 3D worlds and realtime control, users could already understand the category through an immersive place that surrounds the camera.",
+    tags: ["360 worlds", "Spatial worlds", "Consumer tool", "Skybox AI"],
+    whatChanged: [
+      "Text-to-world creation became understandable as a 360-degree environment surface rather than only as a flat image or video output.",
+    ],
+    sourceConfidence: "Official product surface",
+    availabilityNote:
+      "Skybox is best framed as an immersive environment and panorama lane, not as a full physics-grounded world simulator.",
+    overclaimWarning:
+      "Do not collapse generated 360-degree environments into the same category as persistent 3D world models.",
+    sources: [
+      {
+        label: "Skybox AI product page",
+        url: "https://skybox.blockadelabs.com/",
+      },
+      {
+        label: "Blockade Labs landing page",
+        url: "https://landing-dev.blockadelabs.com/",
       },
     ],
   },

@@ -1,20 +1,41 @@
 # World Models Watch
 
-World Models Watch is a structured intelligence site for world models, spatial intelligence, and interactive world generation.
+World Models Watch is a video-led guide to AI world and spatial model progress.
+The homepage stays focused on immersive AI video discovery; the pages after it
+explain the current state of the field, the companies and models involved, and
+selected adjacent progress.
 
 Core surfaces:
 
-- `spatial-intelligence`: narrative page for spatial intelligence and why world models matter
-- `from-video-to-worlds`: evolution page from AI video to interactive and persistent worlds
-- `world-model-labs`: dedicated demo-video gallery for world-model projects
-- `research-insights`: research hub for source-backed updates, timelines, comparisons, and dossiers
-- `what-is-world-model`: definition and education entry point
-- `news`: official updates and release notes
-- `models`: normalized model dossiers
-- `compare`: crawlable comparison tables
-- `timeline`: dated market and research milestones
-- `concepts`: glossary for world model terminology
-- `faq`: crawlable FAQ for source confidence, comments, likes, and category boundaries
+- `/`: `AI world models`
+- `/world-stream`: `world model evolution`
+- `/create-word`: `AI world generator`
+- `/events`: `AI world model events`
+- `/progress`: `AI world model progress`
+- `/models`: `AI world model companies`
+- `/updates`: `AI world model updates`
+- `/world-model-labs`: `world model demos`
+- `/news`: `world model news`
+- `/compare`: `world model comparisons`
+- `/what-is-world-model`: `what is a world model`
+- `/faq`: `world models FAQ`
+
+SEO rule:
+
+- Every indexable page must have exactly one `primaryKeyword`.
+- Related long-tail keywords may support that primary keyword, but must not turn
+  the page into a second topic.
+- Add or update static page targets in `src/lib/seo/page-targets.ts` before
+  creating a new indexable page.
+- Dynamic model, news, and comparison pages use their own content data for the
+  primary keyword, with page-specific fallbacks.
+- Run `npm run seo:keywords` after `npm run build` to verify unique primary
+  keywords and sitemap coverage.
+
+Primary product-facing examples:
+
+- World Labs / Marble: direct `Create your world` link to `https://marble.worldlabs.ai/`
+- Skybox AI: direct `Create your world` link to `https://skybox.blockadelabs.com/`
 
 Primary domain: `https://worldmodelswatch.com`
 
@@ -27,7 +48,7 @@ npm run dev
 
 ## Infrastructure
 
-The site keeps public research pages crawlable while adding a protected admin
+The site keeps public guide pages crawlable while adding a protected admin
 surface at `/account`.
 
 Copy `.env.example` to `.env.local` and set:
@@ -47,7 +68,6 @@ Routes:
 - `/account`: protected editor/account surface
 - `/auth/sign-in`: Supabase Google sign-in for public comments and comment likes
 - `/auth/callback`: OAuth callback route
-- `/faq`: public FAQ with a reader discussion thread
 - `/privacy`: privacy policy
 - `/terms`: terms of use
 
@@ -64,4 +84,5 @@ Database:
 ```bash
 npm run typecheck
 npm run build
+npm run seo:keywords
 ```

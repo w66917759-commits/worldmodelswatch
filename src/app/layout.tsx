@@ -2,17 +2,20 @@ import type { Metadata } from "next";
 
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { getStaticSeoTarget } from "@/lib/seo/page-targets";
 import { site } from "@/lib/site";
 
 import "./globals.css";
 
+const homeSeo = getStaticSeoTarget("/");
+
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: site.title,
+    default: `${homeSeo.primaryKeyword} | ${site.name}`,
     template: `%s | ${site.name}`,
   },
-  description: site.description,
+  description: homeSeo.description,
   alternates: {
     canonical: "/",
   },
@@ -20,8 +23,8 @@ export const metadata: Metadata = {
     type: "website",
     url: site.url,
     siteName: site.name,
-    title: site.title,
-    description: site.description,
+    title: `${homeSeo.primaryKeyword} | ${site.name}`,
+    description: homeSeo.description,
   },
 };
 

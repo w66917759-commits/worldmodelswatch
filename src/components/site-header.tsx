@@ -11,6 +11,10 @@ import { site } from "@/lib/site";
 export function SiteHeader() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const darkHeader =
+    pathname === "/events" ||
+    pathname === "/world-stream" ||
+    pathname === "/create-word";
 
   const close = useCallback(() => setMobileOpen(false), []);
 
@@ -39,7 +43,7 @@ export function SiteHeader() {
   if (pathname === "/") return null;
 
   return (
-    <header className="site-header">
+    <header className={`site-header${darkHeader ? " site-header-dark" : ""}`}>
       <Link className="brand" href="/" aria-label="World Models Watch home">
         <span className="brand-mark" aria-hidden="true">
           <Radar size={19} />

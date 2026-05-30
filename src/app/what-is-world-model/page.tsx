@@ -5,17 +5,13 @@ import { JsonLd } from "@/components/json-ld";
 import { SceneExplainer, ShowcaseHero } from "@/components/showcase";
 import { SourceList } from "@/components/source-list";
 import { comparisons, modelProfiles } from "@/lib/content";
+import { getStaticSeoTarget, metadataForRoute } from "@/lib/seo/page-targets";
 import { pageVisuals, showcaseImages } from "@/lib/showcase";
 import { absoluteUrl } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "What Is a World Model?",
-  description:
-    "A plain-English guide to world models, how they differ from video models and language models, and why the category is growing.",
-  alternates: {
-    canonical: "/what-is-world-model",
-  },
-};
+const seoTarget = getStaticSeoTarget("/what-is-world-model");
+
+export const metadata: Metadata = metadataForRoute("/what-is-world-model");
 
 const sources = [
   {
@@ -43,8 +39,8 @@ export default function WhatIsWorldModelPage() {
         data={{
           "@context": "https://schema.org",
           "@type": "Article",
-          headline: "What Is a World Model?",
-          description: metadata.description,
+          headline: seoTarget.primaryKeyword,
+          description: seoTarget.description,
           mainEntityOfPage: absoluteUrl("/what-is-world-model"),
           datePublished: "2026-04-28",
           dateModified: "2026-04-28",
@@ -52,12 +48,12 @@ export default function WhatIsWorldModelPage() {
       />
 
       <ShowcaseHero
-        description="A world model is the shift from making a clip to imagining a place that can keep changing when someone moves, acts, or returns."
-        eyebrow="Visual definition"
+        description={seoTarget.description}
+        eyebrow="What is a world model"
         meta={["Space", "Motion", "Actions", "Memory"]}
         primaryCta={{ href: "/concept-map", label: "Open map" }}
         secondaryCta={{ href: "/models", label: "See examples" }}
-        title="From a video you watch to a world you can enter."
+        title="What is a world model?"
         visual={pageVisuals.definition}
       />
 
@@ -91,7 +87,7 @@ export default function WhatIsWorldModelPage() {
 
       <section className="article-grid">
         <article className="article-body">
-          <h2>The short version</h2>
+          <h2>What is a world model, in one short answer?</h2>
           <p>
             If a language model predicts the next token, a world model tries to
             predict the next state of a world. That world can be a generated 3D

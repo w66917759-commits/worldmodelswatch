@@ -76,11 +76,11 @@ export function TimelineSection() {
     >
       <div className="timeline-ambient" aria-hidden="true" />
       <div className="portal-section-heading compact">
-        <span>World Evolution Timeline</span>
-        <h2>From generated clips to persistent AI reality.</h2>
+        <span>World Evolution</span>
+        <h2>From explore to build.</h2>
         <p>
-          World models are moving closer to users: first watched as output, then
-          controlled as environments, and eventually revisited as living places.
+          World models are easier to understand as a user path: explore possible
+          worlds, create space, control motion, simulate action, and build inhabited systems.
         </p>
       </div>
 

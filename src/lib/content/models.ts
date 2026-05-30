@@ -384,6 +384,7 @@ export const modelProfiles: ModelProfile[] = [
       "world creation workflow",
     ],
     sourceUrls: [
+      "https://marble.worldlabs.ai/",
       "https://www.worldlabs.ai/blog/marble-world-model",
       "https://docs.worldlabs.ai/",
     ],
@@ -401,6 +402,10 @@ export const modelProfiles: ModelProfile[] = [
       "The degree of physical accuracy depends on task and tooling context.",
     ],
     sources: [
+      {
+        label: "World Labs Marble app",
+        url: "https://marble.worldlabs.ai/",
+      },
       {
         label: "World Labs: Introducing Marble, our first world model",
         url: "https://www.worldlabs.ai/blog/marble-world-model",
@@ -492,8 +497,9 @@ export const modelProfiles: ModelProfile[] = [
     organization: "Tencent Hunyuan",
     category: "3D world model",
     date: "2026-04-16",
-    updated: "2026-05-06",
-    status: "Open-source technical report, partial code, and model weights",
+    updated: "2026-05-18",
+    status:
+      "Open-source technical report, model weights, and May 2026 world-generation code expansion",
     summary:
       "HY-World 2.0 is Tencent Hunyuan's multimodal 3D world model for reconstructing, generating, and simulating persistent worlds from text, images, multi-view inputs, and video.",
     primaryKeyword: "HY-World 2.0 multi-modal world model",
@@ -525,14 +531,14 @@ export const modelProfiles: ModelProfile[] = [
     focus:
       "Generated 3D worlds, video-to-3D reconstruction, editable meshes and Gaussian splats, and interactive exploration with persistent assets.",
     availability:
-      "GitHub repository, Hugging Face model card and weights, and an April 2026 technical report.",
+      "GitHub repository, Hugging Face model card and weights, an April 2026 technical report, May 11 HY-Pano 2.0 open-source inference code and weights, and May 18 world-generation inference code plus WorldStereo 2.0 weights.",
     strengths: [
       "Gives the site a primary-source Tencent anchor in generated-3D-world coverage instead of leaving the ecosystem to Alibaba, Ant, World Labs, and DeepMind alone.",
       "The framing is unusually clear: HY-World 2.0 distinguishes persistent editable 3D assets from video rollouts and explains why that matters for engines and simulation.",
-      "Its public release surface is strong for readers who care about reproducibility: code, weights, and documentation are already visible even though the full generation stack is not fully open yet.",
+      "Its public release surface is stronger after the May 2026 repo updates because Tencent now exposes more of the generation path, including HY-Pano 2.0 inference code and WorldStereo 2.0 weights.",
     ],
     limits: [
-      "Tencent explicitly describes the current release as partial: WorldMirror 2.0 is open, while parts of the full world-generation stack are still marked coming soon.",
+      "Even after the May 2026 expansion, HY-World 2.0 remains a repo-led research workflow rather than a simple public creator product like Marble.",
       "Its strongest current evidence is in 3D world generation and reconstruction, so it should not be collapsed into a generic video-model story.",
     ],
     sources: [

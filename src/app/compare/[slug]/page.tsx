@@ -7,8 +7,9 @@ import { JsonLd } from "@/components/json-ld";
 import { ShowcaseHero, VisualComparisonPanel } from "@/components/showcase";
 import { SourceList } from "@/components/source-list";
 import { comparisons, getComparison, getModel, type ModelProfile } from "@/lib/content";
+import { comparisonPrimaryKeyword, uniqueKeywords } from "@/lib/seo/page-targets";
 import { comparisonVisual, splitComparisonTitle } from "@/lib/showcase";
-import { absoluteUrl } from "@/lib/site";
+import { absoluteUrl, site } from "@/lib/site";
 
 type ComparisonPageProps = {
   params: Promise<{ slug: string }>;
@@ -30,16 +31,31 @@ export async function generateMetadata({ params }: ComparisonPageProps): Promise
     return {};
   }
 
+  const primaryKeyword = comparisonPrimaryKeyword(comparison);
+  const url = absoluteUrl(`/compare/${comparison.slug}`);
+
   return {
-    title: comparison.title,
+    title: primaryKeyword,
     description: comparison.summary,
-    keywords: [
-      comparison.primaryKeyword,
-      ...(comparison.secondaryKeywords ?? []),
-      ...(comparison.officialKeywords ?? []),
-    ].filter(Boolean) as string[],
+    keywords: uniqueKeywords(
+      primaryKeyword,
+      comparison.secondaryKeywords,
+      comparison.officialKeywords,
+    ),
     alternates: {
       canonical: `/compare/${comparison.slug}`,
+    },
+    openGraph: {
+      type: "article",
+      url,
+      siteName: site.name,
+      title: `${primaryKeyword} | ${site.name}`,
+      description: comparison.summary,
+    },
+    twitter: {
+      card: "summary",
+      title: `${primaryKeyword} | ${site.name}`,
+      description: comparison.summary,
     },
   };
 }
@@ -52,11 +68,12 @@ export default async function ComparisonDetailPage({ params }: ComparisonPagePro
     notFound();
   }
 
-  const keywords = [
-    comparison.primaryKeyword,
-    ...(comparison.secondaryKeywords ?? []),
-    ...(comparison.officialKeywords ?? []),
-  ].filter(Boolean);
+  const primaryKeyword = comparisonPrimaryKeyword(comparison);
+  const keywords = uniqueKeywords(
+    primaryKeyword,
+    comparison.secondaryKeywords,
+    comparison.officialKeywords,
+  );
   const relatedModels =
     comparison.relatedModelSlugs
       ?.map((modelSlug) => getModel(modelSlug))
@@ -84,7 +101,7 @@ export default async function ComparisonDetailPage({ params }: ComparisonPagePro
         data={{
           "@context": "https://schema.org",
           "@type": "Article",
-          headline: comparison.title,
+          headline: primaryKeyword,
           description: comparison.summary,
           datePublished: comparison.updated,
           dateModified: comparison.updated,
@@ -113,7 +130,7 @@ export default async function ComparisonDetailPage({ params }: ComparisonPagePro
             {
               "@type": "ListItem",
               position: 3,
-              name: comparison.title,
+              name: primaryKeyword,
               item: absoluteUrl(`/compare/${comparison.slug}`),
             },
           ],
@@ -124,7 +141,7 @@ export default async function ComparisonDetailPage({ params }: ComparisonPagePro
           data={{
             "@context": "https://schema.org",
             "@type": "ItemList",
-            name: comparison.title,
+            name: primaryKeyword,
             itemListElement: relatedModels.map((model, index) => ({
               "@type": "ListItem",
               position: index + 1,
@@ -163,7 +180,7 @@ export default async function ComparisonDetailPage({ params }: ComparisonPagePro
             : { href: "/models", label: "Model wall" }
         }
         secondaryCta={{ href: "/compare", label: "All matchups" }}
-        title={comparison.title}
+        title={primaryKeyword}
         visual={visual}
       />
 

@@ -1,24 +1,20 @@
 import type { Metadata } from "next";
 
 import { PageShell } from "@/components/page-shell";
+import { getStaticSeoTarget, metadataForRoute } from "@/lib/seo/page-targets";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy",
-  description:
-    "Privacy policy for World Models Watch, including admin login cookies, Supabase Auth, public comments, comment likes, and source data handling.",
-  alternates: {
-    canonical: "/privacy",
-  },
-};
+const seoTarget = getStaticSeoTarget("/privacy");
+
+export const metadata: Metadata = metadataForRoute("/privacy");
 
 export default function PrivacyPage() {
   return (
     <PageShell
       className="showcase-page utility-page"
       eyebrow="Legal"
-      title="Privacy Policy"
-      description="How World Models Watch handles data for public research pages and protected editor access."
+      title="World Models Watch privacy policy"
+      description={seoTarget.description}
     >
       <article className="article-body single-column legal-copy">
         <p className="legal-summary">
@@ -48,7 +44,7 @@ export default function PrivacyPage() {
           public web page.
         </p>
 
-        <h2>Cookies</h2>
+        <h2 id="cookies">Cookies</h2>
         <p>
           The protected account area uses one HTTP-only session cookie named{" "}
           <code>wmw_session</code>. It is marked SameSite=Lax, is secure in
@@ -85,7 +81,7 @@ export default function PrivacyPage() {
           comments remain public unless the author deletes them or the site
           removes them for policy reasons. Comment likes can be toggled off by
           the signed-in reader. Privacy requests can be sent to{" "}
-          <a href={`mailto:privacy@${site.domain}`}>privacy@{site.domain}</a>.
+          <a href={`mailto:${site.privacyEmail}`}>{site.privacyEmail}</a>.
         </p>
 
         <h2>Changes</h2>

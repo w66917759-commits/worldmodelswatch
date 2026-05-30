@@ -5,16 +5,12 @@ import { CalendarDays, Tag } from "lucide-react";
 
 import { ShowcaseHero } from "@/components/showcase";
 import { newsItems } from "@/lib/content";
+import { getStaticSeoTarget, metadataForRoute } from "@/lib/seo/page-targets";
 import { newsVisual, pageVisuals } from "@/lib/showcase";
 
-export const metadata: Metadata = {
-  title: "World Model Updates",
-  description:
-    "Visual product, research, open-source, and reported updates in the world model category.",
-  alternates: {
-    canonical: "/news",
-  },
-};
+const seoTarget = getStaticSeoTarget("/news");
+
+export const metadata: Metadata = metadataForRoute("/news");
 
 export default function NewsPage() {
   const sortedNewsItems = [...newsItems].sort((a, b) => b.date.localeCompare(a.date));
@@ -22,19 +18,19 @@ export default function NewsPage() {
   return (
     <main className="page-shell showcase-page">
       <ShowcaseHero
-        description="A faster way to scan what changed: product surfaces, research drops, open-source releases, and reported consumer signals."
-        eyebrow="Update signal"
+        description={seoTarget.description}
+        eyebrow="World model news"
         meta={["Product", "Research", "Open source", "Reported"]}
-        primaryCta={{ href: "/timeline", label: "Open timeline" }}
+        primaryCta={{ href: "/events", label: "Open events timeline" }}
         secondaryCta={{ href: "/research-insights", label: "Signal room" }}
-        title="World model updates that look like a release radar."
+        title="World model news organized by release signal."
         visual={pageVisuals.news}
       />
 
       <section className="update-showcase-section" aria-labelledby="latest-updates">
         <div className="showcase-section-heading">
           <p className="showcase-kicker">Latest cards</p>
-          <h2 id="latest-updates">Scan by signal type, then open the source-backed note.</h2>
+          <h2 id="latest-updates">Scan world model news by signal type, then open the source-backed note.</h2>
           <p>
             Each card keeps the update short on the surface and puts citations on the detail page.
           </p>

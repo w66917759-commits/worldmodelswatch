@@ -1,43 +1,76 @@
+const domain = "worldmodelswatch.com";
+const contactEmail = `contact@${domain}`;
+const privacyEmail = `privacy@${domain}`;
+
 export const site = {
   name: "World Models Watch",
-  domain: "worldmodelswatch.com",
-  url: "https://worldmodelswatch.com",
-  title: "World Models Watch | AI Generated Worlds and World Model Comparisons",
+  domain,
+  url: `https://${domain}`,
+  contactEmail,
+  privacyEmail,
+  title: "World Models Watch | AI world models",
   description:
-    "A structured intelligence site tracking world models, AI generated worlds, interactive environments, persistent 3D worlds, spatial intelligence, and world foundation model releases.",
-  tagline: "AI generated world signals, comparisons, and timelines",
+    "Explore AI world models through focused demos, company routes, and source-backed pages about generated worlds.",
+  tagline: "AI world models, company progress, and practical model signals",
   homeNav: [
-    { href: "/", label: "Gallery" },
-    { href: "/spatial-intelligence", label: "Spatial Intelligence" },
-    { href: "/from-video-to-worlds", label: "Video to Worlds" },
-    { href: "/world-model-labs", label: "Labs" },
-    { href: "/research-insights", label: "Research" },
-    { href: "/models", label: "Models" },
+    { href: "/create-word", label: "Create AI Worlds" },
+    { href: "/world-stream", label: "World Evolution" },
+    { href: "/models", label: "Companies & Models" },
   ],
   primaryNav: [
-    { href: "/spatial-intelligence", label: "Spatial Intelligence" },
-    { href: "/from-video-to-worlds", label: "Video to Worlds" },
-    { href: "/world-model-labs", label: "Labs" },
-    { href: "/research-insights", label: "Research" },
-    { href: "/models", label: "Models" },
-    { href: "/compare", label: "Compare" },
+    { href: "/world-stream", label: "World Evolution" },
+    { href: "/create-word", label: "Create AI Worlds" },
+    { href: "/events", label: "Events Timeline" },
+    { href: "/models", label: "Companies & Models" },
+    { href: "/compare", label: "Comparisons" },
     { href: "/news", label: "News" },
     { href: "/faq", label: "FAQ" },
   ],
-  footerNav: [
-    { href: "/what-is-world-model", label: "Definition" },
-    { href: "/concept-map", label: "Concept Map" },
-    { href: "/from-video-to-worlds", label: "Video to Worlds" },
-    { href: "/world-model-labs", label: "Labs" },
-    { href: "/research-insights", label: "Research" },
-    { href: "/news", label: "News" },
-    { href: "/models", label: "Models" },
-    { href: "/compare", label: "Compare" },
-    { href: "/faq", label: "FAQ" },
-    { href: "/timeline", label: "Timeline" },
-    { href: "/concepts", label: "Concepts" },
-    { href: "/privacy", label: "Privacy" },
-    { href: "/terms", label: "Terms" },
+  footerSections: [
+    {
+      title: "Explore",
+      links: [
+        { href: "/world-stream", label: "World Evolution" },
+        { href: "/create-word", label: "Create AI Worlds" },
+        { href: "/events", label: "Events Timeline" },
+        { href: "/timeline", label: "World Model Timeline" },
+        { href: "/progress", label: "AI Progress" },
+        { href: "/models", label: "Companies & Models" },
+        { href: "/news", label: "World Model News" },
+        { href: "/compare", label: "World Model Comparisons" },
+        { href: "/updates", label: "Other Progress" },
+        { href: "/world-model-labs", label: "Video Gallery" },
+        { href: "/what-is-world-model", label: "World Model Definition" },
+        { href: "/concepts", label: "World Model Glossary" },
+        { href: "/faq", label: "FAQ" },
+      ],
+    },
+    {
+      title: "Legal",
+      links: [
+        { href: "/privacy", label: "Privacy Policy" },
+        { href: "/terms", label: "Terms of Use" },
+        { href: "/privacy#cookies", label: "Cookie Notice" },
+        { href: "/sitemap.xml", label: "Sitemap" },
+      ],
+    },
+    {
+      title: "Contact",
+      links: [
+        { href: `mailto:${contactEmail}`, label: contactEmail },
+        { href: `mailto:${privacyEmail}`, label: privacyEmail },
+      ],
+    },
+    {
+      title: "Social",
+      links: [
+        { href: "https://x.com/worldmodelswatch", label: "X / Twitter" },
+        {
+          href: "https://github.com/w66917759-commits/worldmodelswatch",
+          label: "GitHub",
+        },
+      ],
+    },
   ],
 } as const;
 
