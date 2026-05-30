@@ -9,7 +9,14 @@ import { ModelUseCaseGrid } from "@/components/model-use-case-grid";
 import { SceneExplainer, ShowcaseHero, visualStyle } from "@/components/showcase";
 import { SourceList } from "@/components/source-list";
 import { getWorldByModelSlug, getWorldPrimaryAction } from "@/data/worldsData";
-import { comparisons, getModel, getNewsItem, modelProfiles, type NewsItem } from "@/lib/content";
+import {
+  comparisons,
+  getModel,
+  getNewsItem,
+  modelProfiles,
+  narrativePages,
+  type NewsItem,
+} from "@/lib/content";
 import { modelPrimaryKeyword, uniqueKeywords } from "@/lib/seo/page-targets";
 import { modelVisual } from "@/lib/showcase";
 import { absoluteUrl, site } from "@/lib/site";
@@ -92,6 +99,26 @@ export default async function ModelDetailPage({ params }: ModelPageProps) {
     "Creators comparing whether the output feels like a clip, a place, or a controllable world.",
     "Readers who need status and sources after the first impression.",
   ];
+  const modelHref = `/models/${model.slug}`;
+  const relatedLongTailPages = narrativePages
+    .filter((page) => {
+      const hasWorldMedia = Boolean(world?.id && page.mediaWorldIds?.includes(world.id));
+      const linksToModel = page.sections.some((section) =>
+        section.links?.some((link) => link.href === modelHref),
+      );
+
+      return hasWorldMedia || linksToModel;
+    })
+    .map((page) => ({
+      route: `/${page.slug}`,
+      shortTitle: page.eyebrow,
+    }));
+  const hasToolDetails = Boolean(
+    model.pricing ||
+      model.platforms?.length ||
+      model.outputFormats?.length ||
+      model.compatibility?.length,
+  );
 
   return (
     <main className="page-shell showcase-page">
@@ -117,6 +144,32 @@ export default async function ModelDetailPage({ params }: ModelPageProps) {
           },
         }}
       />
+      {model.schemaType === "SoftwareApplication" ? (
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            name: model.name,
+            applicationCategory: model.category,
+            operatingSystem: model.platforms?.join(", ") ?? "Web",
+            description: model.summary,
+            url: absoluteUrl(`/models/${model.slug}`),
+            sameAs: model.sourceUrls ?? model.sources.map((source) => source.url),
+            creator: {
+              "@type": "Organization",
+              name: model.organization,
+            },
+            offers: model.pricing
+              ? {
+                  "@type": "Offer",
+                  name: model.pricing.label,
+                  description: model.pricing.note,
+                  url: model.pricing.sourceUrl,
+                }
+              : undefined,
+          }}
+        />
+      ) : null}
 
       <ShowcaseHero
         description={model.summary}
@@ -178,6 +231,62 @@ export default async function ModelDetailPage({ params }: ModelPageProps) {
           </div>
         </aside>
       </section>
+
+      {hasToolDetails ? (
+        <section className="model-detail-layout source-backed-section" style={visualStyle(visual)}>
+          <article className="showcase-panel">
+            {model.pricing ? (
+              <>
+                <h2>Pricing and access</h2>
+                <p>{model.pricing.note}</p>
+                {model.pricing.sourceUrl ? (
+                  <p>
+                    Source:{" "}
+                    <a href={model.pricing.sourceUrl} rel="noreferrer" target="_blank">
+                      {model.pricing.sourceLabel ?? model.pricing.sourceUrl}
+                    </a>
+                  </p>
+                ) : null}
+              </>
+            ) : null}
+
+            {model.platforms?.length ? (
+              <>
+                <h2>Platforms</h2>
+                <div className="tag-row standalone">
+                  {model.platforms.map((platform) => (
+                    <span key={platform}>{platform}</span>
+                  ))}
+                </div>
+              </>
+            ) : null}
+          </article>
+
+          <article className="showcase-panel">
+            {model.outputFormats?.length ? (
+              <>
+                <h2>Output formats</h2>
+                <ul>
+                  {model.outputFormats.map((format) => (
+                    <li key={format}>{format}</li>
+                  ))}
+                </ul>
+              </>
+            ) : null}
+
+            {model.compatibility?.length ? (
+              <>
+                <h2>Compatibility</h2>
+                <div className="tag-row standalone">
+                  {model.compatibility.map((item) => (
+                    <span key={item}>{item}</span>
+                  ))}
+                </div>
+              </>
+            ) : null}
+          </article>
+        </section>
+      ) : null}
 
       <SceneExplainer
         description="The page starts with the experience, then moves toward source-backed details."
@@ -256,6 +365,50 @@ export default async function ModelDetailPage({ params }: ModelPageProps) {
           ) : null}
         </article>
       </section>
+
+      {model.alternatives?.length || model.workflowSteps?.length || relatedLongTailPages.length ? (
+        <section className="model-detail-layout source-backed-section" style={visualStyle(visual)}>
+          <article className="showcase-panel">
+            {model.alternatives?.length ? (
+              <>
+                <h2>Best alternatives</h2>
+                <div className="narrative-link-grid">
+                  {model.alternatives.map((alternative) => (
+                    <Link className="narrative-link-card" href={alternative.href} key={alternative.href}>
+                      <strong>{alternative.label}</strong>
+                      <span>{alternative.description}</span>
+                    </Link>
+                  ))}
+                </div>
+              </>
+            ) : null}
+
+            {relatedLongTailPages.length ? (
+              <>
+                <h2>Related workflows</h2>
+                <div className="tag-row standalone">
+                  {relatedLongTailPages.map((page) => (
+                    <Link href={page.route} key={page.route}>
+                      {page.shortTitle}
+                    </Link>
+                  ))}
+                </div>
+              </>
+            ) : null}
+          </article>
+
+          {model.workflowSteps?.length ? (
+            <article className="showcase-panel">
+              <h2>Quick workflow</h2>
+              <ol>
+                {model.workflowSteps.map((step) => (
+                  <li key={step}>{step}</li>
+                ))}
+              </ol>
+            </article>
+          ) : null}
+        </section>
+      ) : null}
 
       {relatedSignals.length > 0 ? (
         <section className="source-backed-section" style={visualStyle(visual)}>
