@@ -20,6 +20,11 @@ export type {
   NarrativePage,
   NarrativeSection,
 } from "./narrative-pages";
+export type {
+  LongTailLink,
+  LongTailPage,
+  LongTailSection,
+} from "./long-tail-pages";
 
 export { modelProfiles, getModel } from "./models";
 export { newsItems, getNewsItem } from "./news";
@@ -40,6 +45,7 @@ export { conceptMapClusters, conceptBridges } from "./concept-map";
 export { modelJumpLinks } from "./model-jump-links";
 export { futureDirections } from "./future-directions";
 export { narrativePages, getNarrativePage } from "./narrative-pages";
+export { longTailPages, getLongTailPage } from "./long-tail-pages";
 export { faqItems, featuredFaqItems, type FaqItem } from "./faq";
 export {
   progressStages,

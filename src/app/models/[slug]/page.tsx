@@ -13,8 +13,8 @@ import {
   comparisons,
   getModel,
   getNewsItem,
+  longTailPages,
   modelProfiles,
-  narrativePages,
   type NewsItem,
 } from "@/lib/content";
 import { modelPrimaryKeyword, uniqueKeywords } from "@/lib/seo/page-targets";
@@ -99,20 +99,9 @@ export default async function ModelDetailPage({ params }: ModelPageProps) {
     "Creators comparing whether the output feels like a clip, a place, or a controllable world.",
     "Readers who need status and sources after the first impression.",
   ];
-  const modelHref = `/models/${model.slug}`;
-  const relatedLongTailPages = narrativePages
-    .filter((page) => {
-      const hasWorldMedia = Boolean(world?.id && page.mediaWorldIds?.includes(world.id));
-      const linksToModel = page.sections.some((section) =>
-        section.links?.some((link) => link.href === modelHref),
-      );
-
-      return hasWorldMedia || linksToModel;
-    })
-    .map((page) => ({
-      route: `/${page.slug}`,
-      shortTitle: page.eyebrow,
-    }));
+  const relatedLongTailPages = longTailPages.filter((page) =>
+    page.relatedModelSlugs.includes(model.slug),
+  );
   const hasToolDetails = Boolean(
     model.pricing ||
       model.platforms?.length ||

@@ -4,7 +4,7 @@ import { ArrowRight, ExternalLink, Layers3 } from "lucide-react";
 
 import { JsonLd } from "@/components/json-ld";
 import { ShowcaseHero, visualStyle } from "@/components/showcase";
-import { getCompanyModelGroups } from "@/lib/content";
+import { getCompanyModelGroups, longTailPages } from "@/lib/content";
 import { getStaticSeoTarget, metadataForRoute } from "@/lib/seo/page-targets";
 import { companyVisual, pageVisuals } from "@/lib/showcase";
 import { absoluteUrl } from "@/lib/site";
@@ -82,6 +82,27 @@ export default function ModelsPage() {
         <div className="company-card-grid wide">
           {otherGroups.map((group) => (
             <CompanyCard group={group} key={group.company} />
+          ))}
+        </div>
+      </section>
+
+      <section className="source-backed-section" aria-labelledby="focused-workflows">
+        <div className="showcase-section-heading">
+          <p className="showcase-kicker">Focused searches</p>
+          <h2 id="focused-workflows">Open a workflow page when the search intent is narrower.</h2>
+          <p>
+            These pages do not replace the company map. They route high-intent searches to the right
+            model profiles and comparison guides.
+          </p>
+        </div>
+
+        <div className="narrative-link-grid">
+          {longTailPages.map((page) => (
+            <Link className="narrative-link-card" href={page.route} key={page.route}>
+              <strong>{page.shortTitle}</strong>
+              <span>{page.description}</span>
+              <ArrowRight size={16} aria-hidden="true" />
+            </Link>
           ))}
         </div>
       </section>

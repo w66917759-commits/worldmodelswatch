@@ -52,6 +52,62 @@ export const staticSeoTargets = [
       "Find AI world generator tools that already let visitors create 360 environments or persistent 3D worlds.",
   },
   {
+    route: "/ai-360-skybox-generator",
+    primaryKeyword: "AI 360 skybox generator",
+    longTailKeywords: [
+      "AI skybox generator",
+      "360 environment generator",
+      "VR background AI",
+      "Skybox AI alternatives",
+    ],
+    intent: "Route readers to 360 environment and skybox tools without confusing them with full 3D world simulators.",
+    indexable: true,
+    description:
+      "Compare AI 360 skybox generator options for panoramic environments, HDRI-style backdrops, game-engine skyboxes, and VR scenes.",
+  },
+  {
+    route: "/text-to-3d-world-generator",
+    primaryKeyword: "text-to-3D world generator",
+    longTailKeywords: [
+      "AI 3D world generator",
+      "text image video to 3D world",
+      "persistent 3D worlds",
+      "Gaussian splat export AI",
+    ],
+    intent: "Send text-to-3D world searches to source-backed product and open-stack model pages.",
+    indexable: true,
+    description:
+      "Find text-to-3D world generator routes for persistent worlds, editable scene assets, Gaussian splats, meshes, and open 3D stacks.",
+  },
+  {
+    route: "/ai-game-asset-generator",
+    primaryKeyword: "AI game asset generator",
+    longTailKeywords: [
+      "AI game environment generator",
+      "AI game level design tools",
+      "AI generated game assets",
+      "AI environment creator for games",
+    ],
+    intent: "Capture game-asset intent while separating skyboxes, 3D worlds, and open research workflows.",
+    indexable: true,
+    description:
+      "Choose source-backed AI game asset generator routes for 360 skyboxes, persistent 3D worlds, and open 3D world-generation stacks.",
+  },
+  {
+    route: "/ai-environment-creator-for-unity-unreal",
+    primaryKeyword: "AI environment creator for Unity and Unreal",
+    longTailKeywords: [
+      "AI environment creator for Unity",
+      "AI environment creator for Unreal Engine",
+      "AI 3D environment generator",
+      "AI VR environment generator",
+    ],
+    intent: "Serve engine-oriented searches with a curated page that points to compatible tools and source-backed boundaries.",
+    indexable: true,
+    description:
+      "Choose AI environment creator tools for Unity, Unreal Engine, Blender, web 3D, and VR workflows without mixing skyboxes and full 3D worlds.",
+  },
+  {
     route: "/events",
     primaryKeyword: "AI world model events",
     longTailKeywords: [

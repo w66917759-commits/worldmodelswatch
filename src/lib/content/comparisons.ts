@@ -12,6 +12,8 @@ export const comparisons: Comparison[] = [
       "Do you need an open 3D world stack to inspect, or a polished product workflow for creating persistent worlds?",
     primaryKeyword: "HY-World 2.0 vs Marble",
     secondaryKeywords: [
+      "Marble alternatives",
+      "World Labs Marble alternatives",
       "open 3D world model vs persistent 3D worlds",
       "Tencent Hunyuan HY-World 2.0 comparison",
       "World Labs Marble comparison",
@@ -42,11 +44,12 @@ export const comparisons: Comparison[] = [
       ["Access signal", "GitHub repo, Hugging Face model card, arXiv paper, and May 2026 expansion of generation code and weights", "Public product surface, World Labs account access, and Marble documentation"],
       ["Best reader question", "How close is open-source world generation to engine-ready 3D assets?", "How does a polished product surface package world modeling for creators and developers?"],
       ["Editorial role", "Open reproducibility track for generated-3D worlds", "Product and platform track for generated-3D worlds"],
+      ["Alternative role", "Best Marble alternative when open code, model cards, and weights matter", "Best HY-World alternative when product onboarding and creator workflow matter"],
     ],
     takeaways: [
       "HY-World 2.0 is the clearer reference when the reader wants open code, model weights, and a technical stack for 3D world generation or reconstruction.",
       "Marble is the clearer reference when the reader wants a public product surface and easier onboarding into generated 3D worlds.",
-      "Keeping both visible prevents the site from equating world-model progress only with polished product launches or only with research repos.",
+      "This comparison also works as a Marble alternatives page for readers deciding between open technical depth and a polished product workflow.",
     ],
     sources: [
       {
@@ -71,6 +74,11 @@ export const comparisons: Comparison[] = [
       },
     ],
     faq: [
+      {
+        question: "Is HY-World 2.0 a Marble alternative?",
+        answer:
+          "Yes, but only for the open technical workflow. HY-World 2.0 is a better Marble alternative when the reader wants public code, weights, and reconstruction or generation materials rather than a polished web product.",
+      },
       {
         question: "Is HY-World 2.0 the open-source version of Marble?",
         answer:
@@ -238,15 +246,17 @@ export const comparisons: Comparison[] = [
     slug: "skybox-ai-vs-marble",
     title: "Skybox AI vs Marble",
     summary:
-      "A comparison of Blockade Labs' 360-degree environment generation workflow and World Labs' persistent 3D world creation product.",
+      "A source-backed Skybox AI alternatives guide comparing Blockade Labs' 360-degree environment workflow with World Labs' persistent 3D world creation product.",
     updated: "2026-05-29",
     guideType: "creator",
     decisionQuestion:
       "Do you need a 360 environment quickly, or a persistent 3D world that can be explored and edited?",
-    primaryKeyword: "Skybox AI vs Marble",
+    primaryKeyword: "Best Skybox AI alternatives",
     secondaryKeywords: [
+      "Skybox AI alternatives",
       "Skybox AI 360 environments",
       "Marble persistent 3D worlds",
+      "World Labs Marble alternative",
       "360 skybox vs 3D world model",
       "HDRI exports vs mesh export",
     ],
@@ -277,10 +287,11 @@ export const comparisons: Comparison[] = [
       ["Best use case", "Backplates, VR or AR environments, lighting, and game-engine skyboxes", "Spatial worlds that can be edited, explored, and reused in creative workflows"],
       ["Editorial boundary", "Environment layer rather than a complete realtime simulator", "Generated 3D-world product rather than a 360 panorama tool"],
       ["Reader question", "Do I need a surrounding environment shell?", "Do I need a persistent 3D world I can edit and export?"],
+      ["Alternative role", "Use when the project starts from a panoramic shell", "Use when the project needs an explorable 3D world rather than only a skybox"],
     ],
     takeaways: [
       "Skybox AI should own the 360-environment and HDRI search lane.",
-      "Marble should own the persistent 3D-world creation lane.",
+      "Marble is the strongest Skybox AI alternative on this site when the reader wants persistent 3D worlds instead of panoramic shells.",
       "Putting them in one table helps readers avoid treating all environment generation as the same kind of world model.",
     ],
     sources: [
@@ -302,6 +313,11 @@ export const comparisons: Comparison[] = [
       },
     ],
     faq: [
+      {
+        question: "What is the best Skybox AI alternative for persistent 3D worlds?",
+        answer:
+          "Marble is the better alternative when the reader wants a persistent 3D world that can be explored, edited, or exported rather than a 360-degree skybox or HDRI-style environment.",
+      },
       {
         question: "Is Skybox AI a full world model?",
         answer:

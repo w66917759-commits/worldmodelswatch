@@ -41,6 +41,13 @@ export const site = {
       links: [
         { href: "/what-is-world-model", label: "What Is a World Model" },
         { href: "/concepts", label: "World Model Glossary" },
+        { href: "/ai-360-skybox-generator", label: "AI 360 Skybox Generator" },
+        { href: "/text-to-3d-world-generator", label: "Text-to-3D World Generator" },
+        { href: "/ai-game-asset-generator", label: "AI Game Asset Generator" },
+        {
+          href: "/ai-environment-creator-for-unity-unreal",
+          label: "AI Environment Creator for Unity/Unreal",
+        },
         { href: "/progress", label: "AI World Model Progress" },
         { href: "/research-insights", label: "Research Insights" },
         { href: "/events", label: "Events Timeline" },
