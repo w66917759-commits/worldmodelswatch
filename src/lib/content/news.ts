@@ -2,6 +2,41 @@ import type { NewsItem, Source } from "./types";
 
 export const newsItems: NewsItem[] = [
   {
+    slug: "skybox-ai-pending-generation-limits",
+    title: "Blockade Labs documents plan-based pending limits for Skybox AI",
+    date: "2026-05-21",
+    evolutionStageId: "generated-space",
+    organization: "Blockade Labs",
+    summary:
+      "Blockade Labs updated its official Skybox API docs to add per-plan pending-generation caps and an explicit `429` error path when accounts hit that queue limit.",
+    whyItMatters:
+      "This clears up a real access and operations boundary for Skybox AI rather than adding another vague capability claim. Readers comparing creator tools and APIs need to know that Skybox AI's public surface now documents hard queue limits by plan, which matters for throughput expectations, integration design, and how seriously to treat the API as a production-facing environment workflow.",
+    tags: ["Skybox AI", "API", "Access", "Blockade Labs"],
+    signalType: "Platform",
+    impactLevel: "Medium",
+    whatChanged: [
+      "Blockade Labs added a Pending Generation Limits section to the Generate Skybox docs and documented a `429` response when too many generations remain pending.",
+      "The official docs now state per-plan pending caps of Free 1, Essential 3, Standard 3, and Business 30 for Skybox generation requests.",
+    ],
+    sourceConfidence: "Official API documentation update",
+    availabilityNote:
+      "This is a material API access clarification for the Skybox surface, not a new model launch or a claim that Skybox AI now behaves like a full persistent world platform.",
+    overclaimWarning:
+      "Do not present queue-limit documentation as evidence of a major model-capability jump or confuse Skybox's 360-environment workflow with a general interactive world model.",
+    relatedModelSlugs: ["skybox-ai"],
+    relatedComparisonSlugs: ["skybox-ai-vs-marble"],
+    sources: [
+      {
+        label: "Blockade Labs API changelog: May 21, 2026 Skybox update",
+        url: "https://api-documentation.blockadelabs.com/api/changelog.html",
+      },
+      {
+        label: "Blockade Labs Skyboxes API docs: pending generation limits",
+        url: "https://api-documentation.blockadelabs.com/api/skybox.html",
+      },
+    ],
+  },
+  {
     slug: "google-project-genie-street-view",
     title: "Google expands Project Genie with Street View-grounded worlds",
     date: "2026-05-19",
