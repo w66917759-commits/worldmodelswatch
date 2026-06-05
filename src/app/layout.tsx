@@ -18,6 +18,9 @@ export const metadata: Metadata = {
     template: `%s | ${site.name}`,
   },
   description: homeSeo.description,
+  other: {
+    "google-adsense-account": adsenseClientId,
+  },
   alternates: {
     canonical: "/",
   },
