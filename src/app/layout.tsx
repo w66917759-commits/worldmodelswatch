@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -8,6 +9,7 @@ import { site } from "@/lib/site";
 import "./globals.css";
 
 const homeSeo = getStaticSeoTarget("/");
+const adsenseClientId = "ca-pub-9068083570091757";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -51,6 +53,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
+      <Script
+        async
+        crossOrigin="anonymous"
+        src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClientId}`}
+        strategy="beforeInteractive"
+      />
       <body>
         <SiteHeader />
         {children}
