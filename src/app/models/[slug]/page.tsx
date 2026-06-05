@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { BreadcrumbTrail } from "@/components/breadcrumb-trail";
 import { CommentThread } from "@/components/comments/comment-thread";
+import { EditorialByline } from "@/components/editorial-byline";
 import { FaqSummary } from "@/components/faq-summary";
 import { JsonLd } from "@/components/json-ld";
 import { ModelUseCaseGrid } from "@/components/model-use-case-grid";
@@ -17,7 +19,13 @@ import {
   modelProfiles,
   type NewsItem,
 } from "@/lib/content";
-import { modelPrimaryKeyword, uniqueKeywords } from "@/lib/seo/page-targets";
+import {
+  modelPrimaryKeyword,
+  seoMetaDescription,
+  seoPageTitle,
+  socialImages,
+  uniqueKeywords,
+} from "@/lib/seo/page-targets";
 import { modelVisual } from "@/lib/showcase";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -42,12 +50,13 @@ export async function generateMetadata({ params }: ModelPageProps): Promise<Meta
   }
 
   const primaryKeyword = modelPrimaryKeyword(model);
-  const description = model.summary;
+  const pageTitle = seoPageTitle(primaryKeyword);
+  const description = seoMetaDescription(model.summary);
   const url = absoluteUrl(`/models/${model.slug}`);
 
   return {
-    title: primaryKeyword,
-    description: model.summary,
+    title: { absolute: pageTitle },
+    description,
     keywords: uniqueKeywords(primaryKeyword, model.secondaryKeywords, model.officialKeywords),
     alternates: {
       canonical: `/models/${model.slug}`,
@@ -56,13 +65,17 @@ export async function generateMetadata({ params }: ModelPageProps): Promise<Meta
       type: "article",
       url,
       siteName: site.name,
-      title: `${primaryKeyword} | ${site.name}`,
+      title: pageTitle,
       description,
+      images: socialImages(`${model.name} source-backed model profile`),
     },
     twitter: {
-      card: "summary",
-      title: `${primaryKeyword} | ${site.name}`,
+      card: "summary_large_image",
+      site: site.social.twitterHandle,
+      creator: site.social.twitterHandle,
+      title: pageTitle,
       description,
+      images: [site.socialImage],
     },
   };
 }
@@ -99,6 +112,41 @@ export default async function ModelDetailPage({ params }: ModelPageProps) {
     "Creators comparing whether the output feels like a clip, a place, or a controllable world.",
     "Readers who need status and sources after the first impression.",
   ];
+  const notFor = model.notFor ?? [
+    `Readers who need a confirmed general-purpose product outside ${model.organization}'s documented access surface.`,
+    "Readers who want claims that go beyond the cited source trail, such as unverified pricing, unrestricted API access, or benchmark parity.",
+  ];
+  const evidenceLevel =
+    model.evidenceLevel ??
+    (model.sourceUrls?.length || model.sources.length > 1
+      ? "Primary-source dossier with multiple public references."
+      : "Primary-source dossier with a limited public source trail.");
+  const updateHistory = [
+    {
+      date: model.date,
+      label: "First tracked source",
+      detail: `${model.name} entered the site as a ${model.category.toLowerCase()} from ${model.organization}.`,
+    },
+    ...(model.updated && model.updated !== model.date
+      ? [
+          {
+            date: model.updated,
+            label: "Latest dossier review",
+            detail:
+              "The page was reviewed for access status, source confidence, category boundary, and related comparison links.",
+          },
+        ]
+      : []),
+    ...relatedSignals.map((item) => ({
+      date: item.updated ?? item.date,
+      label: item.signalType,
+      detail: item.whatChanged?.[0] ?? item.summary,
+    })),
+  ];
+  const evaluationNotes = model.evaluationNotes ?? [
+    `${model.name} is useful on this site when its public sources clarify a specific lane: ${model.focus}`,
+    `The page should not be read as a benchmark verdict; it is a source-backed orientation page with strengths, limits, and links to primary material.`,
+  ];
   const relatedLongTailPages = longTailPages.filter((page) =>
     page.relatedModelSlugs.includes(model.slug),
   );
@@ -119,9 +167,21 @@ export default async function ModelDetailPage({ params }: ModelPageProps) {
           description: model.summary,
           datePublished: model.date,
           dateModified: model.updated ?? model.date,
+          image: absoluteUrl(site.socialImage),
           mainEntityOfPage: absoluteUrl(`/models/${model.slug}`),
           keywords: keywords.join(", "),
           citation: model.sourceUrls ?? model.sources.map((source) => source.url),
+          author: {
+            "@type": "Organization",
+            name: site.name,
+            url: site.url,
+            sameAs: site.sameAs,
+          },
+          editor: {
+            "@type": "Organization",
+            name: site.name,
+            url: site.url,
+          },
           about: {
             "@type": "Thing",
             name: model.name,
@@ -129,8 +189,39 @@ export default async function ModelDetailPage({ params }: ModelPageProps) {
           },
           publisher: {
             "@type": "Organization",
-            name: "World Models Watch",
+            name: site.name,
+            url: site.url,
+            logo: {
+              "@type": "ImageObject",
+              url: absoluteUrl(site.socialImage),
+            },
           },
+        }}
+      />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: absoluteUrl("/"),
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "Company Map",
+              item: absoluteUrl("/models"),
+            },
+            {
+              "@type": "ListItem",
+              position: 3,
+              name: model.name,
+              item: absoluteUrl(`/models/${model.slug}`),
+            },
+          ],
         }}
       />
       {model.schemaType === "SoftwareApplication" ? (
@@ -174,6 +265,20 @@ export default async function ModelDetailPage({ params }: ModelPageProps) {
         secondaryCta={{ href: "/models", label: "Company map" }}
         title={primaryKeyword}
         visual={visual}
+      />
+
+      <BreadcrumbTrail
+        items={[
+          { href: "/", label: "Home" },
+          { href: "/models", label: "Company Map" },
+          { href: `/models/${model.slug}`, label: model.name },
+        ]}
+      />
+
+      <EditorialByline
+        label="Model dossier reviewed"
+        published={model.date}
+        updated={model.updated ?? model.date}
       />
 
       {world ? (
@@ -352,6 +457,37 @@ export default async function ModelDetailPage({ params }: ModelPageProps) {
               ))}
             </div>
           ) : null}
+        </article>
+      </section>
+
+      <section className="model-detail-layout source-backed-section" style={visualStyle(visual)}>
+        <article className="showcase-panel">
+          <h2>Evidence and update history</h2>
+          <p>{evidenceLevel}</p>
+          <ol>
+            {updateHistory.map((item) => (
+              <li key={`${item.date}-${item.label}`}>
+                <strong>{item.date} · {item.label}</strong>
+                <span>{item.detail}</span>
+              </li>
+            ))}
+          </ol>
+        </article>
+
+        <article className="showcase-panel">
+          <h2>Use it for, not for</h2>
+          <h3>Use it for</h3>
+          <ul>
+            {evaluationNotes.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+          <h3>Do not use it for</h3>
+          <ul>
+            {notFor.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
         </article>
       </section>
 

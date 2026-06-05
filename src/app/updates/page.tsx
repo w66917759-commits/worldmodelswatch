@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, CalendarDays, ExternalLink, Tag } from "lucide-react";
 
+import { JsonLd } from "@/components/json-ld";
 import { ShowcaseHero, visualStyle } from "@/components/showcase";
 import { getSelectedUpdates } from "@/lib/content";
 import { getStaticSeoTarget, metadataForRoute } from "@/lib/seo/page-targets";
+import { absoluteUrl, site } from "@/lib/site";
 import { newsVisual, pageVisuals } from "@/lib/showcase";
 
 const seoTarget = getStaticSeoTarget("/updates");
@@ -18,6 +20,36 @@ export default function UpdatesPage() {
 
   return (
     <main className="page-shell showcase-page">
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: seoTarget.primaryKeyword,
+          description: seoTarget.description,
+          url: absoluteUrl("/updates"),
+          isPartOf: {
+            "@type": "WebSite",
+            name: site.name,
+            url: site.url,
+          },
+          publisher: {
+            "@type": "Organization",
+            name: site.name,
+            url: site.url,
+          },
+          mainEntity: {
+            "@type": "ItemList",
+            itemListElement: selectedUpdates.map((item, index) => ({
+              "@type": "ListItem",
+              position: index + 1,
+              name: item.title,
+              description: item.summary,
+              url: absoluteUrl(`/news/${item.slug}`),
+              datePublished: item.date,
+            })),
+          },
+        }}
+      />
       <ShowcaseHero
         description={seoTarget.description}
         eyebrow="Selected release signals"

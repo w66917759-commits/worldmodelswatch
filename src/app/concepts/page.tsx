@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { JsonLd } from "@/components/json-ld";
 import { ShowcaseHero, visualStyle } from "@/components/showcase";
 import { concepts } from "@/lib/content";
 import { getStaticSeoTarget, metadataForRoute } from "@/lib/seo/page-targets";
+import { absoluteUrl, site } from "@/lib/site";
 import { conceptVisual, pageVisuals } from "@/lib/showcase";
 
 const seoTarget = getStaticSeoTarget("/concepts");
@@ -13,6 +15,35 @@ export const metadata: Metadata = metadataForRoute("/concepts");
 export default function ConceptsPage() {
   return (
     <main className="page-shell showcase-page">
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: seoTarget.primaryKeyword,
+          description: seoTarget.description,
+          url: absoluteUrl("/concepts"),
+          isPartOf: {
+            "@type": "WebSite",
+            name: site.name,
+            url: site.url,
+          },
+          publisher: {
+            "@type": "Organization",
+            name: site.name,
+            url: site.url,
+          },
+          mainEntity: {
+            "@type": "DefinedTermSet",
+            name: "World model glossary",
+            hasDefinedTerm: concepts.map((concept) => ({
+              "@type": "DefinedTerm",
+              name: concept.term,
+              description: concept.summary,
+              url: absoluteUrl(`/concepts#${concept.slug}`),
+            })),
+          },
+        }}
+      />
       <ShowcaseHero
         description={seoTarget.description}
         eyebrow="World model glossary"

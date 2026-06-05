@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { BreadcrumbTrail } from "@/components/breadcrumb-trail";
 import { CommentThread } from "@/components/comments/comment-thread";
+import { EditorialByline } from "@/components/editorial-byline";
 import { FaqSummary } from "@/components/faq-summary";
 import { JsonLd } from "@/components/json-ld";
 import { SceneExplainer, ShowcaseHero, visualStyle } from "@/components/showcase";
@@ -15,7 +17,13 @@ import {
   type Comparison,
   type ModelProfile,
 } from "@/lib/content";
-import { newsPrimaryKeyword, uniqueKeywords } from "@/lib/seo/page-targets";
+import {
+  newsPrimaryKeyword,
+  seoMetaDescription,
+  seoPageTitle,
+  socialImages,
+  uniqueKeywords,
+} from "@/lib/seo/page-targets";
 import { newsVisual } from "@/lib/showcase";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -40,11 +48,13 @@ export async function generateMetadata({ params }: NewsPageProps): Promise<Metad
   }
 
   const primaryKeyword = newsPrimaryKeyword(item);
+  const pageTitle = seoPageTitle(primaryKeyword);
+  const description = seoMetaDescription(item.summary);
   const url = absoluteUrl(`/news/${item.slug}`);
 
   return {
-    title: primaryKeyword,
-    description: item.summary,
+    title: { absolute: pageTitle },
+    description,
     keywords: uniqueKeywords(primaryKeyword, item.secondaryKeywords, item.tags, item.organization),
     alternates: {
       canonical: `/news/${item.slug}`,
@@ -53,13 +63,17 @@ export async function generateMetadata({ params }: NewsPageProps): Promise<Metad
       type: "article",
       url,
       siteName: site.name,
-      title: `${primaryKeyword} | ${site.name}`,
-      description: item.summary,
+      title: pageTitle,
+      description,
+      images: socialImages(`${item.title} source-backed release signal`),
     },
     twitter: {
-      card: "summary",
-      title: `${primaryKeyword} | ${site.name}`,
-      description: item.summary,
+      card: "summary_large_image",
+      site: site.social.twitterHandle,
+      creator: site.social.twitterHandle,
+      title: pageTitle,
+      description,
+      images: [site.socialImage],
     },
   };
 }
@@ -85,6 +99,10 @@ export default async function NewsDetailPage({ params }: NewsPageProps) {
   const relatedComparisons = item.relatedComparisonSlugs
     .map((comparisonSlug) => getComparison(comparisonSlug))
     .filter((comparison): comparison is Comparison => Boolean(comparison));
+  const relatedModelNames = relatedModels.map((model) => model.name).join(", ");
+  const relatedComparisonTitles = relatedComparisons
+    .map((comparison) => comparison.title)
+    .join(", ");
   const visual = newsVisual(item);
   const sceneImages = visual.stickerImages ?? [visual.cardImage ?? visual.backgroundImage ?? visual.heroImage].filter(Boolean);
   const leadSource = item.sources[0];
@@ -99,12 +117,56 @@ export default async function NewsDetailPage({ params }: NewsPageProps) {
           description: item.summary,
           datePublished: item.date,
           dateModified: item.updated ?? item.date,
+          image: absoluteUrl(site.socialImage),
           mainEntityOfPage: absoluteUrl(`/news/${item.slug}`),
           keywords: keywords.join(", "),
+          citation: item.sources.map((source) => source.url),
+          author: {
+            "@type": "Organization",
+            name: site.name,
+            url: site.url,
+            sameAs: site.sameAs,
+          },
+          editor: {
+            "@type": "Organization",
+            name: site.name,
+            url: site.url,
+          },
           publisher: {
             "@type": "Organization",
-            name: "World Models Watch",
+            name: site.name,
+            url: site.url,
+            logo: {
+              "@type": "ImageObject",
+              url: absoluteUrl(site.socialImage),
+            },
           },
+        }}
+      />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: absoluteUrl("/"),
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "Release Signals",
+              item: absoluteUrl("/news"),
+            },
+            {
+              "@type": "ListItem",
+              position: 3,
+              name: item.title,
+              item: absoluteUrl(`/news/${item.slug}`),
+            },
+          ],
         }}
       />
 
@@ -118,12 +180,35 @@ export default async function NewsDetailPage({ params }: NewsPageProps) {
         visual={visual}
       />
 
+      <BreadcrumbTrail
+        items={[
+          { href: "/", label: "Home" },
+          { href: "/news", label: "Release Signals" },
+          { href: `/news/${item.slug}`, label: item.title },
+        ]}
+      />
+
+      <EditorialByline
+        label="Release signal reviewed"
+        published={item.date}
+        updated={item.updated ?? item.date}
+      />
+
       <section className="news-detail-layout" style={visualStyle(visual)}>
         <article className="showcase-panel">
           <h2>What changed</h2>
           <p>{item.whatChanged?.[0] ?? item.summary}</p>
+          <h2>Context summary</h2>
+          <p>{item.summary}</p>
           <h2>Why visitors should care</h2>
           <p>{item.whyItMatters}</p>
+          {item.editorialAnalysis ? (
+            <>
+              <h2>Editorial analysis</h2>
+              <p>{item.editorialAnalysis.whyNow}</p>
+              <p>{item.editorialAnalysis.userImpact}</p>
+            </>
+          ) : null}
           <div className="tag-row standalone">
             {item.tags.map((tag) => (
               <span key={tag}>{tag}</span>
@@ -190,6 +275,40 @@ export default async function NewsDetailPage({ params }: NewsPageProps) {
         ]}
         title="Three beats, then the receipts."
       />
+
+      {item.editorialAnalysis ? (
+        <section className="model-detail-layout source-backed-section" style={visualStyle(visual)}>
+          <article className="showcase-panel">
+            <h2>What to verify next</h2>
+            <p>{item.editorialAnalysis.verification}</p>
+          </article>
+          <article className="showcase-panel">
+            <h2>Limits before overclaiming</h2>
+            <p>{item.editorialAnalysis.limits}</p>
+            {item.overclaimWarning ? <p>{item.overclaimWarning}</p> : null}
+          </article>
+          <article className="showcase-panel">
+            <h2>How to use this signal</h2>
+            <p>
+              Read this update as a change to{" "}
+              {relatedModelNames || "the world model category map"}, not as a
+              standalone verdict on the whole market. The stable dossier keeps
+              the slower facts: organization, access, source trail, strengths,
+              and limitations. The release signal records the narrower event
+              and points readers toward the page that should remain useful after
+              the news cycle moves on.
+            </p>
+            <p>
+              If the update affects a comparison path
+              {relatedComparisonTitles ? ` such as ${relatedComparisonTitles}` : ""},
+              use that guide for the practical decision. The source list below
+              is kept on the page so readers can verify the claim directly,
+              check whether access has changed, and avoid repeating a stronger
+              capability statement than the cited material supports.
+            </p>
+          </article>
+        </section>
+      ) : null}
 
       {relatedModels.length > 0 || relatedComparisons.length > 0 ? (
         <section className="source-backed-section" style={visualStyle(visual)}>

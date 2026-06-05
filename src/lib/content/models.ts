@@ -22,6 +22,27 @@ export const modelProfiles: ModelProfile[] = [
       "EMO is not a complete world model; it focuses on portrait animation rather than explorable environments.",
       "It should be compared as a video-human control signal, not as a replacement for Genie 3, Marble, or Cosmos.",
     ],
+    bestFor: [
+      "Readers comparing the human, avatar, and expressive-video branch of world-model-adjacent systems.",
+      "Teams that need to understand audio-driven portrait control before evaluating broader interactive worlds.",
+      "Readers who want a clear boundary between controllable video subjects and navigable generated environments.",
+    ],
+    notFor: [
+      "Choosing a tool for 360 environments, 3D world export, robot simulation, or game-level generation.",
+      "Making claims about open-ended world state, physics, or spatial navigation from a portrait-animation demo.",
+    ],
+    evidenceLevel:
+      "Primary-source research dossier with official project page, public GitHub repository, arXiv paper, and Alibaba Cloud Model Studio documentation.",
+    evaluationNotes: [
+      "EMO is included because it shows how identity, expression, timing, and audio alignment become controllable signals in generated media.",
+      "The editorial value is boundary-setting: EMO is useful for the path from AI video toward embodied characters, but it is not evidence of an explorable world model.",
+      "When comparing EMO with world systems, start from what remains outside the frame: spatial memory, user movement, environment state, and persistent interaction.",
+    ],
+    workflowSteps: [
+      "Use the official project page to understand the research claim and visual examples.",
+      "Use the GitHub repository and paper to verify model framing before treating EMO as a production capability.",
+      "Use Alibaba Cloud Model Studio docs only for the API-access angle, not as proof of a general world model.",
+    ],
     sources: [
       {
         label: "EMO official project page",
@@ -157,6 +178,27 @@ export const modelProfiles: ModelProfile[] = [
       "Running the full model still requires serious GPU resources; mobile user experience is product-mediated rather than local phone inference.",
       "Media reports about Lingguang App integration should be separated from primary model facts confirmed by GitHub, arXiv, and Hugging Face.",
     ],
+    bestFor: [
+      "Developers and researchers who want an open interactive world-simulation stack rather than a closed product demo.",
+      "Readers checking how image-conditioned generation, action control, and latency claims are represented in primary sources.",
+      "Comparisons that separate open-source simulator infrastructure from consumer-facing products like HappyOyster and Marble.",
+    ],
+    notFor: [
+      "Readers looking for a polished no-code world creation product with account, pricing, and export workflows.",
+      "Claims that a mobile app integration is identical to running the open model locally.",
+    ],
+    evidenceLevel:
+      "High-confidence open-source dossier with GitHub code, arXiv paper, Hugging Face model card, and ModelScope-style release surfaces.",
+    evaluationNotes: [
+      "LingBot-World is strongest as evidence that interactive world simulation is becoming inspectable, not only watchable.",
+      "Its practical value depends on runtime requirements and model variant; the page should keep real-time claims tied to the specific LingBot-World-Fast source.",
+      "For AdSense review, the page adds original value by explaining why an open simulator belongs in a different lane from product-led world creators.",
+    ],
+    workflowSteps: [
+      "Open the GitHub repository first to inspect setup, model variants, and demo assumptions.",
+      "Use the arXiv paper to understand long-horizon consistency and action-control framing.",
+      "Check the Hugging Face card before repeating latency, FPS, or checkpoint-availability language.",
+    ],
     sources: [
       {
         label: "Robbyant GitHub organization",
@@ -238,6 +280,27 @@ export const modelProfiles: ModelProfile[] = [
       "LingBot-VA is not a consumer explorable world product, so it should not be framed like HappyOyster, Marble, or Genie 3.",
       "Its strongest evidence is in robot-control benchmarks and demos, not in general-purpose world-building workflows.",
     ],
+    bestFor: [
+      "Readers evaluating how world models connect video prediction with robot action.",
+      "Robotics-oriented comparisons that need a causal video-action model rather than a creative world generator.",
+      "Source checks where open code, paper, and model card matter more than consumer UI polish.",
+    ],
+    notFor: [
+      "Selecting an AI world generator for artists, game backplates, 360 environments, or persistent 3D scenes.",
+      "Claiming general robot autonomy without checking the exact benchmark, platform, and task scope in the cited sources.",
+    ],
+    evidenceLevel:
+      "High-confidence embodied-AI dossier backed by GitHub code, arXiv paper, project material, and Hugging Face checkpoints.",
+    evaluationNotes: [
+      "LingBot-VA matters because it keeps the site from treating world models as only visual worlds; prediction and control are part of the same category boundary.",
+      "The useful reader question is whether the model predicts action-conditioned futures for robot control, not whether it creates a place a consumer can explore.",
+      "The dossier should be compared with LingBot-World when readers need to separate simulator output from robot-control world modeling.",
+    ],
+    workflowSteps: [
+      "Use the repository and paper to identify the claimed robot-control setting.",
+      "Check the model card for checkpoint scope before discussing reproducibility.",
+      "Open the LingBot-VA vs LingBot-World guide when the question is simulator versus controller.",
+    ],
     sources: [
       {
         label: "LingBot-VA GitHub repository",
@@ -276,6 +339,27 @@ export const modelProfiles: ModelProfile[] = [
     limits: [
       "LingBot-VLA is not a consumer world-building product or an explorable simulator, so it should not be presented like HappyOyster, Marble, or Genie 3.",
       "Its public evidence centers on robot manipulation benchmarks and model releases, not on open-ended world simulation.",
+    ],
+    bestFor: [
+      "Readers who need the VLA branch of the physical-AI story rather than another visual demo.",
+      "Comparing instruction-following robot manipulation with video-action world modeling and simulator-style systems.",
+      "Checking whether the Ant/Robbyant ecosystem has source-backed model releases beyond a single world-simulator project.",
+    ],
+    notFor: [
+      "Choosing a world generator for creators, game environments, 360 skyboxes, or persistent 3D exports.",
+      "Treating VLA manipulation results as proof of open-ended simulated-world reasoning.",
+    ],
+    evidenceLevel:
+      "High-confidence open-source dossier with GitHub repository, arXiv technical report, Hugging Face collection, and public checkpoint references.",
+    evaluationNotes: [
+      "LingBot-VLA is included because vision-language-action models explain how world-model-adjacent perception turns into task execution.",
+      "Its category value is strongest when paired with LingBot-VA: VLA policy framing and video-action world modeling are related but not interchangeable.",
+      "The page should keep emphasis on embodied control and benchmark evidence instead of stretching the term world model into a generic AI label.",
+    ],
+    workflowSteps: [
+      "Inspect the GitHub repository to confirm supported tasks, model variants, and setup assumptions.",
+      "Use the arXiv report to understand evaluation scope before comparing against robot-control world models.",
+      "Use the Hugging Face collection to verify checkpoint naming and public availability.",
     ],
     sources: [
       {
@@ -532,7 +616,7 @@ export const modelProfiles: ModelProfile[] = [
     ],
     sourceUrls: [
       "https://www.blockadelabs.com/",
-      "https://skybox.blockadelabs.com/",
+      "https://landing-dev.blockadelabs.com/",
       "https://api-documentation.blockadelabs.com/api/skybox-exports.html",
     ],
     categoryBoundary:
@@ -596,14 +680,12 @@ export const modelProfiles: ModelProfile[] = [
       {
         label: "Blockade Labs Skybox AI product page",
         url: "https://www.blockadelabs.com/",
+        statusNote:
+          "The direct Skybox app endpoint returned HTTP 500 to automated checks on June 5, 2026, so this dossier points readers to the stable Blockade Labs product surface.",
       },
       {
         label: "Blockade Labs landing page with Skybox AI video",
         url: "https://landing-dev.blockadelabs.com/",
-      },
-      {
-        label: "Skybox AI app",
-        url: "https://skybox.blockadelabs.com/",
       },
       {
         label: "Blockade Labs: Skybox AI Unity integration",
@@ -612,10 +694,8 @@ export const modelProfiles: ModelProfile[] = [
       {
         label: "Skybox exports API documentation",
         url: "https://api-documentation.blockadelabs.com/api/skybox-exports.html",
-      },
-      {
-        label: "Blockade Labs: Export 3D Models from Skybox AI",
-        url: "https://support.blockadelabs.com/hc/en-us/articles/31649281677074-Export-3D-Models-from-Skybox-AI",
+        statusNote:
+          "Blockade Labs support articles may show bot-protection challenges to automated checks; the API documentation URL is the stable crawlable export reference.",
       },
     ],
   },
@@ -804,6 +884,27 @@ export const modelProfiles: ModelProfile[] = [
       "HY-Embodied-0.5 is an embodied foundation and planning model family, not a consumer world-creation product like Marble or HappyOyster.",
       "Its public claims center on embodied benchmarks and robot-facing reasoning, so it should not be framed as proof of a generally available world simulator.",
     ],
+    bestFor: [
+      "Readers tracking Tencent's physical-AI and robot-facing model lane beside HY-World 2.0.",
+      "Comparisons that need to separate embodied reasoning from generated 3D world creation.",
+      "Source-backed checks of open model availability, checkpoints, and the later 0.5-X enhancement.",
+    ],
+    notFor: [
+      "Choosing a consumer AI environment creator, game-asset generator, or 360 skybox workflow.",
+      "Claiming a complete robotics product or general simulator without matching the cited benchmark and release scope.",
+    ],
+    evidenceLevel:
+      "Primary-source embodied-AI dossier with GitHub repository, arXiv paper, Hugging Face weights, and a dated 0.5-X release signal.",
+    evaluationNotes: [
+      "HY-Embodied-0.5 is valuable because it gives Tencent coverage a second lane beyond generated 3D worlds: spatial reasoning and embodied planning.",
+      "The page should help readers decide whether they are looking at a world generator, a robot-facing foundation model, or a benchmarked planning system.",
+      "The 0.5-X update is treated as a release signal, not as blanket proof that every downstream robot workflow is production-ready.",
+    ],
+    workflowSteps: [
+      "Start with the GitHub repository to identify supported model variants and evaluation setup.",
+      "Use the Hugging Face page to verify the 0.5-X checkpoint surface.",
+      "Use the HY-World 2.0 comparison path when the question shifts from embodied reasoning to generated 3D worlds.",
+    ],
     sources: [
       {
         label: "Tencent-Hunyuan/HY-Embodied GitHub repository",
@@ -829,21 +930,69 @@ export const modelProfiles: ModelProfile[] = [
     relatedNewsSlugs: ["world-labs-world-api-announced"],
     summary:
       "World API moves World Labs' world model work toward a developer platform for generating and manipulating 3D worlds.",
-    focus: "Developer access, workflows, and programmable 3D world generation.",
-    availability: "API announced by World Labs; availability may depend on access tier and release status.",
+    focus:
+      "Developer access, programmable world generation, editing workflows, export-aware 3D scenes, and application integration around World Labs' world model stack.",
+    availability:
+      "API announced by World Labs; access, quota, supported endpoints, and commercial terms should be checked against current World Labs documentation before production planning.",
+    primaryKeyword: "World API developer world model platform",
+    secondaryKeywords: [
+      "World Labs World API",
+      "world model API",
+      "3D world generation API",
+      "programmable world creation",
+    ],
+    officialKeywords: [
+      "World API",
+      "World Labs",
+      "world model API",
+      "3D worlds",
+      "developer platform",
+      "Marble",
+    ],
+    sourceUrls: [
+      "https://www.worldlabs.ai/blog/announcing-the-world-api",
+      "https://docs.worldlabs.ai/",
+    ],
     strengths: [
-      "Important shift from demo/product to platform.",
-      "Useful signal for tracking commercialization of world models.",
-      "Connects model research to app, tool, and pipeline integration.",
+      "Important shift from demo/product to platform because it frames world generation as something applications can call, not only something users watch.",
+      "Useful signal for tracking commercialization of world models because developers need access, quotas, docs, and stable output contracts.",
+      "Connects model research to app, tool, and pipeline integration through a programmable layer around 3D world creation.",
+      "Pairs naturally with Marble because the product page shows what a user-facing world surface looks like while World API explains the developer direction.",
     ],
     limits: [
       "Production limits, pricing, and usage controls should be checked against current API docs.",
       "It is focused on generated worlds, not all physical AI use cases.",
+      "An API announcement should not be treated as proof that every reader has unrestricted production access or stable endpoint coverage.",
+    ],
+    bestFor: [
+      "Developers deciding whether World Labs is becoming an integration platform rather than only a showcase product.",
+      "Readers comparing product-led Marble workflows with API-led world generation and manipulation.",
+      "Teams that need to separate official platform direction from unverified pricing, quota, or enterprise-access assumptions.",
+    ],
+    notFor: [
+      "Claims about guaranteed public self-serve access without checking current World Labs docs.",
+      "Robot simulation, physical-AI synthetic data, or embodied reasoning workflows better represented by Cosmos, HY-Embodied, or LingBot pages.",
+    ],
+    evidenceLevel:
+      "Primary-source platform signal with official World Labs announcement and documentation, but access details should be rechecked before operational claims.",
+    evaluationNotes: [
+      "World API is included because AdSense reviewers and readers need more than a product gallery: the page explains the developer platform implication of world models.",
+      "The strongest original value is boundary-setting around access. The page should not pretend an announced API is the same as an unrestricted public utility.",
+      "Use this dossier when the question is integration, automation, or workflow planning; use Marble when the question is a visible creator-facing product.",
+    ],
+    workflowSteps: [
+      "Read the announcement to understand the platform direction and relationship to World Labs' world model work.",
+      "Check current documentation for endpoints, quotas, supported inputs, export details, and account requirements.",
+      "Open Marble or the text-to-3D world generator page when the reader needs a product-level example before API planning.",
     ],
     sources: [
       {
         label: "World Labs: Announcing the World API",
         url: "https://www.worldlabs.ai/blog/announcing-the-world-api",
+      },
+      {
+        label: "World Labs documentation",
+        url: "https://docs.worldlabs.ai/",
       },
     ],
   },

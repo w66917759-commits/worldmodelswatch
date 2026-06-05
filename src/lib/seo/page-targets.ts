@@ -306,6 +306,32 @@ export const staticSeoTargets = [
       "Read the world models FAQ for source confidence, category boundaries, comments, likes, and reader participation.",
   },
   {
+    route: "/about",
+    primaryKeyword: "World Models Watch about and methodology",
+    longTailKeywords: [
+      "World Models Watch about",
+      "world model editorial methodology",
+      "world model source policy",
+    ],
+    intent: "Explain the site's publisher identity, editorial process, source standards, and review policy.",
+    indexable: true,
+    description:
+      "Learn how World Models Watch reviews world model sources, labels confidence, uses AI assistance, and keeps public model pages accountable.",
+  },
+  {
+    route: "/contact",
+    primaryKeyword: "Contact World Models Watch",
+    longTailKeywords: [
+      "World Models Watch contact",
+      "world model corrections",
+      "world model source update",
+    ],
+    intent: "Provide a public contact route for corrections, privacy requests, source updates, and editorial questions.",
+    indexable: true,
+    description:
+      "Contact World Models Watch for corrections, source updates, privacy requests, comment questions, and public world-model editorial notes.",
+  },
+  {
     route: "/sitemap",
     primaryKeyword: "World Models Watch sitemap",
     longTailKeywords: [
@@ -395,14 +421,48 @@ export function uniqueKeywords(
   return Array.from(new Set(keywords.filter(Boolean).map((keyword) => keyword.trim())));
 }
 
+export function socialImages(alt: string = site.socialImageAlt) {
+  return [
+    {
+      url: site.socialImage,
+      width: 1280,
+      height: 640,
+      alt,
+    },
+  ];
+}
+
+export function truncateForSeo(value: string, maxLength: number) {
+  const normalized = value.replace(/\s+/g, " ").trim();
+
+  if (normalized.length <= maxLength) return normalized;
+
+  const slice = normalized.slice(0, Math.max(0, maxLength - 3));
+  const lastSpace = slice.lastIndexOf(" ");
+  const trimmed =
+    lastSpace > Math.floor(maxLength * 0.58) ? slice.slice(0, lastSpace) : slice;
+
+  return `${trimmed.replace(/[,:;|/\-\s]+$/g, "")}...`;
+}
+
+export function seoPageTitle(title: string) {
+  return truncateForSeo(`${title} | ${site.name}`, 68);
+}
+
+export function seoMetaDescription(description: string) {
+  return truncateForSeo(description, 155);
+}
+
 export function metadataForRoute(route: string): Metadata {
   const target = getStaticSeoTarget(route);
   const title = target.primaryKeyword;
   const url = absoluteUrl(route);
+  const pageTitle = seoPageTitle(title);
+  const description = seoMetaDescription(target.description);
 
   return {
-    title: route === "/" ? { absolute: `${title} | ${site.name}` } : title,
-    description: target.description,
+    title: { absolute: pageTitle },
+    description,
     keywords: uniqueKeywords(target.primaryKeyword, target.longTailKeywords),
     alternates: {
       canonical: route,
@@ -411,13 +471,17 @@ export function metadataForRoute(route: string): Metadata {
       type: "website",
       url,
       siteName: site.name,
-      title: `${title} | ${site.name}`,
-      description: target.description,
+      title: pageTitle,
+      description,
+      images: socialImages(),
     },
     twitter: {
-      card: "summary",
-      title: `${title} | ${site.name}`,
-      description: target.description,
+      card: "summary_large_image",
+      site: site.social.twitterHandle,
+      creator: site.social.twitterHandle,
+      title: pageTitle,
+      description,
+      images: [site.socialImage],
     },
   };
 }

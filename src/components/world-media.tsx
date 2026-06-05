@@ -3,6 +3,7 @@ type WorldMediaProps = {
   videoSrc?: string;
   videoType?: string;
   posterSrc?: string;
+  alt?: string;
   preload?: "none" | "metadata" | "auto";
   loading?: "eager" | "lazy";
   ariaHidden?: boolean;
@@ -13,14 +14,18 @@ export function WorldMedia({
   videoSrc,
   videoType,
   posterSrc,
+  alt,
   preload = "metadata",
   loading = "lazy",
   ariaHidden = true,
 }: WorldMediaProps) {
+  const decorative = ariaHidden && !alt;
+
   if (videoSrc && videoType) {
     return (
       <video
-        aria-hidden={ariaHidden}
+        aria-hidden={decorative ? true : undefined}
+        aria-label={alt}
         autoPlay
         className={className}
         loop
@@ -37,8 +42,8 @@ export function WorldMedia({
   if (posterSrc) {
     return (
       <img
-        alt=""
-        aria-hidden={ariaHidden}
+        alt={alt ?? ""}
+        aria-hidden={decorative ? true : undefined}
         className={className}
         decoding="async"
         loading={loading}
@@ -47,5 +52,5 @@ export function WorldMedia({
     );
   }
 
-  return <span aria-hidden={ariaHidden} className={className} />;
+  return <span aria-hidden={decorative ? true : undefined} className={className} />;
 }

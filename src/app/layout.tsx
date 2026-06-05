@@ -25,6 +25,22 @@ export const metadata: Metadata = {
     siteName: site.name,
     title: `${homeSeo.primaryKeyword} | ${site.name}`,
     description: homeSeo.description,
+    images: [
+      {
+        url: site.socialImage,
+        width: 1280,
+        height: 640,
+        alt: site.socialImageAlt,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: site.social.twitterHandle,
+    creator: site.social.twitterHandle,
+    title: `${homeSeo.primaryKeyword} | ${site.name}`,
+    description: homeSeo.description,
+    images: [site.socialImage],
   },
 };
 

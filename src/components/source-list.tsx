@@ -12,11 +12,12 @@ export function SourceList({ sources }: SourceListProps) {
       <h2 id="sources">Sources</h2>
       <ul>
         {sources.map((source) => (
-          <li key={source.url}>
+          <li key={`${source.label}-${source.url}`}>
             <a href={source.url} target="_blank" rel="noreferrer">
               <span>{source.label}</span>
               <ExternalLink size={16} aria-hidden="true" />
             </a>
+            {source.statusNote ? <span className="source-note">{source.statusNote}</span> : null}
           </li>
         ))}
       </ul>

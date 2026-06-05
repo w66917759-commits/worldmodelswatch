@@ -2,6 +2,53 @@ import type { NewsItem, Source } from "./types";
 
 export const newsItems: NewsItem[] = [
   {
+    slug: "world-labs-marble-1-1-model-rollout",
+    title: "World Labs rolls out Marble 1.1 and Marble 1.1 Plus",
+    date: "2026-04-02",
+    evolutionStageId: "generated-space",
+    organization: "World Labs",
+    summary:
+      "World Labs added Marble 1.1 and Marble 1.1 Plus across Marble and the World API, introducing a larger-world tier with dynamic sizing and explicit per-model pricing.",
+    whyItMatters:
+      "This is a real product and API-surface change, not just fresh marketing copy. It gives Marble a clearer versioned model story for both creators and developers, and it adds a concrete comparison-relevant shift against other world-model surfaces: World Labs now publicly distinguishes a standard quality tier from a larger-world tier with variable generation cost.",
+    tags: ["World Labs", "Marble", "API", "Model update"],
+    signalType: "Platform",
+    impactLevel: "Medium",
+    whatChanged: [
+      "World Labs' April 2, 2026 Marble release notes added Marble 1.1 and Marble 1.1 Plus, while keeping Marble 1.0 and Marble 1.0 Draft available as legacy options.",
+      "Current Marble and World API docs map the new models to `marble-1.1` and `marble-1.1-plus`, describe Marble 1.1 Plus as the larger-world option, and document variable pricing up to 3,000 credits for bigger generations.",
+    ],
+    sourceConfidence: "Official release notes and documentation",
+    availabilityNote:
+      "Treat this as a documented Marble and World API model rollout. It is stronger than a teaser, but the docs still describe model behavior, credits, and defaults more clearly than broad production guarantees.",
+    overclaimWarning:
+      "Do not present Marble 1.1 Plus as proof of general public API maturity, unlimited world scale, or a universal export-quality jump across every Marble workflow.",
+    relatedModelSlugs: ["marble", "world-api"],
+    relatedComparisonSlugs: [
+      "hy-world-2-0-vs-marble",
+      "skybox-ai-vs-marble",
+      "genie-3-vs-marble",
+    ],
+    sources: [
+      {
+        label: "World Labs Marble release notes: April 2, 2026",
+        url: "https://docs.worldlabs.ai/marble/release-notes",
+      },
+      {
+        label: "World Labs Marble models documentation",
+        url: "https://docs.worldlabs.ai/marble/models",
+      },
+      {
+        label: "World API model mapping",
+        url: "https://docs.worldlabs.ai/api/models",
+      },
+      {
+        label: "World API pricing",
+        url: "https://docs.worldlabs.ai/api/pricing",
+      },
+    ],
+  },
+  {
     slug: "skybox-ai-pending-generation-limits",
     title: "Blockade Labs documents plan-based pending limits for Skybox AI",
     date: "2026-05-21",
@@ -180,6 +227,16 @@ export const newsItems: NewsItem[] = [
     whatChanged: [
       "Robbyant published LingBot-VLA as an open vision-language-action release, giving the site a robot-policy signal separate from explorable world simulators.",
     ],
+    editorialAnalysis: {
+      whyNow:
+        "LingBot-VLA matters now because the world-model discussion is moving beyond visual generation into systems that connect perception, language, and action. The release gives readers a way to track Ant and Robbyant's embodied-AI lane without confusing it with the more visual LingBot-World simulator or consumer-facing world creation products.",
+      verification:
+        "Verify the GitHub repository, paper, and Hugging Face collection before making claims about supported tasks, checkpoints, or evaluation coverage. If the repository adds new demos or benchmark scripts later, the model dossier should be updated instead of treating this short signal as the final status page.",
+      userImpact:
+        "For robotics readers, LingBot-VLA is useful as a public reference point for action policy work. For creators, it is mostly context: it explains why the same world-model category can include robot-control systems that are not meant to generate explorable scenes for artists or game designers.",
+      limits:
+        "The release should not be described as a ready consumer product, a general world generator, or proof that embodied agents have solved long-horizon autonomy. The public value is the source-backed control-model lane, not a broad product claim.",
+    },
     sourceConfidence: "Official open-source release",
     availabilityNote:
       "Treat this as an embodied-AI control release with public code and model materials, not as a consumer world-building product.",
@@ -218,6 +275,16 @@ export const newsItems: NewsItem[] = [
     whatChanged: [
       "Robbyant published LingBot-VA as a causal video-action world model, creating a clearer robot-control branch next to LingBot-World.",
     ],
+    editorialAnalysis: {
+      whyNow:
+        "LingBot-VA deserves separate coverage because it sits between video prediction and robot action. A reader comparing world models needs to know when a system is predicting visual dynamics for control rather than offering a creator-facing environment or a playable generated world.",
+      verification:
+        "The strongest verification path is the Robbyant repository, the arXiv paper, and the model card. Those sources should be checked for supported embodiments, training assumptions, evaluation tasks, and whether later releases change the public checkpoint story.",
+      userImpact:
+        "The practical takeaway is classification. Developers researching physical AI may care about LingBot-VA as a robot-control world model, while product users should not expect it to behave like Marble, HappyOyster, or Skybox AI. That distinction prevents the page from becoming a generic model list.",
+      limits:
+        "Do not infer consumer access, broad robotics reliability, or production deployment from the existence of a public research release. The page should keep the focus on source-backed robot-control evidence and link readers to the model dossier for stable status.",
+    },
     sourceConfidence: "Official open-source release",
     availabilityNote:
       "Treat this as a robot-control world-model release, not as a public creator or explorable-world product.",
@@ -337,6 +404,16 @@ export const newsItems: NewsItem[] = [
     whatChanged: [
       "Tencent added the HY-Embodied-0.5-X release path on top of HY-Embodied-0.5, widening the robot-facing model surface.",
     ],
+    editorialAnalysis: {
+      whyNow:
+        "The HY-Embodied update matters because Tencent's world-model-adjacent work now spans generated 3D worlds and robot-facing embodied models. Covering HY-Embodied separately keeps the site from flattening all Tencent Hunyuan releases into one visual world-generation bucket.",
+      verification:
+        "Use the Tencent-Hunyuan GitHub repository, Hugging Face model page, and arXiv paper as the primary verification path. Check whether code, training scripts, inference examples, and model weights are actually available before turning the update into a stronger availability claim.",
+      userImpact:
+        "For readers following physical AI, this signal shows where Tencent is placing open research effort. For world-creation users, the main value is negative guidance: HY-Embodied is relevant to embodied reasoning and planning, not a tool for generating game environments or creator-facing 3D spaces.",
+      limits:
+        "The release should not be presented as a general public world simulator or a consumer creative tool. Keep capability language tied to the cited embodied-agent materials and avoid implying production robot reliability.",
+    },
     sourceConfidence: "Official open-source release",
     availabilityNote:
       "Treat HY-Embodied as an embodied foundation-model lane, not as a consumer world creator.",
@@ -375,6 +452,16 @@ export const newsItems: NewsItem[] = [
     whatChanged: [
       "Alibaba positioned HappyOyster as an early-access world-model product for exploration and directing rather than as an open-source model release.",
     ],
+    editorialAnalysis: {
+      whyNow:
+        "HappyOyster is important because it is a product-track signal from Alibaba, not only a paper or a demo clip. It gives the site a concrete example of real-time world creation and directing while still requiring careful language about early access, account eligibility, and current product terms.",
+      verification:
+        "The launch post, HappyOyster website, and docs should be rechecked before making claims about access, pricing, duration, control modes, or supported input types. If the docs change, the model profile should carry the durable availability update.",
+      userImpact:
+        "Creators can use this signal to understand the difference between an interactive creation product and an open research stack. The page should help them decide whether they need exploration, directing, multimodal control, or a different route such as Marble for persistent 3D world workflows.",
+      limits:
+        "Early access does not mean broad public availability, stable pricing, or verified production performance. Do not describe HappyOyster as an API, a robotics simulator, or a fully open model release unless a primary source supports that narrower claim.",
+    },
     sourceConfidence: "Official product launch",
     availabilityNote:
       "Access is still framed as early access, so product availability and usage terms should be kept more conservative than a broad public-launch claim.",
@@ -452,6 +539,16 @@ export const newsItems: NewsItem[] = [
     whatChanged: [
       "World Labs described a programmable World API direction, shifting part of the Marble story from product demo toward developer platform.",
     ],
+    editorialAnalysis: {
+      whyNow:
+        "The World API announcement matters because it changes the Marble story from a purely visible product surface into a developer-platform question. Readers need to know whether World Labs is offering only a creator application, a programmable world-generation layer, or both.",
+      verification:
+        "The World Labs announcement and current documentation should be checked for endpoints, access requirements, supported inputs, output formats, rate limits, and examples. Do not assume that every Marble capability is exposed through the API unless the docs say so.",
+      userImpact:
+        "For developers, this signal points to future integration work: generated worlds may become programmable assets rather than only browser experiences. For non-developer users, it is still mainly context for why Marble appears in both product and platform comparisons.",
+      limits:
+        "An API direction is not the same as a mature public platform. Keep the page anchored in documented access and avoid overstating stability, pricing, or production readiness.",
+    },
     sourceConfidence: "Official platform announcement",
     availabilityNote:
       "Treat this as a developer-surface signal whose practical access still depends on current World Labs documentation.",
@@ -482,6 +579,16 @@ export const newsItems: NewsItem[] = [
     whatChanged: [
       "The world-model story expands from generated environments into many-agent behavior, where the world acts as a substrate for social simulation.",
     ],
+    editorialAnalysis: {
+      whyNow:
+        "Project Sid matters because it expands the category from world appearance to world occupancy. The signal is not about generating a prettier scene; it is about what happens when many agents operate, specialize, and transmit behavior inside a persistent environment.",
+      verification:
+        "The public repository should be used to verify the simulation framing, setup assumptions, and what is actually open. Any stronger claims about emergent behavior, civilization, or real social intelligence should be tied to specific project materials rather than inferred from the headline.",
+      userImpact:
+        "Readers comparing world models can use Project Sid as the agent-society reference point. It helps explain why a persistent environment becomes more valuable when agents can inhabit it, even if the project is not a visual world generator or a creator tool.",
+      limits:
+        "Do not present Project Sid as proof that generated worlds automatically support autonomous societies. It is a many-agent simulation lane and should be compared against other agent-world systems, not against Skybox or Marble as if the output category were identical.",
+    },
     sourceConfidence: "Official project repository",
     availabilityNote:
       "Treat Project Sid as a many-agent simulation lane, not as a generative visual world product like Marble or Genie.",
@@ -512,6 +619,16 @@ export const newsItems: NewsItem[] = [
     whatChanged: [
       "Runway introduced GWM-1 as a general world-model direction that reframes its video heritage around worlds, avatars, and robotics-adjacent work.",
     ],
+    editorialAnalysis: {
+      whyNow:
+        "The original GWM-1 announcement is worth preserving because it marks a shift in how a video-native company describes its research trajectory. It is an early category signal that later becomes easier to interpret through Runway Characters and other product surfaces.",
+      verification:
+        "Use the Runway research announcement for the strategic framing and later Runway product documentation for shipped surfaces. If a page discusses current access, it should rely on the newer product-specific source rather than this broad research post alone.",
+      userImpact:
+        "For readers, GWM-1 is best understood as a bridge from video models toward world, avatar, and action-conditioned systems. It helps explain why not every world-model signal looks like a 3D scene editor or a playable environment.",
+      limits:
+        "The announcement should not be treated as evidence of a generally available explorable-world platform. Keep the distinction between research direction, model family, and deployed product surface explicit, especially when comparing this early signal with the later Runway Characters product surface and any future API claims.",
+    },
     sourceConfidence: "Official research announcement",
     availabilityNote:
       "Treat this as a research and strategy signal, with Characters as the clearer later product surface.",
@@ -542,6 +659,16 @@ export const newsItems: NewsItem[] = [
     whatChanged: [
       "World Labs launched Marble as a visible product surface for creating, editing, and exploring generated 3D worlds.",
     ],
+    editorialAnalysis: {
+      whyNow:
+        "Marble is a key milestone because it gives non-research readers a concrete product surface for generated 3D worlds. It helps the site explain the difference between a world model as an abstract capability and a world product that users can open, inspect, edit, and compare.",
+      verification:
+        "The World Labs launch post and current Marble product pages should be checked for supported inputs, editing workflow, export behavior, access terms, and examples. Claims about API availability should be handled through the separate World API signal.",
+      userImpact:
+        "For creators, Marble is one of the clearest routes into persistent 3D world creation. For developers and researchers, it also creates a benchmark for what a productized world-model workflow might look like compared with open stacks such as HY-World.",
+      limits:
+        "Marble should not be used as proof that generated worlds are already physically accurate, robotics-ready, or universally exportable. The page should keep the claim tied to source-backed product capabilities and visible demos.",
+    },
     sourceConfidence: "Official product launch",
     availabilityNote:
       "Treat Marble as a product-facing 3D world workflow, not as a robotics simulator or many-agent platform.",
@@ -576,6 +703,16 @@ export const newsItems: NewsItem[] = [
     whatChanged: [
       "Google DeepMind presented Genie 3 as an interactive world-model frontier rather than a fixed clip-generation model.",
     ],
+    editorialAnalysis: {
+      whyNow:
+        "Genie 3 remains a core reference because it makes the difference between generated video and interactive world generation easy to explain. The signal belongs in the timeline because it shows action and navigation becoming central to the category, not just visual quality.",
+      verification:
+        "The DeepMind post should be used for the research claim, while Project Genie pages should be used for any access or product-surface statements. Keep those sources separate so the page does not imply a broad public developer API.",
+      userImpact:
+        "Readers can use Genie 3 as the research anchor when comparing promptable worlds, action-conditioned demos, and creator products. It gives a vocabulary for interaction horizon, environmental consistency, and controllable navigation.",
+      limits:
+        "A frontier research announcement is not the same as a stable product or open model release. Do not claim general availability, pricing, or developer access unless a current primary source documents it.",
+    },
     sourceConfidence: "Official research announcement",
     availabilityNote:
       "Treat Genie 3 as a research preview and Project Genie path, not as a broad public developer API.",
@@ -606,6 +743,16 @@ export const newsItems: NewsItem[] = [
     whatChanged: [
       "NVIDIA introduced Cosmos as a world foundation model platform for physical AI development.",
     ],
+    editorialAnalysis: {
+      whyNow:
+        "Cosmos is important because it anchors the physical-AI side of world models. It moves the conversation from generated media toward simulation, synthetic data, robotics, autonomous driving, and evaluation workflows that are not meant for ordinary creator use.",
+      verification:
+        "Use NVIDIA's platform announcement and current Cosmos repositories or documentation to verify what components are public, what remains preview language, and which use cases are supported. Avoid merging later Cosmos 3 claims into this original launch page without separate evidence.",
+      userImpact:
+        "Robotics and autonomous-systems readers can treat Cosmos as a physical-AI platform reference. Creators should understand that it is a different lane from Skybox, Marble, HappyOyster, or Genie, even though all of those pages connect to world modeling.",
+      limits:
+        "Do not compare Cosmos as if it were a consumer world generator, and do not imply that the entire platform is open or production-ready from a single launch signal. Later Cosmos updates should be cited separately when they add repositories, blueprints, preview claims, or implementation details that were not part of the original launch evidence.",
+    },
     sourceConfidence: "Official platform launch",
     availabilityNote:
       "Treat Cosmos as a physical-AI platform family, not as a consumer world creator.",
@@ -636,6 +783,16 @@ export const newsItems: NewsItem[] = [
     whatChanged: [
       "Action conditioning became visible in a playable world demo, making the screen feel closer to an interactive environment than a rendered video.",
     ],
+    editorialAnalysis: {
+      whyNow:
+        "Oasis remains useful because it gives readers a simple mental model for action-conditioned world generation. The player moves, the next frame responds, and the result feels closer to steering a generated environment than watching a finished clip.",
+      verification:
+        "The project page should be checked for demo availability, technical notes, limitations, and any changed access path. If later repositories or papers alter the evidence base, the Oasis model profile should carry the updated source trail.",
+      userImpact:
+        "For ordinary readers, Oasis helps explain why interactivity matters. For researchers and developers, it is a reference point for realtime generated worlds, even if it is not a production game engine or a stable creator product.",
+      limits:
+        "Do not overstate persistence, physical accuracy, asset export, or open-ended control. The value is the public playable demonstration of action-conditioned generation, not a guarantee of complete world simulation.",
+    },
     sourceConfidence: "Official project page",
     availabilityNote:
       "The public signal is an official realtime world-model demo, not a broad production game engine replacement.",
@@ -666,6 +823,16 @@ export const newsItems: NewsItem[] = [
     whatChanged: [
       "Text-to-world creation became understandable as a 360-degree environment surface rather than only as a flat image or video output.",
     ],
+    editorialAnalysis: {
+      whyNow:
+        "Skybox AI is worth tracking because it gives the generated-space category an accessible entry point. Many readers first understand AI worlds through a panorama that surrounds the camera, even though that is narrower than a persistent 3D world.",
+      verification:
+        "The product page and Blockade Labs materials should be checked for current access, export options, commercial terms, pending-generation limits, and support docs. If a source is unavailable or returns errors, the page should avoid depending on that link alone.",
+      userImpact:
+        "For creators, Skybox AI is practical when the deliverable is a mood-setting environment, game background, VR scene shell, or quick spatial concept. It should be compared with Marble only after stating that the output categories are different.",
+      limits:
+        "A 360 environment should not be described as a complete simulator, a controllable agent world, or a persistent 3D product. Keep the claim focused on immersive environment generation.",
+    },
     sourceConfidence: "Official product surface",
     availabilityNote:
       "Skybox is best framed as an immersive environment and panorama lane, not as a full physics-grounded world simulator.",
@@ -675,8 +842,10 @@ export const newsItems: NewsItem[] = [
     relatedComparisonSlugs: ["skybox-ai-vs-marble"],
     sources: [
       {
-        label: "Skybox AI product page",
-        url: "https://skybox.blockadelabs.com/",
+        label: "Blockade Labs Skybox AI product page",
+        url: "https://www.blockadelabs.com/",
+        statusNote:
+          "The direct Skybox app endpoint returned HTTP 500 to automated checks on June 5, 2026, so this release signal uses the stable Blockade Labs product surface.",
       },
       {
         label: "Blockade Labs landing page",

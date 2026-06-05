@@ -272,7 +272,7 @@ export const comparisons: Comparison[] = [
     ],
     sourceUrls: [
       "https://www.blockadelabs.com/",
-      "https://skybox.blockadelabs.com/",
+      "https://landing-dev.blockadelabs.com/",
       "https://www.worldlabs.ai/blog/marble-world-model",
       "https://docs.worldlabs.ai/",
     ],
@@ -298,10 +298,8 @@ export const comparisons: Comparison[] = [
       {
         label: "Blockade Labs Skybox AI product page",
         url: "https://www.blockadelabs.com/",
-      },
-      {
-        label: "Skybox AI app",
-        url: "https://skybox.blockadelabs.com/",
+        statusNote:
+          "The direct Skybox app endpoint returned HTTP 500 to automated checks on June 5, 2026, so this guide uses the stable Blockade Labs product surface.",
       },
       {
         label: "World Labs: Introducing Marble, our first world model",
@@ -574,8 +572,8 @@ export const comparisons: Comparison[] = [
         url: "https://www.nvidia.com/en-us/glossary/world-models/",
       },
       {
-        label: "OpenAI: The Sora feed philosophy",
-        url: "https://openai.com/index/sora-feed-philosophy/",
+        label: "OpenAI API: Video generation with Sora",
+        url: "https://platform.openai.com/docs/guides/video-generation",
       },
       {
         label: "Google: Enhanced Veo 3.1 capabilities are now available in the Gemini API",

@@ -39,7 +39,12 @@ export function WorldExplorer() {
             viewport={{ once: true, amount: 0.25 }}
             transition={{ delay: index * 0.06, duration: 0.45 }}
           >
-            <WorldMedia posterSrc={world.posterSrc} videoSrc={world.videoSrc} videoType={world.videoType} />
+            <WorldMedia
+              alt={`${world.shortName} generated world gallery preview`}
+              posterSrc={world.posterSrc}
+              videoSrc={world.videoSrc}
+              videoType={world.videoType}
+            />
             <span className="explorer-depth">{world.depth}</span>
             <div className="explorer-card-copy">
               <p>{world.type}</p>

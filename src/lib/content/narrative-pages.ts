@@ -1,3 +1,5 @@
+import type { Source } from "./types";
+
 export type NarrativeLink = {
   href: string;
   label: string;
@@ -20,6 +22,7 @@ export type NarrativePage = {
   secondaryCta: NarrativeLink;
   mediaWorldIds?: string[];
   sections: NarrativeSection[];
+  sources?: Source[];
 };
 
 export const narrativePages: NarrativePage[] = [
@@ -173,7 +176,41 @@ export const narrativePages: NarrativePage[] = [
         title: "Each clip is a different doorway into generated worlds.",
         body: [
           "HappyOyster, Genie, Oasis, Skybox AI, World Labs Marble, HY-World 2.0, and Project Sid show different versions of the same shift: AI output becoming a place.",
-          "The page is built for scanning first. Watch the motion, feel the lane, then jump into the model page or the official demo.",
+          "The page is built for scanning first, but it is not only a media wall. Each demo is treated as evidence for a specific capability lane: realtime directing, playable interaction, 360 environment creation, persistent 3D world editing, open 3D reconstruction, or many-agent society simulation.",
+          "Watch the motion, identify which claim the clip actually supports, then jump into the model page or official source before repeating the claim. A short demo can show the feel of a system, but it does not prove access, pricing, benchmark quality, or production readiness by itself.",
+        ],
+        links: [
+          {
+            href: "/models",
+            label: "Open model dossiers",
+            description: "Read status, strengths, limits, and source links for each demo lane.",
+          },
+          {
+            href: "/compare",
+            label: "Open decision guides",
+            description: "Use comparison pages when two demos look similar but solve different jobs.",
+          },
+        ],
+      },
+      {
+        eyebrow: "How to judge demos",
+        title: "A useful world-model demo answers more than whether the video looks good.",
+        body: [
+          "The first check is output type. A panoramic skybox, a generated 3D scene, a Minecraft-like playable world, an embodied robot model, and a many-agent civilization are not interchangeable. The visual layer may look related, but the reader question is different for each one.",
+          "The second check is control. A demo has more value when the user can move, steer, edit, direct, or return to the same space. That is why the page separates fixed video references from demos that imply state, navigation, export, action feedback, or social memory.",
+          "The third check is evidence. Source-backed demos should link back to official pages, papers, repositories, docs, or product surfaces. If a video is impressive but the source does not explain access, limits, or technical framing, the page keeps the claim narrow.",
+        ],
+        links: [
+          {
+            href: "/what-is-world-model",
+            label: "Definition",
+            description: "Understand why spatial memory and action matter more than visual style alone.",
+          },
+          {
+            href: "/concept-map",
+            label: "Concept map",
+            description: "See how video, 3D worlds, spatial AI, physical AI, and agents connect.",
+          },
         ],
       },
       {
@@ -181,7 +218,52 @@ export const narrativePages: NarrativePage[] = [
         title: "Every lab keeps two exits: context here, official source there.",
         body: [
           "The model entrance explains why the demo matters. The official entrance keeps the original source one click away.",
+          "World Models Watch should not rehost or stretch third-party demos as if they were site-owned products. The local page uses visual anchors to help readers orient themselves, then points to source-backed model dossiers where claims can be checked against the strongest public evidence.",
+          "A demo that blocks automated checks, changes access status, or moves behind an account wall should still be described conservatively. The page should say what was visible in the source trail, what the visitor can reasonably verify, and what should not be inferred from the clip.",
         ],
+      },
+      {
+        eyebrow: "Demo-by-demo reading",
+        title: "Read each demo through the job it is best at showing.",
+        body: [
+          "HappyOyster is best read as a product-surface signal for realtime immersive creation and directing. Genie and Oasis are better evidence for playable or action-conditioned generated worlds. Skybox AI belongs to the environment shell and 360-backdrop lane, while Marble points toward persistent 3D world creation and export.",
+          "HY-World 2.0 and LingBot-style systems are more technical: their value is in open repositories, weights, reconstruction or generation workflows, and evaluation surfaces rather than in a polished consumer UI. Project Sid adds a social layer by asking what happens when persistent worlds contain many agents with roles, norms, and memory.",
+          "This breakdown is the original value of the page. A generic demo gallery would put all clips in one bucket; this page tells readers which claim each clip can support and which next page should carry the durable explanation.",
+        ],
+        links: [
+          {
+            href: "/progress",
+            label: "AI world model progress",
+            description: "Read the current field as Create, Explore, Control, Simulate, and Build.",
+          },
+          {
+            href: "/world-stream",
+            label: "World evolution map",
+            description: "Connect demos to the five-stage capability map.",
+          },
+        ],
+      },
+    ],
+    sources: [
+      {
+        label: "World Labs Marble documentation",
+        url: "https://docs.worldlabs.ai/",
+      },
+      {
+        label: "Blockade Labs Skybox AI product page",
+        url: "https://www.blockadelabs.com/",
+      },
+      {
+        label: "Tencent-Hunyuan/HY-World-2.0 GitHub repository",
+        url: "https://github.com/Tencent-Hunyuan/HY-World-2.0",
+      },
+      {
+        label: "Project Sid GitHub repository",
+        url: "https://github.com/altera-al/project-sid",
+      },
+      {
+        label: "DeepMind Genie 3 announcement",
+        url: "https://deepmind.google/blog/genie-3-a-new-frontier-for-world-models/",
       },
     ],
   },

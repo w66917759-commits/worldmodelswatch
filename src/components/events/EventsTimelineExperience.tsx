@@ -127,6 +127,7 @@ export function EventsTimelineExperience() {
                 transition={{ duration: reduceMotion ? 0 : 0.42, ease: [0.2, 0.75, 0.2, 1] }}
               >
                 <WorldMedia
+                  alt={`${activeStage.world.shortName} ${activeStage.shortTitle} event preview`}
                   posterSrc={activeStage.world.posterSrc}
                   videoSrc={activeStage.world.videoSrc}
                   videoType={activeStage.world.videoType}

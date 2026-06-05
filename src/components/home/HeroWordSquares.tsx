@@ -130,8 +130,7 @@ export function HeroWordSquares() {
               </motion.video>
             ) : activePosterSrc ? (
               <motion.img
-                alt=""
-                aria-hidden="true"
+                alt={`${activeWorld.shortName} AI world model preview`}
                 className="hero-carousel-video"
                 decoding="async"
                 key={`${activeWorld.id}-${activePosterSrc}`}

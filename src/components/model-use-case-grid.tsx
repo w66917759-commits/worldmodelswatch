@@ -49,7 +49,12 @@ export function ModelUseCaseGrid({
           return (
             <article className="model-usecase-card" key={world.id} style={worldStyle(world)}>
               <div className="model-usecase-media">
-                <WorldMedia posterSrc={world.posterSrc} videoSrc={world.videoSrc} videoType={world.videoType} />
+                <WorldMedia
+                  alt={`${world.shortName} ${world.outputType} use case preview`}
+                  posterSrc={world.posterSrc}
+                  videoSrc={world.videoSrc}
+                  videoType={world.videoType}
+                />
                 <span>
                   <Play size={13} aria-hidden="true" />
                   {world.outputType}

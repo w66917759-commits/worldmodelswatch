@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, ExternalLink, Layers3 } from "lucide-react";
 
+import { JsonLd } from "@/components/json-ld";
 import { ModelUseCaseGrid } from "@/components/model-use-case-grid";
 import { ShowcaseHero, visualStyle } from "@/components/showcase";
 import { worldsData } from "@/data/worldsData";
 import { getCompanyModelGroups, progressStages } from "@/lib/content";
 import { getStaticSeoTarget, metadataForRoute } from "@/lib/seo/page-targets";
+import { absoluteUrl, site } from "@/lib/site";
 import { companyVisual, pageVisuals, progressVisual } from "@/lib/showcase";
 
 const seoTarget = getStaticSeoTarget("/progress");
@@ -20,6 +22,35 @@ export default function ProgressPage() {
 
   return (
     <main className="page-shell showcase-page">
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: seoTarget.primaryKeyword,
+          description: seoTarget.description,
+          url: absoluteUrl("/progress"),
+          isPartOf: {
+            "@type": "WebSite",
+            name: site.name,
+            url: site.url,
+          },
+          publisher: {
+            "@type": "Organization",
+            name: site.name,
+            url: site.url,
+          },
+          mainEntity: {
+            "@type": "ItemList",
+            itemListElement: progressStages.map((stage, index) => ({
+              "@type": "ListItem",
+              position: index + 1,
+              name: stage.title,
+              description: stage.summary,
+              url: absoluteUrl(stage.href),
+            })),
+          },
+        }}
+      />
       <ShowcaseHero
         description={seoTarget.description}
         eyebrow="AI world model progress"

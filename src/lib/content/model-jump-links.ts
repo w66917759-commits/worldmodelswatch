@@ -176,10 +176,10 @@ export const modelJumpLinks: ModelJumpLink[] = [
     name: "Sora",
     maker: "OpenAI",
     category: "Video generation reference",
-    url: "https://openai.com/index/sora-feed-philosophy/",
+    url: "https://platform.openai.com/docs/guides/video-generation",
     relation:
-      "A major prompt-to-video reference point, but OpenAI's own policy page says the Sora product was no longer available as of April 26, 2026.",
-    cta: "Status note",
+      "A major video generation reference point for comparing video models with world models; use it as a video lane, not as evidence of interactive world simulation.",
+    cta: "Video docs",
   },
   {
     name: "Wan2.7-Video",

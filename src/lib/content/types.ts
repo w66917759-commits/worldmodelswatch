@@ -1,6 +1,7 @@
 export type Source = {
   label: string;
   url: string;
+  statusNote?: string;
 };
 
 export type ShowcaseVisual = {
@@ -65,6 +66,7 @@ export type ModelProfile = {
   outputFormats?: string[];
   alternatives?: ModelAlternative[];
   workflowSteps?: string[];
+  evaluationNotes?: string[];
   schemaType?: "SoftwareApplication" | "TechArticle";
 } & SeoFields &
   ShowcaseVisual;
@@ -83,6 +85,12 @@ export type NewsItem = {
   signalType: "Product" | "Open source" | "Reported" | "Physical AI" | "Research" | "Platform";
   impactLevel: "High" | "Medium" | "Low";
   whatChanged?: string[];
+  editorialAnalysis?: {
+    whyNow: string;
+    verification: string;
+    userImpact: string;
+    limits: string;
+  };
   sourceConfidence: string;
   availabilityNote?: string;
   overclaimWarning?: string;

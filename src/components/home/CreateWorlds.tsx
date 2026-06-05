@@ -64,7 +64,12 @@ export function CreateWorlds() {
                 } as CSSProperties
               }
             >
-              <WorldMedia posterSrc={world.posterSrc} videoSrc={world.videoSrc} videoType={world.videoType} />
+              <WorldMedia
+                alt={`${world.shortName} AI world generator preview`}
+                posterSrc={world.posterSrc}
+                videoSrc={world.videoSrc}
+                videoType={world.videoType}
+              />
               <div className="creation-gate-copy">
                 <span>{world.accessType} / {world.outputType}</span>
                 <h3>{copy.title}</h3>

@@ -2,13 +2,21 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { BreadcrumbTrail } from "@/components/breadcrumb-trail";
 import { CommentThread } from "@/components/comments/comment-thread";
+import { EditorialByline } from "@/components/editorial-byline";
 import { FaqSummary } from "@/components/faq-summary";
 import { JsonLd } from "@/components/json-ld";
 import { ShowcaseHero, VisualComparisonPanel, visualStyle } from "@/components/showcase";
 import { SourceList } from "@/components/source-list";
 import { comparisons, getComparison, getModel, type ModelProfile } from "@/lib/content";
-import { comparisonPrimaryKeyword, uniqueKeywords } from "@/lib/seo/page-targets";
+import {
+  comparisonPrimaryKeyword,
+  seoMetaDescription,
+  seoPageTitle,
+  socialImages,
+  uniqueKeywords,
+} from "@/lib/seo/page-targets";
 import { comparisonVisual, splitComparisonTitle } from "@/lib/showcase";
 import { absoluteUrl, site } from "@/lib/site";
 
@@ -37,11 +45,13 @@ export async function generateMetadata({ params }: ComparisonPageProps): Promise
   }
 
   const primaryKeyword = comparisonPrimaryKeyword(comparison);
+  const pageTitle = seoPageTitle(primaryKeyword);
+  const description = seoMetaDescription(comparison.summary);
   const url = absoluteUrl(`/compare/${comparison.slug}`);
 
   return {
-    title: primaryKeyword,
-    description: comparison.summary,
+    title: { absolute: pageTitle },
+    description,
     keywords: uniqueKeywords(
       primaryKeyword,
       comparison.secondaryKeywords,
@@ -54,13 +64,17 @@ export async function generateMetadata({ params }: ComparisonPageProps): Promise
       type: "article",
       url,
       siteName: site.name,
-      title: `${primaryKeyword} | ${site.name}`,
-      description: comparison.summary,
+      title: pageTitle,
+      description,
+      images: socialImages(`${comparison.title} decision guide`),
     },
     twitter: {
-      card: "summary",
-      title: `${primaryKeyword} | ${site.name}`,
-      description: comparison.summary,
+      card: "summary_large_image",
+      site: site.social.twitterHandle,
+      creator: site.social.twitterHandle,
+      title: pageTitle,
+      description,
+      images: [site.socialImage],
     },
   };
 }
@@ -130,9 +144,30 @@ export default async function ComparisonDetailPage({ params }: ComparisonPagePro
           description: comparison.summary,
           datePublished: comparison.updated,
           dateModified: comparison.updated,
+          image: absoluteUrl(site.socialImage),
           mainEntityOfPage: absoluteUrl(`/compare/${comparison.slug}`),
           keywords: keywords.join(", "),
           citation: comparison.sourceUrls ?? comparison.sources.map((source) => source.url),
+          author: {
+            "@type": "Organization",
+            name: site.name,
+            url: site.url,
+            sameAs: site.sameAs,
+          },
+          editor: {
+            "@type": "Organization",
+            name: site.name,
+            url: site.url,
+          },
+          publisher: {
+            "@type": "Organization",
+            name: site.name,
+            url: site.url,
+            logo: {
+              "@type": "ImageObject",
+              url: absoluteUrl(site.socialImage),
+            },
+          },
         }}
       />
       <JsonLd
@@ -207,6 +242,20 @@ export default async function ComparisonDetailPage({ params }: ComparisonPagePro
         secondaryCta={{ href: "/compare", label: "All guides" }}
         title={`Decision guide: ${primaryKeyword}`}
         visual={visual}
+      />
+
+      <BreadcrumbTrail
+        items={[
+          { href: "/", label: "Home" },
+          { href: "/compare", label: "Decision Guides" },
+          { href: `/compare/${comparison.slug}`, label: comparison.title },
+        ]}
+      />
+
+      <EditorialByline
+        label="Decision guide reviewed"
+        published={comparison.updated}
+        updated={comparison.updated}
       />
 
       <VisualComparisonPanel

@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 
+import { JsonLd } from "@/components/json-ld";
 import { PageShell } from "@/components/page-shell";
 import { getStaticSeoTarget, metadataForRoute } from "@/lib/seo/page-targets";
-import { site } from "@/lib/site";
+import { absoluteUrl, site } from "@/lib/site";
 
 const seoTarget = getStaticSeoTarget("/terms");
 
@@ -16,6 +17,27 @@ export default function TermsPage() {
       title="World Models Watch terms of use"
       description={seoTarget.description}
     >
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "World Models Watch terms of use",
+          description: seoTarget.description,
+          url: absoluteUrl("/terms"),
+          datePublished: "2026-05-28",
+          dateModified: "2026-05-28",
+          isPartOf: {
+            "@type": "WebSite",
+            name: site.name,
+            url: site.url,
+          },
+          publisher: {
+            "@type": "Organization",
+            name: site.name,
+            url: site.url,
+          },
+        }}
+      />
       <article className="article-body single-column legal-copy">
         <p className="legal-summary">
           Effective date: May 28, 2026. By using {site.domain}, you agree to

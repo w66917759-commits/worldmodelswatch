@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 
 import { JsonLd } from "@/components/json-ld";
 import { SceneExplainer, ShowcaseHero, VideoReel } from "@/components/showcase";
+import { SourceList } from "@/components/source-list";
 import type { NarrativePage } from "@/lib/content";
 import { pageVisuals } from "@/lib/showcase";
 import { absoluteUrl } from "@/lib/site";
@@ -32,6 +33,7 @@ export function NarrativePageView({ children, page }: NarrativePageViewProps) {
           headline: page.title,
           description: page.description,
           mainEntityOfPage: absoluteUrl(`/${page.slug}`),
+          citation: page.sources?.map((source) => source.url),
           publisher: {
             "@type": "Organization",
             name: "World Models Watch",
@@ -97,6 +99,8 @@ export function NarrativePageView({ children, page }: NarrativePageViewProps) {
           worlds={mediaWorlds}
         />
       ) : null}
+
+      {page.sources?.length ? <SourceList sources={page.sources} /> : null}
 
       {children}
     </main>

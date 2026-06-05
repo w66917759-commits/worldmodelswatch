@@ -105,10 +105,19 @@ export function visualStyle(visual?: ShowcaseVisual): CSSProperties {
   } as CSSProperties;
 }
 
-function renderVisualMedia(visual?: ShowcaseVisual, className = "showcase-media-asset") {
+function visualAlt(visual?: ShowcaseVisual, fallback = "World model visual preview") {
+  return visual?.primarySceneLabel ?? visual?.visualTitle ?? visual?.visualSubtitle ?? fallback;
+}
+
+function renderVisualMedia(
+  visual?: ShowcaseVisual,
+  className = "showcase-media-asset",
+  alt = visualAlt(visual),
+) {
   if (visual?.heroVideo) {
     return (
       <video
+        aria-label={alt}
         autoPlay
         className={className}
         loop
@@ -125,7 +134,7 @@ function renderVisualMedia(visual?: ShowcaseVisual, className = "showcase-media-
   if (visual?.heroImage || visual?.posterImage) {
     return (
       <img
-        alt=""
+        alt={alt}
         className={className}
         loading="lazy"
         src={visual.heroImage ?? visual.posterImage}
@@ -205,7 +214,7 @@ export function ShowcaseHero({
         ) : null}
       </div>
       <div className="showcase-hero-media">
-        {renderVisualMedia(visual)}
+        {renderVisualMedia(visual, "showcase-media-asset", `${visual?.visualTitle ?? title} visual preview`)}
         <span className="showcase-scene-label">
           <Eye size={14} aria-hidden="true" />
           {visual?.primarySceneLabel ?? "Visual showcase"}
@@ -227,7 +236,7 @@ export function VisualModelCard({
   return (
     <Link className="visual-model-card" href={href} style={visualStyle(visual)}>
       <div className="visual-model-media">
-        {renderVisualMedia(visual, "visual-model-asset")}
+        {renderVisualMedia(visual, "visual-model-asset", `${title} visual preview`)}
         <span>
           <Play size={13} aria-hidden="true" />
           {label}
@@ -271,7 +280,12 @@ export function VideoReel({ eyebrow = "Demo reel", title, description, worlds }:
               secondaryAccentColor: world.secondaryAccent,
             })}
           >
-            <WorldMedia posterSrc={world.posterSrc} videoSrc={world.videoSrc} videoType={world.videoType} />
+            <WorldMedia
+              alt={`${world.shortName} ${world.outputType} demo preview`}
+              posterSrc={world.posterSrc}
+              videoSrc={world.videoSrc}
+              videoType={world.videoType}
+            />
             <div className="video-reel-overlay">
               <span>
                 <Play size={13} aria-hidden="true" />
@@ -317,7 +331,11 @@ export function SceneExplainer({ title, eyebrow = "Scene explainer", description
               cardImage: step.image,
             })}
           >
-            {step.image ? <img alt="" loading="lazy" src={step.image} /> : <Layers3 aria-hidden="true" size={34} />}
+            {step.image ? (
+              <img alt={`${step.title} ${step.eyebrow} visual`} loading="lazy" src={step.image} />
+            ) : (
+              <Layers3 aria-hidden="true" size={34} />
+            )}
             <span>{String(index + 1).padStart(2, "0")}</span>
             <p className="showcase-kicker">{step.eyebrow}</p>
             <h3>{step.title}</h3>

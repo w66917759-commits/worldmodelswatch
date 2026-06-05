@@ -81,7 +81,12 @@ export function WorldEvolutionMap() {
 
                 return (
                   <figure className="evolution-model-tile" key={world.id}>
-                    <WorldMedia posterSrc={world.posterSrc} videoSrc={world.videoSrc} videoType={world.videoType} />
+                    <WorldMedia
+                      alt={`${world.shortName} world model evolution preview`}
+                      posterSrc={world.posterSrc}
+                      videoSrc={world.videoSrc}
+                      videoType={world.videoType}
+                    />
                     <figcaption>
                       <span>{world.type}</span>
                       <strong>{world.shortName}</strong>

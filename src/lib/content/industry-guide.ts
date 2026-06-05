@@ -89,8 +89,8 @@ export const companyModelGroups: CompanyModelGroup[] = [
       "Create skyboxes, HDRI-style environments, GLB exports, and scene backdrops.",
     boundary:
       "Best for environment shells and 360 scenes; not a full realtime world simulator.",
-    officialHref: "https://skybox.blockadelabs.com/",
-    createHref: "https://skybox.blockadelabs.com/",
+    officialHref: "https://www.blockadelabs.com/",
+    createHref: "https://www.blockadelabs.com/",
   },
   {
     company: "Alibaba",

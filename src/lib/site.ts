@@ -1,6 +1,9 @@
 const domain = "worldmodelswatch.com";
 const contactEmail = `contact@${domain}`;
 const privacyEmail = `privacy@${domain}`;
+const twitterHandle = "worldmodelwatch";
+const twitterUrl = `https://x.com/${twitterHandle}`;
+const githubUrl = "https://github.com/w66917759-commits/worldmodelswatch";
 
 export const site = {
   name: "World Models Watch",
@@ -8,10 +11,18 @@ export const site = {
   url: `https://${domain}`,
   contactEmail,
   privacyEmail,
+  social: {
+    twitterHandle: `@${twitterHandle}`,
+    twitterUrl,
+    githubUrl,
+  },
+  sameAs: [twitterUrl, githubUrl],
   title: "World Models Watch | AI world models",
   description:
     "Explore AI world models through focused demos, company routes, and source-backed pages about generated worlds.",
   tagline: "AI world models, company progress, and practical model signals",
+  socialImage: "/worldmodelswatch-social-preview.png",
+  socialImageAlt: "World Models Watch source-backed AI world models guide",
   homeNav: [
     { href: "/create-word", label: "Create AI Worlds" },
     { href: "/world-stream", label: "World Evolution" },
@@ -23,6 +34,7 @@ export const site = {
     { href: "/models", label: "Company Map" },
     { href: "/compare", label: "Decision Guides" },
     { href: "/news", label: "Release Signals" },
+    { href: "/search", label: "Search" },
     { href: "/faq", label: "FAQ" },
   ],
   footerSections: [
@@ -59,6 +71,8 @@ export const site = {
     {
       title: "Legal",
       links: [
+        { href: "/about", label: "About Us" },
+        { href: "/contact", label: "Contact" },
         { href: "/privacy", label: "Privacy Policy" },
         { href: "/terms", label: "Terms of Use" },
         { href: "/privacy#cookies", label: "Cookie Notice" },
@@ -69,6 +83,7 @@ export const site = {
     {
       title: "Contact",
       links: [
+        { href: "/contact", label: "Contact page" },
         { href: `mailto:${contactEmail}`, label: contactEmail },
         { href: `mailto:${privacyEmail}`, label: privacyEmail },
       ],
@@ -76,11 +91,8 @@ export const site = {
     {
       title: "Social",
       links: [
-        { href: "https://x.com/worldmodelswatch", label: "X / Twitter" },
-        {
-          href: "https://github.com/w66917759-commits/worldmodelswatch",
-          label: "GitHub",
-        },
+        { href: twitterUrl, label: `X / Twitter @${twitterHandle}` },
+        { href: githubUrl, label: "GitHub" },
       ],
     },
   ],

@@ -25,6 +25,8 @@ const STATIC_ROUTE_LASTMOD: Record<string, string> = {
   "/compare": SITE_STRUCTURE_ISO,
   "/concepts": SITE_STRUCTURE_ISO,
   "/faq": SITE_STRUCTURE_ISO,
+  "/about": "2026-06-05",
+  "/contact": "2026-06-05",
   "/sitemap": SITE_STRUCTURE_ISO,
   "/privacy": SITE_STRUCTURE_ISO,
   "/terms": SITE_STRUCTURE_ISO,
