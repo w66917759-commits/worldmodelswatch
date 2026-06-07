@@ -25,7 +25,7 @@ export default function PrivacyPage() {
           description: seoTarget.description,
           url: absoluteUrl("/privacy"),
           datePublished: "2026-05-28",
-          dateModified: "2026-05-28",
+          dateModified: "2026-06-07",
           isPartOf: {
             "@type": "WebSite",
             name: site.name,
@@ -40,7 +40,7 @@ export default function PrivacyPage() {
       />
       <article className="article-body single-column legal-copy">
         <p className="legal-summary">
-          Effective date: May 28, 2026. World Models Watch is a public
+          Effective date: June 7, 2026. World Models Watch is a public
           intelligence site for source-backed coverage of world models, spatial
           intelligence, and physical AI systems.
         </p>
@@ -90,10 +90,11 @@ export default function PrivacyPage() {
         <h2>Third-party services</h2>
         <p>
           The community sign-in flow uses Supabase Auth and Google OAuth. The
-          current codebase does not wire analytics or advertising pixels. If
-          additional hosting, analytics, or authentication providers are added
-          later, this policy should be updated before those providers process
-          production traffic.
+          site also loads Google Analytics to understand aggregate page
+          performance and Google AdSense to support advertising. Those services
+          may process request metadata, device information, and cookie or
+          identifier data according to Google's service terms and privacy
+          controls.
         </p>
 
         <h2>Retention and deletion</h2>

@@ -10,6 +10,10 @@ import "./globals.css";
 
 const homeSeo = getStaticSeoTarget("/");
 const adsenseClientId = "ca-pub-9068083570091757";
+const defaultGoogleAnalyticsId = "G-Q25HZZZ88X";
+const googleAnalyticsId =
+  process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID?.trim() ||
+  defaultGoogleAnalyticsId;
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -62,6 +66,20 @@ export default function RootLayout({
         src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClientId}`}
         strategy="beforeInteractive"
       />
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(
+          googleAnalyticsId,
+        )}`}
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', ${JSON.stringify(googleAnalyticsId)});
+        `}
+      </Script>
       <body>
         <SiteHeader />
         {children}

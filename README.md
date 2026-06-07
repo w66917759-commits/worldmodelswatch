@@ -339,6 +339,7 @@ WMW_SESSION_SECRET=replace-with-at-least-32-random-characters
 NEXT_PUBLIC_SUPABASE_URL=https://your-project-ref.supabase.co
 NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=replace-with-your-supabase-publishable-key
 SUPABASE_SECRET_KEY=replace-with-your-server-only-supabase-secret-key
+NEXT_PUBLIC_GOOGLE_ANALYTICS_ID=G-Q25HZZZ88X
 ```
 
 Auth surfaces:
@@ -347,6 +348,12 @@ Auth surfaces:
 - `/account`: protected editor/account area.
 - `/auth/sign-in`: Supabase Google sign-in for public comments and likes.
 - `/auth/callback`: OAuth callback route.
+
+Analytics:
+
+- Google Analytics is enabled through the root App Router layout. The default
+  measurement ID is `G-Q25HZZZ88X`; set `NEXT_PUBLIC_GOOGLE_ANALYTICS_ID` to
+  override it per environment.
 
 Database:
 
